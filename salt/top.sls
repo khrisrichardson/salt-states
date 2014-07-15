@@ -11,7 +11,6 @@
 
 {{ environment }}:
   '*':
-    - openssh-server
     - salt-minion
    {% if      salt['config.get']('orchestrate')|lower == 'true'
       or     salt['environ.get']('orchestrate')|lower == 'true'
@@ -24,6 +23,7 @@
       and not salt['config.get']('virtual_subtype')) %}
     - bash
     - ntp
+    - openssh-server
     - vim
    {% endif %}
    {% endif %}

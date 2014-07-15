@@ -1,11 +1,16 @@
-{% set minions = salt['roles.list_minions']('graphite-carbon') -%}
-{% if  minions['graphite-carbon'] -%}
+{% set roles = [] -%}
+{% do  roles.append('graphite-carbon') -%}
+{% do  roles.append('influxdb') -%}
+{% set minions = salt['roles.list_minions'](roles) -%}
+{% if  minions['graphite-carbon']
+   or  minions['influxdb'] -%}
 {
   "handlers"       : {
     "graphite"     : {
       "mutator"    :  "only_check_output",
       "socket"     : {
-        "host"     :  "{{ minions['graphite-carbon'][0] }}",
+        "host"     :  "{{ (minions['influxdb']
+                         + minions['graphite-carbon'])[0] }}",
         "port"     :   2003
       },
       "type"       :  "tcp"

@@ -1,0 +1,11 @@
+[Unit]
+Description=salt-minion
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start salt-minion || docker run --detach=true --link=salt-master:salt --name=salt-minion salt-minion'
+ExecStop=/bin/bash  -c 'docker stop  salt-minion'
+
+[Install]
+WantedBy=multi-user.target

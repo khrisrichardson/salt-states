@@ -2,7 +2,6 @@
 
 {% set environment = salt['grains.get']('environment') %}
 {% set minions     = salt['mine.get']('environment:' + environment, 'grains.item', expr_form='grain') %}
-{% set psls        = sls.split('.')[0] %}
 
 include:
   -  apache2

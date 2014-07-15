@@ -36,11 +36,19 @@ include:
   file.symlink:
     - target:     /opt/calamari/conf/upstart/kraken.conf
 
+/opt/calamari:
+  file.directory:
+    - user:        root
+    - group:       root
+    - mode:       '0755'
+
 /opt/calamari/plugins:
   file.directory:
     - user:        root
     - group:       root
     - mode:       '0755'
+    - require:
+      - file:     /opt/calamari
 
 /var/lib/calamari:
   file.directory:

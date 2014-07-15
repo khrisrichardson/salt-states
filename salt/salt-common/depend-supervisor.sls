@@ -1,7 +1,5 @@
 # vi: set ft=yaml.jinja :
 
-{% set psls = sls.split('.')[0] %}
-
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 
 include:

@@ -10,5 +10,3 @@ ONBUILD ADD ./etc/salt/grains                                                  \
 ONBUILD RUN ./bootstrap.sh git develop
 
 CMD        ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
-
-EXPOSE        22

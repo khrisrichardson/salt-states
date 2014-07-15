@@ -15,7 +15,7 @@ My goal in posting these states is to stop hoarding what I have done, and share
 with the community in the hopes of encouraging even greater reciprocity.
 
 Also please note that a number of the states use features only available in the
-develop branch on ['github']('https://github.com/saltstack/salt').
+develop branch on [github](https://github.com/saltstack/salt).
 
 I highly encourage folks to follow along on IRC and in the issues list to keep
 up to date on freshly minted idiomatic ways of doing things with salt,

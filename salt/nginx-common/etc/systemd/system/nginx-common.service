@@ -1,0 +1,11 @@
+[Unit]
+Description=nginx-common
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start nginx-common || docker run --detach=true --link=salt-master:salt --name=nginx-common nginx-common'
+ExecStop=/bin/bash  -c 'docker stop  nginx-common'
+
+[Install]
+WantedBy=multi-user.target

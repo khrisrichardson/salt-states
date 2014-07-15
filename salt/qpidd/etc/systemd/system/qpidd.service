@@ -1,0 +1,11 @@
+[Unit]
+Description=qpidd
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start qpidd || docker run --detach=true --link=salt-master:salt --name=qpidd qpidd'
+ExecStop=/bin/bash  -c 'docker stop  qpidd'
+
+[Install]
+WantedBy=multi-user.target

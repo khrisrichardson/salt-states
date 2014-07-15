@@ -1,0 +1,11 @@
+[Unit]
+Description=nfs-kernel-server
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start nfs-kernel-server || docker run --detach=true --link=salt-master:salt --name=nfs-kernel-server nfs-kernel-server'
+ExecStop=/bin/bash  -c 'docker stop  nfs-kernel-server'
+
+[Install]
+WantedBy=multi-user.target

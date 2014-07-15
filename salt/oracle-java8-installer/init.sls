@@ -37,7 +37,7 @@ webupd8team-java:
     - name:        deb http://ppa.launchpad.net/webupd8team/java/ubuntu {{ salt['config.get']('oscodename') }} main
     - file:       /etc/apt/sources.list.d/webupd8team-java.list
     - keyid:       EEA14886
-    - keyserver:   keyserver.ubuntu.com
+    - keyserver:   hkp://keyserver.ubuntu.com:80
     - require:
       - pkg:       python-apt
     - require_in:

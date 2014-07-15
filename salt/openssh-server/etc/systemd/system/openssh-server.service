@@ -1,0 +1,11 @@
+[Unit]
+Description=openssh-server
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start openssh-server || docker run --detach=true --link=salt-master:salt --name=openssh-server openssh-server'
+ExecStop=/bin/bash  -c 'docker stop  openssh-server'
+
+[Install]
+WantedBy=multi-user.target

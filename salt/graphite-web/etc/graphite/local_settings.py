@@ -183,7 +183,7 @@ DATABASES = {
 {% else -%}
 DATABASES = {
     'default': {
-        'NAME'     : '{{ salt["config.get"]("/var/lib/graphite:file:name") }}/graphite.db',
+        'NAME'     :  '{{ salt["config.get"]("/var/lib/graphite:file:name") }}/graphite.db',
         'ENGINE'   :  'django.db.backends.sqlite3'
     }
 }

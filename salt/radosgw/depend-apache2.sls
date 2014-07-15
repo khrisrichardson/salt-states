@@ -4,13 +4,13 @@
 
 include:
   -  apache2
-  -  radosgw.depend-libapache2-mod-wsgi
+  -  radosgw.depend-libapache2-mod-fastcgi
 
-/etc/apache2/sites-available/{{ psls }}.conf:
+/etc/apache2/sites-available/{{ psls }}:
   file.managed:
     - template:    jinja
     - name:     {{ salt['config.get']('/etc/apache2/sites-available:file:name') }}/{{ psls }}{{ salt['config.get']('apache2:conf:extension') }}
-    - source:      salt://{{ psls }}/etc/apache2/conf.d/{{ psls }}.conf
+    - source:      salt://{{ psls }}/etc/apache2/sites-available/{{ psls }}
     - user:        root
     - group:       root
     - mode:       '0644'

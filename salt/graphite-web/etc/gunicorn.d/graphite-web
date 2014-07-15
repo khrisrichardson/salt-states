@@ -1,6 +1,6 @@
 {% set graphite_py  = salt['config.get']('saltpath') + '/../graphite' -%}
-{% set graphite_grp = salt["config.get"]("graphite-web:group:name") -%}
-{% set graphite_usr = salt["config.get"]("graphite-web:user:name") -%}
+{% set graphite_grp = salt['config.get']('graphite-web:group:name') -%}
+{% set graphite_usr = salt['config.get']('graphite-web:user:name') -%}
 CONFIG = {
     'mode'        :  'django',
     'working_dir' :  '{{ graphite_py }}',

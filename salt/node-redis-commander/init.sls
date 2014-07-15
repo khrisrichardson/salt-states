@@ -23,5 +23,5 @@ redis-commander:
      {% if   salt['config.get']('os_family') == 'RedHat' %}
       - pkg:       nodejs-supervisor
      {% elif salt['config.get']('os_family') == 'Debian' %}
-      - npm:       supervisor
+      - npm:       npm-supervisor
      {% endif %}

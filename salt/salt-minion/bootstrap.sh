@@ -28,7 +28,6 @@ main() {
     salt_call_state_highstate
     salt_cleanup
     apt_cleanup
-    wait
 }
 
 #---  FUNCTION  ----------------------------------------------------------------

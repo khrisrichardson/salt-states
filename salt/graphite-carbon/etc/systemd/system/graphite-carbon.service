@@ -1,0 +1,11 @@
+[Unit]
+Description=graphite-carbon
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start graphite-carbon || docker run --detach=true --link=salt-master:salt --name=graphite-carbon graphite-carbon'
+ExecStop=/bin/bash  -c 'docker stop  graphite-carbon'
+
+[Install]
+WantedBy=multi-user.target

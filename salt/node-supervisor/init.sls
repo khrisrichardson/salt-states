@@ -10,8 +10,9 @@ nodejs-supervisor:
 
 {% elif salt['config.get']('os_family') == 'Debian' %}
 
-supervisor:
+npm-supervisor:
   npm.installed:
+    - name:        supervisor
     - require:
       - pkg:       npm
       - cmd:       npm config set ca ""

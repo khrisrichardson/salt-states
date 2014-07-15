@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "check-process-zookeeperd": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'org.apache.zookeeper.server.quorum.QuorumPeerMain' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-zookeeperd-network-banner": {
+      "command"     : "/etc/sensu/plugins/network/check-banner.rb -p 2181 -w ruok -q imok",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

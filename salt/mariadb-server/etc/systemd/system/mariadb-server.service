@@ -1,0 +1,11 @@
+[Unit]
+Description=mariadb-server
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start mariadb-server || docker run --detach=true --link=salt-master:salt --name=mariadb-server mariadb-server'
+ExecStop=/bin/bash  -c 'docker stop  mariadb-server'
+
+[Install]
+WantedBy=multi-user.target

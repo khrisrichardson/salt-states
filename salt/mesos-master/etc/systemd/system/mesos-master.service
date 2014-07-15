@@ -1,0 +1,11 @@
+[Unit]
+Description=mesos-master
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start mesos-master || docker run --detach=true --link=salt-master:salt --name=mesos-master mesos-master'
+ExecStop=/bin/bash  -c 'docker stop  mesos-master'
+
+[Install]
+WantedBy=multi-user.target

@@ -1,5 +1,8 @@
-{% set host    = salt['config.get']('host') -%}
-{% set minions = salt['roles.list_minions']('graphite-carbon') -%}
+{% set host  = salt['config.get']('host') -%}
+{% set roles = [] -%}
+{% do  roles.append('graphite-carbon') -%}
+{% do  roles.append('influxdb') -%}
+{% set minions = salt['roles.list_minions'](roles) -%}
 <jmxtrans-agent>
   <queries>
 
@@ -158,7 +161,8 @@
           resultAlias="java.lang.Threading.ThreadCount"/>
 
   </queries>
-{% for minion in minions['graphite-carbon'] -%}
+{% for minion in minions['graphite-carbon']
+               + minions['influxdb'] -%}
   <outputWriter class="org.jmxtrans.agent.GraphitePlainTextTcpOutputWriter">
     <host>{{ minion }}</host>
     <port>2003</port>

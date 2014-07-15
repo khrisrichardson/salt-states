@@ -1,0 +1,11 @@
+[Unit]
+Description=nginx
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start nginx || docker run --detach=true --link=salt-master:salt --name=nginx nginx'
+ExecStop=/bin/bash  -c 'docker stop  nginx'
+
+[Install]
+WantedBy=multi-user.target

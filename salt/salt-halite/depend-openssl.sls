@@ -1,5 +1,13 @@
 # vi: set ft=yaml.jinja :
 
+{% set ST = salt['config.get']('openssl:subject:ST') %}
+{% set L  = salt['config.get']('openssl:subject:L') %}
+{% set O  = salt['config.get']('openssl:subject:O') %}
+
+{% if  ST
+   and L
+   and O %}
+
 include:
   -  python-openssl
   -  salt-halite
@@ -12,11 +20,12 @@ include:
     - name:        tls.create_self_signed_cert
     - days:        1825
     - CN:          salt-halite
-    - ST:       {{ salt['config.get']('openssl:subject:ST') }}
-    - L:        {{ salt['config.get']('openssl:subject:L') }}
-    - O:       '{{ salt['config.get']('openssl:subject:O') }}'
+    - ST:       {{ ST }}
+    - L:        {{ L }}
+    - O:       '{{ O }}'
     - OU:          Domain Control Validated
     - require:
       - pkg:       python-openssl
 
+{% endif %}
 {% endif %}

@@ -2,6 +2,7 @@
 
 include:
   -  git-core
+  -  ruby2_0
 
 https://github.com/gitlabhq/gitlab-shell.git:
   git.latest:
@@ -26,5 +27,7 @@ https://github.com/gitlabhq/gitlab-shell.git:
   cmd.wait:
     - cwd:        /home/git/gitlab-shell
     - user:        git
+    - require:
+      - pkg:       ruby2_0
     - watch:
       - file:     /home/git/gitlab-shell/config.yml

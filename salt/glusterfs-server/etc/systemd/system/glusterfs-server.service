@@ -1,0 +1,11 @@
+[Unit]
+Description=glusterfs-server
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start glusterfs-server || docker run --detach=true --link=salt-master:salt --name=glusterfs-server glusterfs-server'
+ExecStop=/bin/bash  -c 'docker stop  glusterfs-server'
+
+[Install]
+WantedBy=multi-user.target

@@ -27,19 +27,24 @@ include:
 
 . /etc/profile && rvm install ruby-1.9.2-p320:
   cmd.run:
+    - env:
+      - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.2-p320
     - require:
-      - cmd:       curl -L https://get.rvm.io | bash -s stable
+      - cmd:      /usr/local/rvm
 
 rvm use 1.9.2:
   cmd.run:
+    - name:        bash --login -c "cd /opt/tasseo; rvm use 1.9.2"
+    - env:
+      - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - cwd:        /opt/tasseo
     - unless:    |-
                  ( rvm list                                                    \
                  | egrep -q '^=. ruby-1.9.2-p320'
                  )
     - require:
-      - sls:       ruby-rvm
+      - cmd:      /usr/local/rvm
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman

@@ -1,5 +1,8 @@
 # vi: set ft=yaml.jinja :
 
+{% set version = salt['config.get']('version') %}
+{% set release = salt['config.get']('release') %}
+
 include:
   - .depend-duplicity
   - .depend-logrotate
@@ -11,9 +14,9 @@ dynatrace:
     - shell:      /bin/false
     - home:       /opt/dynatrace
 
-/dynatrace-{{ salt['config.get']('version') }}.{{ salt['config.get']('release') }}-linux-x64.jar:
+/dynatrace-{{ version }}.{{ release }}-linux-x64.jar:
   file.managed:
-    - source:      salt://{{ sls }}/dynatrace-{{ salt['config.get']('version') }}.{{ salt['config.get']('release') }}-linux-x64.jar
+    - source:      salt://{{ sls }}/dynatrace-{{ version }}.{{ release }}-linux-x64.jar
 
 /etc/profile.d/dynatrace.sh:
   file.managed:
@@ -36,8 +39,8 @@ java-jar:
     - cwd:        /opt
     - name:      |-
                  ( echo -e 'N\n/opt/dynatrace\nY'                              \
-                 | java -jar /dynatrace-{{ salt['config.get']('version') }}.{{ salt['config.get']('release') }}-linux-x64.jar
+                 | java -jar /dynatrace-{{ version }}.{{ release }}-linux-x64.jar
                  )
     - unless:      test -d /opt/dynatrace
     - require:
-      - file:     /dynatrace-{{ salt['config.get']('version') }}.{{ salt['config.get']('release') }}-linux-x64.jar
+      - file:     /dynatrace-{{ version }}.{{ release }}-linux-x64.jar

@@ -1,0 +1,11 @@
+[Unit]
+Description=memcached
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start memcached || docker run --detach=true --link=salt-master:salt --name=memcached memcached'
+ExecStop=/bin/bash  -c 'docker stop  memcached'
+
+[Install]
+WantedBy=multi-user.target

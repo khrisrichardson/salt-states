@@ -1,0 +1,11 @@
+[Unit]
+Description=tasseo
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start tasseo || docker run --detach=true --link=salt-master:salt --name=tasseo tasseo'
+ExecStop=/bin/bash  -c 'docker stop  tasseo'
+
+[Install]
+WantedBy=multi-user.target

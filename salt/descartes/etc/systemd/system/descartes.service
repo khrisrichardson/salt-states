@@ -1,0 +1,11 @@
+[Unit]
+Description=descartes
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start descartes || docker run --detach=true --link=salt-master:salt --name=descartes descartes'
+ExecStop=/bin/bash  -c 'docker stop  descartes'
+
+[Install]
+WantedBy=multi-user.target

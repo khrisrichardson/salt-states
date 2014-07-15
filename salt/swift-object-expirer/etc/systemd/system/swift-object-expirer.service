@@ -1,0 +1,11 @@
+[Unit]
+Description=swift-object-expirer
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start swift-object-expirer || docker run --detach=true --link=salt-master:salt --name=swift-object-expirer swift-object-expirer'
+ExecStop=/bin/bash  -c 'docker stop  swift-object-expirer'
+
+[Install]
+WantedBy=multi-user.target

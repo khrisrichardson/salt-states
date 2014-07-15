@@ -1,7 +1,6 @@
 # vi: set ft=yaml.jinja :
 
 include:
-  - .depend-git
   - .depend-supervisor
   -  salt-common
 

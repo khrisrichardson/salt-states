@@ -6,7 +6,7 @@
       "interval"    :   60,
       "standalone"  :   true
     },
-    "check-mysql-innodb-lock": {
+    "check-mysql-server-innodb-lock": {
       "command"     : "/etc/sensu/plugins/mysql/mysql-innodb-lock.rb",
       "handlers"    : ["default"],
       "interval"    :   60,

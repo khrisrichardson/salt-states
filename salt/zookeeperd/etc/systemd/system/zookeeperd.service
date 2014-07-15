@@ -1,0 +1,11 @@
+[Unit]
+Description=zookeeperd
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start zookeeperd || docker run --detach=true --link=salt-master:salt --name=zookeeperd zookeeperd'
+ExecStop=/bin/bash  -c 'docker stop  zookeeperd'
+
+[Install]
+WantedBy=multi-user.target

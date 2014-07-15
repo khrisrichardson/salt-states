@@ -66,6 +66,6 @@ giraffe-web:
      {% if   salt['config.get']('os_family') == 'RedHat' %}
       - pkg:       nodejs-supervisor
      {% elif salt['config.get']('os_family') == 'Debian' %}
-      - npm:       supervisor
+      - npm:       npm-supervisor
      {% endif %}
       - file:     /usr/local/lib/node_modules/giraffe-web/dashboards.js

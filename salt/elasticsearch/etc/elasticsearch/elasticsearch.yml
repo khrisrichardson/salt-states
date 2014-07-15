@@ -1,6 +1,7 @@
 {% set roles = [] -%}
 {% do  roles.append('elasticsearch') -%}
 {% do  roles.append('graphite-carbon') -%}
+{% do  roles.append('influxdb') -%}
 {% set minions = salt['roles.list_minions'](roles) -%}
 #################### Elasticsearch Configuration Example #####################
 
@@ -396,11 +397,13 @@ discovery.zen.minimum_master_nodes: {{ (count/2)|round(0, 'ceil')|int }}
 #monitor.jvm.gc.old.info: 5s
 #monitor.jvm.gc.old.debug: 2s
 
-{% if minions['graphite-carbon']
-  and salt['file.directory_exists']('/usr/share/elasticsearch/plugins/graphite') -%}
+{% if (minions['graphite-carbon']
+   or  minions['influxdb'])
+  and     salt['file.directory_exists']('/usr/share/elasticsearch/plugins/graphite') -%}
 
 ################################## Metrics ###################################
 
-metrics.graphite.host: {{ minions['graphite-carbon'][0] }}
+metrics.graphite.host: {{ (minions['influxdb']
+                         + minions['graphite-carbon'])[0] }}
 
 {% endif -%}

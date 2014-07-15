@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "metric-ntpdate": {
+      "command"     : "/etc/sensu/plugins/system/ntpdate-metrics.rb",
+      "handlers"    : ["graphite"],
+      "interval"    :   10,
+      "standalone"  :   true,
+      "type"        :  "metric"
+    }
+  }
+}

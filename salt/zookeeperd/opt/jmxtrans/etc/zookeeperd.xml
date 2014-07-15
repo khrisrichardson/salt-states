@@ -1,0 +1,173 @@
+{% set host  = salt['config.get']('host') -%}
+{% set roles = [] -%}
+{% do  roles.append('graphite-carbon') -%}
+{% do  roles.append('influxdb') -%}
+{% set minions = salt['roles.list_minions'](roles) -%}
+<jmxtrans-agent>
+  <queries>
+
+    <query objectName="java.lang:type=ClassLoading"
+            attribute="LoadedClassCount"
+          resultAlias="java.lang.ClassLoading.LoadedClassCount"/>
+
+    <query objectName="java.lang:type=ClassLoading"
+            attribute="TotalLoadedClassCount"
+          resultAlias="java.lang.ClassLoading.TotalLoadedClassCount"/>
+
+    <query objectName="java.lang:type=Memory"
+            attribute="HeapMemoryUsage"
+                  key="committed"
+          resultAlias="java.lang.Memory.HeapMemoryUsage.committed"/>
+
+    <query objectName="java.lang:type=Memory"
+            attribute="HeapMemoryUsage"
+                  key="max"
+          resultAlias="java.lang.Memory.HeapMemoryUsage.max"/>
+
+    <query objectName="java.lang:type=Memory"
+            attribute="HeapMemoryUsage"
+                  key="used"
+          resultAlias="java.lang.Memory.HeapMemoryUsage.used"/>
+
+    <query objectName="java.lang:type=Memory"
+            attribute="NonHeapMemoryUsage"
+                  key="committed"
+          resultAlias="java.lang.Memory.NonHeapMemoryUsage.committed"/>
+
+    <query objectName="java.lang:type=Memory"
+            attribute="NonHeapMemoryUsage"
+                  key="max"
+          resultAlias="java.lang.Memory.NonHeapMemoryUsage.max"/>
+
+    <query objectName="java.lang:type=Memory"
+            attribute="NonHeapMemoryUsage"
+                  key="used"
+          resultAlias="java.lang.Memory.NonHeapMemoryUsage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=Code Cache"
+            attribute="PeakUsage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.CodeCache.PeakUsage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=Code Cache"
+            attribute="PeakUsage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.CodeCache.PeakUsage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=Code Cache"
+            attribute="Usage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.CodeCache.Usage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=Code Cache"
+            attribute="Usage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.CodeCache.Usage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Eden Space"
+            attribute="PeakUsage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSEdenSpace.PeakUsage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Eden Space"
+            attribute="PeakUsage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSEdenSpace.PeakUsage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Eden Space"
+            attribute="Usage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSEdenSpace.Usage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Eden Space"
+            attribute="Usage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSEdenSpace.Usage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Old Gen"
+            attribute="PeakUsage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSOldSpace.PeakUsage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Old Gen"
+            attribute="PeakUsage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSOldSpace.PeakUsage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Old Gen"
+            attribute="Usage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSOldSpace.Usage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Old Gen"
+            attribute="Usage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSOldSpace.Usage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Perm Gen"
+            attribute="PeakUsage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSPermSpace.PeakUsage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Perm Gen"
+            attribute="PeakUsage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSPermSpace.PeakUsage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Perm Gen"
+            attribute="Usage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSPermSpace.Usage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Perm Gen"
+            attribute="Usage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSPermSpace.Usage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Survivor Space"
+            attribute="PeakUsage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSSurvivorSpace.PeakUsage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Survivor Space"
+            attribute="PeakUsage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSSurvivorSpace.PeakUsage.used"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Survivor Space"
+            attribute="Usage"
+                  key="committed"
+          resultAlias="java.lang.MemoryPool.PSSurvivorSpace.Usage.committed"/>
+
+    <query objectName="java.lang:type=MemoryPool,name=PS Survivor Space"
+            attribute="Usage"
+                  key="used"
+          resultAlias="java.lang.MemoryPool.PSSurvivorSpace.Usage.used"/>
+
+    <query objectName="java.lang:type=OperatingSystem"
+            attribute="SystemLoadAverage"
+          resultAlias="java.lang.OperatingSystem.SystemLoadAverage"/>
+
+    <query objectName="java.lang:type=Threading"
+            attribute="CurrentThreadCpuTime"
+          resultAlias="java.lang.Threading.CurrentThreadCpuTime"/>
+
+    <query objectName="java.lang:type=Threading"
+            attribute="PeakThreadCount"
+          resultAlias="java.lang.Threading.PeakThreadCount"/>
+
+    <query objectName="java.lang:type=Threading"
+            attribute="ThreadCount"
+          resultAlias="java.lang.Threading.ThreadCount"/>
+
+  </queries>
+{% for minion in minions['graphite-carbon']
+               + minions['influxdb'] -%}
+  <outputWriter class="org.jmxtrans.agent.GraphitePlainTextTcpOutputWriter">
+    <host>{{ minion }}</host>
+    <port>2003</port>
+    <namePrefix>{{ host }}.zookeeperd.</namePrefix>
+  </outputWriter>
+{% endfor -%}
+  <collectIntervalInSeconds>20</collectIntervalInSeconds>
+</jmxtrans-agent>

@@ -19,21 +19,25 @@ include:
 
 . /etc/profile && rvm install ruby-1.9.3-p448:
   cmd.run:
+    - env:
+      - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.3-p448
     - require:
-      - cmd:       curl -L https://get.rvm.io | bash -s stable
+      - cmd:      /usr/local/rvm
 
 rvm use 1.9.3:
   cmd.run:
-    - cwd:        /opt/descartes
     - name:        bash --login -c "cd /opt/descartes; rvm use 1.9.3"
+    - cwd:        /opt/descartes
+    - env:
+      - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - unless:    |-
                  ( bash --login -c "cd /opt/descartes
                                     rvm list                                   \
                  |                  egrep -q '^=. ruby-1.9.3-p448'"
                  )
     - require:
-      - sls:       ruby-rvm
+      - cmd:      /usr/local/rvm
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman

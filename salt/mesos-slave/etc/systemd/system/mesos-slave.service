@@ -1,0 +1,11 @@
+[Unit]
+Description=mesos-slave
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start mesos-slave || docker run --detach=true --link=salt-master:salt --name=mesos-slave mesos-slave'
+ExecStop=/bin/bash  -c 'docker stop  mesos-slave'
+
+[Install]
+WantedBy=multi-user.target

@@ -45,13 +45,16 @@ def _get_roles(env='',
 
 
 def list_minions(roles,
-                 default=[],
+                 default=None,
                  env='',
                  out='ip',
                  source='mine'):
     '''
     Get minions to which specified role is assigned
     '''
+    if default is None:
+        default = []
+
     ret = {}
     data = _get_roles(env=env, source=source)
     subtype = __salt__['config.get']('virtual_subtype')
@@ -80,13 +83,14 @@ def list_minions(roles,
 
 
 def list_related_states(minion='',
-                        roles=[]):
+                        roles=None):
     '''
     Get related states of a minion or roles
     '''
     env = __salt__['grains.get']('environment')
 
-    if not roles:
+    if roles is None:
+        roles = []
         data = _get_roles(env=env,
                           minion=minion,
                           source='mine')

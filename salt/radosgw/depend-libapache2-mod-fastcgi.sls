@@ -1,9 +1,9 @@
 # vi: set ft=yaml.jinja :
 
-{% set psls = sls.split(',')[0] %}
+{% set psls = sls.split('.')[0] %}
 
 include:
-  -  libapache2-mod-wsgi
+  -  libapache2-mod-fastcgi
   -  radosgw.depend-apache2
 
 /var/www/s3gw.fcgi:

@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "check-process-mariadb-server": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p mariadb-server -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-mariadb-server-innodb-lock": {
+      "command"     : "/etc/sensu/plugins/mysql/mysql-innodb-lock.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-mariadb-server-alive": {
+      "command"     : "/etc/sensu/plugins/mysql/mysql-alive.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-mariadb-server-replication": {
+      "command"     : "/etc/sensu/plugins/mysql/mysql-replication-status.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "metric-mariadb-server": {
+      "command"     : "/etc/sensu/plugins/mysql/mysql-graphite.rb",
+      "handlers"    : ["graphite"],
+      "interval"    :   10,
+      "standalone"  :   true,
+      "type"        :  "metric"
+    }
+{#
+    "check-mariadb-server-connections": {
+      "command"     : "/etc/sensu/plugins/mysql/mysql-connections.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-mariadb-server-disk": {
+      "command"     : "/etc/sensu/plugins/mysql/mysql-disk.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "cloudwatch-mariadb-server": {
+      "command"     : "/etc/sensu/plugins/mysql/cloudwatch-mysql-sensu.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+-#}
+  }
+}

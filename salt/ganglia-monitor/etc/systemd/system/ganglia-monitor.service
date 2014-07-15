@@ -1,0 +1,11 @@
+[Unit]
+Description=ganglia-monitor
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start ganglia-monitor || docker run --detach=true --link=salt-master:salt --name=ganglia-monitor ganglia-monitor'
+ExecStop=/bin/bash  -c 'docker stop  ganglia-monitor'
+
+[Install]
+WantedBy=multi-user.target

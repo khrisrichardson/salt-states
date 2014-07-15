@@ -1,0 +1,11 @@
+[Unit]
+Description=jenkins
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start jenkins || docker run --detach=true --link=salt-master:salt --name=jenkins jenkins'
+ExecStop=/bin/bash  -c 'docker stop  jenkins'
+
+[Install]
+WantedBy=multi-user.target

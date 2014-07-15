@@ -5,7 +5,7 @@ include:
 
 git-core:
   pkgrepo.managed:
-    - keyserver:   http://keyserver.ubuntu.com
+    - keyserver:   hkp://keyserver.ubuntu.com:80
     - keyid:       A1715D88E1DF1F24
     - ppa:         git-core/ppa
    {% if salt['config.get']('os_family') == 'Debian' %}

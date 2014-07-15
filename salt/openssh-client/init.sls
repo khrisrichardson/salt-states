@@ -22,10 +22,11 @@ openssh-client:
       - pkg:       openssh-client
 
 /root/.ssh/id_rsa.pub:
-  cmd.run:
+  cmd.wait:
     - name:      |-
-                 ( ssh-keygen -q -N '' -t rsa -b 2048 -f /root/.ssh/id_rsa     \
-                                                       > /root/.ssh/id_rsa.pub
+                 ( ssh-keygen -y -f /root/.ssh/id_rsa                          \
+                                  > /root/.ssh/id_rsa.pub
                  )
-    - require:
+    - onlyif:      test -s /root/.ssh/id_rsa
+    - watch:
       - file:     /root/.ssh/id_rsa

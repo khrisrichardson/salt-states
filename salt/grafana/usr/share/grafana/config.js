@@ -1,6 +1,7 @@
 {% set roles = [] -%}
 {% do  roles.append('elasticsearch') -%}
 {% do  roles.append('graphite-web') -%}
+{% do  roles.append('influxdb') -%}
 {% set minions = salt['roles.list_minions'](roles) -%}
 /** @scratch /configuration/config.js/1
  * == Configuration
@@ -13,40 +14,52 @@ function (Settings) {
 
   return new Settings({
 
-    {% if minions['elasticsearch'] -%}
-    /**
-     * elasticsearch url:
-     * For Basic authentication use: http://username:password@domain.com:9200
-     */
+    {% if   minions['elasticsearch'] -%}
+
     elasticsearch: "http://{{ minions['elasticsearch'][0] }}:9200",
+
     {% endif -%}
 
-    {% if minions['graphite-web'] -%}
-    /**
-     * graphite-web url:
-     * For Basic authentication use: http://username:password@domain.com
-     * Basic authentication requires special HTTP headers to be configured
-     * in nginx or apache for cross origin domain sharing to work (CORS).
-     * Check install documentation on github
-     */
+    {% if   minions['influxdb'] -%}
+
+    datasources: {
+    {% for  minion in minions['influxdb'] -%}
+        influxdb_{{ loop.index }}: {
+         {% if loop.first -%}
+            default:   true,
+         {% endif -%}
+            type:     'influxdb',
+            url:      'http://{{ minion }}:8086/db/graphite',
+            username: 'root',
+            password: 'root',
+        }{% if not loop.last %},{% endif %}
+    {% endfor -%}
+    }
+
+    {% elif minions['graphite-web'] -%}
+    {% if   minions['graphite-web']|count < 2 -%}
+
     graphiteUrl:   "http://{{ minions['graphite-web'][0] }}",
 
-    /**
-     * Multiple graphite servers? Comment out graphiteUrl and replace with
-     *
-     *  datasources: {
-     *    data_center_us: { type: 'graphite',  url: 'http://<graphite_url>',  default: true },
-     *    data_center_eu: { type: 'graphite',  url: 'http://<graphite_url>' }
-     *  }
-     */
+    {% else -%}
+
+    datasources: {
+    {% for  minion in minions['graphite-web'] -%}
+        graphite_{{ loop.index }}: {
+         {% if loop.first -%}
+            default:   true,
+         {% endif -%}
+            type:     'graphite',
+            url:      'http://{{ minion }}'
+        }{% if not loop.last %},{% endif %}
+    {% endfor -%}
+    }
+
+    {% endif -%}
     {% endif -%}
 
     default_route: '/dashboard/file/default.json',
 
-    /**
-     * If your graphite server has another timezone than you & users browsers specify the offset here
-     * Example: "-0500" (for UTC - 5 hours)
-     */
     timezoneOffset: null,
 
     grafana_index: "grafana-dash",

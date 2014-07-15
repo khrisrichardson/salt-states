@@ -1,0 +1,11 @@
+[Unit]
+Description=openvswitch-controller
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start openvswitch-controller || docker run --detach=true --link=salt-master:salt --name=openvswitch-controller openvswitch-controller'
+ExecStop=/bin/bash  -c 'docker stop  openvswitch-controller'
+
+[Install]
+WantedBy=multi-user.target

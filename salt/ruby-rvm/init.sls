@@ -3,8 +3,12 @@
 include:
   -  curl
 
-curl -L https://get.rvm.io | bash -s stable:
+/usr/local/rvm:
   cmd.run:
+    - name:      |-
+                 ( curl -L https://get.rvm.io                                  \
+                 | bash -s stable
+                 )
     - unless:      test -d /usr/local/rvm/
     - require:
       - pkg:       curl

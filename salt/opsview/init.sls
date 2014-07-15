@@ -2,6 +2,7 @@
 
 include:
   - .depend-apache2
+  -  opsview-base
 
 opsview:
   pkg.installed:

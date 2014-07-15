@@ -1,0 +1,11 @@
+[Unit]
+Description=ceilometer-alarm-notifier
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start ceilometer-alarm-notifier || docker run --detach=true --link=salt-master:salt --name=ceilometer-alarm-notifier ceilometer-alarm-notifier'
+ExecStop=/bin/bash  -c 'docker stop  ceilometer-alarm-notifier'
+
+[Install]
+WantedBy=multi-user.target

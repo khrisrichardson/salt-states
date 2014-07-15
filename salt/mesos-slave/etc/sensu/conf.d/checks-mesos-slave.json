@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-process-mesos-slave": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p mesos-slave -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

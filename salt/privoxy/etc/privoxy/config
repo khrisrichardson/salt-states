@@ -1,4 +1,5 @@
 {% set minions = salt['roles.list_minions']('socks5') -%}
+{% if  minions['socks5'] -%}
 accept-intercepted-requests 0
 actionsfile                 default.action
 actionsfile                 match-all.action
@@ -23,3 +24,4 @@ socket-timeout              300
 split-large-forms           0
 toggle                      1
 user-manual                 /usr/share/doc/privoxy/user-manual
+{% endif -%}

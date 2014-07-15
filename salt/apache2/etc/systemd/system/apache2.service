@@ -1,0 +1,11 @@
+[Unit]
+Description=apache2
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start apache2 || docker run --detach=true --link=salt-master:salt --name=apache2 apache2'
+ExecStop=/bin/bash  -c 'docker stop  apache2'
+
+[Install]
+WantedBy=multi-user.target
