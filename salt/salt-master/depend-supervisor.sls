@@ -5,7 +5,7 @@
 {% do  roles.append('cobbler') %}
 {% do  roles.append('etcd') %}
 {% do  roles.append('logstash') %}
-{% set minions = salt['roles.list_minions'](roles) %}
+{% set minions = salt['roles.dict'](roles) %}
 
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 

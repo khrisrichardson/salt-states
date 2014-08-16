@@ -10,7 +10,9 @@ docker start dockerui:
   docker.running:
     - container:   dockerui
     - binds:
-        /var/run/docker.sock:    /var/run/docker.sock
+        /var/run/docker.sock:
+          bind:   /var/run/docker.sock
+          ro:      false
     - lxc_conf:    []
     - port_bindings:
         '9000/tcp':

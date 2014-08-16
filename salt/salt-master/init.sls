@@ -10,7 +10,7 @@ salt-master:
     - enablerepo:  epel-testing
     - unless:    |-
                  ( salt-master --version                                       \
-                 | grep -q '....\..\..-'
+                 | egrep -q '....\..\..+-'
                  )
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
   service.dead:
@@ -86,5 +86,47 @@ salt-master:
     - mode:       '0644'
     - require:
       - pkg:       salt-master
+      - file:     /srv/reactor/job/ret.sls
+      - file:     /srv/reactor/minion/start.sls
     - watch_in:
       - service:   salt-master
+
+/srv/reactor:
+  file.directory:
+    - user:        root
+    - group:       root
+    - mode:       '0755'
+
+/srv/reactor/job:
+  file.directory:
+    - user:        root
+    - group:       root
+    - mode:       '0755'
+    - require:
+      - file:     /srv/reactor
+
+/srv/reactor/job/ret.sls:
+  file.managed:
+    - source:      salt://{{ sls }}/srv/reactor/job/ret.sls
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+    - require:
+      - file:     /srv/reactor/job
+
+/srv/reactor/minion:
+  file.directory:
+    - user:        root
+    - group:       root
+    - mode:       '0755'
+    - require:
+      - file:     /srv/reactor
+
+/srv/reactor/minion/start.sls:
+  file.managed:
+    - source:      salt://{{ sls }}/srv/reactor/minion/start.sls
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+    - require:
+      - file:     /srv/reactor/minion

@@ -9,7 +9,7 @@ salt-syndic:
     - enablerepo:  epel-testing
     - unless:    |-
                  ( salt-syndic --version                                       \
-                 | grep -q '....\..\..-'
+                 | egrep -q '....\..\..+-'
                  )
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
   service.dead:

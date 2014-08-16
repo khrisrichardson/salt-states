@@ -10,7 +10,9 @@ docker start registry:
   docker.running:
     - container:   registry
     - binds:
-        /srv/docker/registry:    /tmp/registry
+        /srv/docker/registry:
+          bind:    /tmp/registry
+          ro:       false
     - lxc_conf:    []
     - port_bindings:
         '5000/tcp':

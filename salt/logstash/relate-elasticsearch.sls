@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('elasticsearch') %}
+{% set minions = salt['roles.dict']('elasticsearch') %}
 {% set psls    = sls.split('.')[0] %}
 
 {% if minions['elasticsearch']

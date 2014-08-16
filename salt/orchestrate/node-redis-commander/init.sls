@@ -15,14 +15,12 @@ state_sls_node-redis-commander:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_redis-server
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_node-redis-commander:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:node-redis-commander'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_node-redis-commander
+state_sls_node-redis-commander_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:node-redis-commander'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['node-redis-commander']}
+    - require:
+      - salt:      state_sls_node-redis-commander

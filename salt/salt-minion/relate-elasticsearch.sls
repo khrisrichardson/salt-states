@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('elasticsearch') %}
+{% set minions = salt['roles.dict']('elasticsearch') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:
@@ -17,8 +17,8 @@ include:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       python-elasticsearch
       - pkg:       salt-minion
+      - pip:       python-elasticsearch
     - watch_in:
       - service:   salt-minion
 

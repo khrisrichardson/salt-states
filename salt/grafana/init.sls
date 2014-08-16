@@ -1,7 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set environment =  salt['grains.get']('environment') %}
-{% set url         = 'https://raw.githubusercontent.com/torkelo/grafana/master/latest.json' %}
+{% set url         = 'https://raw.githubusercontent.com/grafana/grafana/master/latest.json' %}
 {% set version     =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())["version"]') %}
 {# set version     = '1.5.4' #}
 

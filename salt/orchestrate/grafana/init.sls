@@ -17,14 +17,12 @@ state_sls_grafana:
       - salt:      state_sls_elasticsearch
       - salt:      state_sls_graphite-web
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_grafana:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:grafana'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_grafana
+state_sls_grafana_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:grafana'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['grafana']}
+    - require:
+      - salt:      state_sls_grafana

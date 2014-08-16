@@ -40,10 +40,10 @@ read-timeout = "5s"
 
   # Configure the graphite api
   [input_plugins.graphite]
-  enabled = true
-  port = 2003
-  database = "graphite"
-  # udp_enabled = true # enable udp interface on the same port as the tcp interface
+  enabled     =  true
+  port        =  2003
+  database    = "graphite"
+  udp_enabled =  true
 
   # Configure the udp api
   [input_plugins.udp]

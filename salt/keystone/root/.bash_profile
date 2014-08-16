@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('keystone', out='nodename') -%}
+{% set minions = salt['roles.dict']('keystone', out='nodename') -%}
 {% if  minions['keystone'] -%}
 export      OS_AUTH_URL="http://{{ minions['keystone'][0] }}:5000/v2.0/"
 export      OS_PASSWORD="{{ salt['config.get']('keystone:admin_password') }}"

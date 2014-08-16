@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('sensu-api') -%}
+{% set minions = salt['roles.dict']('sensu-api') -%}
 {% if  minions['sensu-api'] -%}
 {
   "api"            : {

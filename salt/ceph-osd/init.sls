@@ -2,7 +2,8 @@
 
 {% set cluster = salt['grains.get']('environment', 'ceph') %}
 {% set devs    = salt['cmd.run']('ls -1d /dev/{s,{u,x,}v}d{b..z} 2>/dev/null').split('\n') %}
-{% set minions = salt['roles.list_minions']('ceph-deploy') %}
+{% set fsid    = salt['config.get']('ceph:cluster:uuid') %}
+{% set minions = salt['roles.dict']('ceph-deploy') %}
 
 {% if not minions['ceph-deploy'] %}
 

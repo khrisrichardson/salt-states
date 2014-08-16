@@ -16,14 +16,12 @@ state_sls_zookeeper-server:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_cloudera-{{ version }}-server
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_zookeeper-server:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:zookeeper-server'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_zookeeper-server
+state_sls_zookeeper-server_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:zookeeper-server'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['zookeeper-server']}
+    - require:
+      - salt:      state_sls_zookeeper-server

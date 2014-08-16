@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('socks5') -%}
+{% set minions = salt['roles.dict']('socks5') -%}
 {% if  minions['socks5'] -%}
 accept-intercepted-requests 0
 actionsfile                 default.action

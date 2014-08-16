@@ -2,7 +2,7 @@
 
 {% set cluster =   salt['grains.get']('environment', 'ceph') %}
 {% set host    =   salt['config.get']('host') %}
-{% set minions =   salt['roles.list_minions']('ceph-deploy') %}
+{% set minions =   salt['roles.dict']('ceph-deploy') %}
 {% set import  = '/etc/ceph/' + cluster + '.client.admin.keyring' %}
 {% set keyring = '/var/lib/ceph/tmp/' + cluster + '.mon.keyring' %}
 

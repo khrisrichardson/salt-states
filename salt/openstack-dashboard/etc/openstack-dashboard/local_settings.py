@@ -3,7 +3,7 @@
 {% set roles = [] -%}
 {% do  roles.append('keystone') -%}
 {% do  roles.append('memcached') -%}
-{% set minions = salt['roles.list_minions'](roles) -%}
+{% set minions = salt['roles.dict'](roles) -%}
 
 import os
 

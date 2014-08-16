@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('elasticsearch') -%}
+{% set minions = salt['roles.dict']('elasticsearch') -%}
 server {
     listen 80;
     server_name _;

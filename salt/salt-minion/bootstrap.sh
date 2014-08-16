@@ -58,10 +58,16 @@ apt_setup() {
 #   DESCRIPTION:  Download and execute salt bootstrap script.
 #-------------------------------------------------------------------------------
 salt_bootstrap() {
+    if [[ "${@}" =~ "git" ]]
+    then
+        url="https://raw.githubusercontent.com"
+        url+="/saltstack/salt-bootstrap/develop/bootstrap-salt.sh"
+    else
+        url="https://bootstrap.saltstack.com"
+    fi
     python3                                                             <<-EOF
 	import urllib.request
-	urllib.request.urlretrieve("https://bootstrap.saltstack.com",
-	                           "bootstrap-salt.sh")
+	urllib.request.urlretrieve("${url}", "bootstrap-salt.sh")
 	EOF
     bash bootstrap-salt.sh -MX -p python-git "${@}"                            \
  || true
@@ -72,7 +78,7 @@ salt_bootstrap() {
 #   DESCRIPTION:  Set environment, referenced by top.sls, and run highstate.
 #-------------------------------------------------------------------------------
 salt_call_state_highstate() {
-    if ! grep -q environment /etc/salt/grains
+    if ! grep -q environment /etc/salt/grains 2>/dev/null
     then
         if [[ "${ref}" =~ "master" ]]
         then

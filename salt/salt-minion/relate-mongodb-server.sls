@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('mongodb-server') %}
+{% set minions = salt['roles.dict']('mongodb-server') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:

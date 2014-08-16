@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set version = '1.2' %}
+{% set version = '1.3' %}
 
 {% if   salt['config.get']('os_family') == 'RedHat' %}
 

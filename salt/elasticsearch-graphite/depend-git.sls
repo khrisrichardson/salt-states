@@ -13,6 +13,6 @@ extend:
 https://github.com/spinscale/elasticsearch-graphite-plugin:
   git.latest:
     - rev:        'master'
-    - target:     /usr/local/src/elasticsearch-plugin-graphite
+    - target:     /usr/local/src/github.com/spinscale/elasticsearch-plugin-graphite
     - require:
       - pkg:       git

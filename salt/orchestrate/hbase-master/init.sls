@@ -22,14 +22,12 @@ state_sls_hbase-master:
       - salt:      state_sls_zookeeper-server
       - salt:      state_sls_hbase-regionserver
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_hbase-master:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:hbase-master'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_hbase-master
+state_sls_hbase-master_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:hbase-master'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['hbase-master']}
+    - require:
+      - salt:      state_sls_hbase-master

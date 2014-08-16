@@ -16,14 +16,12 @@ state_sls_hbase-regionserver:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_cloudera-{{ version }}-server
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_hbase-regionserver:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:hbase-regionserver'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_hbase-regionserver
+state_sls_hbase-regionserver_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:hbase-regionserver'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['hbase-regionserver']}
+    - require:
+      - salt:      state_sls_hbase-regionserver

@@ -6,7 +6,8 @@
 
 include:
   -  hadoop
-  -  oracle-j2sdk1_6
+  -  oracle-java7-installer
+  -  oracle-java7-set-default
 
 hadoop-client:
   pkg.installed:

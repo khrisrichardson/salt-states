@@ -15,14 +15,12 @@ state_sls_sensu-dashboard:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_sensu-server
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_sensu-dashboard:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:sensu-dashboard'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_sensu-dashboard
+state_sls_sensu-dashboard_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:sensu-dashboard'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['sensu-dashboard']}
+    - require:
+      - salt:      state_sls_sensu-dashboard

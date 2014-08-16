@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('neutron-server') %}
+{% set minions = salt['roles.dict']('neutron-server') %}
 
 {% if minions['neutron-server'] %}
 

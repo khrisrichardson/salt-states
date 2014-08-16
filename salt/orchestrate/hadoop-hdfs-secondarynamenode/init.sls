@@ -16,14 +16,12 @@ state_sls_hadoop-hdfs-secondarynamenode:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_cloudera-{{ version }}-server
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_hadoop-hdfs-secondarynamenode:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:hadoop-hdfs-secondarynamenode'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_hadoop-hdfs-secondarynamenode
+state_sls_hadoop-hdfs-secondarynamenode_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:hadoop-hdfs-secondarynamenode'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['hadoop-hdfs-secondarynamenode']}
+    - require:
+      - salt:      state_sls_hadoop-hdfs-secondarynamenode

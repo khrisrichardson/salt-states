@@ -11,7 +11,9 @@ docker start skydock:
   docker.running:
     - container:   skydock
     - binds:
-        /var/run/docker.sock:     /var/run/docker.sock
+        /var/run/docker.sock:
+          bind:   /var/run/docker.sock
+          ro:      false
     - links:
         skydns:    skydns
     - lxc_conf:    []

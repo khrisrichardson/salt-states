@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('influxdb') %}
+{% set minions = salt['roles.dict']('influxdb') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:

@@ -22,14 +22,12 @@ state_sls_hadoop-hdfs-namenode:
       - salt:      state_sls_hadoop-hdfs-secondarynamenode
       - salt:      state_sls_hadoop-hdfs-datanode
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_hadoop-hdfs-namenode:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:hadoop-hdfs-namenode'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_hadoop-hdfs-namenode
+state_sls_hadoop-hdfs-namenode_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:hadoop-hdfs-namenode'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['hadoop-hdfs-namenode']}
+    - require:
+      - salt:      state_sls_hadoop-hdfs-namenode

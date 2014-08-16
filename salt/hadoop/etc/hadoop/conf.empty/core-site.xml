@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('hadoop-hdfs-namenode') -%}
+{% set minions = salt['roles.dict']('hadoop-hdfs-namenode') -%}
 <?xml version="1.0"?>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more

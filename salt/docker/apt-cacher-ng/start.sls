@@ -11,7 +11,9 @@ docker start {{ psls }}:
   docker.running:
     - container:     {{ psls }}
     - binds:
-        /var/cache/apt-cacher-ng:     /var/cache/apt-cacher-ng
+        /var/cache/apt-cacher-ng:
+          bind:        /var/cache/apt-cacher-ng
+          ro:           false
     - links:
         salt-master:    salt
     - lxc_conf:    []

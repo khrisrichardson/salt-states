@@ -13,14 +13,12 @@ state_sls_rabbitmq-server:
     - require:
       - salt:      state_sls_salt-minion
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_rabbitmq-server:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:rabbitmq-server'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_rabbitmq-server
+state_sls_rabbitmq-server_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:rabbitmq-server'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['rabbitmq-server']}
+    - require:
+      - salt:      state_sls_rabbitmq-server

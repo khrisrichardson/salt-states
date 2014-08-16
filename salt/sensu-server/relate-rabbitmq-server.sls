@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('rabbitmq-server') %}
+{% set minions = salt['roles.dict']('rabbitmq-server') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:

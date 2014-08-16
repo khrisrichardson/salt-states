@@ -1,0 +1,9 @@
+{% set minions = salt['roles.dict']('kubernetes-apiserver') -%}
+
+ARGS+="--logtostderr=true "
+
+{% if minions['kubernetes-apiserver'] -%}
+
+ARGS+="-master={{ minions['kubernetes-apiserver'][0] }}:8080 "
+
+{% endif -%}

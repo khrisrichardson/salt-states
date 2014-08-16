@@ -12,7 +12,7 @@ salt-minion:
     - enablerepo:  epel-testing
     - unless:    |-
                  ( salt-minion --version                                       \
-                 | grep -q '....\..\..-'
+                 | egrep -q '....\..\..+-'
                  )
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
   service.dead:

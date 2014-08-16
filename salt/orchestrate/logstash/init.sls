@@ -14,15 +14,14 @@ state_sls_logstash:
     - require:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_elasticsearch
+      - salt:      state_sls_elasticsearch_orchestrate
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_logstash:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:logstash'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_logstash
+state_sls_logstash_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:logstash'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['logstash']}
+    - require:
+      - salt:      state_sls_logstash

@@ -3,7 +3,7 @@
 {% do  roles.append('memcached') -%}
 {% do  roles.append('mysql-server') -%}
 {% do  roles.append('postgresql') -%}
-{% set minions = salt['roles.list_minions'](roles) -%}
+{% set minions = salt['roles.dict'](roles) -%}
 ## Graphite local_settings.py
 # Edit this file to customize the default Graphite webapp settings
 #

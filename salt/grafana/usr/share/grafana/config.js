@@ -2,7 +2,7 @@
 {% do  roles.append('elasticsearch') -%}
 {% do  roles.append('graphite-web') -%}
 {% do  roles.append('influxdb') -%}
-{% set minions = salt['roles.list_minions'](roles) -%}
+{% set minions = salt['roles.dict'](roles) -%}
 /** @scratch /configuration/config.js/1
  * == Configuration
  * config.js is where you will find the core Grafana configuration. This file contains parameter that
@@ -17,6 +17,7 @@ function (Settings) {
     {% if   minions['elasticsearch'] -%}
 
     elasticsearch: "http://{{ minions['elasticsearch'][0] }}:9200",
+    grafana_index: "grafana-dash",
 
     {% endif -%}
 
@@ -31,10 +32,10 @@ function (Settings) {
             type:     'influxdb',
             url:      'http://{{ minion }}:8086/db/graphite',
             username: 'root',
-            password: 'root',
+            password: 'root'
         }{% if not loop.last %},{% endif %}
     {% endfor -%}
-    }
+    },
 
     {% elif minions['graphite-web'] -%}
     {% if   minions['graphite-web']|count < 2 -%}
@@ -53,17 +54,13 @@ function (Settings) {
             url:      'http://{{ minion }}'
         }{% if not loop.last %},{% endif %}
     {% endfor -%}
-    }
+    },
 
     {% endif -%}
     {% endif -%}
 
     default_route: '/dashboard/file/default.json',
-
     timezoneOffset: null,
-
-    grafana_index: "grafana-dash",
-
     panel_names: [
       'text',
       'graphite'

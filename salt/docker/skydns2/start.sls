@@ -6,6 +6,7 @@ include:
   -  python-docker
   -  docker.{{ psls }}.run
   -  docker.salt-master.start
+  -  docker.etcd.start
 
 docker start {{ psls }}:
   docker.running:
@@ -23,3 +24,4 @@ docker start {{ psls }}:
     - watch:
       - docker:    docker run {{ psls }}
       - docker:    docker start salt-master
+      - docker:    docker start etcd

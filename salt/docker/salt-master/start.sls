@@ -10,7 +10,9 @@ docker start {{ psls }}:
   docker.running:
     - container:     {{ psls }}
     - binds:
-        /var/cache/salt/master:  /var/cache/salt/master
+        /var/cache/salt/master:
+          bind:        /var/cache/salt/master
+          ro:           false
     - links:       []
     - lxc_conf:    []
     - watch:

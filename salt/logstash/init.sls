@@ -6,6 +6,7 @@ include:
   -  libzmq3-dev
   -  oracle-java7-installer
   -  python-apt
+  -  ruby-ffi-rzmq
 
 logstash:
   pkgrepo.managed:
@@ -31,6 +32,9 @@ logstash:
     - enable:      True
     - require:
       - pkg:       oracle-java7-installer
+     {% if salt['config.get']('os_family') == 'Debian' %}
+      - pkg:       ruby-ffi-rzmq
+     {% endif %}
     - watch:
       - pkg:       logstash
 

@@ -1,5 +1,11 @@
 {
   "checks": {
+    "check-etcd": {
+      "command"     : "/etc/sensu/plugins/etcd/check-etcd.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
     "check-http-etcd": {
       "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '4001' -p '/version'",
       "handlers"    : ["default"],

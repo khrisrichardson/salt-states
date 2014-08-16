@@ -6,7 +6,7 @@
 {% set roles    = [] %}
 {% do  roles.append('cloudera-cm4-server') %}
 {% do  roles.append('cloudera-cm5-server') %}
-{% set minions = salt['roles.list_minions'](roles) %}
+{% set minions = salt['roles.dict'](roles) %}
 
 include:
   {% if   minions['cloudera-cm4-server'] %}
@@ -14,7 +14,8 @@ include:
   {% elif minions['cloudera-cm5-server'] %}
   -  cloudera-cm5-agent
   {% else %}
-  -  oracle-j2sdk1_6
+  -  oracle-java7-installer
+  -  oracle-java7-set-default
   -  zookeeper
   {% endif %}
 

@@ -2,7 +2,7 @@
 {% do  roles.append('elasticsearch') -%}
 {% do  roles.append('graphite-carbon') -%}
 {% do  roles.append('influxdb') -%}
-{% set minions = salt['roles.list_minions'](roles) -%}
+{% set minions = salt['roles.dict'](roles) -%}
 #################### Elasticsearch Configuration Example #####################
 
 # This file contains an overview of various configuration settings,

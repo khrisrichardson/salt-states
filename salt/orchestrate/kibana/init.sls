@@ -15,14 +15,12 @@ state_sls_kibana:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_elasticsearch
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_kibana:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:kibana'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_kibana
+state_sls_kibana_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:kibana'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['kibana']}
+    - require:
+      - salt:      state_sls_kibana

@@ -1,4 +1,4 @@
-{% set           minions = salt['roles.list_minions']('hadoop-hdfs-secondarynamenode') -%}
+{% set           minions = salt['roles.dict']('hadoop-hdfs-secondarynamenode') -%}
 {% if            minions['hadoop-hdfs-secondarynamenode'] -%}
 {% for minion in minions['hadoop-hdfs-secondarynamenode'] -%}
 {{ minion }}

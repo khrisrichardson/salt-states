@@ -76,7 +76,7 @@ def _connect(**kwargs):
     _connarg('cm_pass', 'password')
 
     try:
-        a = ApiResource(__salt__['roles.list_minions']('cloudera-cm4-server')['cloudera-cm4-server'][0],
+        a = ApiResource(__salt__['roles.dict']('cloudera-cm4-server')['cloudera-cm4-server'][0],
                           **connargs)
     except ApiException as e:
         err = '{0}'.format(*e)

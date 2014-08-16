@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('etcd') %}
+{% set minions = salt['roles.dict']('etcd') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:
@@ -18,7 +18,7 @@ skydns2:
                  )
     - watch:
       - service:   supervisor
-      - cmd:       go install -v . ./...
+      - cmd:       go get skydns2
      {% if minions['etcd'] %}
       - file:     /etc/profile.d/skydns2.sh
       - module:    etcdctl set /skydns/config

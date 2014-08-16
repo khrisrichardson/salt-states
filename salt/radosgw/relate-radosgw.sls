@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.list_minions']('radosgw') %}
+{% set minions = salt['roles.dict']('radosgw') %}
 
 {% if minions['radosgw']|count > 1 %}
 

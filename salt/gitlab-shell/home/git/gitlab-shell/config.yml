@@ -1,4 +1,4 @@
-{% set minions =  salt['roles.list_minions']('redis-server') -%}
+{% set minions =  salt['roles.dict']('redis-server') -%}
 {% set user    = 'git' -%}
 # GitLab user. git by default
 user:             {{ user }}

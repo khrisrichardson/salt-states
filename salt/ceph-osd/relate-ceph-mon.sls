@@ -1,7 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set cluster = salt['grains.get']('environment', 'ceph') %}
-{% set minions = salt['roles.list_minions']('ceph-mon') %}
+{% set minions = salt['roles.dict']('ceph-mon') %}
 
 {% if minions['ceph-mon'] %}
 

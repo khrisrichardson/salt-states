@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('hbase-regionserver') -%}
+{% set minions = salt['roles.dict']('hbase-regionserver') -%}
 {
   "checks": {
     "check-http-hbase-master": {

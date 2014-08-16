@@ -3,7 +3,7 @@
 {% do  roles.append('glance-api') -%}
 {% do  roles.append('keystone') -%}
 {% do  roles.append('nova-api-ec2') -%}
-{% set minions = salt['roles.list_minions'](roles) -%}
+{% set minions = salt['roles.dict'](roles) -%}
 # config for templated.Catalog, using camelCase because I don't want to do
 # translations for keystone compat
 {% if minions['keystone'] -%}

@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('influxdb') -%}
+{% set minions = salt['roles.dict']('influxdb') -%}
 {% if  minions['influxdb'] -%}
 {
   "handlers"       : {

@@ -1,0 +1,11 @@
+[Unit]
+Description=cadvisor
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/bin/bash -c 'docker start cadvisor || docker run --detach=true --link=salt-master:salt --name=cadvisor cadvisor'
+ExecStop=/bin/bash  -c 'docker stop  cadvisor'
+
+[Install]
+WantedBy=multi-user.target

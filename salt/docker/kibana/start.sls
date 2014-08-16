@@ -6,6 +6,8 @@ include:
   -  python-docker
   -  docker.{{ psls }}.run
   -  docker.salt-master.start
+  -  docker.elasticsearch.start
+  -  docker.logstash.start
 
 docker start {{ psls }}:
   docker.running:
@@ -16,3 +18,5 @@ docker start {{ psls }}:
     - watch:
       - docker:    docker run {{ psls }}
       - docker:    docker start salt-master
+      - docker:    docker start elasticsearch
+      - docker:    docker start logstash

@@ -5,7 +5,9 @@ include:
 
 {% if   salt['config.get']('os_family') == 'RedHat' %}
 
-{% set java   = salt['cmd.run']('ls -1d /usr/java/jdk1.6.?_??/jre/bin/java   2>/dev/null | tail -1') %}
+{% set java   = salt['cmd.run']('ls -1d /usr/java/jdk1.6.?_??/jre/bin/java   2>/dev/null'
+                           + ' | tail -1'
+                               ) %}
 {% if  java %}
 
 java1.6:
@@ -17,7 +19,9 @@ java1.6:
       - pkg:       oracle-java6-installer
 
 {% endif %}
-{% set javac  = salt['cmd.run']('ls -1d /usr/java/jdk1.6.?_??/bin/javac      2>/dev/null | tail -1') %}
+{% set javac  = salt['cmd.run']('ls -1d /usr/java/jdk1.6.?_??/bin/javac      2>/dev/null'
+                           + ' | tail -1'
+                               ) %}
 {% if  javac %}
 
 javac1.6:
@@ -29,7 +33,9 @@ javac1.6:
       - pkg:       oracle-java6-installer
 
 {% endif %}
-{% set javaws = salt['cmd.run']('ls -1d /usr/java/jdk1.6.?_??/jre/bin/javaws 2>/dev/null | tail -1') %}
+{% set javaws = salt['cmd.run']('ls -1d /usr/java/jdk1.6.?_??/jre/bin/javaws 2>/dev/null'
+                           + ' | tail -1'
+                               ) %}
 {% if  javaws %}
 
 javaws1.6:

@@ -4,7 +4,7 @@
 {% set roles   = [] %}
 {% do  roles.append('etcd') %}
 {% do  roles.append('radosgw') %}
-{% set minions = salt['roles.list_minions'](roles) %}
+{% set minions = salt['roles.dict'](roles) %}
 {% set psls    = sls.split('.')[0] %}
 
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}

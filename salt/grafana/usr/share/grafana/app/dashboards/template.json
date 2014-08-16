@@ -1,5 +1,11 @@
 {% set items = salt['mine.get'](minion, 'grains.item')[minion] -%}
 {% set host  = minion.split('.')[0] -%}
+{% set roles = [] -%}
+{% do  roles.append('elasticsearch') -%}
+{% do  roles.append('graphite-carbon') -%}
+{% do  roles.append('graphite-web') -%}
+{% do  roles.append('influxdb') -%}
+{% set minions = salt['roles.dict'](roles) -%}
 {
   "title": "{{ host }}",
   "services": {
@@ -70,7 +76,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.contextswitch.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.contextswitch.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.contextswitch\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -134,7 +149,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.cpu-*.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.cpu-*.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.cpu-.*\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -193,7 +217,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.disk-*.*.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.disk-*.*.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.disk-.*\\..*\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -252,7 +285,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.entropy.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.entropy.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.entropy\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -321,7 +363,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.interface-*.*.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.interface-*.*.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.interface-.*\\..*\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -380,7 +431,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.irq.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.irq.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.irq\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -445,7 +505,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.load.load.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.load.load.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.load\\.load\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -507,7 +576,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.memory.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.memory.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.memory\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -576,7 +654,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.processes.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.processes.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.processes\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -635,7 +722,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.protocols-*.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.protocols-*.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.protocols-.*\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -694,7 +790,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.swap.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.swap.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.swap\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -753,7 +858,16 @@
           },
           "targets": [
             {
-              "target": "{{ host }}.system.tcpconns-*-*.*"
+            {% if   minions['graphite-carbon'] -%}
+              "target":   "{{ host }}.system.tcpconns-*-*.*"
+            {% elif minions['influxdb'] -%}
+              "target":   "",
+              "function": "mean",
+              "series":   "",
+              "column":   "value",
+              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.tcpconns-.*-.*\\..*/ where [[timeFilter]]",
+              "rawQuery":  true
+            {% endif -%}
             }
           ],
           "aliasColors": {},
@@ -779,6 +893,7 @@
       "type": "annotations",
       "enable": true,
       "annotations": [
+        {% if minions['graphite-web'] -%}
         {
           "name": "deploy",
           "type": "graphite events",
@@ -789,6 +904,7 @@
           "enable": true,
           "tags": "deploy"
         }
+        {% endif -%}
       ]
     }
   ],
@@ -826,18 +942,23 @@
     }
   ],
   "loader": {
-    "save_gist": false,
-    "save_elasticsearch": true,
-    "save_local": true,
-    "save_default": true,
-    "save_temp": true,
-    "save_temp_ttl_enable": true,
-    "save_temp_ttl": "30d",
+    "hide": false,
     "load_gist": false,
+    "load_local": false,
+    "save_default": true,
+    "save_gist": false,
+    "save_local": true,
+    "save_temp": true,
+    "save_temp_ttl": "30d",
+    "save_temp_ttl_enable": true,
+  {% if minions['elasticsearch'] -%}
     "load_elasticsearch": true,
     "load_elasticsearch_size": 20,
-    "load_local": false,
-    "hide": false
+    "save_elasticsearch": true
+  {% else -%}
+    "load_elasticsearch": false,
+    "save_elasticsearch": false
+  {% endif -%}
   },
   "refresh": "30s",
   "tags": [

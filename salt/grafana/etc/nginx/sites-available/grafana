@@ -1,6 +1,6 @@
-{% set minions = salt['roles.list_minions']('elasticsearch') -%}
+{% set minions = salt['roles.dict']('elasticsearch') -%}
 server {
-    listen                    8000;
+    listen                    80;
     server_name               _;
 
     access_log               /var/log/nginx/grafana.access.log;

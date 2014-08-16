@@ -1,17 +1,15 @@
 # vi: set ft=yaml.jinja :
 
 {% set roles = [] %}
-{% do  roles.append('graphite-carbon') %}
 {% do  roles.append('influxdb') %}
-{% set minions = salt['roles.list_minions'](roles) %}
+{% set minions = salt['roles.dict'](roles) %}
 {% set plugins = [] %}
 {% set psls    = sls.split('.')[0] %}
 
 include:
   -  collectd
 
-{% if minions['graphite-carbon']
-   or minions['influxdb'] %}
+{% if minions['influxdb'] %}
 
 /etc/collectd/collectd.conf:
   file.managed:
@@ -42,10 +40,10 @@ include:
 {% do  plugins.append('vmem') %}
 {% for plugin in plugins %}
 
-/etc/collectd.d/{{ plugin }}.conf:
+/etc/collectd.d/input-{{ plugin }}.conf:
   file.managed:
     - template:    jinja
-    - source:      salt://{{ psls }}/etc/collectd.d/{{ plugin }}.conf
+    - source:      salt://{{ psls }}/etc/collectd.d/input-{{ plugin }}.conf
     - user:        root
     - group:       root
     - mode:       '0644'
@@ -56,10 +54,10 @@ include:
 
 {% endfor %}
 
-/etc/collectd.d/write_graphite.conf:
+/etc/collectd.d/output-influxdb.conf:
   file.managed:
     - template:    jinja
-    - source:      salt://{{ psls }}/etc/collectd.d/write_graphite.conf
+    - source:      salt://{{ psls }}/etc/collectd.d/output-graphite-carbon.conf
     - user:        root
     - group:       root
     - mode:       '0644'
@@ -70,7 +68,7 @@ include:
 
 {% else %}
 
-/etc/collectd.d/write_graphite.conf:
+/etc/collectd.d/output-influxdb.conf:
   file.absent:
     - watch_in:
       - service:   collectd

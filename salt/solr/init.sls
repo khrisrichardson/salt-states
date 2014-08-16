@@ -3,7 +3,7 @@
 {% set roles = [] %}
 {% do  roles.append('cloudera-cm4-server') %}
 {% do  roles.append('cloudera-cm5-server') %}
-{% set minions = salt['roles.list_minions'](roles) %}
+{% set minions = salt['roles.dict'](roles) %}
 
 include:
   - .depend-maven

@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('elasticsearch') -%}
+{% set minions = salt['roles.dict']('elasticsearch') -%}
 /**
  * These is the app's configuration, If you need to configure
  * the default dashboard, please see dashboards/default

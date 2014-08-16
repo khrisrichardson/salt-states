@@ -80,7 +80,7 @@ class ClouderaManagerClient(ApiResource):
         salt   = Salt()
 
         if hostname is None:
-            hostname = salt.function('roles.list_minions', 'cloudera-cm4-server')['cloudera-cm4-server'][0]
+            hostname = salt.function('roles.dict', 'cloudera-cm4-server')['cloudera-cm4-server'][0]
 
         try:
             logger.debug('Acquiring Cloudera Manager API resource')
@@ -772,11 +772,11 @@ class ClusterHDFS(ClusterService):
         if any(r in salt.function('config.get', 'roles') for r in roles):
             ClusterService.__init__(self, cluster, service_type=service_type)
 
-            dns = salt.function('roles.list_minions', 'hadoop-hdfs-datanode')['hadoop-hdfs-datanode']
-            nns = salt.function('roles.list_minions', 'hadoop-hdfs-namenode')['hadoop-hdfs-namenode']
-            sns = salt.function('roles.list_minions', 'hadoop-hdfs-secondarynamenode')['hadoop-hdfs-secondarynamenode']
-            jns = salt.function('roles.list_minions', 'hadoop-hdfs-journalnode')['hadoop-hdfs-journalnode']
-            zks = salt.function('roles.list_minions', 'zookeeper-server')['zookeeper-server']
+            dns = salt.function('roles.dict', 'hadoop-hdfs-datanode')['hadoop-hdfs-datanode']
+            nns = salt.function('roles.dict', 'hadoop-hdfs-namenode')['hadoop-hdfs-namenode']
+            sns = salt.function('roles.dict', 'hadoop-hdfs-secondarynamenode')['hadoop-hdfs-secondarynamenode']
+            jns = salt.function('roles.dict', 'hadoop-hdfs-journalnode')['hadoop-hdfs-journalnode']
+            zks = salt.function('roles.dict', 'zookeeper-server')['zookeeper-server']
 
             if (len(dns) >= 1 and
                 len(nns) >= 1):
@@ -861,7 +861,7 @@ class ClusterHDFS(ClusterService):
         nameservice = config.get('HDFS:NAMENODE',
                                  'dfs_federation_namenode_nameservice')
         salt        = client.salt
-        nns         = salt.function('roles.list_minions', 'hadoop-hdfs-namenode')['hadoop-hdfs-namenode']
+        nns         = salt.function('roles.dict', 'hadoop-hdfs-namenode')['hadoop-hdfs-namenode']
 
         try:
             logger.info('Enabling HDFS high availability')
@@ -938,9 +938,9 @@ class ClusterHBase(ClusterService):
         if any(r in salt.function('config.get', 'roles') for r in roles):
             ClusterService.__init__(self, cluster, service_type=service_type)
 
-            hms = salt.function('roles.list_minions', 'hbase-master')['hbase-master']
-            hrs = salt.function('roles.list_minions', 'hbase-regionserver')['hbase-regionserver']
-            zks = salt.function('roles.list_minions', 'zookeeper-server')['zookeeper-server']
+            hms = salt.function('roles.dict', 'hbase-master')['hbase-master']
+            hrs = salt.function('roles.dict', 'hbase-regionserver')['hbase-regionserver']
+            zks = salt.function('roles.dict', 'zookeeper-server')['zookeeper-server']
 
             if (len(hms) == 1 and
                 len(hrs) >= 1 and
@@ -1274,7 +1274,7 @@ class ServiceRoleConfigGroup(ApiRoleConfigGroup):
                             k in config._sections[section].iterkeys() if
                             k != '__name__')
 
-        if salt.function('roles.list_minions', 'graphite-web')['graphite-web']:
+        if salt.function('roles.dict', 'graphite-web')['graphite-web']:
             jar   = '/opt/jmxtrans/lib/jmxtrans-agent.jar'
             xml   = '/opt/jmxtrans/etc/' + file + '.xml'
             agent = ' -javaagent:' + jar + '=' + xml
@@ -1345,7 +1345,7 @@ class Salt(Caller):
             roles    = set([roles])
 
         for role in roles:
-            hosts |= set(self.function('roles.list_minions', role)[role])
+            hosts |= set(self.function('roles.dict', role)[role])
 
         return hosts
 

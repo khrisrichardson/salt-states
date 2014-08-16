@@ -1,7 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set cluster = salt['grains.get']('environment', 'ceph') %}
-{% set minions = salt['roles.list_minions']('etcd') %}
+{% set minions = salt['roles.dict']('etcd') %}
 {% set key     = '/ceph/' + cluster + '/fsid' %}
 {% set value   = salt['cmd.run']('uuidgen') %}
 

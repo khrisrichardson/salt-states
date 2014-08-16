@@ -13,6 +13,6 @@ extend:
 https://github.com/viniciusccarvalho/elasticsearch-newrelic:
    git.latest:
     - rev:         master
-    - target:     /usr/local/src/elasticsearch-newrelic
+    - target:     /usr/local/src/github.com/viniciusccarvalho/elasticsearch-newrelic
     - require:
       - pkg:       git

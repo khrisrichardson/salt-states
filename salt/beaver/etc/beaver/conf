@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('logstash') -%}
+{% set minions = salt['roles.dict']('logstash') -%}
 [beaver]
 logstash_version: 1
 {% if minions['logstash'] -%}

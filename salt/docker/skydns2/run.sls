@@ -13,5 +13,4 @@ docker run {{ psls }}:
     - environment:
         ETCD_MACHINES:  http://172.17.42.1:4001
     - watch:
-      - docker:    docker start etcd
       - docker:    docker build {{ psls }}

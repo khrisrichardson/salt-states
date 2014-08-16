@@ -1,0 +1,16 @@
+{% set etcds   = [] -%}
+{% set minions = salt['roles.dict']('etcd') -%}
+{% for minion in minions['etcd'] -%}
+{% do  etcds.append('http://' + minion + ':4001') -%}
+{% endfor -%}
+
+ARGS+="-address=0.0.0.0 "
+ARGS+="-config=/etc/kubernetes/manifests "
+ARGS+="-port=10250 "
+ARGS+="-logtostderr=true "
+
+{% if minions['etcd'] -%}
+
+ARGS+="-etcd_servers={{ etcds|join(',') }} "
+
+{% endif -%}

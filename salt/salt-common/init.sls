@@ -7,5 +7,5 @@ salt-common:
   pkg.installed:
     - unless:    |-
                  ( salt-call   --version                                       \
-                 | grep -q '....\..\..-'
+                 | egrep -q '....\..\..+-'
                  )

@@ -17,14 +17,12 @@ state_sls_sensu-client:
       - salt:      state_sls_rabbitmq-server
       - salt:      state_sls_sensu-api
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_sensu-client:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:sensu-client'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_sensu-client
+state_sls_sensu-client_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:sensu-client'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['sensu-client']}
+    - require:
+      - salt:      state_sls_sensu-client

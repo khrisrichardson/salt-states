@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('elasticsearch') -%}
+{% set minions = salt['roles.dict']('elasticsearch') -%}
 #Copyright 2008 Orbitz WorldWide
 #
 #Licensed under the Apache License, Version 2.0 (the "License");

@@ -4,7 +4,7 @@
 
 include:
   -  apache2
-  -  nagios3.libapache2-mod-php5
+  -  nagios3.depend-libapache2-mod-php5
 
 /etc/apache2/sites-available/{{ psls }}:
   file.managed:

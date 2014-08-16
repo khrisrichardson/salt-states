@@ -116,6 +116,13 @@
       "standalone"  :   true,
       "type"        :  "metric"
     },
+    "metric-proc-status": {
+      "command"     : "/etc/sensu/plugins/system/proc-status-metrics.rb",
+      "handlers"    : ["graphite"],
+      "interval"    :   10,
+      "standalone"  :   true,
+      "type"        :  "metric"
+    },
     "metric-system-cgroup": {
       "command"     : "/etc/sensu/plugins/system/cgroup-metrics.sh",
       "handlers"    : ["graphite"],

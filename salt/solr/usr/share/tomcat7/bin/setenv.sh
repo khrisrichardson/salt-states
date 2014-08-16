@@ -2,7 +2,7 @@
 {% do  roles.append('dynaTrace-server') -%}
 {% do  roles.append('socks5') -%}
 {% do  roles.append('zookeeper-server') -%}
-{% set minions = salt['roles.list_minions'](roles) -%}
+{% set minions = salt['roles.dict'](roles) -%}
 #-------------------------------------------------------------------------------
 # TODO: tune garbage collector, memory, stack, etc.
 # TODO: remove socksProxyHost workaround when services have been ported to AWS

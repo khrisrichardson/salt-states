@@ -17,7 +17,7 @@ collectd:
    {% endif %}
   service.running:
     - enable:      True
-    - reload:      True
+#   - reload:      True
     - watch:
       - pkg:       collectd
 

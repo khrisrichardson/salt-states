@@ -15,14 +15,12 @@ state_sls_elasticsearch-kopf:
       - salt:      state_sls_salt-minion
       - salt:      state_sls_elasticsearch
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_elasticsearch-kopf:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:elasticsearch-kopf'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_elasticsearch-kopf
+state_sls_elasticsearch-kopf_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:elasticsearch-kopf'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['elasticsearch-kopf']}
+    - require:
+      - salt:      state_sls_elasticsearch-kopf

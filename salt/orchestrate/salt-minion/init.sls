@@ -12,14 +12,12 @@ state_sls_salt-minion:
     - require:
       - salt:      state_sls_salt-master
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_salt-minion:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:salt-minion'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_salt-minion
+state_sls_salt-minion_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:salt-minion'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['salt-minion']}
+    - require:
+      - salt:      state_sls_salt-minion

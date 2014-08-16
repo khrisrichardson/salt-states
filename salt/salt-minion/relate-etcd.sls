@@ -2,7 +2,7 @@
 
 {% set host    = salt['config.get']('host') %}
 {% set ipv4    = salt['config.get']('fqdn_ip4') %}
-{% set minions = salt['roles.list_minions']('etcd') %}
+{% set minions = salt['roles.dict']('etcd') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:

@@ -18,14 +18,12 @@ state_sls_hadoop-hdfs-journalnode:
       - salt:      state_sls_cloudera-{{ version }}-server
       - salt:      state_sls_zookeeper-server
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_hadoop-hdfs-journalnode:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:hadoop-hdfs-journalnode'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_hadoop-hdfs-journalnode
+state_sls_hadoop-hdfs-journalnode_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:hadoop-hdfs-journalnode'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['hadoop-hdfs-journalnode']}
+    - require:
+      - salt:      state_sls_hadoop-hdfs-journalnode

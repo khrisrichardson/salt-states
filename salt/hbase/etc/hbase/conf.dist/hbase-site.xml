@@ -2,7 +2,7 @@
 {% do  roles.append('hadoop-hdfs-namenode') -%}
 {% do  roles.append('hbase-master') -%}
 {% do  roles.append('zookeeper-server') -%}
-{% set minions = salt['roles.list_minions'](roles) -%}
+{% set minions = salt['roles.dict'](roles) -%}
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--

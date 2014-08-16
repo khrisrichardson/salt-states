@@ -3,7 +3,7 @@
 {% set roles = [] %}
 {% do  roles.append('graphite-carbon') %}
 {% do  roles.append('influxdb') %}
-{% set minions = salt['roles.list_minions'](roles) %}
+{% set minions = salt['roles.dict'](roles) %}
 {% set psls    = sls.split('.')[0] %}
 
 include:

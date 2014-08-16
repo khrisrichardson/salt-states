@@ -13,14 +13,12 @@ state_sls_elasticsearch:
     - require:
       - salt:      state_sls_salt-minion
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_elasticsearch:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:elasticsearch'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_elasticsearch
+state_sls_elasticsearch_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:elasticsearch'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['elasticsearch']}
+    - require:
+      - salt:      state_sls_elasticsearch

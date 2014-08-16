@@ -17,6 +17,7 @@ etcd:
       - file:     /etc/etcd/etcd.conf
       - file:     /etc/etcd/peer.conf
       - file:     /usr/bin/etcd
+#     - cmd:       go get etcd
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

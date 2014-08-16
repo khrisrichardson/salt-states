@@ -7,13 +7,13 @@ include:
   -  maven
 
 extend:
-  ./plugin -install graphite -url file:///usr/local/src/elasticsearch-plugin-graphite/target/releases/elasticsearch-plugin-graphite-{{ version }}.zip:
+  ./plugin -install graphite -url file:///usr/local/src/github.com/spinscale/elasticsearch-plugin-graphite/target/releases/elasticsearch-plugin-graphite-{{ version }}.zip:
     cmd:
       - watch:
         - cmd:     mvn package
 
 mvn package:
   cmd.wait:
-    - cwd:        /usr/local/src/elasticsearch-plugin-graphite
+    - cwd:        /usr/local/src/github.com/spinscale/elasticsearch-plugin-graphite
     - require:
       - pkg:       maven

@@ -13,14 +13,12 @@ state_sls_graphite-carbon:
     - require:
       - salt:      state_sls_salt-minion
 
-#-------------------------------------------------------------------------------
-# TODO: this will not work until pillar['roles'] can be passed
-#-------------------------------------------------------------------------------
-
-#state_sls_orchestrate_graphite-carbon:
-# salt.state:
-#   - tgt:        'G:environment:{{ environment }} and not G@roles:graphite-carbon'
-#   - tgt_type:    compound
-#   - sls:         orchestrate
-#   - require:
-#     - salt:      state_sls_graphite-carbon
+state_sls_graphite-carbon_orchestrate:
+  salt.state:
+    - tgt:        'G@environment:{{ environment }} and not G@roles:graphite-carbon'
+    - tgt_type:    compound
+    - sls:         orchestrate
+    - pillar:
+        related: {'roles': ['graphite-carbon']}
+    - require:
+      - salt:      state_sls_graphite-carbon

@@ -1,5 +1,5 @@
 {% set host    = salt['config.get']('host') -%}
-{% set minions = salt['roles.list_minions']('redis-server') -%}
+{% set minions = salt['roles.dict']('redis-server') -%}
 {
   "checks": {
     "check-process-redis-server": {

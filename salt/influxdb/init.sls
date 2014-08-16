@@ -7,9 +7,9 @@ influxdb:
   pkg.installed:
     - sources:
      {% if   salt['config.get']('os_family') == 'RedHat' %}
-      - influxdb: http://s3.amazonaws.com/influxdb/influxdb-{{ version }}-1.{{ osarch }}.rpm
+      - influxdb:  http://s3.amazonaws.com/influxdb/influxdb-{{ version }}-1.{{ osarch }}.rpm
      {% elif salt['config.get']('os_family') == 'Debian' %}
-      - influxdb: http://s3.amazonaws.com/influxdb/influxdb_{{ version }}_{{ osarch }}.deb
+      - influxdb:  http://s3.amazonaws.com/influxdb/influxdb_{{ version }}_{{ osarch }}.deb
      {% endif %}
   service.running:
     - enable:      True
@@ -27,3 +27,16 @@ influxdb:
       - pkg:       influxdb
     - watch_in:
       - service:   influxdb
+
+{% if not salt['environ.get']('bootstrap') == 'true' %}
+
+graphite:
+  influxdb_database.present:
+    - user:        root
+    - password:    root
+    - host:        localhost
+    - port:        8086
+    - require:
+      - service:   influxdb
+
+{% endif %}

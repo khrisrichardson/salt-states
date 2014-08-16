@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-process-kubernetes-controller-manager": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p kubernetes-controller-manager -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

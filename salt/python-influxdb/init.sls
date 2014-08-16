@@ -5,5 +5,6 @@ include:
 
 python-influxdb:
   pip.installed:
+    - name:        influxdb
     - require:
       - pkg:       python-pip

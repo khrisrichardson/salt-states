@@ -1,4 +1,4 @@
-{% set minions = salt['roles.list_minions']('rsyslog') -%}
+{% set minions = salt['roles.dict']('rsyslog') -%}
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration PUBLIC "-//LOGGER" "log4j.dtd">
 
