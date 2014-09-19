@@ -9,6 +9,8 @@ ssh-keygen -q -N '' -t rsa -b 2048 -f /home/ceph/.ssh/id_rsa:
   cmd.run:
     - user:        ceph
     - unless:      test -f /home/ceph/.ssh/id_rsa
+    - require:
+      - file:     /home/ceph/.ssh
 
 /home/ceph/.ssh/config:
   file.managed:
@@ -25,7 +27,7 @@ cp.push /home/ceph/.ssh/id_rsa.pub:
     - name:        cp.push
     - path:       /home/ceph/.ssh/id_rsa.pub
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - watch:

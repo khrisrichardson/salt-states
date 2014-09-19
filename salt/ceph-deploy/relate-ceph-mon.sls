@@ -13,6 +13,8 @@ include:
 {{ minion }}:
   ssh_known_hosts.present:
     - user:        ceph
+    - require:
+      - file:     /home/ceph/.ssh
     - require_in:
       - cmd:       ceph-deploy --cluster {{ cluster }} install {{ minion }}
 

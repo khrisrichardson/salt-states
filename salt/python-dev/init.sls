@@ -1,4 +1,5 @@
 # vi: set ft=yaml.jinja :
 
 python-dev:
-  pkg.installed:   []
+  pkg.installed:
+    - name:     {{ salt['config.get']('python-dev:pkg:name') }}

@@ -1,5 +1,13 @@
 # vi: set ft=yaml.jinja :
 
+{% set roles = [] %}
+{% do  roles.append('graphite-carbon') %}
+{% do  roles.append('influxdb') %}
+{% set minions = salt['roles.dict'](roles) %}
+
+{% if minions['graphite-carbon']
+   or minions['influxdb'] %}
+
 include:
   - .depend-logrotate
 {% if salt['config.get']('os_family') == 'RedHat' %}
@@ -7,8 +15,7 @@ include:
 {% endif %}
 
 collectd:
-  pkg:
-    - installed
+  pkg.installed:
     - order:      -1
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - enablerepo:  rpmforge-testing
@@ -28,3 +35,14 @@ collectd:
     - mode:       '0755'
     - require:
       - pkg:       collectd
+
+{% else %}
+
+collectd:
+  pkg.removed:     []
+  service.dead:
+    - enable:      False
+    - require_in:
+      - pkg:       collectd
+
+{% endif %}

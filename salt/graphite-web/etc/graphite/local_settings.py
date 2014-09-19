@@ -115,9 +115,9 @@ USE_LDAP_AUTH = True
 #LDAP_PORT       =  636
 #	OR
 LDAP_URI         = "ldaps://{{ salt['config.get']('ldap:server') }}:{{ salt['config.get']('ldap:port', '636') }}"
-LDAP_SEARCH_BASE = "{{ salt['config.get']('ldap:basedn') }}"
-LDAP_BASE_USER   = "{{ salt['config.get']('ldap:binddn') }}"
-LDAP_BASE_PASS   = "{{ salt['config.get']('ldap:bindpw') }}"
+LDAP_SEARCH_BASE = "{{  salt['config.get']('ldap:basedn') }}"
+LDAP_BASE_USER   = "{{  salt['config.get']('ldap:binddn') }}"
+LDAP_BASE_PASS   = "{{  salt['config.get']('ldap:bindpw') }}"
 LDAP_USER_QUERY  = "({{ salt['config.get']('ldap:uid', 'uid') }}=%s)"  #For Active Directory use "(sAMAccountName=%s)"
 #
 # If you want to further customize the ldap connection options you should

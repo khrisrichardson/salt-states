@@ -15,8 +15,11 @@ include:
   -  cloudera-cm5-agent
   {% else %}
   -  hbase
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
+  -  oracle-j2sdk1_7
+  {% elif salt['config.get']('os_family') == 'Debian' %}
   -  oracle-java7-installer
-  -  oracle-java7-set-default
+  {% endif %}
   {% endif %}
 
 {% if minions['cloudera-cm4-server']
@@ -35,7 +38,7 @@ hbase-regionserver:
 
 hbase-regionserver:
   pkg.installed:
-   {% if   salt['config.get']('os') == 'Ubuntu' %}
+   {% if salt['config.get']('os') == 'Ubuntu' %}
     - fromrepo: {{ codename }}-{{ version }}
    {% endif %}
     - require:
@@ -46,5 +49,7 @@ hbase-regionserver:
     - watch:
       - pkg:       hbase-regionserver
       - file:     /etc/hbase/conf.dist/hbase-site.xml
+      - file:     /etc/security/limits.d/hbase.conf
+      - file:     /usr/bin/java
 
 {% endif %}

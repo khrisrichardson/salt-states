@@ -11,6 +11,9 @@ docker run {{ psls }}:
     - name:     {{ psls }}
     - image:    {{ psls }}:latest
     - volumes:
+      - /srv/pillar
+      - /srv/reactor
+      - /srv/salt
       - /var/cache/salt/master
     - watch:
       - docker:    docker build {{ psls }}

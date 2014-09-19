@@ -3,6 +3,7 @@
 openssh-client:
   pkg.installed:
     - order:      -1
+    - name:     {{ salt['config.get']('openssh-client:pkg:name') }}
 
 /root/.ssh:
   file.directory:

@@ -1,0 +1,19 @@
+postfix	postfix/bad_recipient_delimiter		error	
+postfix	postfix/chattr				boolean	false
+postfix	postfix/kernel_version_warning		boolean	
+postfix	postfix/mailbox_limit			string	0
+postfix	postfix/mailname			string	localhost
+postfix	postfix/main_mailer_type		select	Local only
+postfix	postfix/mydomain_warning		boolean	
+postfix	postfix/mynetworks			string	127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+postfix	postfix/not_configured			error	
+postfix	postfix/procmail			boolean	false
+postfix	postfix/protocols			select	all
+postfix	postfix/recipient_delim			string	+
+postfix	postfix/relay_restrictions_warning	boolean	
+postfix	postfix/relayhost			string	
+postfix	postfix/retry_upgrade_warning		boolean	
+postfix	postfix/rfc1035_violation		boolean	false
+postfix	postfix/root_address			string	
+postfix	postfix/sqlite_warning			boolean	
+postfix	postfix/tlsmgr_upgrade_warning		boolean	

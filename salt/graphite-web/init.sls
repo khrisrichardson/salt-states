@@ -3,7 +3,6 @@
 {% set etc = salt['config.get']('/etc/graphite:file:name') %}
 
 include:
-# - .depend-apache2
   - .depend-nginx
   - .depend-sqlite3
   -  graphite-carbon

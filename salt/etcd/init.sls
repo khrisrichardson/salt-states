@@ -19,7 +19,7 @@ include:
     - group:       root
     - mode:       '0644'
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - require:
@@ -33,7 +33,7 @@ include:
     - group:       root
     - mode:       '0644'
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - require:

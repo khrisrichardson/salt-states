@@ -4,6 +4,7 @@
 
 include:
   - .depend-git
+  -  debianutils
   -  elasticsearch
   -  gradle
 
@@ -17,7 +18,9 @@ gradle jar:
   cmd.wait:
     - order:      -1
     - cwd:        /usr/share/elasticsearch/bin
+    - unless:      test -d /usr/share/elasticsearch/plugins/newrelic
     - require:
+      - pkg:       debianutils
       - pkg:       elasticsearch
     - watch:
       - cmd:       gradle jar

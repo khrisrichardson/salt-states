@@ -5,6 +5,7 @@
 {# set version = 'v0.4.3' #}
 
 include:
+  -  tar
   -  wget
 
 #/usr/share/etcd-{{ version }}-linux-amd64:
@@ -23,6 +24,7 @@ include:
                  )
     - unless:      test -d /usr/share/etcd-{{ version }}-linux-amd64
     - require:
+      - pkg:       tar
       - pkg:       wget
 
 /usr/share/etcd:

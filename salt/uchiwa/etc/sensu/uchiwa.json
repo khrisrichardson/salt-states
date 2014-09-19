@@ -1,0 +1,26 @@
+{% set minions = salt['roles.dict']('sensu-api') -%}
+{
+  {% if minions['sensu-api'] -%}
+    "sensu": [
+        {% for minion in minions['sensu-api'] -%}
+        {
+            "name"    : "Sensu",
+            "host"    : "{{ minion }}",
+            "ssl"     :  false,
+            "port"    :  4567,
+            "user"    : "",
+            "pass"    : "",
+            "path"    : "",
+            "timeout" :  5000
+        }{% if not loop.last %},{% endif -%}
+        {% endfor -%}
+    ],
+  {% endif -%}
+    "uchiwa": {
+        "user"        : "",
+        "pass"        : "",
+        "port"        :  3000,
+        "stats"       :  10,
+        "refresh"     :  10000
+    }
+}

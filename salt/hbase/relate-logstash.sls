@@ -2,10 +2,10 @@
 
 {# set minions = salt['roles.dict']('logstash') #}
 
-{# if minions['logstash'] #}
-
 #include:
 # -  hbase
+
+{# if minions['logstash'] #}
 
 #/etc/hbase/conf.dist/log4j.properties:
 # file.append:

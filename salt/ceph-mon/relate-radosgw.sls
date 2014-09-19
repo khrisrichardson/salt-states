@@ -33,7 +33,7 @@ cp.push /var/lib/ceph/bootstrap-radosgw/{{ cluster }}.keyring:
     - name:        cp.push
     - path:       /var/lib/ceph/bootstrap-radosgw/{{ cluster }}.keyring
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - watch:

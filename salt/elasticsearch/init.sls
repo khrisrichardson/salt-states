@@ -3,8 +3,13 @@
 {% set version = '1.3' %}
 
 include:
-  -  oracle-java7-installer
+  -  debianutils
   -  python-apt
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
+  -  oracle-j2sdk1_7
+  {% elif salt['config.get']('os_family') == 'Debian' %}
+  -  oracle-java7-installer
+  {% endif %}
 
 elasticsearch:
   pkgrepo.managed:
@@ -28,7 +33,8 @@ elasticsearch:
     - enable:      True
     - reload:      True
     - require:
-      - pkg:       oracle-java7-installer
+      - pkg:       debianutils
+      - file:     /usr/bin/java
     - watch:
       - pkg:       elasticsearch
 

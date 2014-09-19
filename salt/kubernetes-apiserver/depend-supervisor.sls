@@ -1,10 +1,10 @@
 # vi: set ft=yaml.jinja :
 
 {% set psls  = sls.split('.')[0] %}
-{% set roles = [] -%}
-{% do  roles.append('etcd') -%}
-{% do  roles.append('kubernetes-kubelet') -%}
-{% set minions = salt['roles.dict'](roles) -%}
+{% set roles = [] %}
+{% do  roles.append('etcd') %}
+{% do  roles.append('kubernetes-kubelet') %}
+{% set minions = salt['roles.dict'](roles) %}
 
 include:
   -  kubernetes-apiserver
@@ -30,6 +30,6 @@ kubernetes-apiserver:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /usr/bin/supervisord
+    - require_in:
       - service:   supervisor

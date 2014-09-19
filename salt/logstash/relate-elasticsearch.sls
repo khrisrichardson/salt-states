@@ -3,11 +3,11 @@
 {% set minions = salt['roles.dict']('elasticsearch') %}
 {% set psls    = sls.split('.')[0] %}
 
-{% if minions['elasticsearch']
-   and 'logstash' in salt['config.get']('roles', []) %}
-
 include:
   -  logstash
+
+{% if   minions['elasticsearch']
+   and 'logstash' in salt['config.get']('roles', []) %}
 
 /etc/logstash/conf.d/output-elasticsearch.conf:
   file.managed:

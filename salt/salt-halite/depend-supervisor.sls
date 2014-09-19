@@ -14,7 +14,7 @@ extend:
     supervisord.running:
       - require:
         - pkg:     python-gevent
-        - file:   /etc/salt/master.d/halite.conf
+        - file:   /etc/salt/master.d/salt-halite.conf
       - watch:
         - service: salt-master
         - service: supervisor
@@ -31,6 +31,6 @@ extend:
     - context:
         py_lib: {{ py_lib }}
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /usr/bin/supervisord
+    - require_in:
       - service:   supervisor

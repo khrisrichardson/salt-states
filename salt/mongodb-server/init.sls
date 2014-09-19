@@ -3,7 +3,7 @@
 mongodb-server:
   pkg.installed:   []
   service.running:
-    - name:        mongodb
+    - name:     {{ salt['config.get']('mongodb-server:service:name') }}
     - enable:      True
     - reload:      True
     - watch:

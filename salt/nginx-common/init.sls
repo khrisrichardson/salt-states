@@ -1,9 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 nginx-common:
-{% if salt['config.get']('os_family') == 'Debian' %}
-  pkg.installed:   []
-{% endif %}
+  pkg.installed:
+    - name:     {{ salt['config.get']('nginx-common:pkg:name') }}
   service.running:
     - name:        nginx
     - enable:      True
@@ -23,6 +22,8 @@ nginx-common:
     - user:        root
     - group:       root
     - mode:       '0644'
+    - watch:
+      - pkg:       nginx-common
     - watch_in:
       - service:   nginx-common
 
@@ -37,6 +38,8 @@ nginx-common:
     - user:        root
     - group:       root
     - mode:       '0644'
+    - watch:
+      - pkg:       nginx-common
     - watch_in:
       - service:   nginx-common
 

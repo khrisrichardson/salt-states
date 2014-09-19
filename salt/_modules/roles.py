@@ -53,9 +53,12 @@ def dict_(roles=None,
                 ret[role] += [minion]
 
     if _subtype() == 'Docker' and out == 'ip':
-        ret = {role: [grains[minion].get('fqdn_ip4')[0]
-               for minion in minions]
-               for role, minions in ret.iteritems()}
+#       ret = {role: [grains[minion].get('fqdn_ip4')[0]
+#              for minion in minions]
+#              for role, minions in ret.iteritems()}
+        ret = dict((role, [grains[minion].get('fqdn_ip4')[0]
+                           for minion in minions])
+                   for (role, minions) in ret.iteritems())
 
     return ret
 
@@ -164,7 +167,8 @@ def tree(minion='', trunk=None, roles=None, saltenv=''):
     for role in roles:
         relations = _related_to_role(role, saltenv)
         _tree = tree(trunk=ret, roles=[r for r in relations if r != role])
-        ret[role] = {k: v for (k, v) in _tree.iteritems() if k not in ret}
+#       ret[role] = {k: v for (k, v) in _tree.iteritems() if k not in ret}
+        ret[role] = dict((k, v) for (k, v) in _tree.iteritems() if k not in ret)
 
     return ret
 
@@ -176,7 +180,9 @@ def _cp_list_states(*args):
     '''
     args = list(args)
 
-    if args[0]:
+    if __salt__['config.get']('environment') is None:
+        saltenv = 'base'
+    elif args[0]:
         saltenv = args[0]
     else:
         saltenv = _environment()
@@ -217,6 +223,8 @@ def _grains_via_mine(minion='', saltenv=''):
     '''
     if minion:
         ret = _grains_via_mine_on_minion(minion)
+    elif saltenv == 'all':
+        ret = _grains_via_mine_on_minion('*')
     else:
         ret = _grains_via_mine_in_env(saltenv)
 
@@ -267,6 +275,8 @@ def _grains_via_peer(minion='', saltenv=''):
     '''
     if minion:
         ret = _grains_via_peer_on_minion(minion)
+    elif saltenv == 'all':
+        ret = _grains_via_peer_on_minion('*')
     else:
         ret = _grains_via_peer_in_env(saltenv)
 
@@ -343,7 +353,9 @@ def _state_show_highstate(*args):
     '''
     args = list(args)
 
-    if args[0]:
+    if __salt__['config.get']('environment') is None:
+        saltenv = 'base'
+    elif args[0]:
         saltenv = args[0]
     else:
         saltenv = _environment()

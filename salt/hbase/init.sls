@@ -42,11 +42,40 @@ hbase:
     - watch:
       - pkg:       hbase
 
+{% if salt['config.get']('virtual_subtype') == 'Docker' %}
+
+/etc/security/limits.d/hbase.conf:
+  file.replace:
+    - pattern:  '^hbase - memlock unlimited'
+    - repl:     '#hbase - memlock unlimited'
+    - watch:
+      - pkg:       hbase
+
+{% else %}
+
+/etc/security/limits.d/hbase.conf:
+  file.managed:
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+    - watch:
+      - pkg:       hbase
+
+{% endif %}
+
 /usr/lib/hbase/bin/snapshot.rb:
   file.managed:
     - source:      salt://{{ sls }}/usr/lib/hbase/bin/snapshot.rb
     - user:        root
     - group:       root
     - mode:       '0644'
+    - require:
+      - pkg:       hbase
+
+/var/lib/hbase:
+  file.directory:
+    - user:        hbase
+    - group:       hbase
+    - mode:       '0755'
     - require:
       - pkg:       hbase

@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "check-http-uchiwa": {
+      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '3000' -p '/' -U 'admin' -a 'secret'",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-uchiwa": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'bin/uchiwa' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

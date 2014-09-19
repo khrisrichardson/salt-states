@@ -84,7 +84,7 @@ cp.push /etc/ceph/{{ cluster }}.client.admin.keyring:
     - name:        cp.push
     - path:       /etc/ceph/{{ cluster }}.client.admin.keyring
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - watch:
@@ -95,7 +95,7 @@ cp.push /var/lib/ceph/bootstrap-mds/{{ cluster }}.keyring:
     - name:        cp.push
     - path:       /var/lib/ceph/bootstrap-mds/{{ cluster }}.keyring
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - watch:
@@ -106,7 +106,7 @@ cp.push /var/lib/ceph/bootstrap-osd/{{ cluster }}.keyring:
     - name:        cp.push
     - path:       /var/lib/ceph/bootstrap-osd/{{ cluster }}.keyring
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - watch:

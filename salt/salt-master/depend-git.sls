@@ -4,9 +4,9 @@
 
 include:
   -  git
-  -  openssh-client
   -  openssh-client.known_hosts.github.com
   -  python-pygit2
+  -  salt-master
 
 /etc/salt/master.d/fileserver_backend.conf:
   file.managed:

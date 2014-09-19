@@ -13,7 +13,7 @@ include:
 skydns2:
   supervisord.running:
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - watch:
@@ -32,6 +32,6 @@ skydns2:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /usr/bin/supervisord
+    - require_in:
       - service:   supervisor

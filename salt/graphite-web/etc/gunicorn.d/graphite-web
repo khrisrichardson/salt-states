@@ -1,11 +1,11 @@
-{% set graphite_py  = salt['config.get']('saltpath') + '/../graphite' -%}
-{% set graphite_grp = salt['config.get']('graphite-web:group:name') -%}
-{% set graphite_usr = salt['config.get']('graphite-web:user:name') -%}
+{% set py  = salt['config.get']('saltpath') + '/../graphite' -%}
+{% set grp = salt['config.get']('graphite-web:group:name') -%}
+{% set usr = salt['config.get']('graphite-web:user:name') -%}
 CONFIG = {
     'mode'        :  'django',
-    'working_dir' :  '{{ graphite_py }}',
-    'user'        :  '{{ graphite_usr }}',
-    'group'       :  '{{ graphite_grp }}',
+    'working_dir' :  '{{ py }}',
+    'user'        :  '{{ usr }}',
+    'group'       :  '{{ grp }}',
     'args'        : (
                    '--bind=unix:/var/run/gunicorn/graphite-web.sock',
                    '--workers={{ (salt['config.get']('num_cpus') * 2) + 1 }}',

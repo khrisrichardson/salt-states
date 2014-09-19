@@ -9,11 +9,11 @@ include:
 mvn dependency:copy org.jmxtrans.agent:jmxtrans-agent:
   cmd.run:
     - cwd:        /opt/jmxtrans
-    - name:     . /etc/profile && mvn
+    - name:       'true'
     - unless:   . /etc/profile && mvn | egrep -q 'already (exists|unpacked)'
     - require:
-      - pkg:       maven
       - file:     /opt/jmxtrans/lib
+      - file:     /usr/bin/mvn
     - watch:
       - file:     /opt/jmxtrans/pom.xml
 

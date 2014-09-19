@@ -32,8 +32,8 @@ extend:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /usr/bin/supervisord
+    - require_in:
       - service:   supervisor
 
 {% endif %}

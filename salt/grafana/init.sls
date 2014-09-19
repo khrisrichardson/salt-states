@@ -3,10 +3,10 @@
 {% set environment =  salt['grains.get']('environment') %}
 {% set url         = 'https://raw.githubusercontent.com/grafana/grafana/master/latest.json' %}
 {% set version     =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())["version"]') %}
-{# set version     = '1.5.4' #}
 
 include:
   - .depend-nginx
+  -  tar
   -  wget
 
 #/usr/share/grafana-{{ version }}:
@@ -25,6 +25,7 @@ include:
                  )
     - unless:      test -d /usr/share/grafana-{{ version }}
     - require:
+      - pkg:       tar
       - pkg:       wget
 
 /usr/share/grafana:
@@ -67,7 +68,7 @@ include:
     - group:       root
     - mode:       '0664'
     - unless:    |-
-                 ( echo  "${bootstrap}"                                        \
+                 ( echo    "${bootstrap}"                                      \
                  | grep -q "true"
                  )
     - watch:

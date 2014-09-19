@@ -6,6 +6,9 @@ include:
   -  python-etcd
   -  python-psutil
   -  salt-common
+  {% if salt['config.get']('os_family') == 'RedHat' %}
+  -  epel-release
+  {% endif %}
 
 salt-minion:
   pkg.installed:
@@ -14,6 +17,10 @@ salt-minion:
                  ( salt-minion --version                                       \
                  | egrep -q '....\..\..+-'
                  )
+   {% if salt['config.get']('os_family') == 'RedHat' %}
+    - require:
+      - pkgrepo:   epel-testing
+   {% endif %}
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
   service.dead:
     - enable:      False

@@ -5,8 +5,6 @@
 bash:
   pkg:
     name:          setup
-  service:
-    name:          setup
 
 /etc/bash.bashrc:
   file:
@@ -16,8 +14,6 @@ bash:
 
 bash:
   pkg:
-    name:          bash
-  service:
     name:          bash
 
 /etc/bash.bashrc:

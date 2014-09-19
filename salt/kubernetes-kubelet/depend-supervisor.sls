@@ -1,7 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set psls    = sls.split('.')[0] %}
-{% set minions = salt['roles.dict']('etcd') -%}
+{% set minions = salt['roles.dict']('etcd') %}
 
 include:
   -  kubernetes-kubelet
@@ -26,6 +26,6 @@ kubernetes-kubelet:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /usr/bin/supervisord
+    - require_in:
       - service:   supervisor

@@ -2,10 +2,10 @@
 
 {% set minions = salt['roles.dict']('elasticsearch') %}
 
-{% if minions['elasticsearch'] %}
-
 include:
   -  kibana
+
+{% if minions['elasticsearch'] %}
 
 /usr/share/kibana/config.js:
   file.replace:

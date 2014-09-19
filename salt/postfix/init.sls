@@ -1,10 +1,26 @@
 # vi: set ft=yaml.jinja :
 
+{% if salt['config.get']('os_family') == 'Debian' %}
+
+include:
+  -  debconf-utils
+
+{% endif %}
+
 postfix:
+{% if salt['config.get']('os_family') == 'Debian' %}
+  debconf.set_file:
+    - source:      salt://{{ sls }}/pkg.selections
+    - require:
+      - pkg:       debconf-utils
+    - require_in:
+      - pkg:       postfix
+{% endif %}
   pkg.installed:   []
   service.running:
     - enable:      True
     - reload:      True
+    - sig:      {{ salt['config.get']('/usr/lib/postfix:file:name') }}/master
     - watch:
       - pkg:       postfix
 

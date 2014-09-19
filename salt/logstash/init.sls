@@ -3,10 +3,15 @@
 {% set version = '1.4' %}
 
 include:
+  -  debianutils
   -  libzmq3-dev
-  -  oracle-java7-installer
   -  python-apt
   -  ruby-ffi-rzmq
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
+  -  oracle-j2sdk1_7
+  {% elif salt['config.get']('os_family') == 'Debian' %}
+  -  oracle-java7-installer
+  {% endif %}
 
 logstash:
   pkgrepo.managed:
@@ -31,7 +36,8 @@ logstash:
     - order:      -1
     - enable:      True
     - require:
-      - pkg:       oracle-java7-installer
+      - pkg:       debianutils
+      - file:     /usr/bin/java
      {% if salt['config.get']('os_family') == 'Debian' %}
       - pkg:       ruby-ffi-rzmq
      {% endif %}

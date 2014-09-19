@@ -1,5 +1,7 @@
 # vi: set ft=yaml.jinja :
 
+{% set psls = sls.split('.')[0] %}
+
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 
 include:
@@ -21,8 +23,8 @@ extend:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /usr/bin/supervisord
+    - require_in:
       - service:   supervisor
 
 {% endif %}

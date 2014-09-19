@@ -9,7 +9,6 @@
 
 rpmforge:
   pkgrepo.managed:
-    - name:        rpmforge
     - file:       /etc/yum.repos.d/rpmforge.repo
     - gpgkey:      file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
     - humanname:   RHEL $releasever - RPMforge.net - dag
@@ -23,7 +22,6 @@ rpmforge:
 
 rpmforge-extras:
   pkgrepo.managed:
-    - name:        rpmforge-extras
     - file:       /etc/yum.repos.d/rpmforge-extras.repo
     - gpgkey:      file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
     - humanname:   RHEL $releasever - RPMforge.net - extras
@@ -37,7 +35,6 @@ rpmforge-extras:
 
 rpmforge-testing:
   pkgrepo.managed:
-    - name:        rpmforge-testing
     - file:       /etc/yum.repos.d/rpmforge-testing.repo
     - gpgkey:      file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
     - humanname:   RHEL $releasever - RPMforge.net - testing

@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 include:
+  -  bash
   -  openssh-server.relate-nagios3
 
 extend:
@@ -12,8 +13,7 @@ extend:
         - user:    nagios
 
 nagios-plugins-basic:
-  pkg:
-    - installed
+  pkg.installed:
     - order:      -1
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - names:
@@ -26,7 +26,8 @@ nagios:
   user.present:
     - order:      -1
     - shell:      /bin/bash
-    - watch:
+    - require:
+      - pkg:       bash
       - pkg:       nagios-plugins-basic
 
 /home/nagios/libexec:

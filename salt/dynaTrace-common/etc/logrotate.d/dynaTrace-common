@@ -1,8 +1,8 @@
 /opt/dynatrace/log/server/* {
-    copytruncate
-    weekly
-    rotate 52
     compress
-    missingok
+    copytruncate
     create 640 root root
+    missingok
+    rotate 52
+    weekly
 }

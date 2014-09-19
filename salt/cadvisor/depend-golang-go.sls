@@ -7,6 +7,7 @@ include:
   -  golang-go
   -  gomock
   -  libc6-dev
+  -  mercurial
 
 go get cadvisor:
   cmd.run:
@@ -19,4 +20,5 @@ go get cadvisor:
       - pkg:       git
       - pkg:       golang-go
       - pkg:       libc6-dev
+      - pkg:       mercurial
       - cmd:       go get gomock

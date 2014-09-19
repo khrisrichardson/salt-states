@@ -6,19 +6,23 @@ include:
   -  hadoop-hdfs.depend-e2fsprogs
   -  hadoop-hdfs.depend-mount
   -  hadoop-hdfs.depend-parted
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
   -  oracle-j2sdk1_6
+  {% elif salt['config.get']('os_family') == 'Debian' %}
+  -  oracle-java6-installer
+  {% endif %}
 
 cloudera-cm4-agent:
   pkg.installed:
     - name:        cloudera-manager-agent
     - require:
       - pkgrepo:   cloudera-cm4
-      - pkg:       oracle-j2sdk1_6
   service.running:
     - name:        cloudera-scm-agent
     - enable:      True
     - watch:
       - pkg:       cloudera-cm4-agent
+      - file:     /usr/bin/java
 
 /etc/cloudera-scm-agent/config.ini:
   file.managed:

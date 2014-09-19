@@ -7,13 +7,19 @@ include:
   -  jenkins-common
   -  maven
   -  openssh-client.known_hosts.github.com
-  -  oracle-java7-installer
   -  wget
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
+  -  oracle-j2sdk1_7
+  {% elif salt['config.get']('os_family') == 'Debian' %}
+  -  oracle-java7-installer
+  {% endif %}
 
 extend:
   github.com:
     ssh_known_hosts:
       - user:      jenkins
+      - require:
+        - pkg:     jenkins
 
 jenkins:
   pkg.installed:   []
@@ -21,6 +27,7 @@ jenkins:
     - enable:      True
     - watch:
       - pkg:       jenkins
+      - file:     /usr/bin/java
 
 /var/lib/jenkins/.ssh:
   file.directory:

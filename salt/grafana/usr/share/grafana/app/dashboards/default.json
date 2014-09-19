@@ -96,7 +96,7 @@
               "function": "mean",
               "series":   "",
               "column":   "value",
-              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.disk-.*\\..*\\..*/ where [[timeFilter]]",
+              "query":    "SELECT MEAN(value) AS value_mean FROM /{{ host }}\\.system\\.disk-.*\\..*\\..*/ WHERE time > now() - 1h GROUP BY time(10s) ORDER ASC",
               "rawQuery":  true
             {% endif -%}
             }
@@ -170,7 +170,7 @@
               "function": "mean",
               "series":   "",
               "column":   "value",
-              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.load\\.load\\..*/ where [[timeFilter]]",
+              "query":    "SELECT MEAN(value) AS value_mean FROM /{{ host }}\\.system\\.load\\.load\\..*/ WHERE time > now() - 1h GROUP BY time(10s) ORDER ASC",
               "rawQuery":  true
             {% endif -%}
             }
@@ -241,7 +241,7 @@
               "function": "mean",
               "series":   "",
               "column":   "value",
-              "query":    "select mean(value) as value_mean from /{{ host }}\\.system\\.memory\\..*/ where [[timeFilter]]",
+              "query":    "SELECT MEAN(value) AS value_mean FROM /{{ host }}\\.system\\.memory\\..*/ WHERE time > now() - 1h GROUP BY time(10s) ORDER ASC",
               "rawQuery":  true
             {% endif -%}
             }
@@ -270,7 +270,21 @@
       "type": "annotations",
       "enable": true,
       "annotations": [
-        {% if minions['graphite-web'] -%}
+        {% if   minions['influxdb'] -%}
+        {
+          "name": "deploy",
+          "datasource": "influxdb_1",
+          "showLine": true,
+          "iconColor": "#C0C6BE",
+          "lineColor": "rgba(255, 96, 96, 0.592157)",
+          "iconSize": 13,
+          "enable": true,
+          "query": "SELECT text FROM events WHERE tags = 'deploy'",
+          "tagsColumn": "tags",
+          "titleColumn": "title",
+          "textColumn": "text"
+        }
+        {% elif minions['graphite-web'] -%}
         {
           "name": "deploy",
           "type": "graphite events",

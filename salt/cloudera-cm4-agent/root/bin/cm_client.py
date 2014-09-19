@@ -1274,7 +1274,8 @@ class ServiceRoleConfigGroup(ApiRoleConfigGroup):
                             k in config._sections[section].iterkeys() if
                             k != '__name__')
 
-        if salt.function('roles.dict', 'graphite-web')['graphite-web']:
+        if (salt.function('roles.dict', 'graphite-carbon')['graphite-carbon'] or
+            salt.function('roles.dict', 'influxdb')['influxdb']):
             jar   = '/opt/jmxtrans/lib/jmxtrans-agent.jar'
             xml   = '/opt/jmxtrans/etc/' + file + '.xml'
             agent = ' -javaagent:' + jar + '=' + xml

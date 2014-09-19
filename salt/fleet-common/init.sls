@@ -5,6 +5,7 @@
 {# set version = 'v0.5.0' #}
 
 include:
+  -  tar
   -  wget
 
 #/usr/share/fleet-{{ version }}-linux-amd64:
@@ -23,6 +24,7 @@ include:
                  )
     - unless:      test -d /usr/share/fleet-{{ version }}-linux-amd64
     - require:
+      - pkg:       tar
       - pkg:       wget
 
 /usr/share/fleet:

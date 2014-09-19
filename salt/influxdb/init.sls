@@ -3,6 +3,9 @@
 {% set osarch  =  salt['config.get']('osarch') %}
 {% set version = 'latest' %}
 
+include:
+  -  sudo
+
 influxdb:
   pkg.installed:
     - sources:
@@ -13,6 +16,8 @@ influxdb:
      {% endif %}
   service.running:
     - enable:      True
+    - require:
+      - pkg:       sudo
     - watch:
       - pkg:       influxdb
 

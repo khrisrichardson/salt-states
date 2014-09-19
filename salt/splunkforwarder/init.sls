@@ -5,8 +5,8 @@
 #-------------------------------------------------------------------------------
 
 splunkforwarder:
-  pkg:
-    - installed
+  pkg.installed:
+    - order:      -1
    {% if   salt['config.get']('os_family') == 'Debian' %}
     - sources:
       - splunkforwarder: salt://{{ sls }}/splunkforwarder-6.0-182037-linux-2.6-amd64.deb

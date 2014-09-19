@@ -12,9 +12,7 @@ mesos-master:
   supervisord.running:
     - watch:
       - pkg:       mesos
-      - cmd:       mesos
       - service:   supervisor
-      - service:   zookeeperd
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:
@@ -24,8 +22,8 @@ mesos-master:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /usr/bin/supervisord
+    - require_in:
       - service:   supervisor
 
 {% endif %}

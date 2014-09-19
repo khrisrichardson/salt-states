@@ -25,6 +25,7 @@ extend:
       - group:  {{ salt['config.get']('graphite-web:group:name') }}
       - watch:
         - pkg:     graphite-web
+        - pkg:     nginx
 
 /etc/gunicorn.d/{{ psls }}:
   file.managed:
@@ -52,10 +53,10 @@ extend:
     - require:
       - pkg:       graphite-web
       - pkg:       gunicorn
-      - pkg:       supervisor
+      - file:     /usr/bin/supervisord
       - file:     /var/log/gunicorn
       - file:     /var/run/gunicorn
-    - watch_in:
+    - require_in:
       - service:   supervisor
 
 {% endif %}

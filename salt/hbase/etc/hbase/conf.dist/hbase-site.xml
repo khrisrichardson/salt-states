@@ -41,6 +41,14 @@
     <name>hbase.cluster.distributed</name>
     <value>false</value>
   </property>
+  <property>
+    <name>hbase.rootdir</name>
+    <value>file:///var/lib/hbase</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.property.dataDir</name>
+    <value>/var/lib/zookeeper</value>
+  </property>
   {% endif -%}
   <property>
     <name>hbase.snapshot.enabled</name>

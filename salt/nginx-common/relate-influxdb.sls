@@ -12,9 +12,9 @@ include:
 {% if minions['graphite-carbon']
    or minions['influxdb'] %}
 
-/etc/collectd.d/{{ psls }}.conf:
+/etc/collectd.d/input-{{ psls }}.conf:
   file.managed:
-    - source:      salt://{{ psls }}/etc/collectd.d/{{ psls }}.conf
+    - source:      salt://{{ psls }}/etc/collectd.d/input-{{ psls }}.conf
     - user:        root
     - group:       root
     - mode:       '0644'
@@ -25,7 +25,7 @@ include:
 
 {% else %}
 
-/etc/collectd.d/{{ psls }}.conf:
+/etc/collectd.d/input-{{ psls }}.conf:
   file.absent:
     - watch_in:
       - service:   collectd

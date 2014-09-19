@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 include:
+  -  bash
   -  python-apt
 
 git-core:
@@ -22,6 +23,8 @@ git:
     - home:       /home/git
     - shell:      /bin/bash
     - createhome:  True
+    - require:
+      - pkg:       bash
 
 git config --global core.autocrlf input:
   cmd.wait:

@@ -4,6 +4,9 @@ include:
   - .depend-git
   - .depend-supervisor
   -  salt-common
+  {% if salt['config.get']('os_family') == 'RedHat' %}
+  -  epel-release
+  {% endif %}
 
 salt-master:
   pkg.installed:
@@ -12,6 +15,10 @@ salt-master:
                  ( salt-master --version                                       \
                  | egrep -q '....\..\..+-'
                  )
+   {% if salt['config.get']('os_family') == 'RedHat' %}
+    - require:
+      - pkgrepo:   epel-testing
+   {% endif %}
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
   service.dead:
     - enable:      False

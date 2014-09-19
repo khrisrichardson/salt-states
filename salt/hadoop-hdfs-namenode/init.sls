@@ -16,8 +16,12 @@ include:
   -  cloudera-cm5-agent
   {% else %}
   -  hadoop-hdfs
+  -  sudo
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
+  -  oracle-j2sdk1_7
+  {% elif salt['config.get']('os_family') == 'Debian' %}
   -  oracle-java7-installer
-  -  oracle-java7-set-default
+  {% endif %}
   {% endif %}
 
 {% if minions['cloudera-cm4-server']
@@ -45,6 +49,7 @@ hadoop-hdfs-namenode:
     - enable:      True
     - watch:
       - pkg:       hadoop-hdfs-namenode
+      - file:     /usr/bin/java
 
 sudo -u hdfs hdfs namenode -format:
   cmd.run:
@@ -56,6 +61,7 @@ sudo -u hdfs hdfs namenode -format:
                  )
     - require:
       - pkg:       hadoop-hdfs-namenode
+      - pkg:       sudo
     - require_in:
       - service:   hadoop-hdfs-namenode
 
@@ -63,6 +69,7 @@ sudo -u hdfs hadoop fs -mkdir /tmp:
   cmd.run:
     - unless:      sudo -u hdfs hadoop fs -ls -d /tmp
     - require:
+      - pkg:       sudo
       - service:   hadoop-hdfs-namenode
 
 sudo -u hdfs hadoop fs -chmod -R 1777 /tmp:

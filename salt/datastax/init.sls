@@ -1,5 +1,8 @@
 # vi: set ft=yaml.jinja :
 
+include:
+  -  python-apt
+
 datastax:
   pkgrepo.managed:
     - name:     {{ salt['config.get']('cassandra:pkgrepo:name') }}

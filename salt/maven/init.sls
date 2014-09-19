@@ -1,18 +1,55 @@
 # vi: set ft=yaml.jinja :
 
+{% set version = '3.2.3' %}
+
 include:
+  -  debianutils
+  -  tar
+  -  wget
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
+  -  oracle-j2sdk1_7
+  {% elif salt['config.get']('os_family') == 'Debian' %}
   -  oracle-java7-installer
-  -  oracle-java7-set-default
+  {% endif %}
+
+{% if   salt['config.get']('os_family') == 'RedHat' %}
+
+/usr/share/apache-maven-{{ version }}:
+  cmd.run:
+    - cwd:        /usr/share
+    - name:      |-
+                 ( wget -O - http://www.dsgnwrld.com/am/maven/maven-3/{{ version }}/binaries/apache-maven-{{ version }}-bin.tar.gz \
+                 | tar  -zxvf -
+                 )
+    - unless:      test -d /usr/share/apache-maven-{{ version }}
+    - require:
+      - pkg:       tar
+      - pkg:       wget
+
+/usr/share/maven:
+  file.symlink:
+    - target:     /usr/share/apache-maven-{{ version }}
+    - watch:
+      - cmd:      /usr/share/apache-maven-{{ version }}
+
+mvn:
+  alternatives.install:
+    - link:       /usr/bin/mvn
+    - path:       /usr/share/maven/bin/mvn
+    - priority:    150
+    - watch:
+      - file:     /usr/share/maven
+    - watch_in:
+      - file:     /usr/bin/mvn
+
+{% elif salt['config.get']('os_family') == 'Debian' %}
 
 maven:
   pkg.installed:
-    - require:
-      - pkg:       oracle-java7-installer
-     {% if   salt['config.get']('os_family') == 'Debian' %}
-      - pkg:       oracle-java7-set-default
-     {% endif %}
-      - file:     /etc/profile.d/maven.sh
-      - file:     /root/.m2/settings.xml
+    - watch_in:
+      - file:     /usr/bin/mvn
+
+{% endif %}
 
 /etc/profile.d/maven.sh:
   file.managed:
@@ -30,3 +67,12 @@ maven:
     - group:       root
     - mode:       '0600'
     - makedirs:    True
+
+/usr/bin/mvn:
+  file.exists:
+    - require:
+      - pkg:       debianutils
+      - file:     /etc/profile.d/maven.sh
+      - file:     /root/.m2/settings.xml
+      - file:     /usr/bin/java
+      - file:     /usr/bin/javac

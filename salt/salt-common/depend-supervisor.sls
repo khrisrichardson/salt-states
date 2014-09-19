@@ -3,12 +3,14 @@
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 
 include:
+  -  bash
   -  supervisor
 
-/etc/bash.bashrc:
-  file.append:
-    - text:        ps -C supervisord &>- || supervisord &>-
-    - watch:
-      - pkg:       supervisor
+extend:
+  /etc/bash.bashrc:
+    file:
+      - text:    |-
+                   ps -C supervisord &>/dev/null \
+                      || supervisord -c /etc/supervisor/supervisord.conf &>/dev/null
 
 {% endif %}

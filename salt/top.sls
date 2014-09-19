@@ -13,6 +13,7 @@
 {% set environment = 'base' %}
 {% endif %}
 {% set roles       =  salt['config.get']('roles', []) %}
+{% set states      =  salt['cp.list_states']() %}
 
 {{ environment }}:
   '*':
@@ -38,6 +39,7 @@
    {% endif %}
 
 {% for role in roles %}
+{% if  role in states %}
 
 {% if environment %}
   'G@roles:{{ role }} and G@environment:{{ environment }}':
@@ -47,4 +49,5 @@
     - match: compound
     - {{ role }}
 
+{% endif %}
 {% endfor %}

@@ -2,10 +2,10 @@
 
 {% set url     = 'https://api.github.com/repos/elasticsearch/kibana/tags' %}
 {% set version =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("name")').split('v')[1] %}
-{# set version = '3.1.0' #}
 
 include:
   - .depend-nginx
+  -  tar
   -  wget
 
 #/usr/share/kibana-{{ version }}:
@@ -24,6 +24,7 @@ include:
                  )
     - unless:      test -d /usr/share/kibana-{{ version }}
     - require:
+      - pkg:       tar
       - pkg:       wget
 
 /usr/share/kibana:

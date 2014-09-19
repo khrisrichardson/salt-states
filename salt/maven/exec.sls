@@ -2,4 +2,4 @@ mvn:
   cmd.run:
     - name:     . /etc/profile && mvn
     - require:
-      - pkg:       maven
+      - file:     /usr/bin/mvn

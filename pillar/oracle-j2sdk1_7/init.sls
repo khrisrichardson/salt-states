@@ -4,7 +4,7 @@
 
 oracle-j2sdk1_7:
   pkg:
-    name:          jdk
+    name:          oracle-j2sdk1.7
 
 {% elif salt['config.get']('os_family') == 'Debian' %}
 

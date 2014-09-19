@@ -1,7 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 cobbler-common:
-  pkg.installed:   []
+  pkg.installed:
+    - name:     {{ salt['config.get']('cobbler-common:pkg:name') }}
 
 /var/lib/cobbler/config/profiles.d/salt.json:
   file.managed:

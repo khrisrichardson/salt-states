@@ -2,18 +2,27 @@
 
 include:
   -  python-apt
+  {% if salt['config.get']('os_family') == 'RedHat' %}
+  -  epel-release
+  {% endif %}
 
 lxc-docker:
+{% if salt['config.get']('os_family') == 'Debian' %}
   pkgrepo.managed:
     - name:        deb http://get.docker.io/ubuntu docker main
     - keyserver:   hkp://keyserver.ubuntu.com:80
     - keyid:       36A1D7869245C8950F966E92D8576A8BA88D21E9
     - require:
       - pkg:       python-apt
+{% endif %}
   pkg.installed:
     - name:     {{ salt['config.get']('lxc-docker:pkg:name') }}
     - require:
+     {% if   salt['config.get']('os_family') == 'RedHat' %}
+      - pkgrepo:   epel
+     {% elif salt['config.get']('os_family') == 'Debian' %}
       - pkgrepo:   lxc-docker
+     {% endif %}
   service.running:
     - name:        docker
     - enable:      True

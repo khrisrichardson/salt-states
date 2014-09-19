@@ -39,11 +39,7 @@ command_directory = /usr/sbin
 # daemon programs (i.e. programs listed in the master.cf file). This
 # directory must be owned by root.
 #
-{% if   salt['config.get']('os_family') == 'RedHat' -%}
-daemon_directory = /usr/libexec/postfix
-{% elif salt['config.get']('os_family') == 'Debian' -%}
-daemon_directory = /usr/lib/postfix
-{% endif -%}
+daemon_directory = {{ salt['config.get']('/usr/lib/postfix:file:name') }}
 
 # The data_directory parameter specifies the location of Postfix-writable
 # data files (caches, random numbers). This directory must be owned
@@ -648,29 +644,17 @@ debugger_command =
 # sendmail_path: The full pathname of the Postfix sendmail command.
 # This is the Sendmail-compatible mail posting interface.
 #
-{% if   salt['config.get']('os_family') == 'RedHat' -%}
-sendmail_path = /usr/sbin/sendmail.postfix
-{% elif salt['config.get']('os_family') == 'Debian' -%}
-sendmail_path = /usr/sbin/sendmail
-{% endif -%}
+sendmail_path = {{ salt['config.get']('/usr/sbin/sendmail:file:name') }}
 
 # newaliases_path: The full pathname of the Postfix newaliases command.
 # This is the Sendmail-compatible command to build alias databases.
 #
-{% if   salt['config.get']('os_family') == 'RedHat' -%}
-newaliases_path = /usr/bin/newaliases.postfix
-{% elif salt['config.get']('os_family') == 'Debian' -%}
-newaliases_path = /usr/bin/newaliases
-{% endif -%}
+newaliases_path = {{ salt['config.get']('/usr/bin/newaliases:file:name') }}
 
 # mailq_path: The full pathname of the Postfix mailq command.  This
 # is the Sendmail-compatible mail queue listing command.
 #
-{% if   salt['config.get']('os_family') == 'RedHat' -%}
-mailq_path = /usr/bin/mailq.postfix
-{% elif salt['config.get']('os_family') == 'Debian' -%}
-mailq_path = /usr/bin/mailq
-{% endif -%}
+mailq_path = {{ salt['config.get']('/usr/bin/mailq:file:name') }}
 
 # setgid_group: The group for mail submission and queue management
 # commands.  This must be a group name with a numerical group ID that
@@ -689,16 +673,8 @@ manpage_directory = /usr/share/man
 # sample_directory: The location of the Postfix sample configuration files.
 # This parameter is obsolete as of Postfix 2.1.
 #
-{% if   salt['config.get']('os_family') == 'RedHat' -%}
-sample_directory = /usr/share/doc/postfix-2.6.6/samples
-{% elif salt['config.get']('os_family') == 'Debian' -%}
-sample_directory = /usr/share/doc/postfix/examples
-{% endif -%}
+sample_directory = {{ salt['config.get']('/usr/share/doc/postfix/examples:file:name') }}
 
 # readme_directory: The location of the Postfix README files.
 #
-{% if   salt['config.get']('os_family') == 'RedHat' -%}
-readme_directory = /usr/share/doc/postfix-2.6.6/README_FILES
-{% elif salt['config.get']('os_family') == 'Debian' -%}
-readme_directory = /usr/share/doc/postfix
-{% endif -%}
+readme_directory = {{ salt['config.get']('/usr/share/doc/postfix:file:name') }}

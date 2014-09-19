@@ -4,7 +4,7 @@ set -x
 
 repository=https://github.com/khrisrichardson/salt-states.git
        ref=master
- minion_id=$( hostname -f )
+ minion_id=${HOSTNAME}
 
 export DEBIAN_FRONTEND=noninteractive
 export             PS4='$( date "+%s.%N ($LINENO) + " )'
@@ -15,9 +15,9 @@ export       bootstrap=true
 #   DESCRIPTION:  Core logic.
 #-------------------------------------------------------------------------------
 main() {
-    if ! which salt-call &>/dev/null
+    if ! test -f /usr/bin/salt-call
     then
-        apt_setup
+        pkg_setup
         salt_bootstrap "${@}"
         salt_master_setup
         salt_minion_setup
@@ -27,30 +27,42 @@ main() {
     salt_master_daemonize
     salt_call_state_highstate
     salt_cleanup
-    apt_cleanup
+    pkg_cleanup
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  apt_cleanup
+#          NAME:  pkg_cleanup
 #   DESCRIPTION:  Clear apt cache.
 #-------------------------------------------------------------------------------
-apt_cleanup() {
-  (
-    apt-get -y clean
-    apt-get -y autoclean
-    apt-get -y autoremove
-  ) &
+pkg_cleanup() {
+    if test -f /usr/bin/apt-get
+    then
+      (
+        apt-get -y clean
+        apt-get -y autoclean
+        apt-get -y autoremove
+      ) &
+    fi
+    if test -f /usr/bin/yum
+    then
+      (
+        yum clean all
+      ) &
+    fi
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  apt_setup
+#          NAME:  pkg_setup
 #   DESCRIPTION:  Configure apt to use caching proxy.
 #-------------------------------------------------------------------------------
-apt_setup() {
-    cat > /etc/apt/apt.conf.d/30proxy                                   <<-EOF
+pkg_setup() {
+    if [ -d   /etc/apt/apt.conf.d ]
+    then
+        cat > /etc/apt/apt.conf.d/30proxy                               <<-EOF
 	Acquire::http::Proxy "http://172.17.42.1:3142";
 	Acquire::http::Proxy::download.oracle.com "DIRECT";
 	EOF
+    fi
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
@@ -65,11 +77,25 @@ salt_bootstrap() {
     else
         url="https://bootstrap.saltstack.com"
     fi
-    python3                                                             <<-EOF
+    if test -f /usr/bin/python3
+    then
+        python3                                                         <<-EOF
 	import urllib.request
 	urllib.request.urlretrieve("${url}", "bootstrap-salt.sh")
 	EOF
-    bash bootstrap-salt.sh -MX -p python-git "${@}"                            \
+    else
+        python -c "import urllib; print urllib.urlopen('${url}').read()"       \
+      > bootstrap-salt.sh
+    fi
+    if test -f /usr/bin/apt-get
+    then
+        pkg=python-git
+    fi
+    if test -f /usr/bin/yum
+    then
+        pkg=GitPython
+    fi
+    bash bootstrap-salt.sh -MX -p ${pkg} "${@}"                                \
  || true
 }
 
@@ -88,7 +114,8 @@ salt_call_state_highstate() {
         fi
     salt-call grains.setval environment ${environment} --local
     fi
-    salt-call state.highstate                                                  \
+    rm -f                                /var/log/salt/highstate 2>/dev/null
+    salt-call state.highstate --out-file=/var/log/salt/highstate               \
  || exit ${?}
 }
 
@@ -169,10 +196,15 @@ salt_master_cleanup() {
 salt_master_daemonize() {
     pkill salt-master &>/dev/null
           salt-master -d
-    until salt-call test.ping &>/dev/null
-    do
-        sleep 0.1
-    done
+    if test -f /usr/bin/salt-call
+    then
+        until salt-call test.ping &>/dev/null
+        do
+            sleep 0.1
+        done
+    else
+        exit 1
+    fi
 }
 
 #---  FUNCTION  ----------------------------------------------------------------
@@ -187,6 +219,7 @@ salt_master_setup() {
 
     cat >    /etc/salt/master.d/fileserver_backend.conf                 <<-EOF
 	fileserver_backend:
+	  - roots
 	  - git
 	  - minion
 
@@ -232,7 +265,10 @@ salt_minion_setup() {
 	EOF
 
     cat    > /etc/salt/minion.d/master.conf                             <<-EOF
-	master:            127.0.0.1
+	# vi: set ft=yaml.jinja :
+	
+	master:
+	- 127.0.0.1
 	EOF
 }
 

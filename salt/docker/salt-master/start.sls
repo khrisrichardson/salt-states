@@ -10,6 +10,15 @@ docker start {{ psls }}:
   docker.running:
     - container:     {{ psls }}
     - binds:
+        /srv/pillar:
+          bind:        /srv/pillar
+          ro:           true
+        /srv/reactor:
+          bind:        /srv/salt/salt-master/srv/reactor
+          ro:           true
+        /srv/salt:
+          bind:        /srv/salt
+          ro:           true
         /var/cache/salt/master:
           bind:        /var/cache/salt/master
           ro:           false

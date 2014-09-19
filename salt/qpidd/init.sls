@@ -1,7 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 qpidd:
-  pkg.installed:   []
+  pkg.installed:
+    - name:     {{ salt['config.get']('qpidd:pkg:name') }}
   service.running:
     - enable:      True
     - watch:

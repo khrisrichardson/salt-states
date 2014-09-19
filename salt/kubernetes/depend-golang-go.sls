@@ -3,6 +3,7 @@
 include:
   -  kubernetes.depend-git
   -  ca-certificates
+  -  debianutils
   -  git
   -  golang-go
   -  mercurial
@@ -25,6 +26,7 @@ go build kubernetes:
     - env:
       - GOPATH:   /usr/local
     - require:
+      - pkg:       debianutils
       - pkg:       golang-go
       - pkg:       mercurial
     - watch:

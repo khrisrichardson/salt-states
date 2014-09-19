@@ -4,7 +4,9 @@
 
 nginx-common:
   conf:
-    extension:     .conf
+    extension:    .conf
+  pkg:
+    name:          nginx
 
 /etc/nginx/sites-available:
   file:
@@ -15,6 +17,10 @@ nginx-common:
     name:         /etc/nginx/conf.d
 
 {% elif salt['config.get']('os_family') == 'Debian' %}
+
+nginx-common:
+  pkg:
+    name:          nginx-common
 
 /etc/nginx/sites-available:
   file:

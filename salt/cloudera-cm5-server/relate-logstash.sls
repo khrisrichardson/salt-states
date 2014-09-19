@@ -2,10 +2,10 @@
 
 {# set minions = salt['roles.dict']('logstash') #}
 
-{# if minions['logstash'] #}
-
 #include:
 # -  cloudera-cm5-server
+
+{# if minions['logstash'] #}
 
 #/etc/cloudera-scm-server/log4j.properties:
 # file.append:

@@ -2,10 +2,10 @@
 
 {# set minions = salt['roles.dict']('logstash') #}
 
-{# if minions['logstash'] #}
-
 #include:
 # -  hadoop
+
+{# if minions['logstash'] #}
 
 #/etc/hadoop/conf.empty/log4j.properties:
 # file.append:

@@ -1,5 +1,6 @@
 # vi: set ft=yaml.jinja :
 
+{% set devs     =  salt['cmd.run']('ls -1d /dev/{s,{u,x,}v}d{b..z} 2>/dev/null').split('\n') %}
 {% set codename =  salt['config.get']('lsb_distrib_codename') %}
 {% set codename = 'precise' %}
 {% set version  = 'cdh4' %}
@@ -15,8 +16,11 @@ include:
   -  cloudera-cm5-agent
   {% else %}
   -  hadoop-hdfs
+  {% if   salt['config.get']('os_family') == 'RedHat' %}
+  -  oracle-j2sdk1_7
+  {% elif salt['config.get']('os_family') == 'Debian' %}
   -  oracle-java7-installer
-  -  oracle-java7-set-default
+  {% endif %}
   {% endif %}
 
 {% if minions['cloudera-cm4-server']
@@ -44,10 +48,10 @@ hadoop-hdfs-journalnode:
     - enable:      True
     - watch:
       - pkg:       hadoop-hdfs-journalnode
+      - file:     /usr/bin/java
 
 {% endif %}
 
-{% set devs = salt['cmd.run']('ls -1d /dev/{s,{u,x,}v}d{b..z} 2>/dev/null').split('\n') %}
 {% for dev in devs %}
 {% if  dev %}
 

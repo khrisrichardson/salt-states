@@ -3,6 +3,7 @@
 {% set cluster = salt['grains.get']('environment', 'ceph') %}
 
 include:
+  -  bash
   -  ceph-common
   -  uuid-runtime
 
@@ -21,6 +22,7 @@ ceph:
     - gid:         501
     - uid:         501
     - require:
+      - pkg:       bash
       - group:     ceph
 
 /etc/ceph/{{ cluster }}.conf:

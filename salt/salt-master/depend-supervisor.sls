@@ -53,8 +53,8 @@ extend:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       supervisor
-    - watch_in:
+      - file:     /etc/supervisor/conf.d
+    - require_in:
       - service:   supervisor
 
 {% endif %}
