@@ -8,10 +8,10 @@ This package contains the api service
 
 ## Depends:
 
-  -  [ceilometer-common] (salt/ceilometer-common)
-  -  [haproxy] (salt/haproxy)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [ceilometer-common](salt/ceilometer-common)
+  -  [haproxy](salt/haproxy)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,7 +19,7 @@ This package contains the api service
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

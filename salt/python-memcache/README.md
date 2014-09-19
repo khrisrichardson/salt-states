@@ -10,7 +10,7 @@ This software is a 100% Python interface to the memcached memory cache daemon. I
 
 ## Reverse Depends:
 
-  -  [salt-minion] (salt/salt-minion)
+  -  [salt-minion](salt/salt-minion)
 
 ## Relates:
 

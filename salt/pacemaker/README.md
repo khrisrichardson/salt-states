@@ -10,7 +10,7 @@ It supports both the Heartbeat and Corosync cluster stacks.
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@ It supports both the Heartbeat and Corosync cluster stacks.
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

@@ -10,13 +10,13 @@ It is extremely configurable to support a wide variety of use cases. Most common
 
 ## Depends:
 
-  -  [nodejs] (salt/nodejs)
+  -  [nodejs](salt/nodejs)
 
 ## Reverse Depends:
 
-  -  [node-giraffe-web] (salt/node-giraffe-web)
-  -  [node-redis-commander] (salt/node-redis-commander)
-  -  [node-supervisor] (salt/node-supervisor)
+  -  [node-giraffe-web](salt/node-giraffe-web)
+  -  [node-redis-commander](salt/node-redis-commander)
+  -  [node-supervisor](salt/node-supervisor)
 
 ## Relates:
 

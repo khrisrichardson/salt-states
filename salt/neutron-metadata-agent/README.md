@@ -8,23 +8,23 @@ This package provides the metadata proxy agent.
 
 ## Depends:
 
-  -  [logstash] (salt/logstash)
-  -  [neutron-common] (salt/neutron-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [logstash](salt/logstash)
+  -  [neutron-common](salt/neutron-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
-  -  [neutron-dhcp-agent] (salt/neutron-dhcp-agent)
-  -  [neutron-l3-agent] (salt/neutron-l3-agent)
-  -  [neutron-vpn-agent] (salt/neutron-vpn-agent)
+  -  [neutron-dhcp-agent](salt/neutron-dhcp-agent)
+  -  [neutron-l3-agent](salt/neutron-l3-agent)
+  -  [neutron-vpn-agent](salt/neutron-vpn-agent)
 
 ## Relates:
 
-  -  [keystone] (salt/keystone)
-  -  [logstash] (salt/logstash)
-  -  [nova-api-metadata] (salt/nova-api-metadata)
-  -  [sensu-api] (salt/sensu-api)
+  -  [keystone](salt/keystone)
+  -  [logstash](salt/logstash)
+  -  [nova-api-metadata](salt/nova-api-metadata)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

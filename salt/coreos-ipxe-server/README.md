@@ -6,10 +6,10 @@
 
 ## Depends:
 
-  -  [curl] (salt/curl)
-  -  [nginx-common] (salt/nginx-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [curl](salt/curl)
+  -  [nginx-common](salt/nginx-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -17,8 +17,8 @@
 
 ## Relates:
 
-  -  [coreos] (salt/coreos)
-  -  [sensu-api] (salt/sensu-api)
+  -  [coreos](salt/coreos)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

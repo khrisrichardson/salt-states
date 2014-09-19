@@ -12,7 +12,7 @@ This package contains the header files, static libraries and symbolic links that
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

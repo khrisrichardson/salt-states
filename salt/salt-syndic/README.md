@@ -14,10 +14,10 @@ This particular package provides the master of masters for salt - it enables the
 
 ## Depends:
 
-  -  [epel-release] (salt/epel-release)
-  -  [salt-common] (salt/salt-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [epel-release](salt/epel-release)
+  -  [salt-common](salt/salt-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -25,7 +25,7 @@ This particular package provides the master of masters for salt - it enables the
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

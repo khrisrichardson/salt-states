@@ -20,7 +20,7 @@ urllib3 supports features left out of urllib and urllib2 libraries.
 
 ## Reverse Depends:
 
-  -  [python-etcd] (salt/python-etcd)
+  -  [python-etcd](salt/python-etcd)
 
 ## Relates:
 

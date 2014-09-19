@@ -8,15 +8,15 @@ The Carbon daemon processes the incoming time-series data and saves it as Whispe
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [graphite-web] (salt/graphite-web)
+  -  [graphite-web](salt/graphite-web)
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

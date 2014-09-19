@@ -8,10 +8,10 @@ This package provides the Trove taskmanager. The trove-taskmanager service does 
 
 ## Depends:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
-  -  [trove-common] (salt/trove-common)
+  -  [logstash](salt/logstash)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
+  -  [trove-common](salt/trove-common)
 
 ## Reverse Depends:
 
@@ -19,8 +19,8 @@ This package provides the Trove taskmanager. The trove-taskmanager service does 
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

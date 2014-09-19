@@ -12,7 +12,7 @@ Install this package on your compute nodes if you're using VMware vCenter.
 
 ## Depends:
 
-  -  [nova-compute] (salt/nova-compute)
+  -  [nova-compute](salt/nova-compute)
 
 ## Reverse Depends:
 

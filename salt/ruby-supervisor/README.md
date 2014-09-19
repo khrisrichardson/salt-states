@@ -10,7 +10,7 @@
 
 ## Reverse Depends:
 
-  -  [supervisor] (salt/supervisor)
+  -  [supervisor](salt/supervisor)
 
 ## Relates:
 

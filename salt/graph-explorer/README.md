@@ -6,9 +6,9 @@
 
 ## Depends:
 
-  -  [elasticsearch] (salt/elasticsearch)
-  -  [git] (salt/git)
-  -  [python-elasticsearch] (salt/python-elasticsearch)
+  -  [elasticsearch](salt/elasticsearch)
+  -  [git](salt/git)
+  -  [python-elasticsearch](salt/python-elasticsearch)
 
 ## Reverse Depends:
 

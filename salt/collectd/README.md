@@ -10,20 +10,20 @@ This package provides a full installation of the daemon, including the configura
 
 ## Depends:
 
-  -  [logrotate] (salt/logrotate)
-  -  [rpmforge-release] (salt/rpmforge-release)
-  -  [sensu-client] (salt/sensu-client)
+  -  [logrotate](salt/logrotate)
+  -  [rpmforge-release](salt/rpmforge-release)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [nginx-common] (salt/nginx-common)
-  -  [ntp] (salt/ntp)
+  -  [nginx-common](salt/nginx-common)
+  -  [ntp](salt/ntp)
 
 ## Relates:
 
-  -  [graphite-carbon] (salt/graphite-carbon)
-  -  [influxdb] (salt/influxdb)
-  -  [sensu-api] (salt/sensu-api)
+  -  [graphite-carbon](salt/graphite-carbon)
+  -  [influxdb](salt/influxdb)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

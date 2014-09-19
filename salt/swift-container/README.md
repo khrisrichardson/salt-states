@@ -10,9 +10,9 @@ This package provides the swift container server.
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
-  -  [swift] (salt/swift)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
+  -  [swift](salt/swift)
 
 ## Reverse Depends:
 
@@ -20,7 +20,7 @@ This package provides the swift container server.
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

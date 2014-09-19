@@ -10,11 +10,11 @@ Tar is a program for packaging a set of files as a single archive in tar format.
 
 ## Reverse Depends:
 
-  -  [etcd-common] (salt/etcd-common)
-  -  [fleet-common] (salt/fleet-common)
-  -  [grafana] (salt/grafana)
-  -  [kibana] (salt/kibana)
-  -  [maven] (salt/maven)
+  -  [etcd-common](salt/etcd-common)
+  -  [fleet-common](salt/fleet-common)
+  -  [grafana](salt/grafana)
+  -  [kibana](salt/kibana)
+  -  [maven](salt/maven)
 
 ## Relates:
 

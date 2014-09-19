@@ -8,7 +8,7 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 
 ## Depends:
 
-  -  [php5] (salt/php5)
+  -  [php5](salt/php5)
 
 ## Reverse Depends:
 

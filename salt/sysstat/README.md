@@ -14,15 +14,15 @@ The statistics reported by sar deal with I/O transfer rates, paging activity, pr
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [sensu] (salt/sensu)
+  -  [sensu](salt/sensu)
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

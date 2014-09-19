@@ -10,10 +10,10 @@ This package provides a proxy server on which clients can connect to store objec
 
 ## Depends:
 
-  -  [haproxy] (salt/haproxy)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
-  -  [swift] (salt/swift)
+  -  [haproxy](salt/haproxy)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
+  -  [swift](salt/swift)
 
 ## Reverse Depends:
 
@@ -21,7 +21,7 @@ This package provides a proxy server on which clients can connect to store objec
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

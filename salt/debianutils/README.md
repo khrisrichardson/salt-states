@@ -12,17 +12,17 @@ The specific utilities included are: add-shell installkernel ischroot remove-she
 
 ## Reverse Depends:
 
-  -  [elasticsearch] (salt/elasticsearch)
-  -  [elasticsearch-bigdesk] (salt/elasticsearch-bigdesk)
-  -  [elasticsearch-graphite] (salt/elasticsearch-graphite)
-  -  [elasticsearch-head] (salt/elasticsearch-head)
-  -  [elasticsearch-hq] (salt/elasticsearch-hq)
-  -  [elasticsearch-kopf] (salt/elasticsearch-kopf)
-  -  [elasticsearch-newrelic] (salt/elasticsearch-newrelic)
-  -  [elasticsearch-paramedic] (salt/elasticsearch-paramedic)
-  -  [kubernetes] (salt/kubernetes)
-  -  [logstash] (salt/logstash)
-  -  [maven] (salt/maven)
+  -  [elasticsearch](salt/elasticsearch)
+  -  [elasticsearch-bigdesk](salt/elasticsearch-bigdesk)
+  -  [elasticsearch-graphite](salt/elasticsearch-graphite)
+  -  [elasticsearch-head](salt/elasticsearch-head)
+  -  [elasticsearch-hq](salt/elasticsearch-hq)
+  -  [elasticsearch-kopf](salt/elasticsearch-kopf)
+  -  [elasticsearch-newrelic](salt/elasticsearch-newrelic)
+  -  [elasticsearch-paramedic](salt/elasticsearch-paramedic)
+  -  [kubernetes](salt/kubernetes)
+  -  [logstash](salt/logstash)
+  -  [maven](salt/maven)
 
 ## Relates:
 

@@ -17,9 +17,9 @@ A lot of the object methods do nothing more than calling a corresponding functio
 
 ## Reverse Depends:
 
-  -  [kubernetes-apiserver] (salt/kubernetes-apiserver)
-  -  [python-etcd] (salt/python-etcd)
-  -  [salt-halite] (salt/salt-halite)
+  -  [kubernetes-apiserver](salt/kubernetes-apiserver)
+  -  [python-etcd](salt/python-etcd)
+  -  [salt-halite](salt/salt-halite)
 
 ## Relates:
 

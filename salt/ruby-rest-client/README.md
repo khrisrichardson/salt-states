@@ -10,10 +10,10 @@ A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework s
 
 ## Reverse Depends:
 
-  -  [elasticsearch] (salt/elasticsearch)
-  -  [graphite-web] (salt/graphite-web)
-  -  [rabbitmq-server] (salt/rabbitmq-server)
-  -  [sensu-server] (salt/sensu-server)
+  -  [elasticsearch](salt/elasticsearch)
+  -  [graphite-web](salt/graphite-web)
+  -  [rabbitmq-server](salt/rabbitmq-server)
+  -  [sensu-server](salt/sensu-server)
 
 ## Relates:
 

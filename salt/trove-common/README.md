@@ -12,9 +12,9 @@ This package provides the Trove common files.
 
 ## Reverse Depends:
 
-  -  [trove-api] (salt/trove-api)
-  -  [trove-guestagent] (salt/trove-guestagent)
-  -  [trove-taskmanager] (salt/trove-taskmanager)
+  -  [trove-api](salt/trove-api)
+  -  [trove-guestagent](salt/trove-guestagent)
+  -  [trove-taskmanager](salt/trove-taskmanager)
 
 ## Relates:
 

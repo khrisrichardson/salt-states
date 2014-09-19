@@ -10,7 +10,7 @@ Extensions to the python-distutils for large or complex distributions.
 
 ## Reverse Depends:
 
-  -  [mesos] (salt/mesos)
+  -  [mesos](salt/mesos)
 
 ## Relates:
 

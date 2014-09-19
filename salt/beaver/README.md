@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [libzmq3-dev] (salt/libzmq3-dev)
-  -  [python-pip] (salt/python-pip)
+  -  [libzmq3-dev](salt/libzmq3-dev)
+  -  [python-pip](salt/python-pip)
 
 ## Reverse Depends:
 
@@ -15,7 +15,7 @@
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
+  -  [logstash](salt/logstash)
 
 ## Files:
 

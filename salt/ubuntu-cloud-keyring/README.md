@@ -10,7 +10,7 @@ The Ubuntu project digitally signs its Release files. This package contains the 
 
 ## Reverse Depends:
 
-  -  [openstack-common] (salt/openstack-common)
+  -  [openstack-common](salt/openstack-common)
 
 ## Relates:
 

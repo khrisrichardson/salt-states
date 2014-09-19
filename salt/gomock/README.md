@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [ca-certificates] (salt/ca-certificates)
-  -  [git] (salt/git)
-  -  [golang-go] (salt/golang-go)
+  -  [ca-certificates](salt/ca-certificates)
+  -  [git](salt/git)
+  -  [golang-go](salt/golang-go)
 
 ## Reverse Depends:
 
-  -  [cadvisor] (salt/cadvisor)
+  -  [cadvisor](salt/cadvisor)
 
 ## Relates:
 

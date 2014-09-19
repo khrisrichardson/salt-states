@@ -14,8 +14,8 @@ This package contains the ZeroMQ development libraries and header files.
 
 ## Reverse Depends:
 
-  -  [beaver] (salt/beaver)
-  -  [logstash] (salt/logstash)
+  -  [beaver](salt/beaver)
+  -  [logstash](salt/logstash)
 
 ## Relates:
 

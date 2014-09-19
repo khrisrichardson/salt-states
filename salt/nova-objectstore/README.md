@@ -12,10 +12,10 @@ This is the package contains a very simple S3-like object store. For production 
 
 ## Depends:
 
-  -  [logstash] (salt/logstash)
-  -  [nova-common] (salt/nova-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [logstash](salt/logstash)
+  -  [nova-common](salt/nova-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -23,8 +23,8 @@ This is the package contains a very simple S3-like object store. For production 
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

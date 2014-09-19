@@ -12,8 +12,8 @@ This package contains programs for creating, checking, and maintaining ext2/3/4-
 
 ## Reverse Depends:
 
-  -  [cloudera-cm5-agent] (salt/cloudera-cm5-agent)
-  -  [hadoop-hdfs] (salt/hadoop-hdfs)
+  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
+  -  [hadoop-hdfs](salt/hadoop-hdfs)
 
 ## Relates:
 

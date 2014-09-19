@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [git] (salt/git)
-  -  [ruby-rvm] (salt/ruby-rvm)
+  -  [git](salt/git)
+  -  [ruby-rvm](salt/ruby-rvm)
 
 ## Reverse Depends:
 

@@ -8,8 +8,8 @@ The ovs-monitor-ipsec script provides support for encrypting GRE tunnels with IP
 
 ## Depends:
 
-  -  [racoon] (salt/racoon)
-  -  [sensu-client] (salt/sensu-client)
+  -  [racoon](salt/racoon)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -17,7 +17,7 @@ The ovs-monitor-ipsec script provides support for encrypting GRE tunnels with IP
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

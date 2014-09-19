@@ -6,7 +6,7 @@
 
 ## Depends:
 
-  -  [nova-compute-libvirt] (salt/nova-compute-libvirt)
+  -  [nova-compute-libvirt](salt/nova-compute-libvirt)
 
 ## Reverse Depends:
 

@@ -6,7 +6,7 @@
 
 ## Depends:
 
-  -  [git] (salt/git)
+  -  [git](salt/git)
 
 ## Reverse Depends:
 

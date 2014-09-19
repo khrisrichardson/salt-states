@@ -6,9 +6,9 @@ Web admin interface for elasticsearch
 
 ## Depends:
 
-  -  [debianutils] (salt/debianutils)
-  -  [elasticsearch] (salt/elasticsearch)
-  -  [sensu-client] (salt/sensu-client)
+  -  [debianutils](salt/debianutils)
+  -  [elasticsearch](salt/elasticsearch)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ Web admin interface for elasticsearch
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

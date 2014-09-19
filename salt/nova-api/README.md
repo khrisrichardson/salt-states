@@ -12,11 +12,11 @@ This package provides the API frontend.
 
 ## Depends:
 
-  -  [haproxy] (salt/haproxy)
-  -  [logstash] (salt/logstash)
-  -  [nova-common] (salt/nova-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [haproxy](salt/haproxy)
+  -  [logstash](salt/logstash)
+  -  [nova-common](salt/nova-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -24,8 +24,8 @@ This package provides the API frontend.
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

@@ -8,7 +8,7 @@ This package contains the monitor core program.
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ This package contains the monitor core program.
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

@@ -6,15 +6,15 @@
 
 ## Depends:
 
-  -  [gcc] (salt/gcc)
-  -  [libgit2-dev] (salt/libgit2-dev)
-  -  [python-cffi] (salt/python-cffi)
-  -  [python-dev] (salt/python-dev)
-  -  [python-pip] (salt/python-pip)
+  -  [gcc](salt/gcc)
+  -  [libgit2-dev](salt/libgit2-dev)
+  -  [python-cffi](salt/python-cffi)
+  -  [python-dev](salt/python-dev)
+  -  [python-pip](salt/python-pip)
 
 ## Reverse Depends:
 
-  -  [salt-master] (salt/salt-master)
+  -  [salt-master](salt/salt-master)
 
 ## Relates:
 

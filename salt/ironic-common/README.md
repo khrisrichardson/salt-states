@@ -8,25 +8,25 @@ This package contains the common files.
 
 ## Depends:
 
-  -  [sudo] (salt/sudo)
+  -  [sudo](salt/sudo)
 
 ## Reverse Depends:
 
-  -  [ironic-api] (salt/ironic-api)
-  -  [ironic-conductor] (salt/ironic-conductor)
+  -  [ironic-api](salt/ironic-api)
+  -  [ironic-conductor](salt/ironic-conductor)
 
 ## Relates:
 
-  -  [glance-api] (salt/glance-api)
-  -  [keystone] (salt/keystone)
-  -  [mariadb-server] (salt/mariadb-server)
-  -  [memcached] (salt/memcached)
-  -  [mysql-server] (salt/mysql-server)
-  -  [neutron-server] (salt/neutron-server)
-  -  [postgresql] (salt/postgresql)
-  -  [qpidd] (salt/qpidd)
-  -  [rabbitmq-server] (salt/rabbitmq-server)
-  -  [redis-server] (salt/redis-server)
+  -  [glance-api](salt/glance-api)
+  -  [keystone](salt/keystone)
+  -  [mariadb-server](salt/mariadb-server)
+  -  [memcached](salt/memcached)
+  -  [mysql-server](salt/mysql-server)
+  -  [neutron-server](salt/neutron-server)
+  -  [postgresql](salt/postgresql)
+  -  [qpidd](salt/qpidd)
+  -  [rabbitmq-server](salt/rabbitmq-server)
+  -  [redis-server](salt/redis-server)
 
 ## Files:
 

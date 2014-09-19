@@ -12,7 +12,7 @@ Install this package on your compute nodes if you're using Xen.
 
 ## Depends:
 
-  -  [nova-compute-libvirt] (salt/nova-compute-libvirt)
+  -  [nova-compute-libvirt](salt/nova-compute-libvirt)
 
 ## Reverse Depends:
 

@@ -12,7 +12,7 @@ A foreign function interface is the popular name for the interface that allows c
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

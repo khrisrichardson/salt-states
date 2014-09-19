@@ -8,10 +8,10 @@ This package contains the glance registry server.
 
 ## Depends:
 
-  -  [haproxy] (salt/haproxy)
-  -  [logstash] (salt/logstash)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [haproxy](salt/haproxy)
+  -  [logstash](salt/logstash)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,13 +19,13 @@ This package contains the glance registry server.
 
 ## Relates:
 
-  -  [keystone] (salt/keystone)
-  -  [logstash] (salt/logstash)
-  -  [mariadb-server] (salt/mariadb-server)
-  -  [memcached] (salt/memcached)
-  -  [mysql-server] (salt/mysql-server)
-  -  [postgresql] (salt/postgresql)
-  -  [sensu-api] (salt/sensu-api)
+  -  [keystone](salt/keystone)
+  -  [logstash](salt/logstash)
+  -  [mariadb-server](salt/mariadb-server)
+  -  [memcached](salt/memcached)
+  -  [mysql-server](salt/mysql-server)
+  -  [postgresql](salt/postgresql)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

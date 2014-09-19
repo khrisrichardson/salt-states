@@ -8,7 +8,7 @@ This package contains the user-space support needed to use the NFS kernel server
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ This package contains the user-space support needed to use the NFS kernel server
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

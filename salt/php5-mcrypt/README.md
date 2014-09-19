@@ -8,7 +8,7 @@ PHP5 is an HTML-embedded scripting language. Much of its syntax is borrowed from
 
 ## Depends:
 
-  -  [php5] (salt/php5)
+  -  [php5](salt/php5)
 
 ## Reverse Depends:
 

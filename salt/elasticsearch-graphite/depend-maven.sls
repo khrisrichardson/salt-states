@@ -16,4 +16,4 @@ mvn package:
   cmd.wait:
     - cwd:        /usr/local/src/github.com/spinscale/elasticsearch-plugin-graphite
     - require:
-      - pkg:       maven
+      - file:     /usr/bin/mvn

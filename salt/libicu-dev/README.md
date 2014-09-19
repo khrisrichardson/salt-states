@@ -10,7 +10,7 @@ ICU is a C++ and C library that provides robust and full-featured Unicode and lo
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

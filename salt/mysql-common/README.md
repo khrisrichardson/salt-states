@@ -12,8 +12,8 @@ This package includes files needed by all versions of the client library, e.g. /
 
 ## Reverse Depends:
 
-  -  [mariadb-server] (salt/mariadb-server)
-  -  [mysql-server] (salt/mysql-server)
+  -  [mariadb-server](salt/mariadb-server)
+  -  [mysql-server](salt/mysql-server)
 
 ## Relates:
 

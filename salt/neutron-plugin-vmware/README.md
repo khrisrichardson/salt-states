@@ -8,7 +8,7 @@ This package provides the VMware NSX plugin
 
 ## Depends:
 
-  -  [neutron-common] (salt/neutron-common)
+  -  [neutron-common](salt/neutron-common)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ This package provides the VMware NSX plugin
 
 ## Relates:
 
-  -  [nova-api-metadata] (salt/nova-api-metadata)
+  -  [nova-api-metadata](salt/nova-api-metadata)
 
 ## Files:
 

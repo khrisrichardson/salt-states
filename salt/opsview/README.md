@@ -6,10 +6,10 @@
 
 ## Depends:
 
-  -  [apache2] (salt/apache2)
-  -  [mysql-server] (salt/mysql-server)
-  -  [opsview-base] (salt/opsview-base)
-  -  [sensu-client] (salt/sensu-client)
+  -  [apache2](salt/apache2)
+  -  [mysql-server](salt/mysql-server)
+  -  [opsview-base](salt/opsview-base)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -17,8 +17,8 @@
 
 ## Relates:
 
-  -  [mysql-server] (salt/mysql-server)
-  -  [sensu-api] (salt/sensu-api)
+  -  [mysql-server](salt/mysql-server)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

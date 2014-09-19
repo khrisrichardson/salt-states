@@ -10,17 +10,17 @@ pip is a replacement for easy_install, and is intended to be an improved Python 
 
 ## Reverse Depends:
 
-  -  [beaver] (salt/beaver)
-  -  [cloudera-cm4-api] (salt/cloudera-cm4-api)
-  -  [cloudera-cm5-api] (salt/cloudera-cm5-api)
-  -  [elasticsearch-curator] (salt/elasticsearch-curator)
-  -  [python-docker] (salt/python-docker)
-  -  [python-elasticsearch] (salt/python-elasticsearch)
-  -  [python-etcd] (salt/python-etcd)
-  -  [python-influxdb] (salt/python-influxdb)
-  -  [python-pygit2] (salt/python-pygit2)
-  -  [salt-halite] (salt/salt-halite)
-  -  [supervisor] (salt/supervisor)
+  -  [beaver](salt/beaver)
+  -  [cloudera-cm4-api](salt/cloudera-cm4-api)
+  -  [cloudera-cm5-api](salt/cloudera-cm5-api)
+  -  [elasticsearch-curator](salt/elasticsearch-curator)
+  -  [python-docker](salt/python-docker)
+  -  [python-elasticsearch](salt/python-elasticsearch)
+  -  [python-etcd](salt/python-etcd)
+  -  [python-influxdb](salt/python-influxdb)
+  -  [python-pygit2](salt/python-pygit2)
+  -  [salt-halite](salt/salt-halite)
+  -  [supervisor](salt/supervisor)
 
 ## Relates:
 

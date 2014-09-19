@@ -10,7 +10,7 @@ GNU Make is an utility which controls the generation of executables and other ta
 
 ## Reverse Depends:
 
-  -  [ruby-redmon] (salt/ruby-redmon)
+  -  [ruby-redmon](salt/ruby-redmon)
 
 ## Relates:
 

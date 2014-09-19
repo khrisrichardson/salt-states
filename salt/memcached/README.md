@@ -8,7 +8,7 @@ memcached optimizes specific high-load serving applications that are designed to
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ memcached optimizes specific high-load serving applications that are designed to
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

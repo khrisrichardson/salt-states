@@ -6,11 +6,11 @@
 
 ## Depends:
 
-  -  [dnsutils] (salt/dnsutils)
-  -  [netbase] (salt/netbase)
-  -  [node-supervisor] (salt/node-supervisor)
-  -  [npm] (salt/npm)
-  -  [sensu-client] (salt/sensu-client)
+  -  [dnsutils](salt/dnsutils)
+  -  [netbase](salt/netbase)
+  -  [node-supervisor](salt/node-supervisor)
+  -  [npm](salt/npm)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [cloudera-cm4-agent] (salt/cloudera-cm4-agent)
-  -  [cloudera-cm5-agent] (salt/cloudera-cm5-agent)
-  -  [jmxtrans-agent] (salt/jmxtrans-agent)
-  -  [maven] (salt/maven)
-  -  [maven.exec] (salt/maven.exec)
-  -  [sensu-client] (salt/sensu-client)
-  -  [tomcat7] (salt/tomcat7)
+  -  [cloudera-cm4-agent](salt/cloudera-cm4-agent)
+  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
+  -  [jmxtrans-agent](salt/jmxtrans-agent)
+  -  [maven](salt/maven)
+  -  [maven.exec](salt/maven.exec)
+  -  [sensu-client](salt/sensu-client)
+  -  [tomcat7](salt/tomcat7)
 
 ## Reverse Depends:
 
@@ -20,13 +20,13 @@
 
 ## Relates:
 
-  -  [cloudera-cm4-server] (salt/cloudera-cm4-server)
-  -  [cloudera-cm5-server] (salt/cloudera-cm5-server)
-  -  [dynaTrace-server] (salt/dynaTrace-server)
-  -  [graphite-carbon] (salt/graphite-carbon)
-  -  [influxdb] (salt/influxdb)
-  -  [sensu-api] (salt/sensu-api)
-  -  [socks5] (salt/socks5)
+  -  [cloudera-cm4-server](salt/cloudera-cm4-server)
+  -  [cloudera-cm5-server](salt/cloudera-cm5-server)
+  -  [dynaTrace-server](salt/dynaTrace-server)
+  -  [graphite-carbon](salt/graphite-carbon)
+  -  [influxdb](salt/influxdb)
+  -  [sensu-api](salt/sensu-api)
+  -  [socks5](salt/socks5)
 
 ## Files:
 

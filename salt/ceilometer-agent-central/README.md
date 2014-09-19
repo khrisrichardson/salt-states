@@ -10,9 +10,9 @@ This package contains the central agent.
 
 ## Depends:
 
-  -  [ceilometer-common] (salt/ceilometer-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [ceilometer-common](salt/ceilometer-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -20,7 +20,7 @@ This package contains the central agent.
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

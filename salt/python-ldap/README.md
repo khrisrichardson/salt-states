@@ -10,7 +10,7 @@ This module provides a Python interface to the OpenLDAP client library (LDAP is 
 
 ## Reverse Depends:
 
-  -  [graphite-web] (salt/graphite-web)
+  -  [graphite-web](salt/graphite-web)
 
 ## Relates:
 

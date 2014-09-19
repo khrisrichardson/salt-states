@@ -10,7 +10,7 @@ This package contains the basic filesystem hierarchy of a Debian system, and sev
 
 ## Reverse Depends:
 
-  -  [hbase-master] (salt/hbase-master)
+  -  [hbase-master](salt/hbase-master)
 
 ## Relates:
 

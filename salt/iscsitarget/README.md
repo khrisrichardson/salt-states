@@ -8,15 +8,15 @@ This package contains the userland part; you require the kernel module for prope
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [cinder-volume] (salt/cinder-volume)
+  -  [cinder-volume](salt/cinder-volume)
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

@@ -8,12 +8,12 @@ This package provides the linuxbridge plugin agent.
 
 ## Depends:
 
-  -  [bridge-utils] (salt/bridge-utils)
-  -  [logstash] (salt/logstash)
-  -  [neutron-common] (salt/neutron-common)
-  -  [neutron-plugin-linuxbridge] (salt/neutron-plugin-linuxbridge)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [bridge-utils](salt/bridge-utils)
+  -  [logstash](salt/logstash)
+  -  [neutron-common](salt/neutron-common)
+  -  [neutron-plugin-linuxbridge](salt/neutron-plugin-linuxbridge)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -21,8 +21,8 @@ This package provides the linuxbridge plugin agent.
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

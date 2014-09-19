@@ -8,10 +8,10 @@ This package provides the BigSwitch plugin agent.
 
 ## Depends:
 
-  -  [neutron-common] (salt/neutron-common)
-  -  [neutron-plugin-bigswitch] (salt/neutron-plugin-bigswitch)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [neutron-common](salt/neutron-common)
+  -  [neutron-plugin-bigswitch](salt/neutron-plugin-bigswitch)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,7 +19,7 @@ This package provides the BigSwitch plugin agent.
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

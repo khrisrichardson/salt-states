@@ -14,14 +14,14 @@ Please note that Debian can neither confirm nor deny whether the certificate aut
 
 ## Reverse Depends:
 
-  -  [cadvisor] (salt/cadvisor)
-  -  [etcd] (salt/etcd)
-  -  [etcdctl] (salt/etcdctl)
-  -  [fleet] (salt/fleet)
-  -  [gomock] (salt/gomock)
-  -  [kubernetes] (salt/kubernetes)
-  -  [libswarm] (salt/libswarm)
-  -  [skydns2] (salt/skydns2)
+  -  [cadvisor](salt/cadvisor)
+  -  [etcd](salt/etcd)
+  -  [etcdctl](salt/etcdctl)
+  -  [fleet](salt/fleet)
+  -  [gomock](salt/gomock)
+  -  [kubernetes](salt/kubernetes)
+  -  [libswarm](salt/libswarm)
+  -  [skydns2](salt/skydns2)
 
 ## Relates:
 

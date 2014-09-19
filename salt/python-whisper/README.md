@@ -10,7 +10,7 @@ Whisper is a fixed size database, similar in design to the Round Robin database 
 
 ## Reverse Depends:
 
-  -  [graphite-web] (salt/graphite-web)
+  -  [graphite-web](salt/graphite-web)
 
 ## Relates:
 

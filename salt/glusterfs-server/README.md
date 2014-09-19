@@ -8,7 +8,7 @@ This package installs init scripts and configuration files to turn GlusterFS int
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ This package installs init scripts and configuration files to turn GlusterFS int
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

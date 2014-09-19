@@ -8,11 +8,11 @@ This package provides the One Convergence agent.
 
 ## Depends:
 
-  -  [logstash] (salt/logstash)
-  -  [neutron-common] (salt/neutron-common)
-  -  [neutron-plugin-oneconvergence] (salt/neutron-plugin-oneconvergence)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [logstash](salt/logstash)
+  -  [neutron-common](salt/neutron-common)
+  -  [neutron-plugin-oneconvergence](salt/neutron-plugin-oneconvergence)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -20,8 +20,8 @@ This package provides the One Convergence agent.
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

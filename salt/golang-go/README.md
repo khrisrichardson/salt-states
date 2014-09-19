@@ -8,18 +8,18 @@ This package provides an assembler, a compiler, and a linker for the Go programm
 
 ## Depends:
 
-  -  [epel-release] (salt/epel-release)
+  -  [epel-release](salt/epel-release)
 
 ## Reverse Depends:
 
-  -  [cadvisor] (salt/cadvisor)
-  -  [etcd] (salt/etcd)
-  -  [etcdctl] (salt/etcdctl)
-  -  [fleet] (salt/fleet)
-  -  [gomock] (salt/gomock)
-  -  [kubernetes] (salt/kubernetes)
-  -  [libswarm] (salt/libswarm)
-  -  [skydns2] (salt/skydns2)
+  -  [cadvisor](salt/cadvisor)
+  -  [etcd](salt/etcd)
+  -  [etcdctl](salt/etcdctl)
+  -  [fleet](salt/fleet)
+  -  [gomock](salt/gomock)
+  -  [kubernetes](salt/kubernetes)
+  -  [libswarm](salt/libswarm)
+  -  [skydns2](salt/skydns2)
 
 ## Relates:
 

@@ -22,9 +22,9 @@ HBase includes:
 
 ## Depends:
 
-  -  [cloudera-cdh4] (salt/cloudera-cdh4)
-  -  [cloudera-cdh5] (salt/cloudera-cdh5)
-  -  [cron] (salt/cron)
+  -  [cloudera-cdh4](salt/cloudera-cdh4)
+  -  [cloudera-cdh5](salt/cloudera-cdh5)
+  -  [cron](salt/cron)
 
 ## Reverse Depends:
 
@@ -32,9 +32,9 @@ HBase includes:
 
 ## Relates:
 
-  -  [hadoop-hdfs-namenode] (salt/hadoop-hdfs-namenode)
-  -  [logstash] (salt/logstash)
-  -  [zookeeper-server] (salt/zookeeper-server)
+  -  [hadoop-hdfs-namenode](salt/hadoop-hdfs-namenode)
+  -  [logstash](salt/logstash)
+  -  [zookeeper-server](salt/zookeeper-server)
 
 ## Files:
 

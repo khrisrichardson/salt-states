@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [python-apt] (salt/python-apt)
-  -  [ubuntu-cloud-keyring] (salt/ubuntu-cloud-keyring)
+  -  [python-apt](salt/python-apt)
+  -  [ubuntu-cloud-keyring](salt/ubuntu-cloud-keyring)
 
 ## Reverse Depends:
 

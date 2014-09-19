@@ -10,7 +10,7 @@ You need a kernel >= 2.4.28 or >= 2.6.11 for keepalived. See README.Debian for m
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@ You need a kernel >= 2.4.28 or >= 2.6.11 for keepalived. See README.Debian for m
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

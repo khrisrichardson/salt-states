@@ -14,12 +14,12 @@ Wget supports proxy servers; this can lighten the network load, speed up retriev
 
 ## Reverse Depends:
 
-  -  [etcd-common] (salt/etcd-common)
-  -  [fleet-common] (salt/fleet-common)
-  -  [grafana] (salt/grafana)
-  -  [jenkins] (salt/jenkins)
-  -  [kibana] (salt/kibana)
-  -  [maven] (salt/maven)
+  -  [etcd-common](salt/etcd-common)
+  -  [fleet-common](salt/fleet-common)
+  -  [grafana](salt/grafana)
+  -  [jenkins](salt/jenkins)
+  -  [kibana](salt/kibana)
+  -  [maven](salt/maven)
 
 ## Relates:
 

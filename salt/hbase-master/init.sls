@@ -53,8 +53,10 @@ hbase-master:
     - watch:
       - pkg:       hbase-master
       - file:     /etc/hbase/conf.dist/hbase-site.xml
-      - file:     /etc/security/limits.d/hbase.conf
       - file:     /usr/bin/java
+     {% if salt['config.get']('virtual_subtype') == 'Docker' %}
+      - file:     /etc/security/limits.d/hbase.conf
+     {% endif -%}
 
 {% if not minions['hadoop-hdfs-namenode'] %}
 

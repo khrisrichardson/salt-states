@@ -10,7 +10,7 @@ Duplicity backs directories by producing encrypted tar-format volumes and upload
 
 ## Reverse Depends:
 
-  -  [dynaTrace-common] (salt/dynaTrace-common)
+  -  [dynaTrace-common](salt/dynaTrace-common)
 
 ## Relates:
 

@@ -6,9 +6,9 @@
 
 ## Depends:
 
-  -  [ceph] (salt/ceph)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [ceph](salt/ceph)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -16,10 +16,10 @@
 
 ## Relates:
 
-  -  [ceph-deploy] (salt/ceph-deploy)
-  -  [etcd] (salt/etcd)
-  -  [radosgw] (salt/radosgw)
-  -  [sensu-api] (salt/sensu-api)
+  -  [ceph-deploy](salt/ceph-deploy)
+  -  [etcd](salt/etcd)
+  -  [radosgw](salt/radosgw)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

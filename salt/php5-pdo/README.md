@@ -6,7 +6,7 @@
 
 ## Depends:
 
-  -  [php5] (salt/php5)
+  -  [php5](salt/php5)
 
 ## Reverse Depends:
 

@@ -10,11 +10,11 @@ The logrotate utility is designed to simplify the administration of log files on
 
 ## Reverse Depends:
 
-  -  [calamari] (salt/calamari)
-  -  [collectd] (salt/collectd)
-  -  [dynaTrace-common] (salt/dynaTrace-common)
-  -  [gitlab] (salt/gitlab)
-  -  [supervisor] (salt/supervisor)
+  -  [calamari](salt/calamari)
+  -  [collectd](salt/collectd)
+  -  [dynaTrace-common](salt/dynaTrace-common)
+  -  [gitlab](salt/gitlab)
+  -  [supervisor](salt/supervisor)
 
 ## Relates:
 

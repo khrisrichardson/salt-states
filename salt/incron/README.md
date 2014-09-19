@@ -21,15 +21,15 @@ incron can be used to :
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [salt-minion] (salt/salt-minion)
+  -  [salt-minion](salt/salt-minion)
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

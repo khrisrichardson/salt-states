@@ -22,9 +22,9 @@ This package contains the architecture dependent files.
 
 ## Reverse Depends:
 
-  -  [cadvisor] (salt/cadvisor)
-  -  [kubernetes] (salt/kubernetes)
-  -  [skydns2] (salt/skydns2)
+  -  [cadvisor](salt/cadvisor)
+  -  [kubernetes](salt/kubernetes)
+  -  [skydns2](salt/skydns2)
 
 ## Relates:
 

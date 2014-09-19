@@ -12,8 +12,8 @@ This is a dependency package providing the default GNU C compiler.
 
 ## Reverse Depends:
 
-  -  [cadvisor] (salt/cadvisor)
-  -  [python-pygit2] (salt/python-pygit2)
+  -  [cadvisor](salt/cadvisor)
+  -  [python-pygit2](salt/python-pygit2)
 
 ## Relates:
 

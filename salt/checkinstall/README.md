@@ -10,7 +10,7 @@ CheckInstall keeps track of all the files created or modified by your installati
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

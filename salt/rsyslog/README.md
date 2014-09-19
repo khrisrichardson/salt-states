@@ -19,18 +19,18 @@ It is the default syslogd on Debian systems.
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [dynaTrace-common] (salt/dynaTrace-common)
-  -  [php5-fpm] (salt/php5-fpm)
-  -  [tomcat7] (salt/tomcat7)
+  -  [dynaTrace-common](salt/dynaTrace-common)
+  -  [php5-fpm](salt/php5-fpm)
+  -  [tomcat7](salt/tomcat7)
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

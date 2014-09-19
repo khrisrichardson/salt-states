@@ -10,7 +10,7 @@ GNU dbm ('gdbm') is a library of database functions that use extendible hashing 
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

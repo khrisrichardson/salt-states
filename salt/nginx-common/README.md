@@ -8,20 +8,20 @@ This package contains base configuration files used by all versions of nginx.
 
 ## Depends:
 
-  -  [collectd] (salt/collectd)
-  -  [sensu-client] (salt/sensu-client)
+  -  [collectd](salt/collectd)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [cobbler] (salt/cobbler)
-  -  [coreos-ipxe-server] (salt/coreos-ipxe-server)
-  -  [nginx] (salt/nginx)
+  -  [cobbler](salt/cobbler)
+  -  [coreos-ipxe-server](salt/coreos-ipxe-server)
+  -  [nginx](salt/nginx)
 
 ## Relates:
 
-  -  [graphite-carbon] (salt/graphite-carbon)
-  -  [influxdb] (salt/influxdb)
-  -  [sensu-api] (salt/sensu-api)
+  -  [graphite-carbon](salt/graphite-carbon)
+  -  [influxdb](salt/influxdb)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

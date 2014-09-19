@@ -6,12 +6,12 @@
 
 ## Depends:
 
-  -  [python-pip] (salt/python-pip)
+  -  [python-pip](salt/python-pip)
 
 ## Reverse Depends:
 
-  -  [graph-explorer] (salt/graph-explorer)
-  -  [salt-minion] (salt/salt-minion)
+  -  [graph-explorer](salt/graph-explorer)
+  -  [salt-minion](salt/salt-minion)
 
 ## Relates:
 

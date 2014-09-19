@@ -10,11 +10,11 @@ This package contains the Cinder API server.
 
 ## Depends:
 
-  -  [cinder-common] (salt/cinder-common)
-  -  [haproxy] (salt/haproxy)
-  -  [logstash] (salt/logstash)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [cinder-common](salt/cinder-common)
+  -  [haproxy](salt/haproxy)
+  -  [logstash](salt/logstash)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -22,8 +22,8 @@ This package contains the Cinder API server.
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

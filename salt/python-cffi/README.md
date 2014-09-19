@@ -12,7 +12,7 @@ The aim of this project is to provide a convenient and reliable way of calling C
 
 ## Reverse Depends:
 
-  -  [python-pygit2] (salt/python-pygit2)
+  -  [python-pygit2](salt/python-pygit2)
 
 ## Relates:
 

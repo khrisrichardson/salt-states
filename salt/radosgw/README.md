@@ -8,12 +8,12 @@ This package contains the proxy daemon and related tools only.
 
 ## Depends:
 
-  -  [apache2] (salt/apache2)
-  -  [ceph] (salt/ceph)
-  -  [haproxy] (salt/haproxy)
-  -  [libapache2-mod-fastcgi] (salt/libapache2-mod-fastcgi)
-  -  [logstash] (salt/logstash)
-  -  [sensu-client] (salt/sensu-client)
+  -  [apache2](salt/apache2)
+  -  [ceph](salt/ceph)
+  -  [haproxy](salt/haproxy)
+  -  [libapache2-mod-fastcgi](salt/libapache2-mod-fastcgi)
+  -  [logstash](salt/logstash)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -21,9 +21,9 @@ This package contains the proxy daemon and related tools only.
 
 ## Relates:
 
-  -  [ceph-mon] (salt/ceph-mon)
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [ceph-mon](salt/ceph-mon)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

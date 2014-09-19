@@ -6,12 +6,12 @@
 
 ## Depends:
 
-  -  [npm] (salt/npm)
+  -  [npm](salt/npm)
 
 ## Reverse Depends:
 
-  -  [node-giraffe-web] (salt/node-giraffe-web)
-  -  [node-redis-commander] (salt/node-redis-commander)
+  -  [node-giraffe-web](salt/node-giraffe-web)
+  -  [node-redis-commander](salt/node-redis-commander)
 
 ## Relates:
 

@@ -12,8 +12,8 @@ PostgreSQL is an object-relational SQL database management system.
 
 ## Reverse Depends:
 
-  -  [descartes] (salt/descartes)
-  -  [gitlab] (salt/gitlab)
+  -  [descartes](salt/descartes)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

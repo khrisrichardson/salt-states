@@ -6,9 +6,9 @@
 
 ## Depends:
 
-  -  [g++] (salt/g++)
-  -  [make] (salt/make)
-  -  [ruby-dev] (salt/ruby-dev)
+  -  [g++](salt/g++)
+  -  [make](salt/make)
+  -  [ruby-dev](salt/ruby-dev)
 
 ## Reverse Depends:
 

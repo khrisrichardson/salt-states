@@ -6,14 +6,14 @@ Cloudera's Distribution for Hadoop, Version 5
 
 ## Depends:
 
-  -  [procps] (salt/procps)
-  -  [python-apt] (salt/python-apt)
+  -  [procps](salt/procps)
+  -  [python-apt](salt/python-apt)
 
 ## Reverse Depends:
 
-  -  [hadoop] (salt/hadoop)
-  -  [hbase] (salt/hbase)
-  -  [zookeeper] (salt/zookeeper)
+  -  [hadoop](salt/hadoop)
+  -  [hbase](salt/hbase)
+  -  [zookeeper](salt/zookeeper)
 
 ## Relates:
 

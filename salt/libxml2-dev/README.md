@@ -12,8 +12,8 @@ Install this package if you wish to develop your own programs using the GNOME XM
 
 ## Reverse Depends:
 
-  -  [descartes] (salt/descartes)
-  -  [gitlab] (salt/gitlab)
+  -  [descartes](salt/descartes)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

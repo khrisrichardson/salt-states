@@ -10,7 +10,7 @@
 
 ## Reverse Depends:
 
-  -  [rabbitmq-server] (salt/rabbitmq-server)
+  -  [rabbitmq-server](salt/rabbitmq-server)
 
 ## Relates:
 

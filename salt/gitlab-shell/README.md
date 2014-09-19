@@ -6,12 +6,12 @@
 
 ## Depends:
 
-  -  [git-core] (salt/git-core)
-  -  [ruby2_0] (salt/ruby2_0)
+  -  [git-core](salt/git-core)
+  -  [ruby2_0](salt/ruby2_0)
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

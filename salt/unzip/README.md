@@ -12,7 +12,7 @@ This version supports encryption.
 
 ## Reverse Depends:
 
-  -  [newrelic-java] (salt/newrelic-java)
+  -  [newrelic-java](salt/newrelic-java)
 
 ## Relates:
 

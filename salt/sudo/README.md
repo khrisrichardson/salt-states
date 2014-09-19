@@ -8,21 +8,21 @@ This version is built with minimal shared library dependencies, use the sudo-lda
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [ceph] (salt/ceph)
-  -  [cinder-common] (salt/cinder-common)
-  -  [hadoop-hdfs-namenode] (salt/hadoop-hdfs-namenode)
-  -  [influxdb] (salt/influxdb)
-  -  [ironic-common] (salt/ironic-common)
-  -  [neutron-common] (salt/neutron-common)
-  -  [nova-common] (salt/nova-common)
+  -  [ceph](salt/ceph)
+  -  [cinder-common](salt/cinder-common)
+  -  [hadoop-hdfs-namenode](salt/hadoop-hdfs-namenode)
+  -  [influxdb](salt/influxdb)
+  -  [ironic-common](salt/ironic-common)
+  -  [neutron-common](salt/neutron-common)
+  -  [nova-common](salt/nova-common)
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

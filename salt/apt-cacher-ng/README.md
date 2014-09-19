@@ -10,7 +10,7 @@ Apt-Cacher NG has been designed from scratch as a replacement for apt-cacher, bu
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@ Apt-Cacher NG has been designed from scratch as a replacement for apt-cacher, bu
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

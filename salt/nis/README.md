@@ -6,7 +6,7 @@ This package provides tools for setting up and maintaining a NIS domain. NIS, or
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -14,7 +14,7 @@ This package provides tools for setting up and maintaining a NIS domain. NIS, or
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

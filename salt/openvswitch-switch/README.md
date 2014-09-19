@@ -8,17 +8,17 @@ openvswitch-switch provides the userspace components and utilities for the Open 
 
 ## Depends:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-client] (salt/sensu-client)
+  -  [logstash](salt/logstash)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [neutron-plugin-openvswitch-agent] (salt/neutron-plugin-openvswitch-agent)
+  -  [neutron-plugin-openvswitch-agent](salt/neutron-plugin-openvswitch-agent)
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

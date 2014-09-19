@@ -6,7 +6,7 @@ The smartmontools package contains two utility programs (smartctl and smartd) to
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -14,7 +14,7 @@ The smartmontools package contains two utility programs (smartctl and smartd) to
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

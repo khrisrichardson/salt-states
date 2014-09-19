@@ -6,10 +6,10 @@
 
 ## Depends:
 
-  -  [apache2] (salt/apache2)
-  -  [git] (salt/git)
-  -  [ruby-rvm] (salt/ruby-rvm)
-  -  [sensu-client] (salt/sensu-client)
+  -  [apache2](salt/apache2)
+  -  [git](salt/git)
+  -  [ruby-rvm](salt/ruby-rvm)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -17,7 +17,7 @@
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

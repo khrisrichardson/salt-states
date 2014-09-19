@@ -10,8 +10,8 @@ it on a single box.
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
-  -  [sudo] (salt/sudo)
+  -  [sensu-client](salt/sensu-client)
+  -  [sudo](salt/sudo)
 
 ## Reverse Depends:
 
@@ -19,7 +19,7 @@ it on a single box.
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

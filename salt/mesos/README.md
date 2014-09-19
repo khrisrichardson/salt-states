@@ -6,9 +6,9 @@
 
 ## Depends:
 
-  -  [openjdk-7-jre-headless] (salt/openjdk-7-jre-headless)
-  -  [python-setuptools] (salt/python-setuptools)
-  -  [zookeeper-server] (salt/zookeeper-server)
+  -  [openjdk-7-jre-headless](salt/openjdk-7-jre-headless)
+  -  [python-setuptools](salt/python-setuptools)
+  -  [zookeeper-server](salt/zookeeper-server)
 
 ## Reverse Depends:
 

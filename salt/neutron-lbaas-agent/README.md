@@ -8,11 +8,11 @@ This package provides the Load Balancing as-a Service (LBaaS) agent.
 
 ## Depends:
 
-  -  [haproxy] (salt/haproxy)
-  -  [logstash] (salt/logstash)
-  -  [neutron-common] (salt/neutron-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [haproxy](salt/haproxy)
+  -  [logstash](salt/logstash)
+  -  [neutron-common](salt/neutron-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -20,8 +20,8 @@ This package provides the Load Balancing as-a Service (LBaaS) agent.
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

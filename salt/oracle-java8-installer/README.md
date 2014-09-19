@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [java-common] (salt/java-common)
-  -  [python-apt] (salt/python-apt)
+  -  [java-common](salt/java-common)
+  -  [python-apt](salt/python-apt)
 
 ## Reverse Depends:
 

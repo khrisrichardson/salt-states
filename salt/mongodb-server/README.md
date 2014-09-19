@@ -16,8 +16,8 @@ This package contains the server itself  (mongod) and the sharding server/load-b
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -25,8 +25,8 @@ This package contains the server itself  (mongod) and the sharding server/load-b
 
 ## Relates:
 
-  -  [salt-minion] (salt/salt-minion)
-  -  [sensu-api] (salt/sensu-api)
+  -  [salt-minion](salt/salt-minion)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

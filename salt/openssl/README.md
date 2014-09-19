@@ -18,7 +18,7 @@ It contains the general-purpose command line binary /usr/bin/openssl, useful for
 
 ## Reverse Depends:
 
-  -  [guvnor] (salt/guvnor)
+  -  [guvnor](salt/guvnor)
 
 ## Relates:
 

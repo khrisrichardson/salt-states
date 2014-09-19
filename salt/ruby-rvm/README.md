@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [curl] (salt/curl)
+  -  [curl](salt/curl)
 
 ## Reverse Depends:
 
-  -  [descartes] (salt/descartes)
-  -  [dusk] (salt/dusk)
-  -  [tasseo] (salt/tasseo)
+  -  [descartes](salt/descartes)
+  -  [dusk](salt/dusk)
+  -  [tasseo](salt/tasseo)
 
 ## Relates:
 

@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [cloudera-cm4] (salt/cloudera-cm4)
-  -  [java-common] (salt/java-common)
+  -  [cloudera-cm4](salt/cloudera-cm4)
+  -  [java-common](salt/java-common)
 
 ## Reverse Depends:
 
-  -  [cloudera-cm4-agent] (salt/cloudera-cm4-agent)
-  -  [cloudera-cm4-server] (salt/cloudera-cm4-server)
+  -  [cloudera-cm4-agent](salt/cloudera-cm4-agent)
+  -  [cloudera-cm4-server](salt/cloudera-cm4-server)
 
 ## Relates:
 

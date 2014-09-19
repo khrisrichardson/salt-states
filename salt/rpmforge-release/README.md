@@ -10,8 +10,8 @@
 
 ## Reverse Depends:
 
-  -  [collectd] (salt/collectd)
-  -  [opsview-base] (salt/opsview-base)
+  -  [collectd](salt/collectd)
+  -  [opsview-base](salt/opsview-base)
 
 ## Relates:
 

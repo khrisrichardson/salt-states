@@ -16,7 +16,7 @@ This package is NOT the definition of what packages are build-essential; the rea
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
+  -  [gitlab](salt/gitlab)
 
 ## Relates:
 

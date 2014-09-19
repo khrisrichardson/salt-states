@@ -10,7 +10,7 @@ This package provides the tools ifup and ifdown which may be used to configure (
 
 ## Reverse Depends:
 
-  -  [neutron-server] (salt/neutron-server)
+  -  [neutron-server](salt/neutron-server)
 
 ## Relates:
 

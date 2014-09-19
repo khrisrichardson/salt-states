@@ -4,24 +4,24 @@
 
 Plugins for nagios compatible monitoring systems like Nagios and Icinga. It contains the following plugins:
 
-check_apt, check_by_ssh, check_clamd, check_cluster,
-check_dhcp, check_disk, check_dummy, check_file_age,
-check_ftp, check_host, check_http, check_icmp,
-check_ide_smart, check_imap, check_ircd, check_jabber,
-check_load, check_log, check_mrtg, check_mrtgtraf,
-check_nagios, check_nntp, check_nntps, check_nt,
-check_ntp, check_ntp_peer, check_ntp_time, check_nwstat,
-check_overcr,  check_ping, check_pop, check_procs,
-check_real, check_rta_multi, check_sensors, check_simap,
-check_smtp, check_spop, check_ssh, check_ssmtp,
-check_swap, check_tcp, check_time, check_udp,
-check_ups, check_users
-This package provides a basic set of plugins with minimal external dependencies.  It is not likely to be useful by itself unless you are using a remote "satellite" system (using nagios-nrpe-server, check_by_ssh or nsca, for example).
+check\_apt, check\_by\_ssh, check\_clamd, check\_cluster,
+check\_dhcp, check\_disk, check\_dummy, check\_file\_age,
+check\_ftp, check\_host, check\_http, check\_icmp,
+check\_ide\_smart, check\_imap, check\_ircd, check\_jabber,
+check\_load, check\_log, check\_mrtg, check\_mrtgtraf,
+check\_nagios, check\_nntp, check\_nntps, check\_nt,
+check\_ntp, check\_ntp\_peer, check\_ntp\_time, check\_nwstat,
+check\_overcr,  check\_ping, check\_pop, check\_procs,
+check\_real, check\_rta\_multi, check\_sensors, check\_simap,
+check\_smtp, check\_spop, check\_ssh, check\_ssmtp,
+check\_swap, check\_tcp, check\_time, check\_udp,
+check\_ups, check\_users
+This package provides a basic set of plugins with minimal external dependencies.  It is not likely to be useful by itself unless you are using a remote "satellite" system (using nagios-nrpe-server, check\_by\_ssh or nsca, for example).
 
 ## Depends:
 
-  -  [bash] (salt/bash)
-  -  [openssh-server.relate-nagios3] (salt/openssh-server.relate-nagios3)
+  -  [bash](salt/bash)
+  -  [openssh-server.relate-nagios3](salt/openssh-server/relate-nagios3.sls)
 
 ## Reverse Depends:
 

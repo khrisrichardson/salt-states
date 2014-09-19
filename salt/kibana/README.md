@@ -6,10 +6,10 @@
 
 ## Depends:
 
-  -  [nginx] (salt/nginx)
-  -  [sensu-client] (salt/sensu-client)
-  -  [tar] (salt/tar)
-  -  [wget] (salt/wget)
+  -  [nginx](salt/nginx)
+  -  [sensu-client](salt/sensu-client)
+  -  [tar](salt/tar)
+  -  [wget](salt/wget)
 
 ## Reverse Depends:
 
@@ -17,8 +17,8 @@
 
 ## Relates:
 
-  -  [elasticsearch] (salt/elasticsearch)
-  -  [sensu-api] (salt/sensu-api)
+  -  [elasticsearch](salt/elasticsearch)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

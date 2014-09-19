@@ -6,10 +6,10 @@ The OpenStack Dashboard is a reference implementation of a Django site that uses
 
 ## Depends:
 
-  -  [apache2] (salt/apache2)
-  -  [haproxy] (salt/haproxy)
-  -  [postfix] (salt/postfix)
-  -  [sensu-client] (salt/sensu-client)
+  -  [apache2](salt/apache2)
+  -  [haproxy](salt/haproxy)
+  -  [postfix](salt/postfix)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -17,9 +17,9 @@ The OpenStack Dashboard is a reference implementation of a Django site that uses
 
 ## Relates:
 
-  -  [keystone] (salt/keystone)
-  -  [memcached] (salt/memcached)
-  -  [sensu-api] (salt/sensu-api)
+  -  [keystone](salt/keystone)
+  -  [memcached](salt/memcached)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

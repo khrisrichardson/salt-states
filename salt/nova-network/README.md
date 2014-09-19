@@ -12,11 +12,11 @@ This is the package you will install on the network nodes. This service is respo
 
 ## Depends:
 
-  -  [bridge-utils] (salt/bridge-utils)
-  -  [logstash] (salt/logstash)
-  -  [nova-common] (salt/nova-common)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [bridge-utils](salt/bridge-utils)
+  -  [logstash](salt/logstash)
+  -  [nova-common](salt/nova-common)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -24,8 +24,8 @@ This is the package you will install on the network nodes. This service is respo
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

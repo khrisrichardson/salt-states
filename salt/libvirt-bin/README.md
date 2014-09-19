@@ -8,19 +8,19 @@ This package contains the supporting binaries to use with libvirt
 
 ## Depends:
 
-  -  [bridge-utils] (salt/bridge-utils)
-  -  [logstash] (salt/logstash)
-  -  [sensu-client] (salt/sensu-client)
-  -  [uuid-runtime] (salt/uuid-runtime)
+  -  [bridge-utils](salt/bridge-utils)
+  -  [logstash](salt/logstash)
+  -  [sensu-client](salt/sensu-client)
+  -  [uuid-runtime](salt/uuid-runtime)
 
 ## Reverse Depends:
 
-  -  [nova-compute-libvirt] (salt/nova-compute-libvirt)
+  -  [nova-compute-libvirt](salt/nova-compute-libvirt)
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

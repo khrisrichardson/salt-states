@@ -12,9 +12,9 @@ curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form ba
 
 ## Reverse Depends:
 
-  -  [coreos-ipxe-server] (salt/coreos-ipxe-server)
-  -  [gitlab] (salt/gitlab)
-  -  [ruby-rvm] (salt/ruby-rvm)
+  -  [coreos-ipxe-server](salt/coreos-ipxe-server)
+  -  [gitlab](salt/gitlab)
+  -  [ruby-rvm](salt/ruby-rvm)
 
 ## Relates:
 

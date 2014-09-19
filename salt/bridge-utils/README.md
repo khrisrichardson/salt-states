@@ -10,9 +10,9 @@ This package contains utilities for configuring the Linux Ethernet bridge in Lin
 
 ## Reverse Depends:
 
-  -  [libvirt-bin] (salt/libvirt-bin)
-  -  [neutron-plugin-linuxbridge-agent] (salt/neutron-plugin-linuxbridge-agent)
-  -  [nova-network] (salt/nova-network)
+  -  [libvirt-bin](salt/libvirt-bin)
+  -  [neutron-plugin-linuxbridge-agent](salt/neutron-plugin-linuxbridge-agent)
+  -  [nova-network](salt/nova-network)
 
 ## Relates:
 

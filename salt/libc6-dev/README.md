@@ -10,7 +10,7 @@ Contains the symlinks, headers, and object files needed to compile and link prog
 
 ## Reverse Depends:
 
-  -  [cadvisor] (salt/cadvisor)
+  -  [cadvisor](salt/cadvisor)
 
 ## Relates:
 

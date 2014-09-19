@@ -14,7 +14,7 @@ This module wraps ?MQ using Ruby FFI (foreign function interface). It is a pure 
 
 ## Reverse Depends:
 
-  -  [logstash] (salt/logstash)
+  -  [logstash](salt/logstash)
 
 ## Relates:
 

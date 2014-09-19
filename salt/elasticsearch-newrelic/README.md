@@ -6,10 +6,10 @@
 
 ## Depends:
 
-  -  [debianutils] (salt/debianutils)
-  -  [elasticsearch] (salt/elasticsearch)
-  -  [git] (salt/git)
-  -  [gradle] (salt/gradle)
+  -  [debianutils](salt/debianutils)
+  -  [elasticsearch](salt/elasticsearch)
+  -  [git](salt/git)
+  -  [gradle](salt/gradle)
 
 ## Reverse Depends:
 

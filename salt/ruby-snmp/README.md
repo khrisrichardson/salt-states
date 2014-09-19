@@ -10,7 +10,7 @@ This library implements SNMP (the Simple Network Management Protocol). It is imp
 
 ## Reverse Depends:
 
-  -  [snmpd] (salt/snmpd)
+  -  [snmpd](salt/snmpd)
 
 ## Relates:
 

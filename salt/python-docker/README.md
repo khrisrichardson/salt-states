@@ -6,7 +6,7 @@
 
 ## Depends:
 
-  -  [python-pip] (salt/python-pip)
+  -  [python-pip](salt/python-pip)
 
 ## Reverse Depends:
 

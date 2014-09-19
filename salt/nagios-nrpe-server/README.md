@@ -10,7 +10,7 @@ This program runs as a background process on the remote host and processes comma
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@ This program runs as a background process on the remote host and processes comma
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

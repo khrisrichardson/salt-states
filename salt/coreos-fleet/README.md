@@ -6,7 +6,7 @@
 
 ## Depends:
 
-  -  [etcd] (salt/etcd)
+  -  [etcd](salt/etcd)
 
 ## Reverse Depends:
 

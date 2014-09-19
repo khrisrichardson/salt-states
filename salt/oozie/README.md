@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [cloudera-cdh4] (salt/cloudera-cdh4)
-  -  [cloudera-cdh5] (salt/cloudera-cdh5)
-  -  [cloudera-cm4-agent] (salt/cloudera-cm4-agent)
-  -  [cloudera-cm5-agent] (salt/cloudera-cm5-agent)
-  -  [oracle-j2sdk1\_7] (salt/oracle-j2sdk1_7)
-  -  [oracle-java7-installer] (salt/oracle-java7-installer)
-  -  [sensu-client] (salt/sensu-client)
+  -  [cloudera-cdh4](salt/cloudera-cdh4)
+  -  [cloudera-cdh5](salt/cloudera-cdh5)
+  -  [cloudera-cm4-agent](salt/cloudera-cm4-agent)
+  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
+  -  [oracle-j2sdk1\_7](salt/oracle-j2sdk1_7)
+  -  [oracle-java7-installer](salt/oracle-java7-installer)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -20,7 +20,7 @@
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

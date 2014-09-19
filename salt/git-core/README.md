@@ -10,13 +10,13 @@ This is a transitional dummy package.  The 'git-core' package has been renamed t
 
 ## Depends:
 
-  -  [bash] (salt/bash)
-  -  [python-apt] (salt/python-apt)
+  -  [bash](salt/bash)
+  -  [python-apt](salt/python-apt)
 
 ## Reverse Depends:
 
-  -  [gitlab] (salt/gitlab)
-  -  [gitlab-shell] (salt/gitlab-shell)
+  -  [gitlab](salt/gitlab)
+  -  [gitlab-shell](salt/gitlab-shell)
 
 ## Relates:
 

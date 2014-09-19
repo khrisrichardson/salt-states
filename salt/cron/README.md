@@ -10,15 +10,15 @@ This cron package does not provide any system maintenance tasks. Basic periodic 
 
 ## Depends:
 
-  -  [sensu-client] (salt/sensu-client)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [hbase] (salt/hbase)
+  -  [hbase](salt/hbase)
 
 ## Relates:
 
-  -  [sensu-api] (salt/sensu-api)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

@@ -10,7 +10,7 @@ This is LVM2, the rewrite of The Linux Logical Volume Manager.  LVM supports ent
 
 ## Reverse Depends:
 
-  -  [cinder-volume] (salt/cinder-volume)
+  -  [cinder-volume](salt/cinder-volume)
 
 ## Relates:
 

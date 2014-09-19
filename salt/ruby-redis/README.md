@@ -10,7 +10,7 @@
 
 ## Reverse Depends:
 
-  -  [redis-server] (salt/redis-server)
+  -  [redis-server](salt/redis-server)
 
 ## Relates:
 

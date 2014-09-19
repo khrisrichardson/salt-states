@@ -16,7 +16,7 @@ This package contains modules for all Python versions supported in Debian.
 
 ## Reverse Depends:
 
-  -  [salt-minion] (salt/salt-minion)
+  -  [salt-minion](salt/salt-minion)
 
 ## Relates:
 

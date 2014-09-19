@@ -6,11 +6,11 @@
 
 ## Depends:
 
-  -  [ca-certificates] (salt/ca-certificates)
-  -  [debianutils] (salt/debianutils)
-  -  [git] (salt/git)
-  -  [golang-go] (salt/golang-go)
-  -  [mercurial] (salt/mercurial)
+  -  [ca-certificates](salt/ca-certificates)
+  -  [debianutils](salt/debianutils)
+  -  [git](salt/git)
+  -  [golang-go](salt/golang-go)
+  -  [mercurial](salt/mercurial)
 
 ## Reverse Depends:
 

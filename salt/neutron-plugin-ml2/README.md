@@ -8,12 +8,12 @@ This package provides the Modular Layer 2 plugin.
 
 ## Depends:
 
-  -  [neutron-common] (salt/neutron-common)
+  -  [neutron-common](salt/neutron-common)
 
 ## Reverse Depends:
 
-  -  [neutron-plugin-openflow-agent] (salt/neutron-plugin-openflow-agent)
-  -  [neutron-plugin-openvswitch-agent] (salt/neutron-plugin-openvswitch-agent)
+  -  [neutron-plugin-openflow-agent](salt/neutron-plugin-openflow-agent)
+  -  [neutron-plugin-openvswitch-agent](salt/neutron-plugin-openvswitch-agent)
 
 ## Relates:
 

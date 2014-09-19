@@ -18,9 +18,9 @@ ssh replaces the insecure rsh, rcp and rlogin programs, which are obsolete for m
 
 ## Reverse Depends:
 
-  -  [jenkins] (salt/jenkins)
-  -  [puppetmaster] (salt/puppetmaster)
-  -  [salt-master] (salt/salt-master)
+  -  [jenkins](salt/jenkins)
+  -  [puppetmaster](salt/puppetmaster)
+  -  [salt-master](salt/salt-master)
 
 ## Relates:
 

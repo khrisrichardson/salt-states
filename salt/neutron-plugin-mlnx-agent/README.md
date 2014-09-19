@@ -8,10 +8,10 @@ This package provides the Mellanox plugin agent.
 
 ## Depends:
 
-  -  [logstash] (salt/logstash)
-  -  [neutron-plugin-mlnx] (salt/neutron-plugin-mlnx)
-  -  [sensu-client] (salt/sensu-client)
-  -  [supervisor] (salt/supervisor)
+  -  [logstash](salt/logstash)
+  -  [neutron-plugin-mlnx](salt/neutron-plugin-mlnx)
+  -  [sensu-client](salt/sensu-client)
+  -  [supervisor](salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,8 +19,8 @@ This package provides the Mellanox plugin agent.
 
 ## Relates:
 
-  -  [logstash] (salt/logstash)
-  -  [sensu-api] (salt/sensu-api)
+  -  [logstash](salt/logstash)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

@@ -10,10 +10,10 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 
 ## Depends:
 
-  -  [php5] (salt/php5)
-  -  [rsyslog] (salt/rsyslog)
-  -  [ruby-crack] (salt/ruby-crack)
-  -  [sensu-client] (salt/sensu-client)
+  -  [php5](salt/php5)
+  -  [rsyslog](salt/rsyslog)
+  -  [ruby-crack](salt/ruby-crack)
+  -  [sensu-client](salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -21,8 +21,8 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 
 ## Relates:
 
-  -  [rsyslog] (salt/rsyslog)
-  -  [sensu-api] (salt/sensu-api)
+  -  [rsyslog](salt/rsyslog)
+  -  [sensu-api](salt/sensu-api)
 
 ## Files:
 

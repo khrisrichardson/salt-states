@@ -8,7 +8,7 @@ This package provides the Metaplugin plugin.
 
 ## Depends:
 
-  -  [neutron-common] (salt/neutron-common)
+  -  [neutron-common](salt/neutron-common)
 
 ## Reverse Depends:
 
