@@ -6,12 +6,12 @@
 
 ## Depends:
 
-  -  [python-apt](salt/python-apt)
+  -  [python-apt](/salt/python-apt)
 
 ## Reverse Depends:
 
-  -  [gitlab](salt/gitlab)
-  -  [gitlab-shell](salt/gitlab-shell)
+  -  [gitlab](/salt/gitlab)
+  -  [gitlab-shell](/salt/gitlab-shell)
 
 ## Relates:
 

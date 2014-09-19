@@ -8,10 +8,10 @@ This package contains the heat engine, which is the core service of heat, and wh
 
 ## Depends:
 
-  -  [heat-common](salt/heat-common)
-  -  [logstash](salt/logstash)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [heat-common](/salt/heat-common)
+  -  [logstash](/salt/logstash)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,8 +19,8 @@ This package contains the heat engine, which is the core service of heat, and wh
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -10,7 +10,7 @@
 
 ## Reverse Depends:
 
-  -  [tomcat7](salt/tomcat7)
+  -  [tomcat7](/salt/tomcat7)
 
 ## Relates:
 

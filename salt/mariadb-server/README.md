@@ -8,9 +8,9 @@ MariaDB is a fast, stable and true multi-user, multi-threaded SQL database serve
 
 ## Depends:
 
-  -  [debconf-utils](salt/debconf-utils)
-  -  [mysql-common](salt/mysql-common)
-  -  [sensu-client](salt/sensu-client)
+  -  [debconf-utils](/salt/debconf-utils)
+  -  [mysql-common](/salt/mysql-common)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,18 +18,18 @@ MariaDB is a fast, stable and true multi-user, multi-threaded SQL database serve
 
 ## Relates:
 
-  -  [ceilometer-api](salt/ceilometer-api)
-  -  [cinder-api](salt/cinder-api)
-  -  [glance-api](salt/glance-api)
-  -  [glance-registry](salt/glance-registry)
-  -  [heat-api](salt/heat-api)
-  -  [ironic-api](salt/ironic-api)
-  -  [keystone](salt/keystone)
-  -  [neutron-server](salt/neutron-server)
-  -  [nova-api](salt/nova-api)
-  -  [nova-baremetal](salt/nova-baremetal)
-  -  [salt-minion](salt/salt-minion)
-  -  [sensu-api](salt/sensu-api)
+  -  [ceilometer-api](/salt/ceilometer-api)
+  -  [cinder-api](/salt/cinder-api)
+  -  [glance-api](/salt/glance-api)
+  -  [glance-registry](/salt/glance-registry)
+  -  [heat-api](/salt/heat-api)
+  -  [ironic-api](/salt/ironic-api)
+  -  [keystone](/salt/keystone)
+  -  [neutron-server](/salt/neutron-server)
+  -  [nova-api](/salt/nova-api)
+  -  [nova-baremetal](/salt/nova-baremetal)
+  -  [salt-minion](/salt/salt-minion)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -14,16 +14,16 @@ This particular package provides shared libraries that salt-master, salt-minion,
 
 ## Depends:
 
-  -  [bash](salt/bash)
-  -  [epel-release](salt/epel-release)
-  -  [supervisor](salt/supervisor)
+  -  [bash](/salt/bash)
+  -  [epel-release](/salt/epel-release)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
-  -  [salt-halite](salt/salt-halite)
-  -  [salt-master](salt/salt-master)
-  -  [salt-minion](salt/salt-minion)
-  -  [salt-syndic](salt/salt-syndic)
+  -  [salt-halite](/salt/salt-halite)
+  -  [salt-master](/salt/salt-master)
+  -  [salt-minion](/salt/salt-minion)
+  -  [salt-syndic](/salt/salt-syndic)
 
 ## Relates:
 

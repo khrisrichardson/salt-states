@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [libpostgresql-jdbc-java](salt/libpostgresql-jdbc-java)
-  -  [maven](salt/maven)
-  -  [maven.exec](salt/maven.exec)
-  -  [openssl](salt/openssl)
-  -  [pwgen](salt/pwgen)
-  -  [tomcat7](salt/tomcat7)
-  -  [whois](salt/whois)
+  -  [libpostgresql-jdbc-java](/salt/libpostgresql-jdbc-java)
+  -  [maven](/salt/maven)
+  -  [maven.exec](/salt/maven.exec)
+  -  [openssl](/salt/openssl)
+  -  [pwgen](/salt/pwgen)
+  -  [tomcat7](/salt/tomcat7)
+  -  [whois](/salt/whois)
 
 ## Reverse Depends:
 
@@ -20,8 +20,8 @@
 
 ## Relates:
 
-  -  [dynaTrace-server](salt/dynaTrace-server)
-  -  [socks5](salt/socks5)
+  -  [dynaTrace-server](/salt/dynaTrace-server)
+  -  [socks5](/salt/socks5)
 
 ## Files:
 

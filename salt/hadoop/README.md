@@ -24,18 +24,18 @@ around the cluster. MapReduce can then process the data where it is located.
 
 ## Depends:
 
-  -  [cloudera-cdh4](salt/cloudera-cdh4)
-  -  [cloudera-cdh5](salt/cloudera-cdh5)
+  -  [cloudera-cdh4](/salt/cloudera-cdh4)
+  -  [cloudera-cdh5](/salt/cloudera-cdh5)
 
 ## Reverse Depends:
 
-  -  [cloudera-cm4-agent](salt/cloudera-cm4-agent)
-  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
+  -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
+  -  [cloudera-cm5-agent](/salt/cloudera-cm5-agent)
 
 ## Relates:
 
-  -  [ganglia](salt/ganglia)
-  -  [logstash](salt/logstash)
+  -  [ganglia](/salt/ganglia)
+  -  [logstash](/salt/logstash)
 
 ## Files:
 

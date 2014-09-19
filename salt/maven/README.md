@@ -14,24 +14,24 @@ Maven's primary goal is to allow a developer to comprehend the complete state of
 
 ## Depends:
 
-  -  [debianutils](salt/debianutils)
-  -  [oracle-j2sdk1\_7](salt/oracle-j2sdk1_7)
-  -  [oracle-java7-installer](salt/oracle-java7-installer)
-  -  [tar](salt/tar)
-  -  [wget](salt/wget)
+  -  [debianutils](/salt/debianutils)
+  -  [oracle-j2sdk1\_7](/salt/oracle-j2sdk1_7)
+  -  [oracle-java7-installer](/salt/oracle-java7-installer)
+  -  [tar](/salt/tar)
+  -  [wget](/salt/wget)
 
 ## Reverse Depends:
 
-  -  [elasticsearch-graphite](salt/elasticsearch-graphite)
-  -  [guvnor](salt/guvnor)
-  -  [jenkins](salt/jenkins)
-  -  [jmxtrans-agent](salt/jmxtrans-agent)
-  -  [solr](salt/solr)
-  -  [tomcat7](salt/tomcat7)
+  -  [elasticsearch-graphite](/salt/elasticsearch-graphite)
+  -  [guvnor](/salt/guvnor)
+  -  [jenkins](/salt/jenkins)
+  -  [jmxtrans-agent](/salt/jmxtrans-agent)
+  -  [solr](/salt/solr)
+  -  [tomcat7](/salt/tomcat7)
 
 ## Relates:
 
-  -  [socks5](salt/socks5)
+  -  [socks5](/salt/socks5)
 
 ## Files:
 

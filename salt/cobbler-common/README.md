@@ -12,7 +12,7 @@ This package includes the common files.
 
 ## Reverse Depends:
 
-  -  [cobbler](salt/cobbler)
+  -  [cobbler](/salt/cobbler)
 
 ## Relates:
 

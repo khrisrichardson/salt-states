@@ -12,21 +12,21 @@ This package contains the common files.
 
 ## Reverse Depends:
 
-  -  [heat-api](salt/heat-api)
-  -  [heat-api-cfn](salt/heat-api-cfn)
-  -  [heat-api-cloudwatch](salt/heat-api-cloudwatch)
-  -  [heat-engine](salt/heat-engine)
+  -  [heat-api](/salt/heat-api)
+  -  [heat-api-cfn](/salt/heat-api-cfn)
+  -  [heat-api-cloudwatch](/salt/heat-api-cloudwatch)
+  -  [heat-engine](/salt/heat-engine)
 
 ## Relates:
 
-  -  [keystone](salt/keystone)
-  -  [mariadb-server](salt/mariadb-server)
-  -  [memcached](salt/memcached)
-  -  [mysql-server](salt/mysql-server)
-  -  [postgresql](salt/postgresql)
-  -  [qpidd](salt/qpidd)
-  -  [rabbitmq-server](salt/rabbitmq-server)
-  -  [redis-server](salt/redis-server)
+  -  [keystone](/salt/keystone)
+  -  [mariadb-server](/salt/mariadb-server)
+  -  [memcached](/salt/memcached)
+  -  [mysql-server](/salt/mysql-server)
+  -  [postgresql](/salt/postgresql)
+  -  [qpidd](/salt/qpidd)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
+  -  [redis-server](/salt/redis-server)
 
 ## Files:
 

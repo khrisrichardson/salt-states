@@ -8,10 +8,10 @@ This package contains the glance API server.
 
 ## Depends:
 
-  -  [haproxy](salt/haproxy)
-  -  [logstash](salt/logstash)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [haproxy](/salt/haproxy)
+  -  [logstash](/salt/logstash)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,24 +19,24 @@ This package contains the glance API server.
 
 ## Relates:
 
-  -  [cinder-volume](salt/cinder-volume)
-  -  [glance-registry](salt/glance-registry)
-  -  [keystone](salt/keystone)
-  -  [logstash](salt/logstash)
-  -  [mariadb-server](salt/mariadb-server)
-  -  [memcached](salt/memcached)
-  -  [mongodb-server](salt/mongodb-server)
-  -  [mysql-server](salt/mysql-server)
-  -  [nova-objectstore](salt/nova-objectstore)
-  -  [postgresql](salt/postgresql)
-  -  [qpidd](salt/qpidd)
-  -  [rabbitmq-server](salt/rabbitmq-server)
-  -  [radosgw](salt/radosgw)
-  -  [redis-server](salt/redis-server)
-  -  [sensu-api](salt/sensu-api)
-  -  [sheepdog](salt/sheepdog)
-  -  [swift-object](salt/swift-object)
-  -  [swift-proxy](salt/swift-proxy)
+  -  [cinder-volume](/salt/cinder-volume)
+  -  [glance-registry](/salt/glance-registry)
+  -  [keystone](/salt/keystone)
+  -  [logstash](/salt/logstash)
+  -  [mariadb-server](/salt/mariadb-server)
+  -  [memcached](/salt/memcached)
+  -  [mongodb-server](/salt/mongodb-server)
+  -  [mysql-server](/salt/mysql-server)
+  -  [nova-objectstore](/salt/nova-objectstore)
+  -  [postgresql](/salt/postgresql)
+  -  [qpidd](/salt/qpidd)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
+  -  [radosgw](/salt/radosgw)
+  -  [redis-server](/salt/redis-server)
+  -  [sensu-api](/salt/sensu-api)
+  -  [sheepdog](/salt/sheepdog)
+  -  [swift-object](/salt/swift-object)
+  -  [swift-proxy](/salt/swift-proxy)
 
 ## Files:
 

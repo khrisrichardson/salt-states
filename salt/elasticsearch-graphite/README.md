@@ -6,14 +6,14 @@
 
 ## Depends:
 
-  -  [debianutils](salt/debianutils)
-  -  [elasticsearch](salt/elasticsearch)
-  -  [git](salt/git)
-  -  [maven](salt/maven)
+  -  [debianutils](/salt/debianutils)
+  -  [elasticsearch](/salt/elasticsearch)
+  -  [git](/salt/git)
+  -  [maven](/salt/maven)
 
 ## Reverse Depends:
 
-  -  [elasticsearch](salt/elasticsearch)
+  -  [elasticsearch](/salt/elasticsearch)
 
 ## Relates:
 

@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [fleet-common](salt/fleet-common)
-  -  [fleet.depend-golang-go](salt/fleet.depend-golang-go)
+  -  [fleet-common](/salt/fleet-common)
+  -  [fleet.depend-golang-go](/salt/fleet.depend-golang-go)
 
 ## Reverse Depends:
 

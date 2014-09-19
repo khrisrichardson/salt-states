@@ -26,11 +26,11 @@ Upstream URL: http://www.nagios.org/
 
 ## Depends:
 
-  -  [apache2](salt/apache2)
-  -  [libapache2-mod-php5](salt/libapache2-mod-php5)
-  -  [nginx](salt/nginx)
-  -  [postfix](salt/postfix)
-  -  [sensu-client](salt/sensu-client)
+  -  [apache2](/salt/apache2)
+  -  [libapache2-mod-php5](/salt/libapache2-mod-php5)
+  -  [nginx](/salt/nginx)
+  -  [postfix](/salt/postfix)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -38,7 +38,7 @@ Upstream URL: http://www.nagios.org/
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

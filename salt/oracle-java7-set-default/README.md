@@ -10,7 +10,7 @@
 
 ## Reverse Depends:
 
-  -  [dynaTrace-common](salt/dynaTrace-common)
+  -  [dynaTrace-common](/salt/dynaTrace-common)
 
 ## Relates:
 

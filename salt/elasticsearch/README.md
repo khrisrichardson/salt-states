@@ -6,24 +6,24 @@ Open Source, Distributed, RESTful Search Engine
 
 ## Depends:
 
-  -  [debianutils](salt/debianutils)
-  -  [elasticsearch-graphite](salt/elasticsearch-graphite)
-  -  [jmxtrans-agent](salt/jmxtrans-agent)
-  -  [oracle-j2sdk1\_7](salt/oracle-j2sdk1_7)
-  -  [oracle-java7-installer](salt/oracle-java7-installer)
-  -  [python-apt](salt/python-apt)
-  -  [ruby-rest-client](salt/ruby-rest-client)
-  -  [sensu-client](salt/sensu-client)
+  -  [debianutils](/salt/debianutils)
+  -  [elasticsearch-graphite](/salt/elasticsearch-graphite)
+  -  [jmxtrans-agent](/salt/jmxtrans-agent)
+  -  [oracle-j2sdk1\_7](/salt/oracle-j2sdk1_7)
+  -  [oracle-java7-installer](/salt/oracle-java7-installer)
+  -  [python-apt](/salt/python-apt)
+  -  [ruby-rest-client](/salt/ruby-rest-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [graph-explorer](salt/graph-explorer)
+  -  [graph-explorer](/salt/graph-explorer)
 
 ## Relates:
 
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [influxdb](salt/influxdb)
-  -  [sensu-api](salt/sensu-api)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [influxdb](/salt/influxdb)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -8,10 +8,10 @@ This package provides the VPN agent, which also provides L3 agent support.
 
 ## Depends:
 
-  -  [neutron-common](salt/neutron-common)
-  -  [neutron-metadata-agent](salt/neutron-metadata-agent)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [neutron-common](/salt/neutron-common)
+  -  [neutron-metadata-agent](/salt/neutron-metadata-agent)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,7 +19,7 @@ This package provides the VPN agent, which also provides L3 agent support.
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

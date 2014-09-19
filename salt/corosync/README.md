@@ -10,8 +10,8 @@ This package contains the corosync daemon and modules.
 
 ## Depends:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-client](salt/sensu-client)
+  -  [logstash](/salt/logstash)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -19,8 +19,8 @@ This package contains the corosync daemon and modules.
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

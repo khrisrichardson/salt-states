@@ -14,7 +14,7 @@ System, Events, Standard I/O, Modules, Timers, Child Processes, POSIX, HTTP, Mul
 
 ## Reverse Depends:
 
-  -  [npm](salt/npm)
+  -  [npm](/salt/npm)
 
 ## Relates:
 

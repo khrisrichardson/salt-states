@@ -10,11 +10,11 @@ This package is a dependency package, which depends on Debian's default Ruby ver
 
 ## Depends:
 
-  -  [ruby](salt/ruby)
+  -  [ruby](/salt/ruby)
 
 ## Reverse Depends:
 
-  -  [ruby-redmon](salt/ruby-redmon)
+  -  [ruby-redmon](/salt/ruby-redmon)
 
 ## Relates:
 

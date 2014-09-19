@@ -6,12 +6,12 @@
 
 ## Depends:
 
-  -  [python-apt](salt/python-apt)
-  -  [rpmforge-release](salt/rpmforge-release)
+  -  [python-apt](/salt/python-apt)
+  -  [rpmforge-release](/salt/rpmforge-release)
 
 ## Reverse Depends:
 
-  -  [opsview](salt/opsview)
+  -  [opsview](/salt/opsview)
 
 ## Relates:
 

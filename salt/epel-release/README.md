@@ -10,12 +10,12 @@
 
 ## Reverse Depends:
 
-  -  [golang-go](salt/golang-go)
-  -  [lxc-docker](salt/lxc-docker)
-  -  [salt-common](salt/salt-common)
-  -  [salt-master](salt/salt-master)
-  -  [salt-minion](salt/salt-minion)
-  -  [salt-syndic](salt/salt-syndic)
+  -  [golang-go](/salt/golang-go)
+  -  [lxc-docker](/salt/lxc-docker)
+  -  [salt-common](/salt/salt-common)
+  -  [salt-master](/salt/salt-master)
+  -  [salt-minion](/salt/salt-minion)
+  -  [salt-syndic](/salt/salt-syndic)
 
 ## Relates:
 

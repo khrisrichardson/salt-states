@@ -8,18 +8,18 @@ PostgreSQL is a fully featured object-relational database management system.  It
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [descartes](salt/descartes)
-  -  [gitlab](salt/gitlab)
+  -  [descartes](/salt/descartes)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 
-  -  [calamari](salt/calamari)
-  -  [salt-minion](salt/salt-minion)
-  -  [sensu-api](salt/sensu-api)
+  -  [calamari](/salt/calamari)
+  -  [salt-minion](/salt/salt-minion)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

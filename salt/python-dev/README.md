@@ -12,7 +12,7 @@ This package is a dependency package, which depends on Debian's default Python v
 
 ## Reverse Depends:
 
-  -  [python-pygit2](salt/python-pygit2)
+  -  [python-pygit2](/salt/python-pygit2)
 
 ## Relates:
 

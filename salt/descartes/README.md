@@ -6,15 +6,15 @@
 
 ## Depends:
 
-  -  [apache2](salt/apache2)
-  -  [git](salt/git)
-  -  [libpq-dev](salt/libpq-dev)
-  -  [libxml2-dev](salt/libxml2-dev)
-  -  [libxslt1-dev](salt/libxslt1-dev)
-  -  [postgresql](salt/postgresql)
-  -  [redis-server](salt/redis-server)
-  -  [ruby-rvm](salt/ruby-rvm)
-  -  [sensu-client](salt/sensu-client)
+  -  [apache2](/salt/apache2)
+  -  [git](/salt/git)
+  -  [libpq-dev](/salt/libpq-dev)
+  -  [libxml2-dev](/salt/libxml2-dev)
+  -  [libxslt1-dev](/salt/libxslt1-dev)
+  -  [postgresql](/salt/postgresql)
+  -  [redis-server](/salt/redis-server)
+  -  [ruby-rvm](/salt/ruby-rvm)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -22,8 +22,8 @@
 
 ## Relates:
 
-  -  [postgresql](salt/postgresql)
-  -  [sensu-api](salt/sensu-api)
+  -  [postgresql](/salt/postgresql)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

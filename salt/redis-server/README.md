@@ -8,18 +8,18 @@ The dataset is stored entirely in memory and periodically flushed to disk.
 
 ## Depends:
 
-  -  [procps](salt/procps)
-  -  [ruby-redis](salt/ruby-redis)
-  -  [sensu-client](salt/sensu-client)
+  -  [procps](/salt/procps)
+  -  [ruby-redis](/salt/ruby-redis)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [descartes](salt/descartes)
-  -  [gitlab](salt/gitlab)
+  -  [descartes](/salt/descartes)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

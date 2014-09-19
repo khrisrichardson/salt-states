@@ -20,8 +20,8 @@ This package provides a basic set of plugins with minimal external dependencies.
 
 ## Depends:
 
-  -  [bash](salt/bash)
-  -  [openssh-server.relate-nagios3](salt/openssh-server/relate-nagios3.sls)
+  -  [bash](/salt/bash)
+  -  [openssh-server.relate-nagios3](/salt/openssh-server/relate-nagios3.sls)
 
 ## Reverse Depends:
 

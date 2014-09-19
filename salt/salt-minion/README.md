@@ -14,20 +14,20 @@ This particular package provides the worker / agent for salt.
 
 ## Depends:
 
-  -  [epel-release](salt/epel-release)
-  -  [incron](salt/incron)
-  -  [python-elasticsearch](salt/python-elasticsearch)
-  -  [python-etcd](salt/python-etcd)
-  -  [python-influxdb](salt/python-influxdb)
-  -  [python-memcache](salt/python-memcache)
-  -  [python-mysqldb](salt/python-mysqldb)
-  -  [python-psutil](salt/python-psutil)
-  -  [python-psycopg2](salt/python-psycopg2)
-  -  [python-pymongo](salt/python-pymongo)
-  -  [python-redis](salt/python-redis)
-  -  [salt-common](salt/salt-common)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [epel-release](/salt/epel-release)
+  -  [incron](/salt/incron)
+  -  [python-elasticsearch](/salt/python-elasticsearch)
+  -  [python-etcd](/salt/python-etcd)
+  -  [python-influxdb](/salt/python-influxdb)
+  -  [python-memcache](/salt/python-memcache)
+  -  [python-mysqldb](/salt/python-mysqldb)
+  -  [python-psutil](/salt/python-psutil)
+  -  [python-psycopg2](/salt/python-psycopg2)
+  -  [python-pymongo](/salt/python-pymongo)
+  -  [python-redis](/salt/python-redis)
+  -  [salt-common](/salt/salt-common)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -35,17 +35,17 @@ This particular package provides the worker / agent for salt.
 
 ## Relates:
 
-  -  [elasticsearch](salt/elasticsearch)
-  -  [etcd](salt/etcd)
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [influxdb](salt/influxdb)
-  -  [logstash](salt/logstash)
-  -  [memcached](salt/memcached)
-  -  [mongodb-server](salt/mongodb-server)
-  -  [mysql-server](salt/mysql-server)
-  -  [postgresql](salt/postgresql)
-  -  [redis-server](salt/redis-server)
-  -  [sensu-api](salt/sensu-api)
+  -  [elasticsearch](/salt/elasticsearch)
+  -  [etcd](/salt/etcd)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [influxdb](/salt/influxdb)
+  -  [logstash](/salt/logstash)
+  -  [memcached](/salt/memcached)
+  -  [mongodb-server](/salt/mongodb-server)
+  -  [mysql-server](/salt/mysql-server)
+  -  [postgresql](/salt/postgresql)
+  -  [redis-server](/salt/redis-server)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

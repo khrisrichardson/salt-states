@@ -10,9 +10,9 @@ This package contains some small utilities for debconf developers.
 
 ## Reverse Depends:
 
-  -  [mariadb-server](salt/mariadb-server)
-  -  [mysql-server](salt/mysql-server)
-  -  [postfix](salt/postfix)
+  -  [mariadb-server](/salt/mariadb-server)
+  -  [mysql-server](/salt/mysql-server)
+  -  [postfix](/salt/postfix)
 
 ## Relates:
 

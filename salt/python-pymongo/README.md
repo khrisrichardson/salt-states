@@ -10,7 +10,7 @@ MongoDB is a high-performance, open source, schema-free document-oriented data s
 
 ## Reverse Depends:
 
-  -  [salt-minion](salt/salt-minion)
+  -  [salt-minion](/salt/salt-minion)
 
 ## Relates:
 

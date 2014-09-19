@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [newrelic](salt/newrelic)
-  -  [php5-cli](salt/php5-cli)
+  -  [newrelic](/salt/newrelic)
+  -  [php5-cli](/salt/php5-cli)
 
 ## Reverse Depends:
 

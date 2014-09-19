@@ -10,7 +10,7 @@ Java classes for communication with the PostgreSQL 7.2 up to 9.1 database backen
 
 ## Reverse Depends:
 
-  -  [guvnor](salt/guvnor)
+  -  [guvnor](/salt/guvnor)
 
 ## Relates:
 

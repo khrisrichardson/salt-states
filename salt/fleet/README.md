@@ -6,12 +6,12 @@
 
 ## Depends:
 
-  -  [ca-certificates](salt/ca-certificates)
-  -  [fleet-common](salt/fleet-common)
-  -  [git](salt/git)
-  -  [golang-go](salt/golang-go)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [ca-certificates](/salt/ca-certificates)
+  -  [fleet-common](/salt/fleet-common)
+  -  [git](/salt/git)
+  -  [golang-go](/salt/golang-go)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,7 +19,7 @@
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

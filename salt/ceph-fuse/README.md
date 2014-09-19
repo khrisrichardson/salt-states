@@ -8,7 +8,7 @@ Because the FUSE-based client has certain inherent performance limitations, it i
 
 ## Depends:
 
-  -  [ceph-common](salt/ceph-common)
+  -  [ceph-common](/salt/ceph-common)
 
 ## Reverse Depends:
 

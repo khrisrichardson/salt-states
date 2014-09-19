@@ -14,29 +14,29 @@ This package contains files that are needed for all parts of ceilometer
 
 ## Reverse Depends:
 
-  -  [ceilometer-agent-central](salt/ceilometer-agent-central)
-  -  [ceilometer-agent-compute](salt/ceilometer-agent-compute)
-  -  [ceilometer-agent-notification](salt/ceilometer-agent-notification)
-  -  [ceilometer-alarm-evaluator](salt/ceilometer-alarm-evaluator)
-  -  [ceilometer-alarm-notifier](salt/ceilometer-alarm-notifier)
-  -  [ceilometer-api](salt/ceilometer-api)
-  -  [ceilometer-collector](salt/ceilometer-collector)
+  -  [ceilometer-agent-central](/salt/ceilometer-agent-central)
+  -  [ceilometer-agent-compute](/salt/ceilometer-agent-compute)
+  -  [ceilometer-agent-notification](/salt/ceilometer-agent-notification)
+  -  [ceilometer-alarm-evaluator](/salt/ceilometer-alarm-evaluator)
+  -  [ceilometer-alarm-notifier](/salt/ceilometer-alarm-notifier)
+  -  [ceilometer-api](/salt/ceilometer-api)
+  -  [ceilometer-collector](/salt/ceilometer-collector)
 
 ## Relates:
 
-  -  [keystone](salt/keystone)
-  -  [mariadb-server](salt/mariadb-server)
-  -  [memcached](salt/memcached)
-  -  [mysql-server](salt/mysql-server)
-  -  [nova-compute-docker](salt/nova-compute-docker)
-  -  [nova-compute-kvm](salt/nova-compute-kvm)
-  -  [nova-compute-lxc](salt/nova-compute-lxc)
-  -  [nova-compute-qemu](salt/nova-compute-qemu)
-  -  [nova-compute-xen](salt/nova-compute-xen)
-  -  [postgresql](salt/postgresql)
-  -  [qpidd](salt/qpidd)
-  -  [rabbitmq-server](salt/rabbitmq-server)
-  -  [redis-server](salt/redis-server)
+  -  [keystone](/salt/keystone)
+  -  [mariadb-server](/salt/mariadb-server)
+  -  [memcached](/salt/memcached)
+  -  [mysql-server](/salt/mysql-server)
+  -  [nova-compute-docker](/salt/nova-compute-docker)
+  -  [nova-compute-kvm](/salt/nova-compute-kvm)
+  -  [nova-compute-lxc](/salt/nova-compute-lxc)
+  -  [nova-compute-qemu](/salt/nova-compute-qemu)
+  -  [nova-compute-xen](/salt/nova-compute-xen)
+  -  [postgresql](/salt/postgresql)
+  -  [qpidd](/salt/qpidd)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
+  -  [redis-server](/salt/redis-server)
 
 ## Files:
 

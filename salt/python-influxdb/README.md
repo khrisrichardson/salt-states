@@ -6,11 +6,11 @@
 
 ## Depends:
 
-  -  [python-pip](salt/python-pip)
+  -  [python-pip](/salt/python-pip)
 
 ## Reverse Depends:
 
-  -  [salt-minion](salt/salt-minion)
+  -  [salt-minion](/salt/salt-minion)
 
 ## Relates:
 

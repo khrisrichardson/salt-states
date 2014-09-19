@@ -6,7 +6,7 @@
 
 ## Depends:
 
-  -  [python-apt](salt/python-apt)
+  -  [python-apt](/salt/python-apt)
 
 ## Reverse Depends:
 

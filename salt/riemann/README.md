@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [openjdk-7-jre-headless](salt/openjdk-7-jre-headless)
-  -  [sensu-client](salt/sensu-client)
+  -  [openjdk-7-jre-headless](/salt/openjdk-7-jre-headless)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -15,7 +15,7 @@
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -6,11 +6,11 @@
 
 ## Depends:
 
-  -  [ruby2_0](salt/ruby2_0)
+  -  [ruby2_0](/salt/ruby2_0)
 
 ## Reverse Depends:
 
-  -  [gitlab](salt/gitlab)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 

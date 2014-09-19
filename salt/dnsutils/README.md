@@ -16,8 +16,8 @@ This package delivers various client programs related to DNS that are derived fr
 
 ## Reverse Depends:
 
-  -  [node-giraffe-web](salt/node-giraffe-web)
-  -  [node-redis-commander](salt/node-redis-commander)
+  -  [node-giraffe-web](/salt/node-giraffe-web)
+  -  [node-redis-commander](/salt/node-redis-commander)
 
 ## Relates:
 

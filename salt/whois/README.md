@@ -12,7 +12,7 @@ The package also contains mkpasswd, a features-rich front end to the password en
 
 ## Reverse Depends:
 
-  -  [guvnor](salt/guvnor)
+  -  [guvnor](/salt/guvnor)
 
 ## Relates:
 

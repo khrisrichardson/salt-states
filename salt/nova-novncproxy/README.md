@@ -12,10 +12,10 @@ This package provides the VNC proxy. It is a publically reachable component whic
 
 ## Depends:
 
-  -  [logstash](salt/logstash)
-  -  [nova-common](salt/nova-common)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [logstash](/salt/logstash)
+  -  [nova-common](/salt/nova-common)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -23,8 +23,8 @@ This package provides the VNC proxy. It is a publically reachable component whic
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -8,9 +8,9 @@ This package contains init.d scripts to start and stop zookeeper and starts zook
 
 ## Depends:
 
-  -  [jmxtrans-agent](salt/jmxtrans-agent)
-  -  [sensu-client](salt/sensu-client)
-  -  [zookeeper-server](salt/zookeeper-server)
+  -  [jmxtrans-agent](/salt/jmxtrans-agent)
+  -  [sensu-client](/salt/sensu-client)
+  -  [zookeeper-server](/salt/zookeeper-server)
 
 ## Reverse Depends:
 
@@ -18,9 +18,9 @@ This package contains init.d scripts to start and stop zookeeper and starts zook
 
 ## Relates:
 
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [influxdb](salt/influxdb)
-  -  [sensu-api](salt/sensu-api)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [influxdb](/salt/influxdb)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

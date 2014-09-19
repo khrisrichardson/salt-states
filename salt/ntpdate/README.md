@@ -10,7 +10,7 @@ If the full NTP daemon from the package "ntp" is installed, then ntpdate is not 
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@ If the full NTP daemon from the package "ntp" is installed, then ntpdate is not 
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -6,7 +6,7 @@ Sheepdog provides highly available block level storage volumes that can be attac
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -14,7 +14,7 @@ Sheepdog provides highly available block level storage volumes that can be attac
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

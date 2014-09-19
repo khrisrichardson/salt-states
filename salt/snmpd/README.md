@@ -8,8 +8,8 @@ The Net-SNMP agent is a daemon which listens for incoming SNMP requests from cli
 
 ## Depends:
 
-  -  [ruby-snmp](salt/ruby-snmp)
-  -  [sensu-client](salt/sensu-client)
+  -  [ruby-snmp](/salt/ruby-snmp)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -17,7 +17,7 @@ The Net-SNMP agent is a daemon which listens for incoming SNMP requests from cli
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -14,25 +14,25 @@ This particular package provides the salt controller.
 
 ## Depends:
 
-  -  [epel-release](salt/epel-release)
-  -  [git](salt/git)
-  -  [openssh-client.known\_hosts.github.com](salt/openssh-client/known_hosts/github/com)
-  -  [python-pygit2](salt/python-pygit2)
-  -  [salt-common](salt/salt-common)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [epel-release](/salt/epel-release)
+  -  [git](/salt/git)
+  -  [openssh-client.known\_hosts.github.com](/salt/openssh-client/known_hosts/github/com)
+  -  [python-pygit2](/salt/python-pygit2)
+  -  [salt-common](/salt/salt-common)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
-  -  [salt-halite](salt/salt-halite)
+  -  [salt-halite](/salt/salt-halite)
 
 ## Relates:
 
-  -  [cobbler](salt/cobbler)
-  -  [etcd](salt/etcd)
-  -  [logstash](salt/logstash)
-  -  [salt-syndic](salt/salt-syndic)
-  -  [sensu-api](salt/sensu-api)
+  -  [cobbler](/salt/cobbler)
+  -  [etcd](/salt/etcd)
+  -  [logstash](/salt/logstash)
+  -  [salt-syndic](/salt/salt-syndic)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

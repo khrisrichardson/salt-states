@@ -14,7 +14,7 @@ This package contains Python bindings to Redis.
 
 ## Reverse Depends:
 
-  -  [salt-minion](salt/salt-minion)
+  -  [salt-minion](/salt/salt-minion)
 
 ## Relates:
 

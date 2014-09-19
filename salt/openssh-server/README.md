@@ -14,18 +14,18 @@ sshd replaces the insecure rshd program, which is obsolete for most purposes.
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [ceph](salt/ceph)
-  -  [nagios-plugins-basic](salt/nagios-plugins-basic)
+  -  [ceph](/salt/ceph)
+  -  [nagios-plugins-basic](/salt/nagios-plugins-basic)
 
 ## Relates:
 
-  -  [cacti](salt/cacti)
-  -  [nagios3](salt/nagios3)
-  -  [sensu-api](salt/sensu-api)
+  -  [cacti](/salt/cacti)
+  -  [nagios3](/salt/nagios3)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

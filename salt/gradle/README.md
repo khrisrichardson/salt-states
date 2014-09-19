@@ -10,7 +10,7 @@ Gradle is a build system written in Groovy. It uses Groovy also as the language 
 
 ## Reverse Depends:
 
-  -  [elasticsearch-newrelic](salt/elasticsearch-newrelic)
+  -  [elasticsearch-newrelic](/salt/elasticsearch-newrelic)
 
 ## Relates:
 

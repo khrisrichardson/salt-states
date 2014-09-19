@@ -6,9 +6,9 @@ Docker complements LXC with a high-level API which operates at the process level
 
 ## Depends:
 
-  -  [epel-release](salt/epel-release)
-  -  [python-apt](salt/python-apt)
-  -  [sensu-client](salt/sensu-client)
+  -  [epel-release](/salt/epel-release)
+  -  [python-apt](/salt/python-apt)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ Docker complements LXC with a high-level API which operates at the process level
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

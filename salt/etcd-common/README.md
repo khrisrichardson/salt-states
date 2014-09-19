@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [tar](salt/tar)
-  -  [wget](salt/wget)
+  -  [tar](/salt/tar)
+  -  [wget](/salt/wget)
 
 ## Reverse Depends:
 
-  -  [etcd](salt/etcd)
-  -  [etcdctl](salt/etcdctl)
+  -  [etcd](/salt/etcd)
+  -  [etcdctl](/salt/etcdctl)
 
 ## Relates:
 

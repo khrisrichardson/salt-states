@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [sensu](salt/sensu)
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu](/salt/sensu)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -15,7 +15,7 @@
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

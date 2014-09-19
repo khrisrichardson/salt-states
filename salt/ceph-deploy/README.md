@@ -8,8 +8,8 @@ This package includes the programs and libraries to support simple ceph cluster 
 
 ## Depends:
 
-  -  [ceph](salt/ceph)
-  -  [ceph.depend-openssh](salt/ceph.depend-openssh)
+  -  [ceph](/salt/ceph)
+  -  [ceph.depend-openssh](/salt/ceph.depend-openssh)
 
 ## Reverse Depends:
 
@@ -17,9 +17,9 @@ This package includes the programs and libraries to support simple ceph cluster 
 
 ## Relates:
 
-  -  [ceph-mds](salt/ceph-mds)
-  -  [ceph-mon](salt/ceph-mon)
-  -  [ceph-osd](salt/ceph-osd)
+  -  [ceph-mds](/salt/ceph-mds)
+  -  [ceph-mon](/salt/ceph-mon)
+  -  [ceph-osd](/salt/ceph-osd)
 
 ## Files:
 

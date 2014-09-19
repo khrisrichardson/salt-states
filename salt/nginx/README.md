@@ -8,18 +8,18 @@ This is a dependency package to install either nginx-core (by default), nginx-fu
 
 ## Depends:
 
-  -  [nginx-common](salt/nginx-common)
+  -  [nginx-common](/salt/nginx-common)
 
 ## Reverse Depends:
 
-  -  [cobbler](salt/cobbler)
-  -  [coreos-ipxe-server](salt/coreos-ipxe-server)
-  -  [gitlab](salt/gitlab)
-  -  [grafana](salt/grafana)
-  -  [graphite-web](salt/graphite-web)
-  -  [kibana](salt/kibana)
-  -  [kubernetes-apiserver](salt/kubernetes-apiserver)
-  -  [nagios3](salt/nagios3)
+  -  [cobbler](/salt/cobbler)
+  -  [coreos-ipxe-server](/salt/coreos-ipxe-server)
+  -  [gitlab](/salt/gitlab)
+  -  [grafana](/salt/grafana)
+  -  [graphite-web](/salt/graphite-web)
+  -  [kibana](/salt/kibana)
+  -  [kubernetes-apiserver](/salt/kubernetes-apiserver)
+  -  [nagios3](/salt/nagios3)
 
 ## Relates:
 

@@ -12,8 +12,8 @@ This package contains the development files for libxslt.
 
 ## Reverse Depends:
 
-  -  [descartes](salt/descartes)
-  -  [gitlab](salt/gitlab)
+  -  [descartes](/salt/descartes)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 

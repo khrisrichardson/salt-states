@@ -13,10 +13,10 @@ This package contains the daemons.
 
 ## Depends:
 
-  -  [haproxy](salt/haproxy)
-  -  [logstash](salt/logstash)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [haproxy](/salt/haproxy)
+  -  [logstash](/salt/logstash)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -24,25 +24,25 @@ This package contains the daemons.
 
 ## Relates:
 
-  -  [ceilometer-api](salt/ceilometer-api)
-  -  [cinder-api](salt/cinder-api)
-  -  [glance-api](salt/glance-api)
-  -  [heat-api](salt/heat-api)
-  -  [ironic-api](salt/ironic-api)
-  -  [logstash](salt/logstash)
-  -  [mariadb-server](salt/mariadb-server)
-  -  [memcached](salt/memcached)
-  -  [mysql-server](salt/mysql-server)
-  -  [neutron-server](salt/neutron-server)
-  -  [nova-api-ec2](salt/nova-api-ec2)
-  -  [nova-api-metadata](salt/nova-api-metadata)
-  -  [nova-api](salt/nova-api)
-  -  [postgresql](salt/postgresql)
-  -  [qpidd](salt/qpidd)
-  -  [rabbitmq-server](salt/rabbitmq-server)
-  -  [redis-server](salt/redis-server)
-  -  [sensu-api](salt/sensu-api)
-  -  [swift-proxy](salt/swift-proxy)
+  -  [ceilometer-api](/salt/ceilometer-api)
+  -  [cinder-api](/salt/cinder-api)
+  -  [glance-api](/salt/glance-api)
+  -  [heat-api](/salt/heat-api)
+  -  [ironic-api](/salt/ironic-api)
+  -  [logstash](/salt/logstash)
+  -  [mariadb-server](/salt/mariadb-server)
+  -  [memcached](/salt/memcached)
+  -  [mysql-server](/salt/mysql-server)
+  -  [neutron-server](/salt/neutron-server)
+  -  [nova-api-ec2](/salt/nova-api-ec2)
+  -  [nova-api-metadata](/salt/nova-api-metadata)
+  -  [nova-api](/salt/nova-api)
+  -  [postgresql](/salt/postgresql)
+  -  [qpidd](/salt/qpidd)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
+  -  [redis-server](/salt/redis-server)
+  -  [sensu-api](/salt/sensu-api)
+  -  [swift-proxy](/salt/swift-proxy)
 
 ## Files:
 

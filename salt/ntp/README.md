@@ -10,8 +10,8 @@ For more information about the NTP protocol and NTP server configuration and ope
 
 ## Depends:
 
-  -  [collectd](salt/collectd)
-  -  [sensu-client](salt/sensu-client)
+  -  [collectd](/salt/collectd)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -19,10 +19,10 @@ For more information about the NTP protocol and NTP server configuration and ope
 
 ## Relates:
 
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [influxdb](salt/influxdb)
-  -  [nova-scheduler](salt/nova-scheduler)
-  -  [sensu-api](salt/sensu-api)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [influxdb](/salt/influxdb)
+  -  [nova-scheduler](/salt/nova-scheduler)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

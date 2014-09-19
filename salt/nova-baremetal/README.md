@@ -12,10 +12,10 @@ This is the baremetal virt component.
 
 ## Depends:
 
-  -  [logstash](salt/logstash)
-  -  [nova-common](salt/nova-common)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [logstash](/salt/logstash)
+  -  [nova-common](/salt/nova-common)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -23,11 +23,11 @@ This is the baremetal virt component.
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [mariadb-server](salt/mariadb-server)
-  -  [mysql-server](salt/mysql-server)
-  -  [postgresql](salt/postgresql)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [mariadb-server](/salt/mariadb-server)
+  -  [mysql-server](/salt/mysql-server)
+  -  [postgresql](/salt/postgresql)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

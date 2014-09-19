@@ -6,15 +6,15 @@ Ebtables is used to set up, maintain, and inspect the tables of Ethernet frame r
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [nova-compute-libvirt](salt/nova-compute-libvirt)
+  -  [nova-compute-libvirt](/salt/nova-compute-libvirt)
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

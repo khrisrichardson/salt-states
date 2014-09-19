@@ -16,9 +16,9 @@ The nature of this software means that any bugs could cause massive data loss. W
 
 ## Reverse Depends:
 
-  -  [ceph-osd](salt/ceph-osd)
-  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
-  -  [hadoop-hdfs](salt/hadoop-hdfs)
+  -  [ceph-osd](/salt/ceph-osd)
+  -  [cloudera-cm5-agent](/salt/cloudera-cm5-agent)
+  -  [hadoop-hdfs](/salt/hadoop-hdfs)
 
 ## Relates:
 

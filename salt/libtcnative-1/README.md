@@ -12,7 +12,7 @@ These features allows making Tomcat a general purpose webserver, will enable muc
 
 ## Reverse Depends:
 
-  -  [tomcat7](salt/tomcat7)
+  -  [tomcat7](/salt/tomcat7)
 
 ## Relates:
 

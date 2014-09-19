@@ -12,21 +12,21 @@ This package is a dependency package, which depends on Debian's default Ruby ver
 
 ## Reverse Depends:
 
-  -  [descartes](salt/descartes)
-  -  [dusk](salt/dusk)
-  -  [elasticsearch](salt/elasticsearch)
-  -  [gitlab](salt/gitlab)
-  -  [gitlab-shell](salt/gitlab-shell)
-  -  [graphite-web](salt/graphite-web)
-  -  [jenkins](salt/jenkins)
-  -  [logstash](salt/logstash)
-  -  [php5-fpm](salt/php5-fpm)
-  -  [rabbitmq-server](salt/rabbitmq-server)
-  -  [redis-server](salt/redis-server)
-  -  [sensu-server](salt/sensu-server)
-  -  [snmpd](salt/snmpd)
-  -  [supervisor](salt/supervisor)
-  -  [tasseo](salt/tasseo)
+  -  [descartes](/salt/descartes)
+  -  [dusk](/salt/dusk)
+  -  [elasticsearch](/salt/elasticsearch)
+  -  [gitlab](/salt/gitlab)
+  -  [gitlab-shell](/salt/gitlab-shell)
+  -  [graphite-web](/salt/graphite-web)
+  -  [jenkins](/salt/jenkins)
+  -  [logstash](/salt/logstash)
+  -  [php5-fpm](/salt/php5-fpm)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
+  -  [redis-server](/salt/redis-server)
+  -  [sensu-server](/salt/sensu-server)
+  -  [snmpd](/salt/snmpd)
+  -  [supervisor](/salt/supervisor)
+  -  [tasseo](/salt/tasseo)
 
 ## Relates:
 

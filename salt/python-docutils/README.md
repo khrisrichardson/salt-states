@@ -14,7 +14,7 @@ This package includes Python 2 modules and command line utilities.
 
 ## Reverse Depends:
 
-  -  [gitlab](salt/gitlab)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 

@@ -12,7 +12,7 @@ XML parser is ripped from Merb and the JSON parser is ripped from Rails. Just pa
 
 ## Reverse Depends:
 
-  -  [php5-fpm](salt/php5-fpm)
+  -  [php5-fpm](/salt/php5-fpm)
 
 ## Relates:
 

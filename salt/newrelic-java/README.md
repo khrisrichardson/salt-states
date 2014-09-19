@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [newrelic](salt/newrelic)
-  -  [unzip](salt/unzip)
+  -  [newrelic](/salt/newrelic)
+  -  [unzip](/salt/unzip)
 
 ## Reverse Depends:
 

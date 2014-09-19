@@ -6,12 +6,12 @@
 
 ## Depends:
 
-  -  [ca-certificates](salt/ca-certificates)
-  -  [git](salt/git)
-  -  [golang-go](salt/golang-go)
-  -  [mercurial](salt/mercurial)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [ca-certificates](/salt/ca-certificates)
+  -  [git](/salt/git)
+  -  [golang-go](/salt/golang-go)
+  -  [mercurial](/salt/mercurial)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -19,10 +19,10 @@
 
 ## Relates:
 
-  -  [etcd](salt/etcd)
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [influxdb](salt/influxdb)
-  -  [sensu-api](salt/sensu-api)
+  -  [etcd](/salt/etcd)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [influxdb](/salt/influxdb)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

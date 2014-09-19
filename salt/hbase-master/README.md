@@ -7,15 +7,15 @@ single HBase deployment.
 
 ## Depends:
 
-  -  [base-files](salt/base-files)
-  -  [cloudera-cm4-agent](salt/cloudera-cm4-agent)
-  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
-  -  [hbase](salt/hbase)
-  -  [jmxtrans-agent](salt/jmxtrans-agent)
-  -  [netbase](salt/netbase)
-  -  [oracle-j2sdk1\_7](salt/oracle-j2sdk1_7)
-  -  [oracle-java7-installer](salt/oracle-java7-installer)
-  -  [sensu-client](salt/sensu-client)
+  -  [base-files](/salt/base-files)
+  -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
+  -  [cloudera-cm5-agent](/salt/cloudera-cm5-agent)
+  -  [hbase](/salt/hbase)
+  -  [jmxtrans-agent](/salt/jmxtrans-agent)
+  -  [netbase](/salt/netbase)
+  -  [oracle-j2sdk1\_7](/salt/oracle-j2sdk1_7)
+  -  [oracle-java7-installer](/salt/oracle-java7-installer)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -23,12 +23,12 @@ single HBase deployment.
 
 ## Relates:
 
-  -  [cloudera-cm4-server](salt/cloudera-cm4-server)
-  -  [cloudera-cm5-server](salt/cloudera-cm5-server)
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [hbase-regionserver](salt/hbase-regionserver)
-  -  [influxdb](salt/influxdb)
-  -  [sensu-api](salt/sensu-api)
+  -  [cloudera-cm4-server](/salt/cloudera-cm4-server)
+  -  [cloudera-cm5-server](/salt/cloudera-cm5-server)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [hbase-regionserver](/salt/hbase-regionserver)
+  -  [influxdb](/salt/influxdb)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

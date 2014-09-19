@@ -10,7 +10,7 @@ gevent uses greenlet to provide a high-level synchronous API on top of libevent 
 
 ## Reverse Depends:
 
-  -  [salt-halite](salt/salt-halite)
+  -  [salt-halite](/salt/salt-halite)
 
 ## Relates:
 

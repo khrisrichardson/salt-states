@@ -8,12 +8,12 @@ This package provides the Neutron server
 
 ## Depends:
 
-  -  [ifupdown](salt/ifupdown)
-  -  [logstash](salt/logstash)
-  -  [neutron-common](salt/neutron-common)
-  -  [procps](salt/procps)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [ifupdown](/salt/ifupdown)
+  -  [logstash](/salt/logstash)
+  -  [neutron-common](/salt/neutron-common)
+  -  [procps](/salt/procps)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -21,8 +21,8 @@ This package provides the Neutron server
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

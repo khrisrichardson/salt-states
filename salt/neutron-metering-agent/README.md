@@ -8,9 +8,9 @@ This package provides the metering agent.
 
 ## Depends:
 
-  -  [neutron-common](salt/neutron-common)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [neutron-common](/salt/neutron-common)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@ This package provides the metering agent.
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

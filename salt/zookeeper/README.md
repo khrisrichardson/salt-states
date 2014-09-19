@@ -8,12 +8,12 @@ This package contains the shell scripts and an example configuration but does no
 
 ## Depends:
 
-  -  [cloudera-cdh4](salt/cloudera-cdh4)
-  -  [cloudera-cdh5](salt/cloudera-cdh5)
+  -  [cloudera-cdh4](/salt/cloudera-cdh4)
+  -  [cloudera-cdh5](/salt/cloudera-cdh5)
 
 ## Reverse Depends:
 
-  -  [mesos](salt/mesos)
+  -  [mesos](/salt/mesos)
 
 ## Relates:
 

@@ -12,9 +12,9 @@ It currently supports Linux, OS X, FreeBSD and Windows.
 
 ## Reverse Depends:
 
-  -  [graphite-web](salt/graphite-web)
-  -  [salt-minion](salt/salt-minion)
-  -  [sensu](salt/sensu)
+  -  [graphite-web](/salt/graphite-web)
+  -  [salt-minion](/salt/salt-minion)
+  -  [sensu](/salt/sensu)
 
 ## Relates:
 

@@ -6,13 +6,13 @@
 
 ## Depends:
 
-  -  [tar](salt/tar)
-  -  [wget](salt/wget)
+  -  [tar](/salt/tar)
+  -  [wget](/salt/wget)
 
 ## Reverse Depends:
 
-  -  [fleet](salt/fleet)
-  -  [fleetctl](salt/fleetctl)
+  -  [fleet](/salt/fleet)
+  -  [fleetctl](/salt/fleetctl)
 
 ## Relates:
 

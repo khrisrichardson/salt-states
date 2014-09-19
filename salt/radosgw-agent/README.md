@@ -8,9 +8,9 @@ This package contains the agent for synchronization between geographically separ
 
 ## Depends:
 
-  -  [ceph](salt/ceph)
-  -  [logstash](salt/logstash)
-  -  [sensu-client](salt/sensu-client)
+  -  [ceph](/salt/ceph)
+  -  [logstash](/salt/logstash)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -18,8 +18,8 @@ This package contains the agent for synchronization between geographically separ
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

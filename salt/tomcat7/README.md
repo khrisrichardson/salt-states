@@ -8,21 +8,21 @@ This package contains only the startup scripts for the system-wide daemon. No do
 
 ## Depends:
 
-  -  [liblog4j1-2-java](salt/liblog4j1-2-java)
-  -  [libtcnative-1](salt/libtcnative-1)
-  -  [maven](salt/maven)
-  -  [rsyslog](salt/rsyslog)
-  -  [sensu-client](salt/sensu-client)
+  -  [liblog4j1-2-java](/salt/liblog4j1-2-java)
+  -  [libtcnative-1](/salt/libtcnative-1)
+  -  [maven](/salt/maven)
+  -  [rsyslog](/salt/rsyslog)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [guvnor](salt/guvnor)
-  -  [solr](salt/solr)
+  -  [guvnor](/salt/guvnor)
+  -  [solr](/salt/solr)
 
 ## Relates:
 
-  -  [rsyslog](salt/rsyslog)
-  -  [sensu-api](salt/sensu-api)
+  -  [rsyslog](/salt/rsyslog)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

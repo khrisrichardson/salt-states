@@ -8,7 +8,7 @@ This package contains the resource agents (RAs) which integrate Ceph with OCF-co
 
 ## Depends:
 
-  -  [ceph-common](salt/ceph-common)
+  -  [ceph-common](/salt/ceph-common)
 
 ## Reverse Depends:
 

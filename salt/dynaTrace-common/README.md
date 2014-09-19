@@ -6,20 +6,20 @@
 
 ## Depends:
 
-  -  [duplicity](salt/duplicity)
-  -  [logrotate](salt/logrotate)
-  -  [oracle-java7-set-default](salt/oracle-java7-set-default)
-  -  [rsyslog](salt/rsyslog)
+  -  [duplicity](/salt/duplicity)
+  -  [logrotate](/salt/logrotate)
+  -  [oracle-java7-set-default](/salt/oracle-java7-set-default)
+  -  [rsyslog](/salt/rsyslog)
 
 ## Reverse Depends:
 
-  -  [dynaTrace-analysis-server](salt/dynaTrace-analysis-server)
-  -  [dynaTrace-collector](salt/dynaTrace-collector)
-  -  [dynaTrace-server](salt/dynaTrace-server)
+  -  [dynaTrace-analysis-server](/salt/dynaTrace-analysis-server)
+  -  [dynaTrace-collector](/salt/dynaTrace-collector)
+  -  [dynaTrace-server](/salt/dynaTrace-server)
 
 ## Relates:
 
-  -  [rsyslog](salt/rsyslog)
+  -  [rsyslog](/salt/rsyslog)
 
 ## Files:
 

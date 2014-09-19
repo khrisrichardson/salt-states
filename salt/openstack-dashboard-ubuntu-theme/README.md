@@ -6,7 +6,7 @@ A custom Ubuntu theme for Horizon.  This package is optional and overrides the d
 
 ## Depends:
 
-  -  [openstack-dashboard](salt/openstack-dashboard)
+  -  [openstack-dashboard](/salt/openstack-dashboard)
 
 ## Reverse Depends:
 

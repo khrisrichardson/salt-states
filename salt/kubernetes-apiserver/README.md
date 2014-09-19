@@ -6,11 +6,11 @@
 
 ## Depends:
 
-  -  [kubernetes](salt/kubernetes)
-  -  [nginx](salt/nginx)
-  -  [python-openssl](salt/python-openssl)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [kubernetes](/salt/kubernetes)
+  -  [nginx](/salt/nginx)
+  -  [python-openssl](/salt/python-openssl)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -18,9 +18,9 @@
 
 ## Relates:
 
-  -  [etcd](salt/etcd)
-  -  [kubernetes-kubelet](salt/kubernetes-kubelet)
-  -  [sensu-api](salt/sensu-api)
+  -  [etcd](/salt/etcd)
+  -  [kubernetes-kubelet](/salt/kubernetes-kubelet)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

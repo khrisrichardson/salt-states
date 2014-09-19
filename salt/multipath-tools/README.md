@@ -8,7 +8,7 @@ If you install this package you may have to change the way you address block dev
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ If you install this package you may have to change the way you address block dev
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

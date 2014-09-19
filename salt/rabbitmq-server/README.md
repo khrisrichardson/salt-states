@@ -6,12 +6,12 @@ RabbitMQ is an implementation of AMQP, the emerging standard for high performanc
 
 ## Depends:
 
-  -  [logstash](salt/logstash)
-  -  [python-apt](salt/python-apt)
-  -  [ruby-bunny](salt/ruby-bunny)
-  -  [ruby-carrot-top](salt/ruby-carrot-top)
-  -  [ruby-rest-client](salt/ruby-rest-client)
-  -  [sensu-client](salt/sensu-client)
+  -  [logstash](/salt/logstash)
+  -  [python-apt](/salt/python-apt)
+  -  [ruby-bunny](/salt/ruby-bunny)
+  -  [ruby-carrot-top](/salt/ruby-carrot-top)
+  -  [ruby-rest-client](/salt/ruby-rest-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -19,16 +19,16 @@ RabbitMQ is an implementation of AMQP, the emerging standard for high performanc
 
 ## Relates:
 
-  -  [ceilometer-api](salt/ceilometer-api)
-  -  [cinder-api](salt/cinder-api)
-  -  [glance-api](salt/glance-api)
-  -  [heat-api](salt/heat-api)
-  -  [ironic-api](salt/ironic-api)
-  -  [keystone](salt/keystone)
-  -  [logstash](salt/logstash)
-  -  [neutron-server](salt/neutron-server)
-  -  [sensu-api](salt/sensu-api)
-  -  [sensu-server](salt/sensu-server)
+  -  [ceilometer-api](/salt/ceilometer-api)
+  -  [cinder-api](/salt/cinder-api)
+  -  [glance-api](/salt/glance-api)
+  -  [heat-api](/salt/heat-api)
+  -  [ironic-api](/salt/ironic-api)
+  -  [keystone](/salt/keystone)
+  -  [logstash](/salt/logstash)
+  -  [neutron-server](/salt/neutron-server)
+  -  [sensu-api](/salt/sensu-api)
+  -  [sensu-server](/salt/sensu-server)
 
 ## Files:
 

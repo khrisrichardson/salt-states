@@ -12,8 +12,8 @@ This package provides module for Python 2.X.
 
 ## Reverse Depends:
 
-  -  [calamari](salt/calamari)
-  -  [graphite-web](salt/graphite-web)
+  -  [calamari](/salt/calamari)
+  -  [graphite-web](/salt/graphite-web)
 
 ## Relates:
 

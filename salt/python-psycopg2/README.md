@@ -14,7 +14,7 @@ The main advantages of psycopg2 are that it supports the full Python DBAPI-2.0 a
 
 ## Reverse Depends:
 
-  -  [salt-minion](salt/salt-minion)
+  -  [salt-minion](/salt/salt-minion)
 
 ## Relates:
 

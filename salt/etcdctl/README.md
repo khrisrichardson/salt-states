@@ -6,10 +6,10 @@
 
 ## Depends:
 
-  -  [ca-certificates](salt/ca-certificates)
-  -  [etcd-common](salt/etcd-common)
-  -  [git](salt/git)
-  -  [golang-go](salt/golang-go)
+  -  [ca-certificates](/salt/ca-certificates)
+  -  [etcd-common](/salt/etcd-common)
+  -  [git](/salt/git)
+  -  [golang-go](/salt/golang-go)
 
 ## Reverse Depends:
 

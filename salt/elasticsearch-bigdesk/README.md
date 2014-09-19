@@ -6,9 +6,9 @@
 
 ## Depends:
 
-  -  [debianutils](salt/debianutils)
-  -  [elasticsearch](salt/elasticsearch)
-  -  [sensu-client](salt/sensu-client)
+  -  [debianutils](/salt/debianutils)
+  -  [elasticsearch](/salt/elasticsearch)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

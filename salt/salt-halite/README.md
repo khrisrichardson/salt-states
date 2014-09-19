@@ -6,14 +6,14 @@
 
 ## Depends:
 
-  -  [git](salt/git)
-  -  [python-gevent](salt/python-gevent)
-  -  [python-openssl](salt/python-openssl)
-  -  [python-pip](salt/python-pip)
-  -  [salt-common](salt/salt-common)
-  -  [salt-master](salt/salt-master)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [git](/salt/git)
+  -  [python-gevent](/salt/python-gevent)
+  -  [python-openssl](/salt/python-openssl)
+  -  [python-pip](/salt/python-pip)
+  -  [salt-common](/salt/salt-common)
+  -  [salt-master](/salt/salt-master)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -21,7 +21,7 @@
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -12,7 +12,7 @@ This package contains utilities (mkfs, fsck) used to work with btrfs and an util
 
 ## Reverse Depends:
 
-  -  [ceph-osd](salt/ceph-osd)
+  -  [ceph-osd](/salt/ceph-osd)
 
 ## Relates:
 

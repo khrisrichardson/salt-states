@@ -10,7 +10,7 @@
 
 ## Reverse Depends:
 
-  -  [jenkins](salt/jenkins)
+  -  [jenkins](/salt/jenkins)
 
 ## Relates:
 

@@ -10,8 +10,8 @@ Puppet's simple declarative specification language provides powerful classing ab
 
 ## Depends:
 
-  -  [openssh-client](salt/openssh-client)
-  -  [sensu-client](salt/sensu-client)
+  -  [openssh-client](/salt/openssh-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -19,7 +19,7 @@ Puppet's simple declarative specification language provides powerful classing ab
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

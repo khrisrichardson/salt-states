@@ -12,7 +12,7 @@ This package contains the development files for libgit2.
 
 ## Reverse Depends:
 
-  -  [python-pygit2](salt/python-pygit2)
+  -  [python-pygit2](/salt/python-pygit2)
 
 ## Relates:
 

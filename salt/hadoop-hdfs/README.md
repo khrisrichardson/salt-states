@@ -9,18 +9,18 @@ computations.
 
 ## Depends:
 
-  -  [e2fsprogs](salt/e2fsprogs)
-  -  [hadoop](salt/hadoop)
-  -  [parted](salt/parted)
+  -  [e2fsprogs](/salt/e2fsprogs)
+  -  [hadoop](/salt/hadoop)
+  -  [parted](/salt/parted)
 
 ## Reverse Depends:
 
-  -  [cloudera-cm4-agent](salt/cloudera-cm4-agent)
-  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
+  -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
+  -  [cloudera-cm5-agent](/salt/cloudera-cm5-agent)
 
 ## Relates:
 
-  -  [hadoop-hdfs-namenode](salt/hadoop-hdfs-namenode)
+  -  [hadoop-hdfs-namenode](/salt/hadoop-hdfs-namenode)
 
 ## Files:
 

@@ -6,19 +6,19 @@ Postfix is Wietse Venema's mail transport agent that started life as an alternat
 
 ## Depends:
 
-  -  [debconf-utils](salt/debconf-utils)
-  -  [sensu-client](salt/sensu-client)
+  -  [debconf-utils](/salt/debconf-utils)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [gitlab](salt/gitlab)
-  -  [graphite-web](salt/graphite-web)
-  -  [nagios3](salt/nagios3)
-  -  [openstack-dashboard](salt/openstack-dashboard)
+  -  [gitlab](/salt/gitlab)
+  -  [graphite-web](/salt/graphite-web)
+  -  [nagios3](/salt/nagios3)
+  -  [openstack-dashboard](/salt/openstack-dashboard)
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

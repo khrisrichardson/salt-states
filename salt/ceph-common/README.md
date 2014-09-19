@@ -6,13 +6,13 @@ Ceph is a distributed storage and file system designed to provide excellent perf
 
 ## Depends:
 
-  -  [python-apt](salt/python-apt)
+  -  [python-apt](/salt/python-apt)
 
 ## Reverse Depends:
 
-  -  [ceph](salt/ceph)
-  -  [ceph-fuse](salt/ceph-fuse)
-  -  [ceph-resource-agents](salt/ceph-resource-agents)
+  -  [ceph](/salt/ceph)
+  -  [ceph-fuse](/salt/ceph-fuse)
+  -  [ceph-resource-agents](/salt/ceph-resource-agents)
 
 ## Relates:
 

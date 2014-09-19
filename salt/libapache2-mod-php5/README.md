@@ -14,7 +14,7 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 
 ## Reverse Depends:
 
-  -  [nagios3](salt/nagios3)
+  -  [nagios3](/salt/nagios3)
 
 ## Relates:
 

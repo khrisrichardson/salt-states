@@ -12,7 +12,7 @@ This package contains development headers and static libraries.
 
 ## Reverse Depends:
 
-  -  [gitlab](salt/gitlab)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 

@@ -8,7 +8,7 @@ The Open vSwitch controller enables OpenFlow switches that connect to it to act 
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ The Open vSwitch controller enables OpenFlow switches that connect to it to act 
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

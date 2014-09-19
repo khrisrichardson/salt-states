@@ -6,15 +6,15 @@
 
 ## Depends:
 
-  -  [ca-certificates](salt/ca-certificates)
-  -  [gcc](salt/gcc)
-  -  [git](salt/git)
-  -  [golang-go](salt/golang-go)
-  -  [gomock](salt/gomock)
-  -  [libc6-dev](salt/libc6-dev)
-  -  [mercurial](salt/mercurial)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [ca-certificates](/salt/ca-certificates)
+  -  [gcc](/salt/gcc)
+  -  [git](/salt/git)
+  -  [golang-go](/salt/golang-go)
+  -  [gomock](/salt/gomock)
+  -  [libc6-dev](/salt/libc6-dev)
+  -  [mercurial](/salt/mercurial)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -22,8 +22,8 @@
 
 ## Relates:
 
-  -  [influxdb](salt/influxdb)
-  -  [sensu-api](salt/sensu-api)
+  -  [influxdb](/salt/influxdb)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

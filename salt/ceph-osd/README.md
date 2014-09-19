@@ -6,10 +6,10 @@
 
 ## Depends:
 
-  -  [btrfs-tools](salt/btrfs-tools)
-  -  [ceph](salt/ceph)
-  -  [parted](salt/parted)
-  -  [sensu-client](salt/sensu-client)
+  -  [btrfs-tools](/salt/btrfs-tools)
+  -  [ceph](/salt/ceph)
+  -  [parted](/salt/parted)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -17,9 +17,9 @@
 
 ## Relates:
 
-  -  [ceph-deploy](salt/ceph-deploy)
-  -  [ceph-mon](salt/ceph-mon)
-  -  [sensu-api](salt/sensu-api)
+  -  [ceph-deploy](/salt/ceph-deploy)
+  -  [ceph-mon](/salt/ceph-mon)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

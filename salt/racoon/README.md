@@ -8,15 +8,15 @@ This package is a Linux port of the IKE server from the KAME IPsec implementatio
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [openvswitch-ipsec](salt/openvswitch-ipsec)
+  -  [openvswitch-ipsec](/salt/openvswitch-ipsec)
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

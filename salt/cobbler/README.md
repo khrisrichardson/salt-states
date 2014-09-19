@@ -6,9 +6,9 @@ Cobbler is a network install server. Cobbler supports PXE, virtualized installs,
 
 ## Depends:
 
-  -  [cobbler-common](salt/cobbler-common)
-  -  [nginx-common](salt/nginx-common)
-  -  [sensu-client](salt/sensu-client)
+  -  [cobbler-common](/salt/cobbler-common)
+  -  [nginx-common](/salt/nginx-common)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,8 +16,8 @@ Cobbler is a network install server. Cobbler supports PXE, virtualized installs,
 
 ## Relates:
 
-  -  [coreos](salt/coreos)
-  -  [sensu-api](salt/sensu-api)
+  -  [coreos](/salt/coreos)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

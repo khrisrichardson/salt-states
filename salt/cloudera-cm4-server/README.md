@@ -6,12 +6,12 @@ The Cloudera Manager Server manages the services making up a Hadoop cluster.
 
 ## Depends:
 
-  -  [cloudera-cm4-agent](salt/cloudera-cm4-agent)
-  -  [cloudera-cm4-daemons](salt/cloudera-cm4-daemons)
-  -  [cloudera-cm4-server-db](salt/cloudera-cm4-server-db)
-  -  [oracle-j2sdk1\_6](salt/oracle-j2sdk1_6)
-  -  [oracle-java6-installer](salt/oracle-java6-installer)
-  -  [sensu-client](salt/sensu-client)
+  -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
+  -  [cloudera-cm4-daemons](/salt/cloudera-cm4-daemons)
+  -  [cloudera-cm4-server-db](/salt/cloudera-cm4-server-db)
+  -  [oracle-j2sdk1\_6](/salt/oracle-j2sdk1_6)
+  -  [oracle-java6-installer](/salt/oracle-java6-installer)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -19,8 +19,8 @@ The Cloudera Manager Server manages the services making up a Hadoop cluster.
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

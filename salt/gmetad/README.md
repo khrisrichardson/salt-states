@@ -8,7 +8,7 @@ This package contains the 'gmetad' daemon, which collects information from gangl
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -16,7 +16,7 @@ This package contains the 'gmetad' daemon, which collects information from gangl
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

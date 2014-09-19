@@ -10,7 +10,7 @@ GNU bc is an interactive algebraic language with arbitrary precision which follo
 
 ## Reverse Depends:
 
-  -  [sensu](salt/sensu)
+  -  [sensu](/salt/sensu)
 
 ## Relates:
 

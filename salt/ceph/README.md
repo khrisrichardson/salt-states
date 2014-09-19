@@ -8,22 +8,22 @@ This package contains all server daemons and management tools for creating, runn
 
 ## Depends:
 
-  -  [bash](salt/bash)
-  -  [ceph-common](salt/ceph-common)
-  -  [logstash](salt/logstash)
-  -  [openssh-server](salt/openssh-server)
-  -  [sudo](salt/sudo)
-  -  [uuid-runtime](salt/uuid-runtime)
+  -  [bash](/salt/bash)
+  -  [ceph-common](/salt/ceph-common)
+  -  [logstash](/salt/logstash)
+  -  [openssh-server](/salt/openssh-server)
+  -  [sudo](/salt/sudo)
+  -  [uuid-runtime](/salt/uuid-runtime)
 
 ## Reverse Depends:
 
-  -  [radosgw](salt/radosgw)
-  -  [radosgw-agent](salt/radosgw-agent)
+  -  [radosgw](/salt/radosgw)
+  -  [radosgw-agent](/salt/radosgw-agent)
 
 ## Relates:
 
-  -  [etcd](salt/etcd)
-  -  [logstash](salt/logstash)
+  -  [etcd](/salt/etcd)
+  -  [logstash](/salt/logstash)
 
 ## Files:
 

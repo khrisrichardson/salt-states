@@ -8,16 +8,16 @@ configuration otherwise necessary in /etc/cloudera-scm-server/db.properties.
 
 ## Depends:
 
-  -  [cloudera-cm4](salt/cloudera-cm4)
-  -  [sensu-client](salt/sensu-client)
+  -  [cloudera-cm4](/salt/cloudera-cm4)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [cloudera-cm4-server](salt/cloudera-cm4-server)
+  -  [cloudera-cm4-server](/salt/cloudera-cm4-server)
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

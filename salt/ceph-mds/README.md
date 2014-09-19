@@ -8,8 +8,8 @@ This package contains the metadata server daemon, which is used to create a dist
 
 ## Depends:
 
-  -  [ceph](salt/ceph)
-  -  [sensu-client](salt/sensu-client)
+  -  [ceph](/salt/ceph)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -17,9 +17,9 @@ This package contains the metadata server daemon, which is used to create a dist
 
 ## Relates:
 
-  -  [ceph-deploy](salt/ceph-deploy)
-  -  [ceph-mon](salt/ceph-mon)
-  -  [sensu-api](salt/sensu-api)
+  -  [ceph-deploy](/salt/ceph-deploy)
+  -  [ceph-mon](/salt/ceph-mon)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

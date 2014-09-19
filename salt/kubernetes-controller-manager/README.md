@@ -6,9 +6,9 @@
 
 ## Depends:
 
-  -  [kubernetes](salt/kubernetes)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [kubernetes](/salt/kubernetes)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -16,9 +16,9 @@
 
 ## Relates:
 
-  -  [etcd](salt/etcd)
-  -  [kubernetes-apiserver](salt/kubernetes-apiserver)
-  -  [sensu-api](salt/sensu-api)
+  -  [etcd](/salt/etcd)
+  -  [kubernetes-apiserver](/salt/kubernetes-apiserver)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

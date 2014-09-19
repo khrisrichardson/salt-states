@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
-  -  [sensu-server](salt/sensu-server)
+  -  [sensu-client](/salt/sensu-client)
+  -  [sensu-server](/salt/sensu-server)
 
 ## Reverse Depends:
 

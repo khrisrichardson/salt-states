@@ -8,22 +8,22 @@ This package contains the configuration files, init scripts and support scripts.
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [calamari](salt/calamari)
-  -  [descartes](salt/descartes)
-  -  [graphite-web](salt/graphite-web)
-  -  [nagios3](salt/nagios3)
-  -  [openstack-dashboard](salt/openstack-dashboard)
-  -  [opsview](salt/opsview)
-  -  [radosgw](salt/radosgw)
-  -  [tasseo](salt/tasseo)
+  -  [calamari](/salt/calamari)
+  -  [descartes](/salt/descartes)
+  -  [graphite-web](/salt/graphite-web)
+  -  [nagios3](/salt/nagios3)
+  -  [openstack-dashboard](/salt/openstack-dashboard)
+  -  [opsview](/salt/opsview)
+  -  [radosgw](/salt/radosgw)
+  -  [tasseo](/salt/tasseo)
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -12,8 +12,8 @@ The packages are built using the IcedTea build support and patches from the Iced
 
 ## Reverse Depends:
 
-  -  [mesos](salt/mesos)
-  -  [riemann](salt/riemann)
+  -  [mesos](/salt/mesos)
+  -  [riemann](/salt/riemann)
 
 ## Relates:
 

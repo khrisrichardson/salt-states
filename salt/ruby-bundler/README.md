@@ -10,7 +10,7 @@ This is a transitional dummy package for bundler. It can safely be removed.
 
 ## Reverse Depends:
 
-  -  [gitlab](salt/gitlab)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 

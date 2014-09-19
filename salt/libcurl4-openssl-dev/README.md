@@ -18,7 +18,7 @@ SSL support is provided by OpenSSL.
 
 ## Reverse Depends:
 
-  -  [gitlab](salt/gitlab)
+  -  [gitlab](/salt/gitlab)
 
 ## Relates:
 

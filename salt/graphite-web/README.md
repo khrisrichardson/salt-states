@@ -8,18 +8,18 @@ Graphite's design is focused on providing simple interfaces (both to users and a
 
 ## Depends:
 
-  -  [apache2](salt/apache2)
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [gunicorn](salt/gunicorn)
-  -  [libapache2-mod-wsgi](salt/libapache2-mod-wsgi)
-  -  [nginx](salt/nginx)
-  -  [postfix](salt/postfix)
-  -  [python-ldap](salt/python-ldap)
-  -  [python-psutil](salt/python-psutil)
-  -  [python-whisper](salt/python-whisper)
-  -  [ruby-rest-client](salt/ruby-rest-client)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [apache2](/salt/apache2)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [gunicorn](/salt/gunicorn)
+  -  [libapache2-mod-wsgi](/salt/libapache2-mod-wsgi)
+  -  [nginx](/salt/nginx)
+  -  [postfix](/salt/postfix)
+  -  [python-ldap](/salt/python-ldap)
+  -  [python-psutil](/salt/python-psutil)
+  -  [python-whisper](/salt/python-whisper)
+  -  [ruby-rest-client](/salt/ruby-rest-client)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -27,10 +27,10 @@ Graphite's design is focused on providing simple interfaces (both to users and a
 
 ## Relates:
 
-  -  [memcached](salt/memcached)
-  -  [mysql-server](salt/mysql-server)
-  -  [postgresql](salt/postgresql)
-  -  [sensu-api](salt/sensu-api)
+  -  [memcached](/salt/memcached)
+  -  [mysql-server](/salt/mysql-server)
+  -  [postgresql](/salt/postgresql)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

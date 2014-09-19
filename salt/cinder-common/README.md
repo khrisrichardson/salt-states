@@ -10,30 +10,30 @@ This package contains commons components for Cinder.
 
 ## Depends:
 
-  -  [sudo](salt/sudo)
+  -  [sudo](/salt/sudo)
 
 ## Reverse Depends:
 
-  -  [cinder-api](salt/cinder-api)
-  -  [cinder-backup](salt/cinder-backup)
-  -  [cinder-scheduler](salt/cinder-scheduler)
-  -  [cinder-volume](salt/cinder-volume)
+  -  [cinder-api](/salt/cinder-api)
+  -  [cinder-backup](/salt/cinder-backup)
+  -  [cinder-scheduler](/salt/cinder-scheduler)
+  -  [cinder-volume](/salt/cinder-volume)
 
 ## Relates:
 
-  -  [ceph-osd](salt/ceph-osd)
-  -  [glance-api](salt/glance-api)
-  -  [keystone](salt/keystone)
-  -  [mariadb-server](salt/mariadb-server)
-  -  [memcached](salt/memcached)
-  -  [mysql-server](salt/mysql-server)
-  -  [postgresql](salt/postgresql)
-  -  [qpidd](salt/qpidd)
-  -  [rabbitmq-server](salt/rabbitmq-server)
-  -  [radosgw](salt/radosgw)
-  -  [redis-server](salt/redis-server)
-  -  [swift-proxy](salt/swift-proxy)
-  -  [tivoli-storage-manager](salt/tivoli-storage-manager)
+  -  [ceph-osd](/salt/ceph-osd)
+  -  [glance-api](/salt/glance-api)
+  -  [keystone](/salt/keystone)
+  -  [mariadb-server](/salt/mariadb-server)
+  -  [memcached](/salt/memcached)
+  -  [mysql-server](/salt/mysql-server)
+  -  [postgresql](/salt/postgresql)
+  -  [qpidd](/salt/qpidd)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
+  -  [radosgw](/salt/radosgw)
+  -  [redis-server](/salt/redis-server)
+  -  [swift-proxy](/salt/swift-proxy)
+  -  [tivoli-storage-manager](/salt/tivoli-storage-manager)
 
 ## Files:
 

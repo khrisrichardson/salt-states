@@ -10,7 +10,7 @@ Bunny is an AMQP (Advanced Message Queuing Protocol) client, written in Ruby, th
 
 ## Reverse Depends:
 
-  -  [rabbitmq-server](salt/rabbitmq-server)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
 
 ## Relates:
 

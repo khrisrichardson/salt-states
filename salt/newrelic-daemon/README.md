@@ -6,8 +6,8 @@
 
 ## Depends:
 
-  -  [newrelic](salt/newrelic)
-  -  [sensu-client](salt/sensu-client)
+  -  [newrelic](/salt/newrelic)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -15,7 +15,7 @@
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

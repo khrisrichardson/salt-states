@@ -10,7 +10,7 @@ pwgen generates random, meaningless but pronounceable passwords. These passwords
 
 ## Reverse Depends:
 
-  -  [guvnor](salt/guvnor)
+  -  [guvnor](/salt/guvnor)
 
 ## Relates:
 

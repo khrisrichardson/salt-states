@@ -16,8 +16,8 @@ The uuidd daemon is used to generate UUIDs, especially time-based UUID??s, in a 
 
 ## Reverse Depends:
 
-  -  [ceph](salt/ceph)
-  -  [libvirt-bin](salt/libvirt-bin)
+  -  [ceph](/salt/ceph)
+  -  [libvirt-bin](/salt/libvirt-bin)
 
 ## Relates:
 

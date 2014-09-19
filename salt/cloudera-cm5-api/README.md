@@ -9,11 +9,11 @@ libraries.
 
 ## Depends:
 
-  -  [python-pip](salt/python-pip)
+  -  [python-pip](/salt/python-pip)
 
 ## Reverse Depends:
 
-  -  [cloudera-cm5-agent](salt/cloudera-cm5-agent)
+  -  [cloudera-cm5-agent](/salt/cloudera-cm5-agent)
 
 ## Relates:
 

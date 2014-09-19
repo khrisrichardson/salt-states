@@ -10,13 +10,13 @@ This package contains the Cinder Volume server.
 
 ## Depends:
 
-  -  [cinder-common](salt/cinder-common)
-  -  [iscsitarget](salt/iscsitarget)
-  -  [logstash](salt/logstash)
-  -  [lvm2](salt/lvm2)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
-  -  [tgt](salt/tgt)
+  -  [cinder-common](/salt/cinder-common)
+  -  [iscsitarget](/salt/iscsitarget)
+  -  [logstash](/salt/logstash)
+  -  [lvm2](/salt/lvm2)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
+  -  [tgt](/salt/tgt)
 
 ## Reverse Depends:
 
@@ -24,8 +24,8 @@ This package contains the Cinder Volume server.
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
-  -  [sensu-api](salt/sensu-api)
+  -  [logstash](/salt/logstash)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

@@ -8,9 +8,9 @@ This package contains the conductor.
 
 ## Depends:
 
-  -  [ironic-common](salt/ironic-common)
-  -  [sensu-client](salt/sensu-client)
-  -  [supervisor](salt/supervisor)
+  -  [ironic-common](/salt/ironic-common)
+  -  [sensu-client](/salt/sensu-client)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -18,7 +18,7 @@ This package contains the conductor.
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 

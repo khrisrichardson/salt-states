@@ -10,7 +10,7 @@ This is a FastCGI module for the Apache 2.x web server.  FastCGI is an open stan
 
 ## Reverse Depends:
 
-  -  [radosgw](salt/radosgw)
+  -  [radosgw](/salt/radosgw)
 
 ## Relates:
 

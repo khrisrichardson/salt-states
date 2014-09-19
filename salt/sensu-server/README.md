@@ -6,23 +6,23 @@
 
 ## Depends:
 
-  -  [ruby-rest-client](salt/ruby-rest-client)
-  -  [sensu](salt/sensu)
-  -  [sensu-client](salt/sensu-client)
+  -  [ruby-rest-client](/salt/ruby-rest-client)
+  -  [sensu](/salt/sensu)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [sensu-api](salt/sensu-api)
-  -  [sensu-dashboard](salt/sensu-dashboard)
+  -  [sensu-api](/salt/sensu-api)
+  -  [sensu-dashboard](/salt/sensu-dashboard)
 
 ## Relates:
 
-  -  [graphite-carbon](salt/graphite-carbon)
-  -  [influxdb](salt/influxdb)
-  -  [rabbitmq-server](salt/rabbitmq-server)
-  -  [redis-server](salt/redis-server)
-  -  [sensu-api](salt/sensu-api)
-  -  [sensu-dashboard](salt/sensu-dashboard)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [influxdb](/salt/influxdb)
+  -  [rabbitmq-server](/salt/rabbitmq-server)
+  -  [redis-server](/salt/redis-server)
+  -  [sensu-api](/salt/sensu-api)
+  -  [sensu-dashboard](/salt/sensu-dashboard)
 
 ## Files:
 

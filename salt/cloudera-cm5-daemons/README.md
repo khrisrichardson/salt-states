@@ -10,11 +10,11 @@ This package includes daemons for monitoring and managing Hadoop.
 
 ## Reverse Depends:
 
-  -  [cloudera-cm5-server](salt/cloudera-cm5-server)
+  -  [cloudera-cm5-server](/salt/cloudera-cm5-server)
 
 ## Relates:
 
-  -  [logstash](salt/logstash)
+  -  [logstash](/salt/logstash)
 
 ## Files:
 

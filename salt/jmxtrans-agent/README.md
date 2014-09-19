@@ -6,20 +6,20 @@
 
 ## Depends:
 
-  -  [maven](salt/maven)
+  -  [maven](/salt/maven)
 
 ## Reverse Depends:
 
-  -  [elasticsearch](salt/elasticsearch)
-  -  [hadoop-hdfs-datanode](salt/hadoop-hdfs-datanode)
-  -  [hadoop-hdfs-journalnode](salt/hadoop-hdfs-journalnode)
-  -  [hadoop-hdfs-namenode](salt/hadoop-hdfs-namenode)
-  -  [hadoop-hdfs-secondarynamenode](salt/hadoop-hdfs-secondarynamenode)
-  -  [hbase-master](salt/hbase-master)
-  -  [hbase-regionserver](salt/hbase-regionserver)
-  -  [solr](salt/solr)
-  -  [zookeeperd](salt/zookeeperd)
-  -  [zookeeper-server](salt/zookeeper-server)
+  -  [elasticsearch](/salt/elasticsearch)
+  -  [hadoop-hdfs-datanode](/salt/hadoop-hdfs-datanode)
+  -  [hadoop-hdfs-journalnode](/salt/hadoop-hdfs-journalnode)
+  -  [hadoop-hdfs-namenode](/salt/hadoop-hdfs-namenode)
+  -  [hadoop-hdfs-secondarynamenode](/salt/hadoop-hdfs-secondarynamenode)
+  -  [hbase-master](/salt/hbase-master)
+  -  [hbase-regionserver](/salt/hbase-regionserver)
+  -  [solr](/salt/solr)
+  -  [zookeeperd](/salt/zookeeperd)
+  -  [zookeeper-server](/salt/zookeeper-server)
 
 ## Relates:
 

@@ -6,11 +6,11 @@
 
 ## Depends:
 
-  -  [python-apt](salt/python-apt)
+  -  [python-apt](/salt/python-apt)
 
 ## Reverse Depends:
 
-  -  [jenkins](salt/jenkins)
+  -  [jenkins](/salt/jenkins)
 
 ## Relates:
 

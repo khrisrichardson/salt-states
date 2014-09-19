@@ -17,15 +17,15 @@ Green Unicorn (gunicorn) is an HTTP/WSGI server designed to serve fast clients o
 
 ## Depends:
 
-  -  [sensu-client](salt/sensu-client)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  [graphite-web](salt/graphite-web)
+  -  [graphite-web](/salt/graphite-web)
 
 ## Relates:
 
-  -  [sensu-api](salt/sensu-api)
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 
