@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'debianutils/map.jinja'
+   import debianutils
+   with   context %}
+
 debianutils:
   pkg.installed:
-    - name:     {{ salt['config.get']('debianutils:pkg:name') }}
+    - name:     {{ debianutils['pkg']['name'] }}

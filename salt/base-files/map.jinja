@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set base_files = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'base-files',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'filesystem',
+    },
+  },
+}, merge=salt['config.get']('base-files')) %}

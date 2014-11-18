@@ -1,0 +1,18 @@
+# vi: set ft=json.jinja :
+
+{% set license_key = '' %}
+{% set newrelic = salt['grains.filter_by']({
+  'Debian': {
+    'pkgrepo': {
+      'name':          'deb http://apt.newrelic.com/debian/ newrelic',
+      'file':         '/etc/apt/sources.list.d/newrelic.list',
+    },
+  },
+  'RedHat': {
+    'pkgrepo': {
+      'name':          'newrelic',
+      'file':         '/etc/yum.repos.d/newrelic.repo',
+    },
+  },
+}, merge=salt['config.get']('newrelic')) %}
+{% do newrelic.update(license_key=license_key) %}

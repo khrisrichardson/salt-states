@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'lxc-docker/map.jinja'
+   import lxc_docker
+   with   context %}
+
 include:
   -  python-apt
   {% if salt['config.get']('os_family') == 'RedHat' %}
@@ -16,7 +20,7 @@ lxc-docker:
       - pkg:       python-apt
 {% endif %}
   pkg.installed:
-    - name:     {{ salt['config.get']('lxc-docker:pkg:name') }}
+    - name:     {{ lxc_docker['pkg']['name'] }}
     - require:
      {% if   salt['config.get']('os_family') == 'RedHat' %}
       - pkgrepo:   epel
@@ -31,7 +35,7 @@ lxc-docker:
 
 /etc/default/docker:
   file.replace:
-    - name:     {{ salt['config.get']('/etc/default/docker:file:name') }}
+    - name:     {{ lxc_docker['/etc/default/docker']['file']['name'] }}
     - pattern:  '^#DOCKER_OPTS=".*"$'
     - repl:       'DOCKER_OPTS="-dns 172.17.42.1 -dns 8.8.8.8"'
     - watch:

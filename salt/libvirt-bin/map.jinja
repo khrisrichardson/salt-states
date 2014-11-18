@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set libvirt_bin = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'libvirt-bin',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'libvirt',
+    },
+  },
+}, merge=salt['config.get']('libvirt-bin')) %}

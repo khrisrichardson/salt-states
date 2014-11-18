@@ -1,0 +1,18 @@
+# vi: set ft=json.jinja :
+
+{% set npm = salt['grains.filter_by']({
+  'Debian': {
+    '/usr/local/lib/node_modules': {
+      'file': {
+        'name':       '/usr/local/lib/node_modules',
+      },
+    },
+  },
+  'RedHat': {
+    '/usr/local/lib/node_modules': {
+      'file': {
+        'name':       '/usr/lib/node_modules',
+      },
+    },
+  },
+}, merge=salt['config.get']('npm')) %}

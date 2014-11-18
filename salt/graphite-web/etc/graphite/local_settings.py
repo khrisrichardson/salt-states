@@ -1,3 +1,15 @@
+{% from  'graphite-carbon/map.jinja'
+   import graphite_carbon
+   with   context -%}
+{% from  'graphite-web/map.jinja'
+   import graphite_web
+   with   context -%}
+{% from  'mysql-server/map.jinja'
+   import mysql_server
+   with   context -%}
+{% from  'postgresql/map.jinja'
+   import postgresql
+   with   context -%}
 {% set roles = [] -%}
 {% do  roles.append('graphite-web') -%}
 {% do  roles.append('memcached') -%}
@@ -62,14 +74,14 @@ MEMCACHE_HOSTS   = ["{{ minions['memcached']|join('","') }}"]
 #####################################
 # Change only GRAPHITE_ROOT if your install is merely shifted from /opt/graphite
 # to somewhere else
-GRAPHITE_ROOT    = '{{ salt["config.get"]("/usr/share/graphite-web:file:name") }}'
+GRAPHITE_ROOT    = '{{ graphite_web["/usr/share/graphite-web"]["file"]["name"] }}'
 
 # Most installs done outside of a separate tree such as /opt/graphite will only
 # need to change these three settings. Note that the default settings for each
 # of these is relative to GRAPHITE_ROOT
-CONF_DIR         = '{{ salt["config.get"]("/etc/graphite:file:name") }}'
-STORAGE_DIR      = '{{ salt["config.get"]("/var/lib/graphite:file:name") }}'
-CONTENT_DIR      = '{{ salt["config.get"]("/usr/share/graphite-web/static:file:name") }}'
+CONF_DIR         = '{{ graphite_web["/etc/graphite"]["file"]["name"] }}'
+STORAGE_DIR      = '{{ graphite_web["/var/lib/graphite"]["file"]["name"] }}'
+CONTENT_DIR      = '{{ graphite_web["/usr/share/graphite-web/static"]["file"]["name"] }}'
 
 # To further or fully customize the paths, modify the following. Note that the
 # default settings for each of these are relative to CONF_DIR and STORAGE_DIR
@@ -80,11 +92,11 @@ CONTENT_DIR      = '{{ salt["config.get"]("/usr/share/graphite-web/static:file:n
 
 ## Data directories
 # NOTE: If any directory is unreadable in DATA_DIRS it will break metric browsing
-WHISPER_DIR      = '{{ salt["config.get"]("/var/lib/carbon:file:name") }}/whisper/'
-RRD_DIR          = '{{ salt["config.get"]("/var/lib/carbon:file:name") }}/rrd'
+WHISPER_DIR      = '{{ graphite_carbon["/var/lib/carbon"]["file"]["name"] }}/whisper/'
+RRD_DIR          = '{{ graphite_carbon["/var/lib/carbon"]["file"]["name"] }}/rrd'
 DATA_DIRS        = [WHISPER_DIR, RRD_DIR] # Default: set from the above variables
-LOG_DIR          = '{{ salt["config.get"]("/var/log/graphite:file:name") }}/'
-INDEX_FILE       = '{{ salt["config.get"]("/var/lib/graphite:file:name") }}/index'  # Search index file
+LOG_DIR          = '{{ graphite_web["/var/log/graphite"]["file"]["name"] }}/'
+INDEX_FILE       = '{{ graphite_web["/var/lib/graphite"]["file"]["name"] }}/index'  # Search index file
 
 
 #####################################
@@ -164,26 +176,26 @@ ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_ALLOW)
 DATABASES = {
     'default': {
         'ENGINE'   :  'django.db.backends.mysql',
-        'USER'     :  '{{ salt["config.get"]("mysql-server:username") }}',
-        'PASSWORD' :  '{{ salt["config.get"]("mysql-server:password") }}',
-        'HOST'     :  '{{            minions["mysql-server"][0] }}',
-        'PORT'     :  '{{ salt["config.get"]("mysql-server:port", "3306") }}'
+        'USER'     :  '{{          mysql_server["username"] }}',
+        'PASSWORD' :  '{{          mysql_server["password"] }}',
+        'HOST'     :  '{{ minions["mysql-server"][0] }}',
+        'PORT'     :  '{{          mysql_server["port"] }}'
     }
 }
 {% elif minions['postgresql']   -%}
 DATABASES = {
     'default': {
         'ENGINE'   :  'django.db.backends.postgresql_psycopg2',
-        'USER'     :  '{{ salt["config.get"]("postgresql:username") }}',
-        'PASSWORD' :  '{{ salt["config.get"]("postgresql:password") }}',
-        'HOST'     :  '{{            minions["postgresql"][0] }}',
-        'PORT'     :  '{{ salt["config.get"]("postgresql:port",   "5432") }}'
+        'USER'     :  '{{          postgresql["username"] }}',
+        'PASSWORD' :  '{{          postgresql["password"] }}',
+        'HOST'     :  '{{ minions["postgresql"][0] }}',
+        'PORT'     :  '{{          postgresql["port"] }}'
     }
 }
 {% else -%}
 DATABASES = {
     'default': {
-        'NAME'     :  '{{ salt["config.get"]("/var/lib/graphite:file:name") }}/graphite.db',
+        'NAME'     :  '{{ graphite_web["/var/lib/graphite"]["file"]["name"] }}/graphite.db',
         'ENGINE'   :  'django.db.backends.sqlite3'
     }
 }

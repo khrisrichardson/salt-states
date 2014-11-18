@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set php5_json = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'php5-json',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'php53u-common',
+    },
+  },
+}, merge=salt['config.get']('php5-json')) %}

@@ -1,0 +1,24 @@
+# vi: set ft=json.jinja :
+
+{% set supervisor = salt['grains.filter_by']({
+  'Debian': {
+    'service': {
+      'name':          supervisor
+    },
+    '/etc/supervisor/supervisord.conf': {
+      'file': {
+        'name':       /etc/supervisor/supervisord.conf
+      },
+    },
+  },
+  'RedHat': {
+    'service': {
+      'name':          supervisord
+    },
+    '/etc/supervisor/supervisord.conf': {
+      'file': {
+        'name':       /etc/supervisord.conf
+      },
+    },
+  },
+}, merge=salt['config.get']('supervisor')) %}

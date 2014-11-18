@@ -1,6 +1,10 @@
+{% from  'graphite-web/map.jinja'
+   import graphite_web
+   with   context -%}
+{% set roles = [] -%}
+{% set grp = graphite_web['group']['name'] -%}
+{% set usr = graphite_web['user']['name'] -%}
 {% set py  = salt['config.get']('saltpath') + '/../graphite' -%}
-{% set grp = salt['config.get']('graphite-web:group:name') -%}
-{% set usr = salt['config.get']('graphite-web:user:name') -%}
 CONFIG = {
     'mode'        :  'django',
     'working_dir' :  '{{ py }}',

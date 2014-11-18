@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set uuid_runtime = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'uuid-runtime',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'util-linux-ng',
+    },
+  },
+}, merge=salt['config.get']('uuid-runtime')) %}

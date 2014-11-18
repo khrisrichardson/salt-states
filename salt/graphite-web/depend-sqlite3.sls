@@ -1,10 +1,14 @@
 # vi: set ft=yaml.jinja :
 
-{% set etc = salt['config.get']('/etc/graphite:file:name') %}
-{% set grp = salt['config.get']('graphite-web:group:name') %}
-{% set lib = salt['config.get']('/var/lib/graphite:file:name') %}
+{% from  'graphite-web/map.jinja'
+   import graphite_web
+   with   context %}
+
+{% set etc = graphite_web['/etc/graphite']['file']['name'] %}
+{% set grp = graphite_web['group']['name'] %}
+{% set lib = graphite_web['/var/lib/graphite']['file']['name'] %}
+{% set usr = graphite_web['user']['name'] %}
 {% set py  = salt['config.get']('saltpath') + '/../graphite' %}
-{% set usr = salt['config.get']('graphite-web:user:name') %}
 
 include:
   -  graphite-web

@@ -1,13 +1,17 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'apache2/map.jinja'
+   import apache2
+   with   context %}
+
 include:
   - .depend-git
   -  ruby-rvm
 
-usermod -G rvm  {{ salt['config.get']('apache2:user:name') }}:
+usermod -G rvm  {{ apache2['user']['name'] }}:
   cmd.run:
     - unless:    |-
-                 ( id    -Gn {{ salt['config.get']('apache2:user:name') }}     \
+                 ( id    -Gn {{ apache2['user']['name'] }}                     \
                  | egrep -q rvm
                  )
     - require:

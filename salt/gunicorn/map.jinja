@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set gunicorn = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'gunicorn',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'python-gunicorn',
+    },
+  },
+}, merge=salt['config.get']('gunicorn')) %}

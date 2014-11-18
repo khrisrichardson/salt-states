@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set php5_mcrypt = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'php5-mcrypt',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'php53u-mcrypt',
+    },
+  },
+}, merge=salt['config.get']('php5-mcrypt')) %}

@@ -1,15 +1,19 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'opsview-base/map.jinja'
+   import opsview_base
+   with   context %}
+
 include:
   -  python-apt
   -  rpmforge-release
 
 opsview-base:
   pkgrepo.managed:
-    - name:     {{ salt['config.get']('opsview:pkgrepo:name') }}
-    - file:     {{ salt['config.get']('opsview:pkgrepo:file') }}
-    - gpgkey:   {{ salt['config.get']('opsview:pkgrepo:key_url') }}
-    - key_url:  {{ salt['config.get']('opsview:pkgrepo:key_url') }}
+    - name:     {{ opsview_base['pkgrepo']['name'] }}
+    - file:     {{ opsview_base['pkgrepo']['file'] }}
+    - gpgkey:   {{ opsview_base['pkgrepo']['key_url'] }}
+    - key_url:  {{ opsview_base['pkgrepo']['key_url'] }}
     - humanname:   Opsview
     - baseurl:     http://downloads.opsview.com/opsview-core/latest/yum/centos/6/$basearch
     - enabled:     1

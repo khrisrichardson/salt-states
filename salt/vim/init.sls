@@ -1,9 +1,13 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'vim/map.jinja'
+   import vim
+   with   context %}
+
 vim:
   pkg.installed:
     - order:      -1
-    - name:     {{ salt['config.get']('vim:pkg:name') }}
+    - name:     {{ vim['pkg']['name'] }}
 
 /etc/skel/.vimrc:
   file.managed:

@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'npm/map.jinja'
+   import npm
+   with   context %}
+
 include:
   -  dnsutils
   -  netbase
@@ -14,7 +18,7 @@ giraffe-web:
 
 /usr/local/lib/node_modules/giraffe-web/dashboards.js:
   file.managed:
-    - name:     {{ salt['config.get']('/usr/local/lib/node_modules:file:name') }}/giraffe-web/dashboards.js
+    - name:     {{ npm['/usr/local/lib/node_modules']['file']['name'] }}/giraffe-web/dashboards.js
     - template:    jinja
     - source:      salt://{{ sls }}/usr/local/lib/node_modules/giraffe-web/dashboards.js
     - user:        root
@@ -32,7 +36,7 @@ giraffe-web:
 
 /usr/local/lib/node_modules/giraffe-web/vendor/giraffe/css/legend.css:
   file.managed:
-    - name:     {{ salt['config.get']('/usr/local/lib/node_modules:file:name') }}/giraffe-web/vendor/giraffe/css/legend.css
+    - name:     {{ npm['/usr/local/lib/node_modules']['file']['name'] }}/giraffe-web/vendor/giraffe/css/legend.css
     - template:    jinja
     - source:      salt://{{ sls }}/usr/local/lib/node_modules/giraffe-web/vendor/giraffe/css/legend.css
     - user:        root
@@ -43,7 +47,7 @@ giraffe-web:
 
 /usr/local/lib/node_modules/giraffe-web/vendor/giraffe/css/main.css:
   file.managed:
-    - name:     {{ salt['config.get']('/usr/local/lib/node_modules:file:name') }}/giraffe-web/vendor/giraffe/css/main.css
+    - name:     {{ npm['/usr/local/lib/node_modules']['file']['name'] }}/giraffe-web/vendor/giraffe/css/main.css
     - template:    jinja
     - source:      salt://{{ sls }}/usr/local/lib/node_modules/giraffe-web/vendor/giraffe/css/main.css
     - user:        root
@@ -54,7 +58,7 @@ giraffe-web:
 
 /usr/local/lib/node_modules/giraffe-web/bin/supervisor:
   cmd.script:
-    - name:     {{ salt['config.get']('/usr/local/lib/node_modules:file:name') }}/giraffe-web/bin/supervisor
+    - name:     {{ npm['/usr/local/lib/node_modules']['file']['name'] }}/giraffe-web/bin/supervisor
     - template:    jinja
     - source:      salt://{{ sls }}/usr/local/lib/node_modules/giraffe-web/bin/supervisor
     - unless:      ps -C node

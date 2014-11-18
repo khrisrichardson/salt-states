@@ -1,0 +1,28 @@
+# vi: set ft=json.jinja :
+
+{% set version = '1.4' %}
+{% set elasticsearch = salt['grains.filter_by']({
+  'Debian': {
+    '/etc/default/elasticsearch': {
+      'file': {
+        'name':       '/etc/default/elasticsearch',
+      },
+    },
+    'pkgrepo': {
+      'name':          'deb http://packages.elasticsearch.org/elasticsearch/' + version + '/debian stable main',
+      'file':         '/etc/apt/sources.list.d/elasticsearch.list',
+    },
+  },
+  'RedHat': {
+    '/etc/default/elasticsearch': {
+      'file': {
+        'name':       '/etc/sysconfig/elasticsearch',
+      },
+    },
+    'pkgrepo': {
+      'name':          'elasticsearch',
+      'file':         '/etc/yum.repos.d/elasticsearch.repo',
+    },
+  },
+}, merge=salt['config.get']('elasticsearch')) %}
+{% do elasticsearch.update(version=version) %}

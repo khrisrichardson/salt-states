@@ -1,0 +1,30 @@
+# vi: set ft=json.jinja :
+
+{% set ganglia_monitor = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'ganglia-monitor',
+    },
+    'service': {
+      'name':          'ganglia-monitor',
+    },
+    '/etc/ganglia/gmond.conf': {
+      'file': {
+        'name':       '/etc/ganglia/gmond.conf',
+      },
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'ganglia-gmond',
+    },
+    'service': {
+      'name':          'gmond',
+    },
+    '/etc/ganglia/gmond.conf': {
+      'file': {
+        'name':       '/etc/gmond.conf',
+      },
+    },
+  },
+}, merge=salt['config.get']('ganglia-monitor')) %}

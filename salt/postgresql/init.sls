@@ -1,8 +1,12 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'postgresql/map.jinja'
+   import postgresql
+   with   context %}
+
 postgresql:
   pkg.installed:
-    - name:     {{ salt['config.get']('postgresql:pkg:name') }}
+    - name:     {{ postgresql['pkg']['name'] }}
   service.running:
     - enable:      True
     - reload:      True

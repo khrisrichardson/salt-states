@@ -1,0 +1,24 @@
+# vi: set ft=json.jinja :
+
+{% set ntp = salt['grains.filter_by']({
+  'Debian': {
+    'service': {
+      'name':          'ntp',
+    },
+    '/var/lib/ntp/ntp.drift': {
+      'file': {
+        'name':       '/var/lib/ntp/ntp.drift',
+      },
+    },
+  },
+  'RedHat': {
+    'service': {
+      'name':          'ntpd',
+    },
+    '/var/lib/ntp/ntp.drift': {
+      'file': {
+        'name':       '/var/lib/ntp/drift',
+      },
+    },
+  },
+}, merge=salt['config.get']('ntp')) %}

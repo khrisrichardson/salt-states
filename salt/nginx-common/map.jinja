@@ -1,0 +1,37 @@
+# vi: set ft=json.jinja :
+
+{% set nginx_common = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'nginx-common',
+    },
+    '/etc/nginx/sites-available': {
+      'file': {
+        'name':       '/etc/nginx/sites-available',
+      },
+    },
+    '/etc/nginx/sites-enabled': {
+      'file': {
+        'name':       '/etc/nginx/sites-enabled',
+      },
+    },
+  },
+  'RedHat': {
+    'conf': {
+      'extension':    '.conf',
+    },
+    'pkg': {
+      'name':          'nginx',
+    },
+    '/etc/nginx/sites-available': {
+      'file': {
+        'name':       '/etc/nginx/conf.d',
+      },
+    },
+    '/etc/nginx/sites-enabled': {
+      'file': {
+        'name':       '/etc/nginx/conf.d',
+      },
+    },
+  },
+}, merge=salt['config.get']('nginx-common')) %}

@@ -1,8 +1,12 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'nis/map.jinja'
+   import nis
+   with   context %}
+
 nis:
   pkg.installed:
-    - name:     {{ salt['config.get']('nis:pkg:name') }}
+    - name:     {{ nis['pkg']['name'] }}
   service.running:
     - enable:      True
     - watch:

@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set salt_ssh = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'salt-ssh',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'salt-master',
+    },
+  },
+}, merge=salt['config.get']('salt-ssh')) %}

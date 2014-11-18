@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'nginx-common/map.jinja'
+   import nginx_common
+   with   context %}
+
 {% set psls = sls.split('.')[0] %}
 
 include:
@@ -8,7 +12,7 @@ include:
 /etc/nginx/sites-available/{{ psls }}:
   file.managed:
     - template:    jinja
-    - name:     {{ salt['config.get']('/etc/nginx/sites-available:file:name') }}/{{ psls }}{{ salt['config.get']('nginx:conf:extension') }}
+    - name:     {{ nginx_common['/etc/nginx/sites-available']['file']['name'] }}/{{ psls }}{{ nginx_common['conf']['extension'] }}
     - source:      salt://{{ psls }}/etc/nginx/sites-available/{{ psls }}
     - user:        root
     - group:       root

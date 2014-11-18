@@ -1,14 +1,18 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'jenkins-common/map.jinja'
+   import jenkins_common
+   with   context %}
+
 include:
   -  python-apt
 
 jenkins-common:
   pkgrepo.managed:
-    - name:     {{ salt['config.get']('jenkins-common:pkgrepo:name') }}
-    - file:     {{ salt['config.get']('jenkins-common:pkgrepo:file') }}
-    - gpgkey:   {{ salt['config.get']('jenkins-common:pkgrepo:key_url') }}
-    - key_url:  {{ salt['config.get']('jenkins-common:pkgrepo:key_url') }}
+    - name:     {{ jenkins_common['pkgrepo']['name'] }}
+    - file:     {{ jenkins_common['pkgrepo']['file'] }}
+    - gpgkey:   {{ jenkins_common['pkgrepo']['key_url'] }}
+    - key_url:  {{ jenkins_common['pkgrepo']['key_url'] }}
     - humanname:   Jenkins
     - baseurl:     http://pkg.jenkins-ci.org/redhat
     - enabled:     1

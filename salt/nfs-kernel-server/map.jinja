@@ -1,0 +1,20 @@
+# vi: set ft=json.jinja :
+
+{% set nfs_kernel_server = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'nfs-kernel-server',
+    },
+    'service': {
+      'name':          'nfs-kernel-server',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'nfs-utils',
+    },
+    'service': {
+      'name':          'nfs',
+    },
+  },
+}, merge=salt['config.get']('nfs-kernel-server')) %}

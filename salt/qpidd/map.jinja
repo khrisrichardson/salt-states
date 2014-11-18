@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set qpidd = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'qpidd',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'qpid-cpp-server',
+    },
+  },
+}, merge=salt['config.get']('qpidd')) %}

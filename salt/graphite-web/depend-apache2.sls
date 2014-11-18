@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'apache2/map.jinja'
+   import apache2
+   with   context %}
+
 include:
   -  apache2
   -  graphite-web
@@ -32,7 +36,7 @@ extend:
 
 /etc/apache2/sites-enabled/000-cors.conf:
   file.managed:
-    - name:     {{ salt['config.get']('/etc/apache2/sites-enabled:file:name') }}/000-cors.conf
+    - name:     {{ apache2['/etc/apache2/sites-enabled']['file']['name'] }}/000-cors.conf
     - contents:  |-
                    Header set Access-Control-Allow-Origin     "*"
                    Header set Access-Control-Allow-Methods    "GET, OPTIONS"

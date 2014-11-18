@@ -1,0 +1,18 @@
+# vi: set ft=json.jinja :
+
+{% set collectd = salt['grains.filter_by']({
+  'Debian': {
+    '/etc/collectd/collectd.conf': {
+      'file': {
+        'name':       '/etc/collectd/collectd.conf',
+      },
+    },
+  },
+  'RedHat': {
+    '/etc/collectd/collectd.conf': {
+      'file': {
+        'name':       '/etc/collectd.conf',
+      },
+    },
+  },
+}, merge=salt['config.get']('collectd')) %}

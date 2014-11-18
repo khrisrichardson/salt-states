@@ -1,10 +1,14 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'ganglia-monitor/map.jinja'
+   import ganglia_monitor
+   with   context %}
+
 ganglia-monitor:
   pkg.installed:
-    - name:     {{ salt['config.get']('ganglia-monitor:pkg:name') }}
+    - name:     {{ ganglia_monitor['pkg']['name'] }}
   service.running:
-    - name:     {{ salt['config.get']('ganglia-monitor:service:name') }}
+    - name:     {{ ganglia_monitor['service']['name'] }}
     - enable:      True
     - watch:
       - pkg:       ganglia-monitor

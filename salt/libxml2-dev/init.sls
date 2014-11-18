@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'libxml2-dev/map.jinja'
+   import libxml2_dev
+   with   context %}
+
 libxml2-dev:
   pkg.installed:
-    - name:     {{ salt['config.get']('libxml2-dev:pkg:name') }}
+    - name:     {{ libxml2_dev['pkg']['name'] }}

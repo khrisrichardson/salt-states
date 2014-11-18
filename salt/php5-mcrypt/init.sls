@@ -1,11 +1,15 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'php5-mcrypt/map.jinja'
+   import php5_mcrypt
+   with   context %}
+
 include:
   -  php5
 
 php5-mcrypt:
   pkg.installed:
-    - name:     {{ salt['config.get']('php5-mcrypt:pkg:name') }}
+    - name:     {{ php5_mcrypt['pkg']['name'] }}
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - require:
       - pkgrepo:   ius

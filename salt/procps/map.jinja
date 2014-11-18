@@ -1,0 +1,20 @@
+# vi: set ft=json.jinja :
+
+{% set procps = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'procps',
+    },
+    'service': {
+      'name':          'procps',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'initscripts',
+    },
+    'service': {
+      'name':          'initscripts',
+    },
+  },
+}, merge=salt['config.get']('procps')) %}

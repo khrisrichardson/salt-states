@@ -1,11 +1,15 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'cron/map.jinja'
+   import cron
+   with   context %}
+
 cron:
   pkg.installed:
     - order:      -1
-    - name:     {{ salt['config.get']('cron:pkg:name') }}
+    - name:     {{ cron['pkg']['name'] }}
   service.running:
-    - name:     {{ salt['config.get']('cron:service:name') }}
+    - name:     {{ cron['service']['name'] }}
     - enable:      True
     - watch:
       - pkg:       cron

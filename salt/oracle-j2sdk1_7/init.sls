@@ -1,6 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% set name    =  salt['config.get']('oracle-j2sdk1_7:pkg:name') %}
+{% from  'oracle-j2sdk1_7/map.jinja'
+   import oracle_j2sdk1_7
+   with   context %}
+
+{% set name    =  oracle_j2sdk1_7['pkg']['name'] %}
 {% set version = 'cm5' %}
 
 include:

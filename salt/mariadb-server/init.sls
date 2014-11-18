@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'mariadb-server/map.jinja'
+   import mariadb_server
+   with   context %}
+
 include:
   -  debconf-utils
   -  mysql-common
@@ -17,7 +21,7 @@ mariadb-server:
 {% endif %}
   pkg.installed:   []
   service.running:
-    - name:     {{ salt['config.get']('mariadb-server:service:name') }}
+    - name:     {{ mariadb_server['service']['name'] }}
     - enable:      True
     - reload:      True
     - watch:

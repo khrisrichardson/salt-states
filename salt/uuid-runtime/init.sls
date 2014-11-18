@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'uuid-runtime/map.jinja'
+   import uuid_runtime
+   with   context %}
+
 uuid-runtime:
   pkg.installed:
-    - name:     {{ salt['config.get']('uuid-runtime:pkg:name') }}
+    - name:     {{ uuid_runtime['pkg']['name'] }}

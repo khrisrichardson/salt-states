@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set snmpd = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'snmpd',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'net-snmp-libs',
+    },
+  },
+}, merge=salt['config.get']('snmpd')) %}

@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set libxml2_dev = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'libxml2-dev',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'libxml2-devel',
+    },
+  },
+}, merge=salt['config.get']('libxml2-dev')) %}

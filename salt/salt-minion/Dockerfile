@@ -1,7 +1,7 @@
 FROM          ubuntu:latest
 MAINTAINER    Khris Richardson <khris.richardson@gmail.com>
 
-ENV           tree_ish develop
+ENV           tree_ish 2014.7
 
 ADD         ./bootstrap.sh /
 RUN         ./bootstrap.sh git ${tree_ish}

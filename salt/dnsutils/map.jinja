@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set dnsutils = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'dnsutils',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'bind-utils',
+    },
+  },
+}, merge=salt['config.get']('dnsutils')) %}

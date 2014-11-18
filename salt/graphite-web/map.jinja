@@ -1,0 +1,70 @@
+# vi: set ft=json.jinja :
+
+{% set graphite_web = salt['grains.filter_by']({
+  'Debian': {
+    'user': {
+      'name':         '_graphite',
+    },
+    'group': {
+      'name':         '_graphite',
+    },
+    '/etc/graphite': {
+      'file': {
+        'name':       '/etc/graphite',
+      },
+    },
+    '/usr/share/graphite-web': {
+      'file': {
+        'name':       '/usr/share/graphite-web',
+      },
+    },
+    '/usr/share/graphite-web/static': {
+      'file': {
+        'name':       '/usr/share/graphite-web/static',
+      },
+    },
+    '/var/lib/graphite': {
+      'file': {
+        'name':       '/var/lib/graphite',
+      },
+    },
+    '/var/log/graphite': {
+      'file': {
+        'name':       '/var/log/graphite',
+      },
+    },
+  },
+  'RedHat': {
+    'user': {
+      'name':          'nginx',
+    },
+    'group': {
+      'name':          'nginx',
+    },
+    '/etc/graphite': {
+      'file': {
+        'name':       '/etc/graphite-web',
+      },
+    },
+    '/usr/share/graphite-web': {
+      'file': {
+        'name':       '/usr/share/graphite',
+      },
+    },
+    '/usr/share/graphite-web/static': {
+      'file': {
+        'name':       '/usr/share/graphite/webapp/content',
+      },
+    },
+    '/var/lib/graphite': {
+      'file': {
+        'name':       '/var/lib/graphite-web',
+      },
+    },
+    '/var/log/graphite': {
+      'file': {
+        'name':       '/var/log/graphite-web',
+      },
+    },
+  },
+}, merge=salt['config.get']('graphite-web')) %}

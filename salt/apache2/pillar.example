@@ -1,0 +1,53 @@
+# vi: set ft=yaml.jinja :
+
+{% if   salt['config.get']('os_family') == 'RedHat' %}
+
+apache2:
+  pkg:
+    name:          httpd
+  service:
+    name:          httpd
+  user:
+    name:          apache
+  group:
+    name:          apache
+  conf:
+    extension:    .conf
+  /etc/apache2/httpd.conf:
+    file:
+      name:       /etc/httpd/conf/httpd.conf
+  /etc/apache2/sites-available:
+    file:
+      name:       /etc/httpd/conf.d
+  /etc/apache2/sites-enabled:
+    file:
+      name:       /etc/httpd/conf.d
+  /etc/apache2/sites-enabled/000-default.conf:
+    file:
+      name:       /etc/httpd/conf.d/welcome.conf
+
+{% elif salt['config.get']('os_family') == 'Debian' %}
+
+apache2:
+  pkg:
+    name:          apache2
+  service:
+    name:          apache2
+  user:
+    name:          www-data
+  group:
+    name:          www-data
+  /etc/apache2/httpd.conf:
+    file:
+      name:       /etc/apache2/httpd.conf
+  /etc/apache2/sites-available:
+    file:
+      name:       /etc/apache2/sites-available
+  /etc/apache2/sites-enabled:
+    file:
+      name:       /etc/apache2/sites-enabled
+  /etc/apache2/sites-enabled/000-default.conf:
+    file:
+      name:       /etc/apache2/sites-enabled/000-default.conf
+
+{% endif %}

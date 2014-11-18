@@ -1,0 +1,31 @@
+# vi: set ft=yaml.jinja :
+
+{% if   salt['config.get']('os_family') == 'RedHat' %}
+
+php5-fpm:
+  pkg:
+    name:          php53u-fpm
+  service:
+    name:          php-fpm
+  /etc/php5/fpm/conf.d:
+    file:
+      name:       /etc/php-fpm.d
+  /etc/php5/fpm/pool.d:
+    file:
+      name:       /etc/php-fpm.d
+
+{% elif salt['config.get']('os_family') == 'Debian' %}
+
+php5-fpm:
+  pkg:
+    name:          php5-fpm
+  service:
+    name:          php5-fpm
+  /etc/php5/fpm/conf.d:
+    file:
+      name:       /etc/php5/fpm/conf.d
+  /etc/php5/fpm/pool.d:
+    file:
+      name:       /etc/php5/fpm/pool.d
+
+{% endif %}

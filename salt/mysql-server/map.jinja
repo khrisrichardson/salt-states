@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set mysql_server = salt['grains.filter_by']({
+  'Debian': {
+    'service': {
+      'name':          'mysql',
+    },
+  },
+  'RedHat': {
+    'service': {
+      'name':          'mysqld',
+    },
+  },
+}, merge=salt['config.get']('mysql-server')) %}

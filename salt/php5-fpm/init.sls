@@ -1,17 +1,21 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'php5-fpm/map.jinja'
+   import php5_fpm
+   with   context %}
+
 include:
   -  php5
 
 php5-fpm:
   pkg.installed:
-    - name:     {{ salt['config.get']('php5-fpm:pkg:name') }}
+    - name:     {{ php5_fpm['pkg']['name'] }}
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - require:
       - pkgrepo:   ius
    {% endif %}
   service.running:
-    - name:     {{ salt['config.get']('php5-fpm:service:name') }}
+    - name:     {{ php5_fpm['service']['name'] }}
     - enable:      True
     - reload:      True
     - watch:
@@ -19,6 +23,6 @@ php5-fpm:
 
 /etc/php5/fpm/pool.d/www.conf:
   file.absent:
-    - name:     {{ salt['config.get']('/etc/php5/fpm/pool.d:file:name') }}/www.conf
+    - name:     {{ php5_fpm['/etc/php5/fpm/pool.d']['file']['name'] }}/www.conf
     - watch_in:
       - service:   php5-fpm

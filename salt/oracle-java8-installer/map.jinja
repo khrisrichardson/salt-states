@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set oracle_java8_installer = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'oracle-java8-installer',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'jdk',
+    },
+  },
+}, merge=salt['config.get']('oracle-java8-installer')) %}

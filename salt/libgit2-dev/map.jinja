@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set libgit2_dev = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'libgit2-dev',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'libgit2-devel',
+    },
+  },
+}, merge=salt['config.get']('libgit2-dev')) %}

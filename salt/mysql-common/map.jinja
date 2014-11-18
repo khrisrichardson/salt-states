@@ -1,0 +1,24 @@
+# vi: set ft=json.jinja :
+
+{% set mysql_common = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'mysql-common',
+    },
+    '/etc/mysql/my.cnf': {
+      'file': {
+        'name':       '/etc/mysql/my.cnf',
+      },
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'mysql-libs',
+    },
+    '/etc/mysql/my.cnf': {
+      'file': {
+        'name':       '/etc/my.cnf',
+      },
+    },
+  },
+}, merge=salt['config.get']('mysql-common')) %}

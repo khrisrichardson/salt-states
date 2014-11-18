@@ -1,11 +1,15 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'multipath-tools/map.jinja'
+   import multipath_tools
+   with   context %}
+
 multipath-tools:
   pkg.installed:
     - order:      -1
-    - name:     {{ salt['config.get']('multipath-tools:pkg:name') }}
+    - name:     {{ multipath_tools['pkg']['name'] }}
   service.running:
-    - name:     {{ salt['config.get']('multipath-tools:service:name') }}
+    - name:     {{ multipath_tools['service']['name'] }}
     - enable:      True
     - reload:      True
     - watch:

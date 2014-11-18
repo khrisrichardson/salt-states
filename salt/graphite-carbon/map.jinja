@@ -1,0 +1,36 @@
+# vi: set ft=json.jinja :
+
+{% set graphite_carbon = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'graphite-carbon',
+    },
+    'user': {
+      'name':         '_graphite',
+    },
+    'group': {
+      'name':         '_graphite',
+    },
+    '/var/lib/carbon': {
+      'file': {
+        'name':       '/var/lib/graphite',
+      },
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'python-carbon',
+    },
+    'user': {
+      'name':          'carbon',
+    },
+    'group': {
+      'name':          'carbon',
+    },
+    '/var/lib/carbon': {
+      'file': {
+        'name':       '/var/lib/carbon',
+      },
+    },
+  },
+}, merge=salt['config.get']('graphite-carbon')) %}

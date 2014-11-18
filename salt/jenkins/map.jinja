@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set jenkins = salt['grains.filter_by']({
+  'Debian': {
+    'group': {
+      'name':          'nogroup',
+    },
+  },
+  'RedHat': {
+    'group': {
+      'name':          'jenkins',
+    },
+  },
+}, merge=salt['config.get']('jenkins')) %}

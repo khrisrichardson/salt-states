@@ -10,27 +10,24 @@ export DEBIAN_FRONTEND=noninteractive
 export             PS4='$( date "+%s.%N ($LINENO) + " )'
 export       bootstrap=true
 
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  main
 #   DESCRIPTION:  Core logic.
 #-------------------------------------------------------------------------------
 main() {
     if ! test -f /usr/bin/salt-call
     then
-        pkg_setup
+#       pkg_setup
         salt_bootstrap "${@}"
-        salt_master_setup
+        pygit2_setup
         salt_minion_setup
-        salt_run_gitfs_update
     fi
-    salt_key_gen_keys
-    salt_master_daemonize
     salt_call_state_highstate
     salt_cleanup
     pkg_cleanup
 }
 
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  pkg_cleanup
 #   DESCRIPTION:  Clear apt cache.
 #-------------------------------------------------------------------------------
@@ -51,21 +48,34 @@ pkg_cleanup() {
     fi
 }
 
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  pkg_setup
 #   DESCRIPTION:  Configure apt to use caching proxy.
 #-------------------------------------------------------------------------------
 pkg_setup() {
     if [ -d   /etc/apt/apt.conf.d ]
     then
+        ip=$(  ip route list                                                   \
+            | awk '/^default/ {print $3}'
+            )
         cat > /etc/apt/apt.conf.d/30proxy                               <<-EOF
-	Acquire::http::Proxy "http://172.17.42.1:3142";
+	Acquire::http::Proxy "http://${ip}:3142";
 	Acquire::http::Proxy::download.oracle.com "DIRECT";
 	EOF
     fi
 }
 
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
+#          NAME:  pygit2_setup
+#   DESCRIPTION:  Configure pygit2.
+#-------------------------------------------------------------------------------
+pygit2_setup() {
+    salt-call --local pkg.install software-properties-common
+    add-apt-repository -y ppa:dennis/python
+    salt-call --local pkg.install python-pygit2 refresh=True
+}
+
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  salt_bootstrap
 #   DESCRIPTION:  Download and execute salt bootstrap script.
 #-------------------------------------------------------------------------------
@@ -87,19 +97,11 @@ salt_bootstrap() {
         python -c "import urllib; print urllib.urlopen('${url}').read()"       \
       > bootstrap-salt.sh
     fi
-    if test -f /usr/bin/apt-get
-    then
-        pkg=python-git
-    fi
-    if test -f /usr/bin/yum
-    then
-        pkg=GitPython
-    fi
-    bash bootstrap-salt.sh -MX -p ${pkg} "${@}"                                \
+    bash bootstrap-salt.sh -MX "${@}"                                          \
  || true
 }
 
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  salt_call_state_highstate
 #   DESCRIPTION:  Set environment, referenced by top.sls, and run highstate.
 #-------------------------------------------------------------------------------
@@ -112,128 +114,22 @@ salt_call_state_highstate() {
         else
             environment=${ref}
         fi
-    salt-call grains.setval environment ${environment} --local
+    salt-call --local grains.setval environment ${environment}
     fi
-    rm -f                                /var/log/salt/highstate 2>/dev/null
-    salt-call state.highstate --out-file=/var/log/salt/highstate               \
+    rm -f                                        /var/log/salt/highstate
+    salt-call --local state.highstate --out-file=/var/log/salt/highstate       \
  || exit ${?}
 }
 
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  salt_cleanup
 #   DESCRIPTION:  Remove unneeded salt files.
 #-------------------------------------------------------------------------------
 salt_cleanup() {
-    if       grep -q roles       /etc/salt/grains
-    then
-        if ! grep -q salt-master /etc/salt/grains
-        then
-                     salt_master_cleanup
-        fi
-        if ! grep -q salt-syndic /etc/salt/grains
-        then
-                     salt_syndic_cleanup
-        fi
-    fi
     salt_minion_cleanup
 }
 
-#---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  salt_key_gen_keys
-#   DESCRIPTION:  Preseed minion's cryptographic keys on master.
-#-------------------------------------------------------------------------------
-salt_key_gen_keys() {
-    if ! test -f            /etc/salt/pki/minion/minion.pub
-    then
-        mkdir -p            /etc/salt/pki/master/minions
-        mkdir -p            /etc/salt/pki/minion
-        chmod 0700          /etc/salt/pki
-        chmod 0700          /etc/salt/pki/master
-        chmod 0700          /etc/salt/pki/minion
-        salt-key --gen-keys=${minion_id}
-        cp ${minion_id}.pub /etc/salt/pki/master/minions/${minion_id}
-        mv ${minion_id}.pub /etc/salt/pki/minion/minion.pub
-        mv ${minion_id}.pem /etc/salt/pki/minion/minion.pem
-    fi
-}
-
-#---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  salt_master_cleanup
-#   DESCRIPTION:  Remove all traces of salt-master.
-#-------------------------------------------------------------------------------
-salt_master_cleanup() {
-    which supervisorctl                  &>/dev/null                           \
-    &&    supervisorctl stop salt-master &>/dev/null
-    pkill                    salt-master &>/dev/null
-
-    rm -rf /etc/init*/salt-master*
-    rm -rf /etc/salt/master*
-    rm -rf /etc/salt/minion.d/master.conf
-    rm -rf /etc/salt/pki/master
-    rm -rf /etc/salt/pki/minion/minion_master.pub
-    rm -rf /etc/supervisor/conf.d/salt-master.conf
-    rm -rf /lib/systemd/system/salt-master.service
-    rm -rf /run/salt-master*
-    rm -rf /usr/bin/salt
-    rm -rf /usr/bin/salt-cp
-    rm -rf /usr/bin/salt-key
-    rm -rf /usr/bin/salt-master
-    rm -rf /usr/bin/salt-run
-    rm -rf /usr/share/man/man1/salt.1*
-    rm -rf /usr/share/man/man1/salt-cp.1*
-    rm -rf /usr/share/man/man1/salt-key.1*
-    rm -rf /usr/share/man/man1/salt-master.1*
-    rm -rf /usr/share/man/man1/salt-run.1*
-    rm -rf /var/cache/salt/master
-    rm -rf /var/log/salt/master
-    rm -rf /var/log/supervisor/salt-master-*.log
-}
-
-#---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  salt_master_daemonize
-#   DESCRIPTION:  Daemonize salt-master, required for gitfs.
-#-------------------------------------------------------------------------------
-salt_master_daemonize() {
-    pkill salt-master &>/dev/null
-          salt-master -d
-    if test -f /usr/bin/salt-call
-    then
-        until salt-call test.ping &>/dev/null
-        do
-            sleep 0.1
-        done
-    else
-        exit 1
-    fi
-}
-
-#---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  salt_master_setup
-#   DESCRIPTION:  Configure salt-master.
-#-------------------------------------------------------------------------------
-salt_master_setup() {
-    mkdir -p /etc/salt/master.d
-    cat >    /etc/salt/master.d/auto_accept.conf                        <<-EOF
-	auto_accept:       True
-	EOF
-
-    cat >    /etc/salt/master.d/fileserver_backend.conf                 <<-EOF
-	fileserver_backend:
-	  - roots
-	  - git
-	  - minion
-
-	gitfs_provider:    gitpython
-	gitfs_remotes:
-	  - ${repository}
-	gitfs_root:        salt
-
-	ext_pillar:
-	  - git:           ${ref} ${repository} root=pillar
-	EOF
-}
-
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  salt_minion_cleanup
 #   DESCRIPTION:  Remove intermediate files on salt-minion.
 #-------------------------------------------------------------------------------
@@ -248,7 +144,7 @@ salt_minion_cleanup() {
  || true
 }
 
-#---  FUNCTION  ----------------------------------------------------------------
+#----  FUNCTION  ---------------------------------------------------------------
 #          NAME:  salt_minion_setup
 #   DESCRIPTION:  Configure salt-minion.
 #-------------------------------------------------------------------------------
@@ -261,45 +157,21 @@ salt_minion_setup() {
     fi
     mkdir -p /etc/salt/minion.d
     cat    > /etc/salt/minion.d/environment.conf                        <<-EOF
-	environment:       ${environment}
-	EOF
-
-    cat    > /etc/salt/minion.d/master.conf                             <<-EOF
 	# vi: set ft=yaml.jinja :
 	
-	master:
-	- 127.0.0.1
+	environment:       ${environment}
 	EOF
-}
+    cat    > /etc/salt/minion.d/fileserver_backend.conf                 <<-EOF
+	# vi: set ft=yaml.jinja :
+	
+	fileserver_backend:
+	  - git
 
-#---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  salt_run_gitfs_update
-#   DESCRIPTION:  Fetch latest salt and pillar files from git.
-#-------------------------------------------------------------------------------
-salt_run_gitfs_update() {
-    salt-run     fileserver.update
-    salt-run     git_pillar.update                                             \
-                 branch=${ref}                                                 \
-                 repo=${repository}
-}
-
-#---  FUNCTION  ----------------------------------------------------------------
-#          NAME:  salt_syndic_cleanup
-#   DESCRIPTION:  Remove all traces of salt-syndic.
-#-------------------------------------------------------------------------------
-salt_syndic_cleanup() {
-    which supervisorctl                  &>/dev/null                           \
-    &&    supervisorctl stop salt-syndic &>/dev/null
-    pkill                    salt-syndic &>/dev/null
-
-    rm -rf /etc/init*/salt-syndic*
-    rm -rf /etc/supervisor/conf.d/salt-syndic.conf
-    rm -rf /lib/systemd/system/salt-syndic.service
-    rm -rf /run/salt-syndic*
-    rm -rf /usr/bin/salt-syndic
-    rm -rf /usr/share/man/man1/salt-syndic.1*
-    rm -rf /var/log/salt/syndic
-    rm -rf /var/log/supervisor/salt-syndic-*.log
+	gitfs_provider:    pygit2
+	gitfs_remotes:
+	  - ${repository}
+	gitfs_root:        salt
+	EOF
 }
 
 main "${@}"

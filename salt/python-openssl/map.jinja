@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set python_openssl = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'python-openssl',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'pyOpenSSL',
+    },
+  },
+}, merge=salt['config.get']('python-openssl')) %}

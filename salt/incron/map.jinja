@@ -1,0 +1,24 @@
+# vi: set ft=json.jinja :
+
+{% set incron = salt['grains.filter_by']({
+  'Debian': {
+    'service': {
+      'name':          'incron',
+    },
+    '/etc/incron.allow': {
+      'file': {
+        'group':       'incron',
+      },
+    },
+  },
+  'RedHat': {
+    'service': {
+      'name':          'incrond',
+    },
+    '/etc/incron.allow': {
+      'file': {
+        'group':       'root',
+      },
+    },
+  },
+}, merge=salt['config.get']('incron')) %}

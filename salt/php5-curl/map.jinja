@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set php5_curl = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'php5-curl',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'php53u-common',
+    },
+  },
+}, merge=salt['config.get']('php5-curl')) %}

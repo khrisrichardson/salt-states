@@ -1,18 +1,20 @@
 # vi: set ft=yaml.jinja :
 
-{% set version = 'firefly' %}
+{% from  'ceph-common/map.jinja'
+   import ceph_common
+   with   context %}
 
 include:
   -  python-apt
 
 ceph-common:
   pkgrepo.managed:
-    - name:     {{ salt['config.get']('ceph-common:pkgrepo:name') }}
-    - file:     {{ salt['config.get']('ceph-common:pkgrepo:file') }}
+    - name:     {{ ceph_common['pkgrepo']['name'] }}
+    - file:     {{ ceph_common['pkgrepo']['file'] }}
     - gpgkey:      https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc
     - key_url:     https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc
     - humanname:   Ceph packages
-    - baseurl:     http://ceph.com/rpm-{{ version }}/el6/$basearch
+    - baseurl:     http://ceph.com/rpm-{{ ceph_common['version'] }}/el6/$basearch
     - enabled:     1
     - gpgcheck:    1
     - consolidate: True

@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set debianutils = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'debianutils',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'which',
+    },
+  },
+}, merge=salt['config.get']('debianutils')) %}

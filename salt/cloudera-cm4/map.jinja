@@ -1,0 +1,20 @@
+# vi: set ft=json.jinja :
+
+{% set codename     =  salt['config.get']('lsb_distrib_codename') %}
+{% set codename     = 'precise' %}
+{% set cloudera_cm4 =  salt['grains.filter_by']({
+  'Debian': {
+    'pkgrepo': {
+      'name':          'deb [arch=amd64] http://archive.cloudera.com/cm4/ubuntu/' + codename + '/amd64/cm ' + codename + '-cm4',
+      'file':         '/etc/apt/sources.list.d/cloudera-cm4.list',
+      'key_url':       'http://archive.cloudera.com/cdh4/ubuntu/' + codename + '/amd64/cdh/archive.key',
+    },
+  },
+  'RedHat': {
+    'pkgrepo': {
+      'name':          'cloudera-cm4',
+      'file':         '/etc/yum.repos.d/cloudera-cm4.repo',
+      'key_url':       'http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera',
+    },
+  },
+}, merge=salt['config.get']('cloudera-cm4')) %}

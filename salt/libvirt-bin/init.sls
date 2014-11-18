@@ -1,12 +1,16 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'libvirt-bin/map.jinja'
+   import libvirt_bin
+   with   context %}
+
 include:
   -  bridge-utils
   -  uuid-runtime
 
 libvirt-bin:
   pkg.installed:
-    - name:     {{ salt['config.get']('libvirt-bin:pkg:name') }}
+    - name:     {{ libvirt_bin['pkg']['name'] }}
   service.running:
     - enable:      True
     - reload:      True

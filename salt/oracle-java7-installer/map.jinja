@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set oracle_java7_installer = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'oracle-java7-installer',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'jdk',
+    },
+  },
+}, merge=salt['config.get']('oracle-java7-installer')) %}

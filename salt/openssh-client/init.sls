@@ -1,9 +1,13 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'openssh-client/map.jinja'
+   import openssh_client
+   with   context %}
+
 openssh-client:
   pkg.installed:
     - order:      -1
-    - name:     {{ salt['config.get']('openssh-client:pkg:name') }}
+    - name:     {{ openssh_client['pkg']['name'] }}
 
 /root/.ssh:
   file.directory:

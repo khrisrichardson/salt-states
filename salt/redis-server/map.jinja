@@ -1,0 +1,30 @@
+# vi: set ft=json.jinja :
+
+{% set redis_server = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'redis-server',
+    },
+    'service': {
+      'name':          'redis-server',
+    },
+    '/etc/redis/redis.conf': {
+      'file': {
+        'name':       '/etc/redis/redis.conf',
+      },
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'redis',
+    },
+    'service': {
+      'name':          'redis',
+    },
+    '/etc/redis/redis.conf': {
+      'file': {
+        'name':       '/etc/redis.conf',
+      },
+    },
+  },
+}, merge=salt['config.get']('redis-server')) %}

@@ -1,3 +1,7 @@
+{% from  'graphite-web/map.jinja'
+   import graphite_web
+   with   context -%}
+{% set roles = [] -%}
 server {
     listen                    80;
     server_name               _;
@@ -5,7 +9,7 @@ server {
     client_max_body_size      64M;
     keepalive_timeout         5;
 
-    root                      {{ salt['config.get']('/usr/share/graphite-web/static:file:name') }};
+    root                      {{ graphite_web['/usr/share/graphite-web/static']['file']['name'] }};
 
     location / {
         add_header            Access-Control-Allow-Origin  "*";

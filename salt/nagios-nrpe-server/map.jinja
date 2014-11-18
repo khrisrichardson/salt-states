@@ -1,0 +1,20 @@
+# vi: set ft=json.jinja :
+
+{% set nagios_nrpe_server = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'nagios-nrpe-server',
+    },
+    'service': {
+      'name':          'nagios-nrpe-server',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'nrpe',
+    },
+    'service': {
+      'name':          'nrpe',
+    },
+  },
+}, merge=salt['config.get']('nagios-nrpe-server')) %}

@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set cobbler = salt['grains.filter_by']({
+  'Debian': {
+    'service': {
+      'name':          'cobbler',
+    },
+  },
+  'RedHat': {
+    'service': {
+      'name':          'cobblerd',
+    },
+  },
+}, merge=salt['config.get']('cobbler')) %}

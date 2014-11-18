@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set python_protobuf = salt['grains.filter_by']({
+  'Debian': {
+    'pkg':
+      'name':          'python-protobuf',
+    },
+  },
+  'RedHat': {
+    'pkg':
+      'name':          'protobuf-python',
+    },
+  },
+}, merge=salt['config.get']('python-protobuf')) %}

@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set libpq_dev = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'libpq-dev',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'postgresql-devel',
+    },
+  },
+}, merge=salt['config.get']('libpq-dev')) %}

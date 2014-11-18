@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'php5/map.jinja'
+   import php5
+   with   context %}
+
 {% if salt['config.get']('os_family') == 'RedHat' %}
 
 ius:
@@ -14,7 +18,7 @@ ius:
 
 php5:
   pkg.installed:
-    - name:     {{ salt['config.get']('php5:pkg:name') }}
+    - name:     {{ php5['pkg']['name'] }}
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - require:
       - pkgrepo:   ius

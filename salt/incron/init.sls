@@ -1,10 +1,14 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'incron/map.jinja'
+   import incron
+   with   context %}
+
 incron:
   pkg.installed:
     - order:      -1
   service.running:
-    - name:     {{ salt['config.get']('incron:service:name') }}
+    - name:     {{ incron['service']['name'] }}
     - enable:      True
     - reload:      True
     - sig:         incrond
@@ -15,7 +19,7 @@ incron:
   file.managed:
     - source:      salt://{{ sls }}/etc/incron.allow
     - user:        root
-    - group:    {{ salt['config.get']('/etc/incron.allow:file:group') }}
+    - group:    {{ incron['/etc/incron.allow']['file']['group'] }}
     - mode:       '0640'
     - watch:
       - pkg:       incron

@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set gmetad = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'gmetad',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'ganglia-gmetad',
+    },
+  },
+}, merge=salt['config.get']('gmetad')) %}

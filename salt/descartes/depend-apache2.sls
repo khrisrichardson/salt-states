@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'apache2/map.jinja'
+   import apache2
+   with   context %}
+
 include:
   -  apache2
   -  descartes
@@ -7,20 +11,20 @@ include:
 extend:
   rvm use 1.9.3:
     cmd:
-      - user:   {{ salt['config.get']('apache2:user:name') }}
+      - user:   {{ apache2['user']['name'] }}
       - require:
         - pkg:     apache2
 
   bundle install && gem install foreman:
     cmd:
-      - user:     {{ salt['config.get']('apache2:user:name') }}
+      - user:     {{ apache2['user']['name'] }}
       - require:
         - pkg:       apache2
 
-usermod -G rvm {{ salt['config.get']('apache2:user:name') }}:
+usermod -G rvm {{ apache2['user']['name'] }}:
   cmd.run:
     - unless:    |-
-                 ( id    -Gn {{ salt['config.get']('apache2:user:name') }}     \
+                 ( id    -Gn {{ apache2['user']['name'] }}                     \
                  | egrep -q rvm
                  )
     - require:

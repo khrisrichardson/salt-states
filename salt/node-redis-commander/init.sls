@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'npm/map.jinja'
+   import npm
+   with   context %}
+
 include:
   -  dnsutils
   -  netbase
@@ -14,7 +18,7 @@ redis-commander:
 
 /usr/local/lib/node_modules/redis-commander/bin/supervisor:
   cmd.script:
-    - name:     {{ salt['config.get']('/usr/local/lib/node_modules:file:name') }}/redis-commander/bin/supervisor
+    - name:     {{ npm['/usr/local/lib/node_modules']['file']['name'] }}/redis-commander/bin/supervisor
     - template:    jinja
     - source:      salt://{{ sls }}/usr/local/lib/node_modules/redis-commander/bin/supervisor
     - unless:      ps -C node

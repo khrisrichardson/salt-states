@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'apache2/map.jinja'
+   import apache2
+   with   context %}
+
 {% set psls = sls.split('.')[0] %}
 
 include:
@@ -9,7 +13,7 @@ include:
 /etc/apache2/sites-available/{{ psls }}:
   file.managed:
     - template:    jinja
-    - name:     {{ salt['config.get']('/etc/apache2/sites-available:file:name') }}/{{ psls }}{{ salt['config.get']('apache2:conf:extension') }}
+    - name:     {{ apache2['/etc/apache2/sites-available']['file']['name'] }}/{{ psls }}{{ apache2['conf']['extension'] }}
     - source:      salt://{{ psls }}/etc/apache2/sites-available/{{ psls }}
     - user:        root
     - group:       root

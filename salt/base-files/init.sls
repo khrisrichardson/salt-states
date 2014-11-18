@@ -1,8 +1,12 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'base-files/map.jinja'
+   import base_files
+   with   context %}
+
 base-files:
   pkg.installed:
-    - name:     {{ salt['config.get']('base-files:pkg:name') }}
+    - name:     {{ base_files['pkg']['name'] }}
 
 /tmp:
   file.directory:

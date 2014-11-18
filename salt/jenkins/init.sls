@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'jenkins/map.jinja'
+   import jenkins
+   with   context %}
+
 {% set plugins = [] %}
 
 include:
@@ -49,7 +53,7 @@ jenkins:
 /var/lib/jenkins/jobs:
   file.directory:
     - user:        jenkins
-    - group:    {{ salt['config.get']('jenkins:group:name') }}
+    - group:    {{ jenkins['group']['name'] }}
     - mode:       '0755'
     - require:
       - pkg:       jenkins
@@ -57,7 +61,7 @@ jenkins:
 /var/lib/jenkins/plugins:
   file.directory:
     - user:        jenkins
-    - group:    {{ salt['config.get']('jenkins:group:name') }}
+    - group:    {{ jenkins['group']['name'] }}
     - mode:       '0755'
     - require:
       - pkg:       jenkins

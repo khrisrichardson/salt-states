@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'radosgw/map.jinja'
+   import radosgw
+   with   context %}
+
 include:
   - .depend-apache2
 # - .depend-haproxy
@@ -7,7 +11,7 @@ include:
 
 radosgw:
   pkg.installed:
-    - name:     {{ salt['config.get']('radosgw:pkg:name') }}
+    - name:     {{ radosgw['pkg']['name'] }}
     - require:
       - pkgrepo:   ceph-common
   service.running:

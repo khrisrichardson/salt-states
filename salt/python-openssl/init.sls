@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'python-openssl/map.jinja'
+   import python_openssl
+   with   context %}
+
 python-openssl:
   pkg.installed:
-    - name:     {{ salt['config.get']('python-openssl:pkg:name') }}
+    - name:     {{ python_openssl['pkg']['name'] }}

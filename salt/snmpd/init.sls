@@ -1,8 +1,12 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'snmpd/map.jinja'
+   import snmpd
+   with   context %}
+
 snmpd:
   pkg.installed:
-    - name:     {{ salt['config.get']('snmpd:pkg:name') }}
+    - name:     {{ snmpd['pkg']['name'] }}
   service.running:
     - enable:      True
     - watch:

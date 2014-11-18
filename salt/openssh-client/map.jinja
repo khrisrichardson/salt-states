@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set openssh_client = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'openssh-client',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'openssh-clients',
+    },
+  },
+}, merge=salt['config.get']('openssh-client')) %}

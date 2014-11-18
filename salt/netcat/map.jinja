@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set netcat = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'netcat',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'nc',
+    },
+  },
+}, merge=salt['config.get']('netcat')) %}

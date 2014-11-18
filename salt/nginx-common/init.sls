@@ -1,8 +1,15 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'nginx/map.jinja'
+   import nginx
+   with   context %}
+{% from  'nginx-common/map.jinja'
+   import nginx_common
+   with   context %}
+
 nginx-common:
   pkg.installed:
-    - name:     {{ salt['config.get']('nginx-common:pkg:name') }}
+    - name:     {{ nginx_common['pkg']['name'] }}
   service.running:
     - name:        nginx
     - enable:      True
@@ -45,7 +52,7 @@ nginx-common:
 
 /etc/nginx/sites-enabled/default:
   file.absent:
-    - name:     {{ salt['config.get']('/etc/nginx/sites-enabled:file:name') }}/default{{ salt['config.get']('nginx-common:conf:extension') }}
+    - name:     {{ nginx_common['/etc/nginx/sites-enabled']['file']['name'] }}/default{{ nginx_common['conf']['extension'] }}
    {% if salt['config.get']('os_family') == 'Debian' %}
     - watch:
       - pkg:       nginx-common
@@ -57,8 +64,8 @@ nginx-common:
 
 /var/log/nginx:
   file.directory:
-    - user:     {{ salt['config.get']('nginx:user:name') }}
-    - group:    {{ salt['config.get']('nginx:group:name') }}
+    - user:     {{ nginx['user']['name'] }}
+    - group:    {{ nginx['group']['name'] }}
     - mode:       '0755'
     - watch:
       - pkg:       nginx-common

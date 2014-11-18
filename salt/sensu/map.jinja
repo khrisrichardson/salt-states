@@ -1,0 +1,16 @@
+# vi: set ft=json.jinja :
+
+{% set sensu = salt['grains.filter_by']({
+  'Debian': {
+    'pkgrepo': {
+      'name':          'deb http://repos.sensuapp.org/apt sensu main',
+      'file':         '/etc/apt/sources.list.d/sensu.list',
+    },
+  },
+  'RedHat': {
+    'pkgrepo': {
+      'name':          'sensu',
+      'file':         '/etc/yum.repos.d/sensu.repo',
+    },
+  },
+}, merge=salt['config.get']('sensu')) %}

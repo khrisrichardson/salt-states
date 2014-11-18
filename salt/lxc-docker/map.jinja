@@ -1,0 +1,24 @@
+# vi: set ft=json.jinja :
+
+{% set lxc_docker = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'lxc-docker',
+    },
+    '/etc/default/docker': {
+      'file': {
+        'name':       '/etc/default/docker',
+      },
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'docker-io',
+    },
+    '/etc/default/docker': {
+      'file': {
+        'name':       '/etc/sysconfig/docker',
+      },
+    },
+  },
+}, merge=salt['config.get']('lxc-docker')) %}

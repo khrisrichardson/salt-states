@@ -1,15 +1,19 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'cloudera-cm5/map.jinja'
+   import cloudera_cm5
+   with   context %}
+
 include:
   -  netbase
   -  python-apt
 
 cloudera-cm5:
   pkgrepo.managed:
-    - name:     {{ salt['config.get']('cloudera-cm5:pkgrepo:name') }}
-    - file:     {{ salt['config.get']('cloudera-cm5:pkgrepo:file') }}
-    - gpgkey:   {{ salt['config.get']('cloudera-cm5:pkgrepo:key_url') }}
-    - key_url:  {{ salt['config.get']('cloudera-cm5:pkgrepo:key_url') }}
+    - name:     {{ cloudera_cm5['pkgrepo']['name'] }}
+    - file:     {{ cloudera_cm5['pkgrepo']['file'] }}
+    - gpgkey:   {{ cloudera_cm5['pkgrepo']['key_url'] }}
+    - key_url:  {{ cloudera_cm5['pkgrepo']['key_url'] }}
     - humanname:   Cloudera Manager
     - baseurl:     http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/5/
     - comps:       contrib

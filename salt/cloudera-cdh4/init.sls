@@ -1,15 +1,19 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'cloudera-cdh4/map.jinja'
+   import cloudera_cdh4
+   with   context %}
+
 include:
   -  procps
   -  python-apt
 
 cloudera-cdh4:
   pkgrepo.managed:
-    - name:     {{ salt['config.get']('cloudera-cdh4:pkgrepo:name') }}
-    - file:     {{ salt['config.get']('cloudera-cdh4:pkgrepo:file') }}
-    - gpgkey:   {{ salt['config.get']('cloudera-cdh4:pkgrepo:key_url') }}
-    - key_url:  {{ salt['config.get']('cloudera-cdh4:pkgrepo:key_url') }}
+    - name:     {{ cloudera_cdh4['pkgrepo']['name'] }}
+    - file:     {{ cloudera_cdh4['pkgrepo']['file'] }}
+    - gpgkey:   {{ cloudera_cdh4['pkgrepo']['key_url'] }}
+    - key_url:  {{ cloudera_cdh4['pkgrepo']['key_url'] }}
     - humanname:   Cloudera's Distribution for Hadoop, Version 4
     - baseurl:     http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/4/
     - comps:       contrib

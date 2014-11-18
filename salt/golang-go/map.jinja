@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set golang_go = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'golang-go',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'golang',
+    },
+  },
+}, merge=salt['config.get']('golang-go')) %}

@@ -1,3 +1,6 @@
+{% from  'postgresql/map.jinja'
+   import postgresql
+   with   context -%}
 {% set minions = salt['roles.dict']('postgresql') -%}
 <?xml version="1.0"?>
 <!--
@@ -19,15 +22,15 @@
 <!DOCTYPE Repository PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN"
                             "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 <Repository>
-{% if             minions['postgresql']
-   and salt['config.get']('postgresql:database')
-   and salt['config.get']('postgresql:user')
-   and salt['config.get']('postgresql:password') -%}
+{% if minions['postgresql']
+   and         postgresql['database']
+   and         postgresql['user']
+   and         postgresql['password'] -%}
   <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
     <param name="driver"                 value="org.postgresql:Driver"/>
-    <param name="url"                    value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ salt['config.get']('postgresql:database') }}"/>
-    <param name="user"                   value="{{ salt['config.get']('postgresql:user') }}"/>
-    <param name="password"               value="{{ salt['config.get']('postgresql:password') }}"/>
+    <param name="url"                    value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ postgresql['database'] }}"/>
+    <param name="user"                   value="{{ postgresql['user'] }}"/>
+    <param name="password"               value="{{ postgresql['password'] }}"/>
     <param name="schema"                 value="postgresql"/>
     <param name="schemaObjectPrefix"     value="FS_"/>
   </FileSystem>
@@ -41,17 +44,17 @@
   <Workspace name="${wsp.name}">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
       <param name="driver"              value="org.postgresql:Driver"/>
-      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ salt['config.get']('postgresql:database') }}"/>
-      <param name="user"                value="{{ salt['config.get']('postgresql:user') }}"/>
-      <param name="password"            value="{{ salt['config.get']('postgresql:password') }}"/>
+      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ postgresql['database'] }}"/>
+      <param name="user"                value="{{ postgresql['user'] }}"/>
+      <param name="password"            value="{{ postgresql['password'] }}"/>
       <param name="schema"              value="postgresql"/>
       <param name="schemaObjectPrefix"  value="FS_WS_${wsp.name}_"/>
     </FileSystem>
     <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.PostgreSQLPersistenceManager">
       <param name="driver"              value="org.postgresql:Driver"/>
-      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ salt['config.get']('postgresql:database') }}"/>
-      <param name="user"                value="{{ salt['config.get']('postgresql:user') }}"/>
-      <param name="password"            value="{{ salt['config.get']('postgresql:password') }}"/>
+      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ postgresql['database'] }}"/>
+      <param name="user"                value="{{ postgresql['user'] }}"/>
+      <param name="password"            value="{{ postgresql['password'] }}"/>
       <param name="schema"              value="postgresql"/>
       <param name="schemaObjectPrefix"  value="PM_WS_${wsp.name}_"/>
     </PersistenceManager>
@@ -65,17 +68,17 @@
   <Versioning rootPath="${rep.home}/version">
     <FileSystem class="org.apache.jackrabbit.core.fs.db.DbFileSystem">
       <param name="driver"              value="org.postgresql:Driver"/>
-      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ salt['config.get']('postgresql:database') }}"/>
-      <param name="user"                value="{{ salt['config.get']('postgresql:user') }}"/>
-      <param name="password"            value="{{ salt['config.get']('postgresql:password') }}"/>
+      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ postgresql['database'] }}"/>
+      <param name="user"                value="{{ postgresql['user'] }}"/>
+      <param name="password"            value="{{ postgresql['password'] }}"/>
       <param name="schema"              value="postgresql"/>
       <param name="schemaObjectPrefix"  value="Versioning_FS_"/>
     </FileSystem>
     <PersistenceManager class="org.apache.jackrabbit.core.persistence.pool.PostgreSQLPersistenceManager">
       <param name="driver"              value="org.postgresql:Driver"/>
-      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ salt['config.get']('postgresql:database') }}"/>
-      <param name="user"                value="{{ salt['config.get']('postgresql:user') }}"/>
-      <param name="password"            value="{{ salt['config.get']('postgresql:password') }}"/>
+      <param name="url"                 value="jdbc:postgresql://{{ minions['postgresql'][0] }}/{{ postgresql['database'] }}"/>
+      <param name="user"                value="{{ postgresql['user'] }}"/>
+      <param name="password"            value="{{ postgresql['password'] }}"/>
       <param name="schema"              value="postgresql"/>
       <param name="schemaObjectPrefix"  value="Versioning_PM_"/>
     </PersistenceManager>

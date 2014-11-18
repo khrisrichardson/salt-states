@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'sensu/map.jinja'
+   import sensu
+   with   context %}
+
 include:
   - .depend-git
   -  bc
@@ -10,8 +14,8 @@ include:
 sensu:
   pkgrepo.managed:
     - humanname:   Sensu
-    - name:     {{ salt['config.get']('sensu:pkgrepo:name') }}
-    - file:     {{ salt['config.get']('sensu:pkgrepo:file') }}
+    - name:     {{ sensu['pkgrepo']['name'] }}
+    - file:     {{ sensu['pkgrepo']['file'] }}
     - baseurl:     http://repos.sensuapp.org/yum/el/$releasever/$basearch/
     - key_url:     http://repos.sensuapp.org/apt/pubkey.gpg
     - enabled:     1

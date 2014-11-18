@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set php5_mbstring = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'php5',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'php53u-mbstring',
+    },
+  },
+}, merge=salt['config.get']('php5-mbstring')) %}

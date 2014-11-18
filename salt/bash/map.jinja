@@ -1,0 +1,24 @@
+# vi: set ft=json.jinja :
+
+{% set bash = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'bash',
+    },
+    '/etc/bash.bashrc': {
+      'file': {
+        'name':       '/etc/bash.bashrc',
+      },
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'setup',
+    },
+    '/etc/bash.bashrc': {
+      'file': {
+        'name':       '/etc/bashrc',
+      },
+    },
+  },
+}, merge=salt['config.get']('bash')) %}

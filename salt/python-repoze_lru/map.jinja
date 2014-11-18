@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set python_repoze_lru = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'python-repoze.lru',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'python-repoze-lru',
+    },
+  },
+}, merge=salt['config.get']('python-repoze_lru')) %}

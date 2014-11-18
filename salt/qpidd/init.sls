@@ -1,8 +1,12 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'qpidd/map.jinja'
+   import qpidd
+   with   context %}
+
 qpidd:
   pkg.installed:
-    - name:     {{ salt['config.get']('qpidd:pkg:name') }}
+    - name:     {{ qpidd['pkg']['name'] }}
   service.running:
     - enable:      True
     - watch:

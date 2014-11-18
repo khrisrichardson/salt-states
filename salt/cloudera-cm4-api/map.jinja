@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set cloudera_cm4_api = salt['grains.filter_by']({
+  'Debian': {
+    'pip': {
+      'name':          'cm_api',
+    },
+  },
+  'RedHat': {
+    'pip': {
+      'name':          'cm-api',
+    },
+  },
+}, merge=salt['config.get']('cloudera-cm4-api')) %}

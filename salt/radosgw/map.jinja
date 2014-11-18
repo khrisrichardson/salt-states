@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set radosgw = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'radosgw',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'ceph-radosgw',
+    },
+  },
+}, merge=salt['config.get']('radosgw')) %}

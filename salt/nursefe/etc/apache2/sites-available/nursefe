@@ -1,0 +1,47 @@
+<VirtualHost localhost:80>
+  #serves the server status page instead of redirecting                                                                    \
+
+  <Location /server-status>
+    SetHandler server-status
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+    Allow from ::1
+    Allow from .linkedin.biz
+  </Location>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} !=/server-status
+  RewriteRule ^/(.*) https://localhost$0 [R,L]
+</VirtualHost>
+
+<VirtualHost localhost:443>
+  ServerName localhost
+  ServerAdmin nurse-dev@linkedin.com
+
+  Alias /maint/ /var/www/html/maint/
+
+  SSLEngine on
+  SSLProtocol all -SSLv2
+  SSLCipherSuite ALL:!ADH:!EXPORT:!SSLv2:RC4+RSA:+HIGH:+MEDIUM:+LOW
+  SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+  SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+
+  SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+
+  RewriteEngine On
+  RewriteRule    ^/favicon\.ico$  /static/favicon\.ico [PT]
+
+  ProxyPreserveHost On
+  RequestHeader set X-Forwarded-Proto "https"
+  RequestHeader set X-Scheme https
+  RequestHeader set X-Forwarded-For %{CLIENT_IP}e
+  Timeout 300
+  ProxyTimeout 300
+
+  ProxyPass /favicon.ico !
+  ProxyPass /maint !
+  ProxyPass /perf !
+  ProxyPass / http://localhost:15287/
+  ProxyPassReverse / http://localhost:15287/
+
+</VirtualHost>

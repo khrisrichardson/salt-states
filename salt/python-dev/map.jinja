@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set python_dev = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'python-dev',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'python-devel',
+    },
+  },
+}, merge=salt['config.get']('python-dev')) %}

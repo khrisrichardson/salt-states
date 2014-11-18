@@ -1,0 +1,20 @@
+# vi: set ft=json.jinja :
+
+{% set nagios3 = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'nagios3',
+    },
+    'service': {
+      'name':          'nagios3',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'nagios',
+    },
+    'service': {
+      'name':          'nagios',
+    },
+  },
+}, merge=salt['config.get']('nagios3')) %}

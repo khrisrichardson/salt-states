@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set oracle_j2sdk1_6 = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'oracle-j2sdk1.6',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'jdk',
+    },
+  },
+}, merge=salt['config.get']('oracle-j2sdk1_6')) %}

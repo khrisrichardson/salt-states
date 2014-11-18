@@ -1,13 +1,17 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'redis-server/map.jinja'
+   import redis_server
+   with   context %}
+
 include:
   -  procps
 
 redis-server:
   pkg.installed:
-    - name:     {{ salt['config.get']('redis-server:pkg:name') }}
+    - name:     {{ redis_server['pkg']['name'] }}
   service.running:
-    - name:     {{ salt['config.get']('redis-server:service:name') }}
+    - name:     {{ redis_server['service']['name'] }}
     - enable:      True
     - reload:      True
     - watch:
@@ -15,7 +19,7 @@ redis-server:
 
 /etc/redis/redis.conf:
   file.replace:
-    - name:     {{ salt['config.get']('/etc/redis/redis.conf:file:name') }}
+    - name:     {{ redis_server['/etc/redis/redis.conf']['file']['name'] }}
     - pattern:   '^bind 127.0.0.1'
     - repl:      '#bind ${HOST}'
     - watch:

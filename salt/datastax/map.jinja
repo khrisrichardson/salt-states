@@ -1,0 +1,16 @@
+# vi: set ft=json.jinja :
+
+{% set datastax = salt['grains.filter_by']({
+  'Debian': {
+    'pkgrepo': {
+      'name':          'deb http://debian.datastax.com/community stable main',
+      'file':         '/etc/apt/sources.list.d/datastax.list',
+    },
+  },
+  'RedHat': {
+    'pkgrepo': {
+      'name':          'datastax',
+      'file':         '/etc/yum.repos.d/datastax.repo',
+    },
+  },
+}, merge=salt['config.get']('datastax')) %}

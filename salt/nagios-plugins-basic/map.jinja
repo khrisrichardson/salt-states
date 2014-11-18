@@ -1,0 +1,28 @@
+# vi: set ft=json.jinja :
+
+{% set nagios_plugins_basic = salt['grains.filter_by']({
+  'Debian': {
+    '/home/nagios': {
+      'file': {
+        'name':       /home/nagios
+      },
+    },
+    '/usr/lib/nagios/plugins': {
+      'file': {
+        'name':       /usr/lib/nagios/plugins
+      },
+    },
+  },
+  'RedHat': {
+    '/home/nagios': {
+      'file': {
+        'name':       /var/spool/nagios
+      },
+    },
+    '/usr/lib/nagios/plugins': {
+      'file': {
+        'name':       /usr/lib64/nagios/plugins
+      },
+    },
+  },
+}, merge=salt['config.get']('nagios-plugins-basic')) %}

@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'postfix/map.jinja'
+   import postfix
+   with   context %}
+
 {% if salt['config.get']('os_family') == 'Debian' %}
 
 include:
@@ -20,7 +24,7 @@ postfix:
   service.running:
     - enable:      True
     - reload:      True
-    - sig:      {{ salt['config.get']('/usr/lib/postfix:file:name') }}/master
+    - sig:      {{ postfix['/usr/lib/postfix']['file']['name'] }}/master
     - watch:
       - pkg:       postfix
 

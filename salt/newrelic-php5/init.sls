@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'newrelic/map.jinja'
+   import newrelic
+   with   context %}
+
 include:
   -  newrelic
   -  php5-cli
@@ -13,7 +17,7 @@ newrelic-php5:
 newrelic-install install:
   cmd.wait:
     - env:
-      - NR_INSTALL_KEY:   {{ salt['config.get']('newrelic:license_key') }}
+      - NR_INSTALL_KEY:   {{ newrelic['license_key'] }}
       - NR_INSTALL_SILENT:  '1'
     - watch:
       - pkg:       newrelic-php5

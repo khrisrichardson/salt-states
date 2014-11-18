@@ -1,3 +1,6 @@
+{% from  'postfix/map.jinja'
+   import postfix
+   with   context -%}
 # Global Postfix configuration file. This file lists only a subset
 # of all parameters. For the syntax, and for a complete parameter
 # list, see the postconf(5) manual page (command: "man 5 postconf").
@@ -39,7 +42,7 @@ command_directory = /usr/sbin
 # daemon programs (i.e. programs listed in the master.cf file). This
 # directory must be owned by root.
 #
-daemon_directory = {{ salt['config.get']('/usr/lib/postfix:file:name') }}
+daemon_directory = {{ postfix['/usr/lib/postfix']['file']['name'] }}
 
 # The data_directory parameter specifies the location of Postfix-writable
 # data files (caches, random numbers). This directory must be owned
@@ -644,17 +647,17 @@ debugger_command =
 # sendmail_path: The full pathname of the Postfix sendmail command.
 # This is the Sendmail-compatible mail posting interface.
 #
-sendmail_path = {{ salt['config.get']('/usr/sbin/sendmail:file:name') }}
+sendmail_path = {{ postfix['/usr/sbin/sendmail']['file']['name'] }}
 
 # newaliases_path: The full pathname of the Postfix newaliases command.
 # This is the Sendmail-compatible command to build alias databases.
 #
-newaliases_path = {{ salt['config.get']('/usr/bin/newaliases:file:name') }}
+newaliases_path = {{ postfix['/usr/bin/newaliases']['file']['name'] }}
 
 # mailq_path: The full pathname of the Postfix mailq command.  This
 # is the Sendmail-compatible mail queue listing command.
 #
-mailq_path = {{ salt['config.get']('/usr/bin/mailq:file:name') }}
+mailq_path = {{ postfix['/usr/bin/mailq']['file']['name'] }}
 
 # setgid_group: The group for mail submission and queue management
 # commands.  This must be a group name with a numerical group ID that
@@ -673,8 +676,8 @@ manpage_directory = /usr/share/man
 # sample_directory: The location of the Postfix sample configuration files.
 # This parameter is obsolete as of Postfix 2.1.
 #
-sample_directory = {{ salt['config.get']('/usr/share/doc/postfix/examples:file:name') }}
+sample_directory = {{ postfix['/usr/share/doc/postfix/examples']['file']['name'] }}
 
 # readme_directory: The location of the Postfix README files.
 #
-readme_directory = {{ salt['config.get']('/usr/share/doc/postfix:file:name') }}
+readme_directory = {{ postfix['/usr/share/doc/postfix']['file']['name'] }}

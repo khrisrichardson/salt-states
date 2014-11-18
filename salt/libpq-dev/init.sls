@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+{% from  'libpq-dev/map.jinja'
+   import libpq_dev
+   with   context %}
+
 libpq-dev:
   pkg.installed:
-    - name:     {{ salt['config.get']('libpq-dev:pkg:name') }}
+    - name:     {{ libpq_dev['pkg']['name'] }}

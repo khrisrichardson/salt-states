@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set nis = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'nis',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'ypbind',
+    },
+  },
+}, merge=salt['config.get']('nis')) %}

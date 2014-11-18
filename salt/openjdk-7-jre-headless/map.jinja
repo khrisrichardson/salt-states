@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set openjdk_7_jre_headless = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'openjdk-7-jre-headless',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'java-1.7.0-openjdk',
+    },
+  },
+}, merge=salt['config.get']('openjdk-7-jre-headless')) %}
