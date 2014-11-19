@@ -14,11 +14,7 @@ include:
 
 extend:
   salt-minion:
- {% if salt['config.get']('file_server') == 'remote' %}
     supervisord.running:
- {% else %}
-    supervisord.dead:
- {% endif %}
       - order:     1
       - watch:
         - pkg:     salt-minion
