@@ -97,7 +97,7 @@ salt_bootstrap() {
         python -c "import urllib; print urllib.urlopen('${url}').read()"       \
       > bootstrap-salt.sh
     fi
-    bash bootstrap-salt.sh -MX "${@}"                                          \
+    bash bootstrap-salt.sh -X "${@}"                                           \
  || true
 }
 
