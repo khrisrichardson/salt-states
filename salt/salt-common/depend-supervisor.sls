@@ -10,6 +10,9 @@ extend:
   /etc/bash.bashrc:
     file:
       - text:    |-
+                {% if salt['config.get']('file_client') == 'local' %}
+                   salt-call state.highstate
+                {% endif %}
                    ps -C supervisord &>/dev/null \
                       || supervisord -c /etc/supervisor/supervisord.conf &>/dev/null
 

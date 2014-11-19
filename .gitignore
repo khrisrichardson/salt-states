@@ -1,7 +1,9 @@
 .bzr/
 .cache/
 .metadata/
+.settings/
 .project
+.pydevproject
 *~
 *.7z
 *.bzrignore

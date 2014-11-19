@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-encoding//salt/_modules/cloudera.py=utf-8
-encoding//salt/_states/cloudera_cluster.py=utf-8
-encoding//salt/_states/cloudera_host.py=utf-8
-encoding//salt/_states/cloudera_parcel.py=utf-8
-encoding//salt/_states/cloudera_role.py=utf-8
-encoding//salt/_states/cloudera_role_config_group.py=utf-8
-encoding//salt/_states/cloudera_service.py=utf-8
