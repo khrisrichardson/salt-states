@@ -176,6 +176,7 @@ salt_minion_setup() {
 	# vi: set ft=yaml.jinja :
 	
 	file_client:       local
+	startup_states:    highstate
 	EOF
     # Workaround https://github.com/saltstack/salt/issues/17963.
          py="$( salt-call --local config.get salt path )/utils/jinja.py"
@@ -183,7 +184,7 @@ salt_minion_setup() {
        repl="if opts.get('file_client', 'remote') == 'local' "
       repl+="and 'roots' in opts.get('fileserver_backend', []):"
 
-    salt-call --local file.replace ${py} pattern=${pattern} repl=${repl}
+    salt-call --local file.replace ${py} pattern="${pattern}" repl="${repl}"
 }
 
 main "${@}"
