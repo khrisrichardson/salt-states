@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'libvirt-bin/map.jinja'
-   import libvirt_bin
-   with   context %}
+{% from 'libvirt-bin/map.jinja' import map with context %}
 
 include:
   -  bridge-utils
@@ -10,7 +8,7 @@ include:
 
 libvirt-bin:
   pkg.installed:
-    - name:     {{ libvirt_bin['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
   service.running:
     - enable:      True
     - reload:      True

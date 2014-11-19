@@ -1,15 +1,13 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'netbase/map.jinja'
-   import netbase
-   with   context %}
+{% from 'netbase/map.jinja' import map with context %}
 
 {% set environment = salt['grains.get']('environment') %}
 {% set nodename    = salt['config.get']('nodename') %}
 
 netbase:
   pkg.installed:
-    - name:     {{ netbase['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 
 127.0.0.1:
   host.absent:

@@ -1,14 +1,12 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'cloudera-cm4-api/map.jinja'
-   import cloudera_cm4_api
-   with   context %}
+{% from 'cloudera-cm4-api/map.jinja' import map with context %}
 
 include:
   -  python-pip
 
 cloudera-cm4-api:
   pip.installed:
-    - name:     {{ cloudera_cm4_api['pip']['name'] }}
+    - name:     {{ map.get('pip', {}).get('name') }}
     - require:
       - pkg:       python-pip

@@ -1,12 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'gmetad/map.jinja'
-   import gmetad
-   with   context %}
+{% from 'gmetad/map.jinja' import map with context %}
 
 gmetad:
   pkg.installed:
-    - name:     {{ gmetad['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
   service.running:
     - enable:      True
     - watch:

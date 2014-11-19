@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'openssh-server/map.jinja'
-   import openssh_server
-   with   context %}
+{% from 'openssh-server/map.jinja' import map with context %}
 
 {% set users = [] %}
 {% do  users.append('krichardson') %}
@@ -11,7 +9,7 @@ openssh-server:
   pkg.installed:
     - order:      -1
   service.running:
-    - name:     {{ openssh_server['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - reload:      True
     - sig:        /usr/sbin/sshd

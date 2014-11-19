@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'openstack-common/map.jinja'
-   import openstack_common
-   with   context %}
+{% from 'openstack-common/map.jinja' import map with context %}
 
 include:
   -  python-apt
@@ -10,8 +8,8 @@ include:
 
 openstack-common:
   pkgrepo.managed:
-    - name:     {{ openstack_common['pkgrepo']['name'] }}
-    - file:     {{ openstack_common['pkgrepo']['file'] }}
+    - name:     {{ map.get('pkgrepo', {}).get('name') }}
+    - file:     {{ map.get('pkgrepo', {}).get('file') }}
    {% if salt['config.get']('os_family') == 'Debian' %}
     - require:
       - pkg:       python-apt

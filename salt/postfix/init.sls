@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'postfix/map.jinja'
-   import postfix
-   with   context %}
+{% from 'postfix/map.jinja' import map with context %}
 
 {% if salt['config.get']('os_family') == 'Debian' %}
 
@@ -24,7 +22,7 @@ postfix:
   service.running:
     - enable:      True
     - reload:      True
-    - sig:      {{ postfix['/usr/lib/postfix']['file']['name'] }}/master
+    - sig:      {{ map.get('/usr/lib/postfix', {}).get('file', {}).get('name') }}/master
     - watch:
       - pkg:       postfix
 

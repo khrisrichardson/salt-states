@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'salt-common/map.jinja'
-   import salt_common
-   with   context %}
+{% from 'salt-common/map.jinja' import map with context %}
 
 include:
   - .depend-supervisor
@@ -13,7 +11,7 @@ include:
 
 salt-common:
   pkg.installed:
-    - name:     {{ salt_common['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
     - enablerepo:  epel-testing
     - unless:    |-
                  ( salt-call   --version                                       \

@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'elasticsearch/map.jinja'
-   import elasticsearch
-   with   context %}
+{% from 'elasticsearch/map.jinja' import map with context %}
 
 {% set roles = [] %}
 {% do  roles.append('graphite-carbon') %}
@@ -20,7 +18,7 @@ include:
 
 /etc/default/elasticsearch:
   file.replace:
-    - name:    {{ elasticsearch['/etc/default/elasticsearch']['file']['name'] }}
+    - name:    {{ map.get('/etc/default/elasticsearch', {}).get('file', {}).get('name') }}
     - pattern: '#*ES_JAVA_OPTS=.*$'
     - repl:      'ES_JAVA_OPTS=-javaagent:/opt/jmxtrans/lib/jmxtrans-agent.jar=/opt/jmxtrans/etc/{{ psls }}.xml'
     - watch_in:
@@ -42,7 +40,7 @@ include:
 
 /etc/default/elasticsearch:
   file.replace:
-    - name:    {{ elasticsearch['/etc/default/elasticsearch']['file']['name'] }}
+    - name:    {{ map.get('/etc/default/elasticsearch', {}).get('file', {}).get('name') }}
     - pattern:  '^ES_JAVA_OPTS=.*$'
     - repl:     '#ES_JAVA_OPTS='
     - watch_in:

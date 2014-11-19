@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'mariadb-server/map.jinja'
-   import mariadb_server
-   with   context %}
+{% from 'mariadb-server/map.jinja' import map with context %}
 
 include:
   -  debconf-utils
@@ -21,7 +19,7 @@ mariadb-server:
 {% endif %}
   pkg.installed:   []
   service.running:
-    - name:     {{ mariadb_server['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - reload:      True
     - watch:

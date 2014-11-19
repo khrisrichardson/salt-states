@@ -1,12 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'gunicorn/map.jinja'
-   import gunicorn
-   with   context %}
+{% from 'gunicorn/map.jinja' import map with context %}
 
 gunicorn:
   pkg.installed:
-    - name:     {{ gunicorn['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 {% if salt['config.get']('os_family') == 'Debian' %}
   service.running:
     - enable:      True

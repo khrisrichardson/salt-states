@@ -1,13 +1,11 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'mongodb-server/map.jinja'
-   import mongodb_server
-   with   context %}
+{% from 'mongodb-server/map.jinja' import map with context %}
 
 mongodb-server:
   pkg.installed:   []
   service.running:
-    - name:     {{ mongodb_server['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - reload:      True
     - watch:

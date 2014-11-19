@@ -1,7 +1,7 @@
 # vi: set ft=json.jinja :
 
-{% set version  = '1.4' %}
-{% set logstash = salt['grains.filter_by']({
+{% set version = '1.4' %}
+{% set map     =  salt['grains.filter_by']({
   'Debian': {
     'pkgrepo': {
       'name':          'deb http://packages.elasticsearch.org/logstash/' + version + '/debian stable main',
@@ -25,4 +25,4 @@
     },
   },
 }, merge=salt['config.get']('logstash')) %}
-{% do logstash.update(version=version) %}
+{% do map.update(version=version) %}

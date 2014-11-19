@@ -1,13 +1,13 @@
 # vi: set ft=json.jinja :
 
-{% set python_protobuf = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
-    'pkg':
+    'pkg': {
       'name':          'python-protobuf',
     },
   },
   'RedHat': {
-    'pkg':
+    'pkg': {
       'name':          'protobuf-python',
     },
   },

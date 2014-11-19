@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'logstash/map.jinja'
-   import logstash
-   with   context %}
+{% from 'logstash/map.jinja' import map with context %}
 
 include:
   -  debianutils
@@ -17,12 +15,12 @@ include:
 
 logstash:
   pkgrepo.managed:
-    - name:     {{ logstash['pkgrepo']['name'] }}
-    - file:     {{ logstash['pkgrepo']['file'] }}
+    - name:     {{ map.get('pkgrepo', {}).get('name') }}
+    - file:     {{ map.get('pkgrepo', {}).get('file') }}
     - gpgkey:      http://packages.elasticsearch.org/GPG-KEY-elasticsearch
     - key_url:     http://packages.elasticsearch.org/GPG-KEY-elasticsearch
-    - humanname:   logstash repository for {{ logstash['version'] }}.x packages
-    - baseurl:     http://packages.elasticsearch.org/logstash/{{ logstash['version'] }}/centos
+    - humanname:   logstash repository for {{ map.get('version') }}.x packages
+    - baseurl:     http://packages.elasticsearch.org/logstash/{{ map.get('version') }}/centos
     - enabled:     1
     - gpgcheck:    1
     - consolidate: True
@@ -48,7 +46,7 @@ logstash:
 
 /etc/default/logstash:
   file.replace:
-    - name:     {{ logstash['/etc/default/logstash']['file']['name'] }}
+    - name:     {{ map.get('/etc/default/logstash', {}).get('file', {}).get('name') }}
    {% if   salt['config.get']('os_family') == 'RedHat' %}
     - pattern:     START=false
     - repl:        START=true

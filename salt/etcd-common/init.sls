@@ -2,7 +2,6 @@
 
 {% set url     = 'https://github.com/coreos/etcd/releases/latest' %}
 {% set version =  salt['cmd.exec_code']('python', 'import urllib; print urllib.urlopen("' + url + '").geturl().split("/")[-1]') %}
-{# set version = 'v0.4.3' #}
 
 include:
   -  tar

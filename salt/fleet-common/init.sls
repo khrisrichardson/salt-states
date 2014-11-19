@@ -2,7 +2,6 @@
 
 {% set url     = 'https://github.com/coreos/fleet/releases/latest' %}
 {% set version =  salt['cmd.exec_code']('python', 'import urllib; print urllib.urlopen("' + url + '").geturl().split("/")[-1]') %}
-{# set version = 'v0.5.0' #}
 
 include:
   -  tar

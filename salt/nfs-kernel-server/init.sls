@@ -1,14 +1,12 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'nfs-kernel-server/map.jinja'
-   import nfs_kernel_server
-   with   context %}
+{% from 'nfs-kernel-server/map.jinja' import map with context %}
 
 nfs-kernel-server:
   pkg.installed:
-    - name:     {{ nfs_kernel_server['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
   service.running:
-    - name:     {{ nfs_kernel_server['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - watch:
       - pkg:       nfs-kernel-server

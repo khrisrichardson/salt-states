@@ -1,12 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'base-files/map.jinja'
-   import base_files
-   with   context %}
+{% from 'base-files/map.jinja' import map with context %}
 
 base-files:
   pkg.installed:
-    - name:     {{ base_files['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 
 /tmp:
   file.directory:

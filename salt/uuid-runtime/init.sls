@@ -1,9 +1,7 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'uuid-runtime/map.jinja'
-   import uuid_runtime
-   with   context %}
+{% from 'uuid-runtime/map.jinja' import map with context %}
 
 uuid-runtime:
   pkg.installed:
-    - name:     {{ uuid_runtime['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}

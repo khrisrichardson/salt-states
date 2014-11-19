@@ -1,14 +1,12 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'ganglia-monitor/map.jinja'
-   import ganglia_monitor
-   with   context %}
+{% from 'ganglia-monitor/map.jinja' import map with context %}
 
 ganglia-monitor:
   pkg.installed:
-    - name:     {{ ganglia_monitor['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
   service.running:
-    - name:     {{ ganglia_monitor['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - watch:
       - pkg:       ganglia-monitor

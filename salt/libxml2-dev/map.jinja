@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set libxml2_dev = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     'pkg': {
       'name':          'libxml2-dev',

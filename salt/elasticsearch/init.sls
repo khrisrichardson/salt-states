@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'elasticsearch/map.jinja'
-   import elasticsearch
-   with   context %}
+{% from 'elasticsearch/map.jinja' import map with context %}
 
 include:
   -  debianutils
@@ -15,12 +13,12 @@ include:
 
 elasticsearch:
   pkgrepo.managed:
-    - name:     {{ elasticsearch['pkgrepo']['name'] }}
-    - file:     {{ elasticsearch['pkgrepo']['file'] }}
+    - name:     {{ map.get('pkgrepo', {}).get('name') }}
+    - file:     {{ map.get('pkgrepo', {}).get('file') }}
     - gpgkey:      http://packages.elasticsearch.org/GPG-KEY-elasticsearch
     - key_url:     http://packages.elasticsearch.org/GPG-KEY-elasticsearch
-    - humanname:   elasticsearch repository for {{ elasticsearch['version'] }}.x packages
-    - baseurl:     http://packages.elasticsearch.org/elasticsearch/{{ elasticsearch['version'] }}/centos
+    - humanname:   elasticsearch repository for {{ map.get('version') }}.x packages
+    - baseurl:     http://packages.elasticsearch.org/elasticsearch/{{ map.get('version') }}/centos
     - enabled:     1
     - gpgcheck:    1
     - consolidate: True

@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'graphite-web/map.jinja'
-   import graphite_web
-   with   context %}
+{% from 'graphite-web/map.jinja' import map with context %}
 
 {% set psls = sls.split('.')[0] %}
 
@@ -26,7 +24,7 @@ extend:
 
   /var/run/gunicorn:
     file:
-      - group:  {{ graphite_web['group']['name'] }}
+      - group:  {{ map.get('group', {}).get('name') }}
       - watch:
         - pkg:     graphite-web
         - pkg:     nginx

@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'apache2/map.jinja'
-   import apache2
-   with   context %}
+{% from 'apache2/map.jinja' import map with context %}
 
 {% set psls = sls.split('.')[0] %}
 
@@ -13,7 +11,7 @@ include:
 /etc/apache2/sites-available/{{ psls }}:
   file.managed:
     - template:    jinja
-    - name:     {{ apache2['/etc/apache2/sites-available']['file']['name'] }}/{{ psls }}{{ apache2['conf']['extension'] }}
+    - name:     {{ map.get('/etc/apache2/sites-available', {}).get('file', {}).get('name') }}/{{ psls }}{{ map.get('conf', {}).get('extension') }}
     - source:      salt://{{ psls }}/etc/apache2/sites-available/{{ psls }}
     - user:        root
     - group:       root
@@ -30,10 +28,10 @@ include:
     - require:
       - file:     /etc/apache2/sites-available/{{ psls }}
 
-usermod -G nagcmd {{ apache2['user']['name'] }}:
+usermod -G nagcmd {{ map.get('user', {}).get('name') }}:
   cmd.run:
     - unless:    |-
-                 ( id    -Gn {{ apache2['user']['name'] }}                     \
+                 ( id    -Gn {{ map.get('user', {}).get('name') }}                     \
                  | egrep -q nagcmd
                  )
     - require:

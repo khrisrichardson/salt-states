@@ -1,9 +1,7 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'dnsutils/map.jinja'
-   import dnsutils
-   with   context %}
+{% from 'dnsutils/map.jinja' import map with context %}
 
 dnsutils:
   pkg.installed:
-    - name:     {{ dnsutils['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}

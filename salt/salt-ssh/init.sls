@@ -1,12 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'salt-ssh/map.jinja'
-   import salt_ssh
-   with   context %}
+{% from 'salt-ssh/map.jinja' import map with context %}
 
 salt-ssh:
   pkg.installed:
-    - name:     {{ salt_ssh['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 
 /etc/salt/roster:
   file.managed:

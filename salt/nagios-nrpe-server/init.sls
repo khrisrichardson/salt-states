@@ -1,21 +1,19 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'nagios-nrpe-server/map.jinja'
-   import nagios_nrpe_server
-   with   context %}
+{% from 'nagios-nrpe-server/map.jinja' import map with context %}
 
 nagios-nrpe-server:
   pkg.installed:
-    - name:     {{ nagios_nrpe_server['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
   service.running:
-    - name:     {{ nagios_nrpe_server['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - watch:
       - pkg:       nagios-nrpe-server
 
 /etc/nagios/nrpe.cfg:
   file.managed:
-    - name:     {{ nagios_nrpe_server['/etc/nagios/nrpe.cfg']['file']['name'] }}
+    - name:     {{ map.get('/etc/nagios/nrpe.cfg', {}).get('file', {}).get('name') }}
     - template:    jinja
     - source:      salt://{{ sls }}/etc/nagios/nrpe.cfg
     - user:        root

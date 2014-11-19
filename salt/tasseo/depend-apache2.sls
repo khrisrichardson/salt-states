@@ -1,13 +1,11 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'apache2/map.jinja'
-   import apache2
-   with   context %}
+{% from 'apache2/map.jinja' import map with context %}
 
 {% set environment = salt['grains.get']('environment') %}
 {% set minions     = salt['mine.get']('environment:' + environment, 'grains.item', expr_form='grain') %}
-{% set group       = apache2['group']['name'] %}
-{% set user        = apache2['user']['name'] %}
+{% set group       = map.get('group', {}).get('name') %}
+{% set user        = map.get('user', {}).get('name') %}
 
 include:
   -  apache2

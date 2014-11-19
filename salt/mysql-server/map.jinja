@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set mysql_server = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     'service': {
       'name':          'mysql',

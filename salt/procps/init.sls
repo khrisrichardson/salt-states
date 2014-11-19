@@ -1,13 +1,11 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'procps/map.jinja'
-   import procps
-   with   context %}
+{% from 'procps/map.jinja' import map with context %}
 
 procps:
   pkg.installed:
     - order:      -1
-    - name:     {{ procps['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 
 {% if not salt['config.get']('virtual_subtype') == 'Docker' %}
 

@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'apache2/map.jinja'
-   import apache2
-   with   context %}
+{% from 'apache2/map.jinja' import map with context %}
 
 include:
   -  apache2
@@ -36,7 +34,7 @@ extend:
 
 /etc/apache2/sites-enabled/000-cors.conf:
   file.managed:
-    - name:     {{ apache2['/etc/apache2/sites-enabled']['file']['name'] }}/000-cors.conf
+    - name:     {{ map.get('/etc/apache2/sites-enabled', {}).get('file', {}).get('name') }}/000-cors.conf
     - contents:  |-
                    Header set Access-Control-Allow-Origin     "*"
                    Header set Access-Control-Allow-Methods    "GET, OPTIONS"

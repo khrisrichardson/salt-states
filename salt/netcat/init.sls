@@ -1,9 +1,7 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'netcat/map.jinja'
-   import netcat
-   with   context %}
+{% from 'netcat/map.jinja' import map with context %}
 
 netcat:
   pkg.installed:
-    - name:     {{ netcat['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}

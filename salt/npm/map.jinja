@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set npm = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     '/usr/local/lib/node_modules': {
       'file': {

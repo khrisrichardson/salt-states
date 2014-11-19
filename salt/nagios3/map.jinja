@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set nagios3 = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     'pkg': {
       'name':          'nagios3',

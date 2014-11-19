@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'golang-go/map.jinja'
-   import golang_go
-   with   context %}
+{% from 'golang-go/map.jinja' import map with context %}
 
 {% if salt['config.get']('os_family') == 'RedHat' %}
 
@@ -13,7 +11,7 @@ include:
 
 golang-go:
   pkg.installed:
-    - name:     {{ golang_go['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - require:
       - pkgrepo:   epel

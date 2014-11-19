@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set oracle_j2sdk1_7 = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     'pkg': {
       'name':          'oracle-j2sdk1.7',

@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set openjdk_7_jre_headless = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     'pkg': {
       'name':          'openjdk-7-jre-headless',

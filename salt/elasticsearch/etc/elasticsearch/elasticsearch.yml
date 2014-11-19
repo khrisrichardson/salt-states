@@ -1,6 +1,4 @@
-{% from  'elasticsearch/map.jinja'
-   import elasticsearch
-   with   context -%}
+{% from 'elasticsearch/map.jinja' import map with context -%}
 {% set roles = [] -%}
 {% do  roles.append('elasticsearch') -%}
 {% do  roles.append('graphite-carbon') -%}
@@ -80,10 +78,10 @@ node.name: {{ salt['grains.get']('server_id') }}
 #
 #node.master: false
 #node.data: false
-{% if elasticsearch['mode'] in ['search load balancer', 'workhorse']   -%}
+{% if map.get('mode') in ['search load balancer', 'workhorse']   -%}
 node.master: false
 {% endif -%}
-{% if elasticsearch['mode'] in ['search load balancer', 'coordinator'] -%}
+{% if map.get('mode') in ['search load balancer', 'coordinator'] -%}
 node.data:   false
 {% endif -%}
 

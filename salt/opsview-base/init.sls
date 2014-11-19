@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'opsview-base/map.jinja'
-   import opsview_base
-   with   context %}
+{% from 'opsview-base/map.jinja' import map with context %}
 
 include:
   -  python-apt
@@ -10,10 +8,10 @@ include:
 
 opsview-base:
   pkgrepo.managed:
-    - name:     {{ opsview_base['pkgrepo']['name'] }}
-    - file:     {{ opsview_base['pkgrepo']['file'] }}
-    - gpgkey:   {{ opsview_base['pkgrepo']['key_url'] }}
-    - key_url:  {{ opsview_base['pkgrepo']['key_url'] }}
+    - name:     {{ map.get('pkgrepo', {}).get('name') }}
+    - file:     {{ map.get('pkgrepo', {}).get('file') }}
+    - gpgkey:   {{ map.get('pkgrepo', {}).get('key_url') }}
+    - key_url:  {{ map.get('pkgrepo', {}).get('key_url') }}
     - humanname:   Opsview
     - baseurl:     http://downloads.opsview.com/opsview-core/latest/yum/centos/6/$basearch
     - enabled:     1

@@ -56,7 +56,7 @@ hbase-master:
       - file:     /usr/bin/java
      {% if salt['config.get']('virtual_subtype') == 'Docker' %}
       - file:     /etc/security/limits.d/hbase.conf
-     {% endif -%}
+     {% endif %}
 
 {% if not minions['hadoop-hdfs-namenode'] %}
 

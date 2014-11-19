@@ -1,14 +1,12 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'apache2/map.jinja'
-   import apache2
-   with   context %}
+{% from 'apache2/map.jinja' import map with context %}
 
 apache2:
   pkg.installed:
-    - name:     {{ apache2['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
   service.running:
-    - name:     {{ apache2['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - reload:      True
     - watch:
@@ -16,7 +14,7 @@ apache2:
 
 /etc/apache2/sites-enabled/000-default.conf:
   file.absent:
-    - name:     {{ apache2['/etc/apache2/sites-enabled/000-default.conf']['file']['name'] }}
+    - name:     {{ map.get('/etc/apache2/sites-enabled/000-default.conf', {}).get('file', {}).get('name') }}
     - onlyif:      test -d /etc/apache2/sites-enabled
     - watch:
       - pkg:       apache2

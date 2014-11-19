@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'nagios3/map.jinja'
-   import nagios3
-   with   context %}
+{% from 'nagios3/map.jinja' import map with context %}
 
 include:
   - .depend-nginx
@@ -10,9 +8,9 @@ include:
 
 nagios3:
   pkg.installed:
-   - name:      {{ nagios3['pkg']['name'] }}
+   - name:      {{ map.get('pkg', {}).get('name') }}
   service.running:
-    - name:     {{ nagios3['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - watch:
       - pkg:       nagios3

@@ -1,11 +1,9 @@
-{% from  'apache2/map.jinja'
-   import apache2
-   with   context -%}
+{% from 'apache2/map.jinja' import map with context -%}
 {% set host = salt['config.get']('host') -%}
 {
   "checks": {
     "check-process-apache2": {
-      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p {{ apache2['service']['name'] }} -C 1",
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p {{ map.get('service', {}).get('name') }} -C 1",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true

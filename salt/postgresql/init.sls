@@ -1,12 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'postgresql/map.jinja'
-   import postgresql
-   with   context %}
+{% from 'postgresql/map.jinja' import map with context %}
 
 postgresql:
   pkg.installed:
-    - name:     {{ postgresql['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
   service.running:
     - enable:      True
     - reload:      True

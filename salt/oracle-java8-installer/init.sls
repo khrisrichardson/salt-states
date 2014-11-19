@@ -1,10 +1,8 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'oracle-java8-installer/map.jinja'
-   import oracle_java8_installer
-   with   context %}
+{% from 'oracle-java8-installer/map.jinja' import map with context %}
 
-{% set name = oracle_java8_installer['pkg']['name'] %}
+{% set name = map.get('pkg', {}).get('name') %}
 
 include:
   -  java-common

@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'newrelic/map.jinja'
-   import newrelic
-   with   context %}
+{% from 'newrelic/map.jinja' import map with context %}
 
 include:
   -  newrelic
@@ -19,6 +17,6 @@ newrelic-sysmond:
 
 nrsysmond-config:
   cmd.wait:
-    - name:        nrsysmond-config --set license_key={{ newrelic['license_key'] }}
+    - name:        nrsysmond-config --set license_key={{ map.get('license_key') }}
     - watch:
       - pkg:       newrelic-sysmond

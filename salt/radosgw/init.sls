@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'radosgw/map.jinja'
-   import radosgw
-   with   context %}
+{% from 'radosgw/map.jinja' import map with context %}
 
 include:
   - .depend-apache2
@@ -11,7 +9,7 @@ include:
 
 radosgw:
   pkg.installed:
-    - name:     {{ radosgw['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
     - require:
       - pkgrepo:   ceph-common
   service.running:

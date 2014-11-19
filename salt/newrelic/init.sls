@@ -1,16 +1,14 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'newrelic/map.jinja'
-   import newrelic
-   with   context %}
+{% from 'newrelic/map.jinja' import map with context %}
 
 include:
   -  python-apt
 
 newrelic:
   pkgrepo.managed:
-    - name:     {{ newrelic['pkgrepo']['name'] }}
-    - file:     {{ newrelic['pkgrepo']['file'] }}
+    - name:     {{ map.get('pkgrepo', {}).get('name') }}
+    - file:     {{ map.get('pkgrepo', {}).get('file') }}
     - gpgkey:      https://download.newrelic.com/548C16BF.gpg
     - key_url:     https://download.newrelic.com/548C16BF.gpg
     - humanname:   New Relic packages for Enterprise Linux 5 - $basearch

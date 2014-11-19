@@ -1,7 +1,7 @@
 # vi: set ft=json.jinja :
 
 {% set version = '1.4' %}
-{% set elasticsearch = salt['grains.filter_by']({
+{% set map     = salt['grains.filter_by']({
   'Debian': {
     '/etc/default/elasticsearch': {
       'file': {
@@ -25,4 +25,4 @@
     },
   },
 }, merge=salt['config.get']('elasticsearch')) %}
-{% do elasticsearch.update(version=version) %}
+{% do map.update(version=version) %}

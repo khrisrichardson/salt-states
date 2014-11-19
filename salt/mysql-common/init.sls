@@ -1,17 +1,15 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'mysql-common/map.jinja'
-   import mysql_common
-   with   context %}
+{% from 'mysql-common/map.jinja' import map with context %}
 
 mysql-common:
   pkg.installed:
-    - name:     {{ mysql_common['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 
 /etc/mysql/my.cnf:
   file.managed:
     - template:    jinja
-    - name:     {{ mysql_common['/etc/mysql/my.cnf']['file']['name'] }}
+    - name:     {{ map.get('/etc/mysql/my.cnf', {}).get('file', {}).get('name') }}
     - source:      salt://{{ sls }}/etc/mysql/my.cnf
     - user:        root
     - group:       root

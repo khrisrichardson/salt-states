@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'mysql-server/map.jinja'
-   import mysql_server
-   with   context %}
+{% from 'mysql-server/map.jinja' import map with context %}
 
 include:
   -  debconf-utils
@@ -21,7 +19,7 @@ mysql-server:
 {% endif %}
   pkg.installed:   []
   service.running:
-    - name:     {{ mysql_server['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - reload:      True
     - watch:

@@ -1,12 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'cobbler-common/map.jinja'
-   import cobbler_common
-   with   context %}
+{% from 'cobbler-common/map.jinja' import map with context %}
 
 cobbler-common:
   pkg.installed:
-    - name:     {{ cobbler_common['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 
 /var/lib/cobbler/config/profiles.d/salt.json:
   file.managed:

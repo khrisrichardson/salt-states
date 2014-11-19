@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'cloudera-cm4/map.jinja'
-   import cloudera_cm4
-   with   context %}
+{% from 'cloudera-cm4/map.jinja' import map with context %}
 
 include:
   -  netbase
@@ -10,10 +8,10 @@ include:
 
 cloudera-cm4:
   pkgrepo.managed:
-    - name:     {{ cloudera_cm4['pkgrepo']['name'] }}
-    - file:     {{ cloudera_cm4['pkgrepo']['file'] }}
-    - gpgkey:   {{ cloudera_cm4['pkgrepo']['key_url'] }}
-    - key_url:  {{ cloudera_cm4['pkgrepo']['key_url'] }}
+    - name:     {{ map.get('pkgrepo', {}).get('name') }}
+    - file:     {{ map.get('pkgrepo', {}).get('file') }}
+    - gpgkey:   {{ map.get('pkgrepo', {}).get('key_url') }}
+    - key_url:  {{ map.get('pkgrepo', {}).get('key_url') }}
     - humanname:   Cloudera Manager
     - baseurl:     http://archive.cloudera.com/cm4/redhat/6/x86_64/cm/4/
     - comps:       contrib

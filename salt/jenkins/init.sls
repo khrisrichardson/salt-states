@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'jenkins/map.jinja'
-   import jenkins
-   with   context %}
+{% from 'jenkins/map.jinja' import map with context %}
 
 {% set plugins = [] %}
 
@@ -53,7 +51,7 @@ jenkins:
 /var/lib/jenkins/jobs:
   file.directory:
     - user:        jenkins
-    - group:    {{ jenkins['group']['name'] }}
+    - group:    {{ map.get('group', {}).get('name') }}
     - mode:       '0755'
     - require:
       - pkg:       jenkins
@@ -61,7 +59,7 @@ jenkins:
 /var/lib/jenkins/plugins:
   file.directory:
     - user:        jenkins
-    - group:    {{ jenkins['group']['name'] }}
+    - group:    {{ map.get('group', {}).get('name') }}
     - mode:       '0755'
     - require:
       - pkg:       jenkins

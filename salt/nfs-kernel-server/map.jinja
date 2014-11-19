@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set nfs_kernel_server = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     'pkg': {
       'name':          'nfs-kernel-server',

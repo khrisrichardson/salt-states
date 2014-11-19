@@ -1,7 +1,7 @@
 # vi: set ft=json.jinja :
 
 {% set license_key = '' %}
-{% set newrelic = salt['grains.filter_by']({
+{% set map         = salt['grains.filter_by']({
   'Debian': {
     'pkgrepo': {
       'name':          'deb http://apt.newrelic.com/debian/ newrelic',
@@ -15,4 +15,4 @@
     },
   },
 }, merge=salt['config.get']('newrelic')) %}
-{% do newrelic.update(license_key=license_key) %}
+{% do map.update(license_key=license_key) %}

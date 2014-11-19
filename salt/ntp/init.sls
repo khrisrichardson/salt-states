@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'ntp/map.jinja'
-   import ntp
-   with   context %}
+{% from 'ntp/map.jinja' import map with context %}
 
 {% if      salt['config.get']('virtual') == 'VMware'
    or     (salt['config.get']('virtual') == 'physical'
@@ -12,7 +10,7 @@ ntp:
   pkg.installed:
     - order:      -1
   service.running:
-    - name:     {{ ntp['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - watch:
       - pkg:       ntp
@@ -34,7 +32,7 @@ ntp:
 ntp:
   pkg.removed:     []
   service.dead:
-    - name:     {{ ntp['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      False
     - require_in:
       - pkg:       ntp

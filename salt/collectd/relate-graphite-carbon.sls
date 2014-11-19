@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'collectd/map.jinja'
-   import collectd
-   with   context %}
+{% from 'collectd/map.jinja' import map with context %}
 
 {% set roles = [] %}
 {% do  roles.append('graphite-carbon') %}
@@ -19,7 +17,7 @@ include:
 
 /etc/collectd/collectd.conf:
   file.managed:
-    - name:     {{ collectd['/etc/collectd/collectd.conf']['file']['name'] }}
+    - name:     {{ map.get('/etc/collectd/collectd.conf', {}).get('file', {}).get('name') }}
     - template:    jinja
     - source:      salt://{{ psls }}/etc/collectd/collectd.conf
     - user:        root

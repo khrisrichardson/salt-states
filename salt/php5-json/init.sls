@@ -1,15 +1,13 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'php5-json/map.jinja'
-   import php5_json
-   with   context %}
+{% from 'php5-json/map.jinja' import map with context %}
 
 include:
   -  php5
 
 php5-json:
   pkg.installed:
-    - name:     {{ php5_json['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - require:
       - pkgrepo:   ius

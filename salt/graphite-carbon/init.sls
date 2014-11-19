@@ -1,12 +1,10 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'graphite-carbon/map.jinja'
-   import graphite_carbon
-   with   context %}
+{% from 'graphite-carbon/map.jinja' import map with context %}
 
 graphite-carbon:
   pkg.installed:
-    - name:     {{ graphite_carbon['pkg']['name'] }}
+    - name:     {{ map.get('pkg', {}).get('name') }}
 
 {% if salt['config.get']('os_family') == 'RedHat' %}
 
@@ -50,9 +48,9 @@ carbon-cache:
 
 /var/lib/carbon/rrd:
   file.directory:
-    - name:     {{ graphite_carbon['/var/lib/carbon']['file']['name'] }}/rrd
-    - user:     {{ graphite_carbon['user']['name'] }}
-    - group:    {{ graphite_carbon['group']['name'] }}
+    - name:     {{ map.get('/var/lib/carbon', {}).get('file', {}).get('name') }}/rrd
+    - user:     {{ map.get('user', {}).get('name') }}
+    - group:    {{ map.get('group', {}).get('name') }}
     - mode:       '0755'
     - watch:
       - pkg:       graphite-carbon

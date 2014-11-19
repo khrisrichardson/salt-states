@@ -1,15 +1,7 @@
-{% from  'graphite-carbon/map.jinja'
-   import graphite_carbon
-   with   context -%}
-{% from  'graphite-web/map.jinja'
-   import graphite_web
-   with   context -%}
-{% from  'mysql-server/map.jinja'
-   import mysql_server
-   with   context -%}
-{% from  'postgresql/map.jinja'
-   import postgresql
-   with   context -%}
+{% from 'graphite-carbon/map.jinja' import map as graphite_carbon with context -%}
+{% from 'graphite-web/map.jinja'    import map as graphite_web    with context -%}
+{% from 'mysql-server/map.jinja'    import map as mysql_server    with context -%}
+{% from 'postgresql/map.jinja'      import map as postgresql      with context -%}
 {% set roles = [] -%}
 {% do  roles.append('graphite-web') -%}
 {% do  roles.append('memcached') -%}

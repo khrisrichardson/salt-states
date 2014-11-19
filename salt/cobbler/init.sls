@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'cobbler/map.jinja'
-   import cobbler
-   with   context %}
+{% from 'cobbler/map.jinja' import map with context %}
 
 include:
   -  cobbler-common
@@ -10,7 +8,7 @@ include:
 cobbler:
   pkg.installed:   []
   service.running:
-    - name:     {{ cobbler['service']['name'] }}
+    - name:     {{ map.get('service', {}).get('name') }}
     - enable:      True
     - watch:
       - pkg:       cobbler

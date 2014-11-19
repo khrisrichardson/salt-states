@@ -1,6 +1,6 @@
 # vi: set ft=json.jinja :
 
-{% set php5_curl = salt['grains.filter_by']({
+{% set map = salt['grains.filter_by']({
   'Debian': {
     'pkg': {
       'name':          'php5-curl',

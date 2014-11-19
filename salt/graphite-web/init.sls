@@ -1,10 +1,8 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'graphite-web/map.jinja'
-   import graphite_web
-   with   context %}
+{% from 'graphite-web/map.jinja' import map with context %}
 
-{% set etc = graphite_web['/etc/graphite']['file']['name'] %}
+{% set etc = map.get('/etc/graphite', {}).get('file', {}).get('name') %}
 
 include:
   - .depend-nginx

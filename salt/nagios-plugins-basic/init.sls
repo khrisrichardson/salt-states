@@ -1,8 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% from  'nagios-plugins-basic/map.jinja'
-   import nagios_plugins_basic
-   with   context %}
+{% from 'nagios-plugins-basic/map.jinja' import map with context %}
 
 include:
   -  bash
@@ -36,14 +34,14 @@ nagios:
 
 /home/nagios/libexec:
   file.symlink:
-    - name:     {{ nagios_plugins_basic['/home/nagios']['file']['name'] }}/libexec
-    - target:   {{ nagios_plugins_basic['/usr/lib/nagios/plugins']['file']['name'] }}
+    - name:     {{ map.get('/home/nagios', {}).get('file', {}).get('name') }}/libexec
+    - target:   {{ map.get('/usr/lib/nagios/plugins', {}).get('file', {}).get('name') }}
     - require:
       - user:      nagios
 
 /usr/lib/nagios/plugins/check_mem.pl:
   file.managed:
-    - name:     {{ nagios_plugins_basic['/usr/lib/nagios/plugins']['file']['name'] }}/check_mem.pl
+    - name:     {{ map.get('/usr/lib/nagios/plugins', {}).get('file', {}).get('name') }}/check_mem.pl
     - source:      salt://{{ sls }}/usr/lib/nagios/plugins/check_mem.pl
     - user:        root
     - group:       root
