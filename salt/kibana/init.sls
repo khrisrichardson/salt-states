@@ -1,7 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set url         = 'https://api.github.com/repos/elasticsearch/kibana/tags' %}
-{% set version     =  salt['cmd.exec_code']('python', 'import json; import urllib; tags = json.loads(urllib.urlopen("' + url + '").read()); [tag.get("name") for tag in tags if "beta" not in tag.get("name")][0]').split('v')[1] %}
+{% set version     =  salt['cmd.exec_code']('python', 'import json; import urllib; tags = json.loads(urllib.urlopen("' + url + '").read()); print [tag.get("name") for tag in tags if "beta" not in tag.get("name")][0]').split('v')[1] %}
 {% set tarball_url = 'https://download.elasticsearch.org/kibana/kibana/kibana-' + version + '.tar.gz' %}
 
 include:
