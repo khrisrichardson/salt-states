@@ -1,8 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 {% set url         = 'https://api.github.com/repos/elasticsearch/kibana/tags' %}
-{% set version     =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("name")').split('v')[1] %}
-{% set tarball_url =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("tarball_url")') %}
+{% set version     =  salt['cmd.exec_code']('python', 'import json; import urllib; tags = json.loads(urllib.urlopen("' + url + '").read()); [tag.get("name") for tag in tags if "beta" not in tag.get("name")][0]').split('v')[1] %}
+{% set tarball_url = 'https://download.elasticsearch.org/kibana/kibana/kibana-' + version + '.tar.gz' %}
 
 include:
   - .depend-nginx
@@ -22,7 +22,6 @@ include:
     - name:      |-
                  ( wget -O - {{ tarball_url }}                                 \
                  | tar  -zxf -
-                   mv elasticsearch-kibana-* kibana-{{ version }}
                  )
     - unless:      test -d /usr/share/kibana-{{ version }}
     - require:
