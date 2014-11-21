@@ -16,7 +16,7 @@ include:
     - group:       root
     - mode:       '0644'
     - require:
+      - pkg:       python-pygit2
       - pkg:       salt-master
-      - pip:       python-pygit2
     - watch_in:
       - service:   salt-master
