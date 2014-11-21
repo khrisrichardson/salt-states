@@ -1,12 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 {% set url         = 'https://api.github.com/repos/elasticsearch/kibana/tags' %}
-{% set version     =  salt['cmd.exec_code']('python', 'import json;
-                                                       import urllib;
-                                                       print json.loads(urllib.urlopen("' + url + '").read())[0].get("name")').split('v')[1] %}
-{% set tarball_url =  salt['cmd.exec_code']('python', 'import json;
-                                                       import urllib;
-                                                       print json.loads(urllib.urlopen("' + url + '").read())[0].get("tarball_url")') %}
+{% set version     =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("name")').split('v')[1] %}
+{% set tarball_url =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("tarball_url")') %}
 
 include:
   - .depend-nginx
