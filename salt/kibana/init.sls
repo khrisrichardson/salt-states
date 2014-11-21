@@ -1,7 +1,12 @@
 # vi: set ft=yaml.jinja :
 
-{% set url     = 'https://api.github.com/repos/elasticsearch/kibana/tags' %}
-{% set version =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("name")').split('v')[1] %}
+{% set url         = 'https://api.github.com/repos/elasticsearch/kibana/tags' %}
+{% set version     =  salt['cmd.exec_code']('python', 'import json;
+                                                       import urllib;
+                                                       print json.loads(urllib.urlopen("' + url + '").read())[0].get("name")').split('v')[1] %}
+{% set tarball_url =  salt['cmd.exec_code']('python', 'import json;
+                                                       import urllib;
+                                                       print json.loads(urllib.urlopen("' + url + '").read())[0].get("tarball_url")') %}
 
 include:
   - .depend-nginx
@@ -11,7 +16,7 @@ include:
 #/usr/share/kibana-{{ version }}:
 # archive.extracted:
 #   - name:            /usr/share
-#   - source:           https://download.elasticsearch.org/kibana/kibana/kibana-{{ version }}.tar.gz
+#   - source:        {{ tarball_url }}
 #   - archive_format:   tar
 #   - source_hash:      md5=e8e8d4611e223e455bd7c304dbfdb579
 
@@ -19,8 +24,9 @@ include:
   cmd.run:
     - cwd:        /usr/share
     - name:      |-
-                 ( wget -O - https://download.elasticsearch.org/kibana/kibana/kibana-{{ version }}.tar.gz \
-                 | tar  -zxvf -
+                 ( wget -O - {{ tarball_url }}                                 \
+                 | tar  -zxf -
+                   mv elasticsearch-kibana-* kibana-{{ version }}
                  )
     - unless:      test -d /usr/share/kibana-{{ version }}
     - require:
