@@ -25,7 +25,7 @@ python-pygit2:
     - require:
       - pkgrepo:   python-pygit2
 # pip.installed:
-#   - name:        pygit2 == {{ (latest|default(version, True)).split('-')[0] }}
+#   - name:        pygit2 == {# (latest|default(version, True)).split('-')[0] #}
 #   - require:
 #     - pkg:       gcc
 #     - pkg:       python-cffi
