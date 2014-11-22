@@ -23,7 +23,7 @@ salt-halite:
     - group:       root
     - mode:       '0640'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master
 
@@ -35,6 +35,6 @@ salt-halite:
     - group:       root
     - mode:       '0640'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master

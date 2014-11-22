@@ -17,6 +17,6 @@ include:
     - mode:       '0644'
     - require:
       - pkg:       python-pygit2
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master

@@ -32,6 +32,14 @@ salt-master:
     - watch:
       - pkg:       salt-master
 
+/etc/salt/master.d:
+  file.directory:
+    - user:        root
+    - group:       root
+    - mode:       '0755'
+    - require:
+      - pkg:       salt-master
+
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 
 /etc/salt/master.d/auto_accept.conf:
@@ -42,7 +50,7 @@ salt-master:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master
 
@@ -56,7 +64,7 @@ salt-master:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master
 
@@ -68,7 +76,7 @@ salt-master:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master
 
@@ -80,7 +88,7 @@ salt-master:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master
 
@@ -92,7 +100,7 @@ salt-master:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
       - file:     /srv/reactor/job/ret.sls
       - file:     /srv/reactor/minion/start.sls
     - watch_in:

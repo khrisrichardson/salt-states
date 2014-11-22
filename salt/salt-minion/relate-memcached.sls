@@ -18,7 +18,7 @@ include:
     - mode:       '0644'
     - require:
       - pkg:       python-memcache
-      - pkg:       salt-minion
+      - file:     /etc/salt/minion.d
     - watch_in:
       - service:   salt-minion
 

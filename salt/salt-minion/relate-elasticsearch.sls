@@ -17,7 +17,7 @@ include:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-minion
+      - file:     /etc/salt/minion.d
       - pip:       python-elasticsearch
     - watch_in:
       - service:   salt-minion

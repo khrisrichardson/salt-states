@@ -16,7 +16,7 @@ include:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-master
+      - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master
 

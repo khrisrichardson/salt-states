@@ -34,6 +34,14 @@ salt-minion:
     - watch:
       - pkg:       salt-minion
 
+/etc/salt/minion.d:
+  file.directory:
+    - user:        root
+    - group:       root
+    - mode:       '0755'
+    - require:
+      - pkg:       salt-minion
+
 /etc/salt/minion.d/master.conf:
   file.managed:
     - template:    jinja
@@ -42,7 +50,7 @@ salt-minion:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-minion
+      - file:     /etc/salt/minion.d
     - watch_in:
       - service:   salt-minion
 
@@ -54,7 +62,7 @@ salt-minion:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-minion
+      - file:     /etc/salt/minion.d
     - watch_in:
       - service:   salt-minion
 

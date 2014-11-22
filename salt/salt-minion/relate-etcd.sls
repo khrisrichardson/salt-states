@@ -18,7 +18,7 @@ include:
     - group:       root
     - mode:       '0644'
     - require:
-      - pkg:       salt-minion
+      - file:     /etc/salt/minion.d
     - watch_in:
       - service:   salt-minion
 
