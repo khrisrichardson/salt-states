@@ -5,6 +5,9 @@
     'pkg': {
       'name':          'nginx-common',
     },
+    'conf': {
+      'extension':     '',
+    },
     '/etc/nginx/sites-available': {
       'file': {
         'name':       '/etc/nginx/sites-available',
@@ -17,11 +20,11 @@
     },
   },
   'RedHat': {
-    'conf': {
-      'extension':    '.conf',
-    },
     'pkg': {
       'name':          'nginx',
+    },
+    'conf': {
+      'extension':    '.conf',
     },
     '/etc/nginx/sites-available': {
       'file': {
