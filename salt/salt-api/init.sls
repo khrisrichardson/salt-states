@@ -1,8 +1,18 @@
 # vi: set ft=yaml.jinja :
 
-salt-api:
-  pkg.installed:   []
-  service.running:
-    - enable:      True
-    - watch:
-      - pkg:       salt-api
+include:
+  - .depend-openssl
+  -  python-cherrypy
+  -  salt-master
+
+/etc/salt/master.d/salt-api.conf:
+  file.managed:
+    - template:    jinja
+    - source:      salt://{{ sls }}/etc/salt/master.d/salt-api.conf
+    - user:        root
+    - group:       root
+    - mode:       '0640'
+    - require:
+      - file:     /etc/salt/master.d
+    - watch_in:
+      - service:   salt-master

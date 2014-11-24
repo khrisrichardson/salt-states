@@ -54,6 +54,18 @@ salt-minion:
     - watch_in:
       - service:   salt-minion
 
+/etc/salt/minion.d/mine.conf:
+  file.managed:
+    - template:    jinja
+    - source:      salt://{{ sls }}/etc/salt/minion.d/mine.conf
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+    - require:
+      - file:     /etc/salt/minion.d
+    - watch_in:
+      - service:   salt-minion
+
 /etc/salt/minion.d/schedule.conf:
   file.managed:
     - template:    jinja

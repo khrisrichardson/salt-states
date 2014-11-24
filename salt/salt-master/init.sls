@@ -56,6 +56,23 @@ salt-master:
 
 {% endif %}
 
+{% if 'salt-api'    in salt['config.get']('roles', [])
+   or 'salt-halite' in salt['config.get']('roles', []) %}
+
+/etc/salt/master.d/external_auth.conf:
+  file.managed:
+    - template:    jinja
+    - source:      salt://{{ sls }}/etc/salt/master.d/external_auth.conf
+    - user:        root
+    - group:       root
+    - mode:       '0640'
+    - require:
+      - file:     /etc/salt/master.d
+    - watch_in:
+      - service:   salt-master
+
+{% endif %}
+
 /etc/salt/master.d/file_recv.conf:
   file.managed:
     - template:    jinja
