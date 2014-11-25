@@ -22,8 +22,9 @@ supervisor:
     - require:
       - file:     /usr/bin/supervisord
 
-supervisorctl update:
-  cmd.wait:        []
+supervisorctl update &:
+  cmd.wait:
+    - order:      -1
 
 {% if salt['config.get']('os_family') == 'RedHat' %}
 
@@ -72,7 +73,7 @@ supervisorctl update:
     - require:
       - file:     /etc/supervisor
     - watch_in:
-      - cmd:       supervisorctl update
+      - cmd:       supervisorctl update &
 
 /etc/supervisord.conf:
   file.symlink:

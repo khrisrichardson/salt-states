@@ -34,6 +34,6 @@ extend:
     - require_in:
       - service:   supervisor
     - watch_in:
-      - cmd:       supervisorctl update
+      - cmd:       supervisorctl update &
 
 {% endif %}
