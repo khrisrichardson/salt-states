@@ -3,6 +3,7 @@
 {% do  roles.append('elasticsearch') -%}
 {% do  roles.append('graphite-carbon') -%}
 {% do  roles.append('influxdb') -%}
+{% do  roles.append('kibana') -%}
 {% set minions = salt['roles.dict'](roles) -%}
 ##################### Elasticsearch Configuration Example #####################
 
@@ -401,6 +402,10 @@ discovery.zen.minimum_master_nodes: {{ (count/2)|round(0, 'ceil')|int }}
 # it unless you need it is recommended (it is disabled by default).
 #
 #http.jsonp.enable: true
+{% if minions['kibana'] -%}
+http.cors.enabled: true
+http.cors.allow-origin: "/https?:\/\/({{ minions['kibana']|join('|') }})(:[0-9]+)?/"
+{% endif -%}
 
 {% if (minions['graphite-carbon']
    or  minions['influxdb'])

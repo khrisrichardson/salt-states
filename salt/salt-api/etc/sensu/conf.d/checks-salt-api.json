@@ -1,7 +1,7 @@
 {
   "checks": {
-    "check-process-salt-api": {
-      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p salt-api -C 1",
+    "check-http-salt-api": {
+      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '443' -p '/'",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
