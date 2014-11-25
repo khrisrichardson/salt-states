@@ -56,5 +56,7 @@ extend:
       - file:     /etc/supervisor/conf.d
     - require_in:
       - service:   supervisor
+    - watch_in:
+      - cmd:       supervisorctl update
 
 {% endif %}

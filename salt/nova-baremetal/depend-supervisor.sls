@@ -33,5 +33,7 @@ extend:
       - file:     /usr/bin/supervisord
     - require_in:
       - service:   supervisor
+    - watch_in:
+      - cmd:       supervisorctl update
 
 {% endif %}

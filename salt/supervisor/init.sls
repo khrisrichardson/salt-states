@@ -22,6 +22,9 @@ supervisor:
     - require:
       - file:     /usr/bin/supervisord
 
+supervisorctl update:
+  cmd.wait:        []
+
 {% if salt['config.get']('os_family') == 'RedHat' %}
 
 /etc/logrotate.d/supervisor:
@@ -68,6 +71,8 @@ supervisor:
     - mode:       '0644'
     - require:
       - file:     /etc/supervisor
+    - watch_in:
+      - cmd:       supervisorctl update
 
 /etc/supervisord.conf:
   file.symlink:
