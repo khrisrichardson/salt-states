@@ -19,9 +19,6 @@ docker start {{ psls }}:
         /srv/salt:
           bind:        /srv/salt
           ro:           true
-        /var/cache/salt/master:
-          bind:        /var/cache/salt/master
-          ro:           false
     - links:       []
     - lxc_conf:    []
     - watch:

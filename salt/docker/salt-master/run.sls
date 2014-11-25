@@ -14,6 +14,5 @@ docker run {{ psls }}:
       - /srv/pillar
       - /srv/reactor
       - /srv/salt
-      - /var/cache/salt/master
     - watch:
       - docker:    docker build {{ psls }}
