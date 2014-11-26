@@ -39,7 +39,8 @@ logstash:
       - pkg:       debianutils
       - file:     /usr/bin/java
      {% if salt['config.get']('os_family') == 'Debian' %}
-      - pkg:       ruby-ffi-rzmq
+#     - pkg:       ruby-ffi-rzmq
+      - gem:       ruby-ffi-rzmq
      {% endif %}
     - watch:
       - pkg:       logstash
