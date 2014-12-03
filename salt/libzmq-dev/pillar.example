@@ -1,0 +1,15 @@
+# vi: set ft=yaml.jinja :
+
+{% if   salt['config.get']('os_family') == 'Debian' %}
+
+libzmq-dev:
+  pkg:
+    name:          libzmq-dev
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+libzmq-dev:
+  pkg:
+    name:          zeromq-devel
+
+{% endif %}

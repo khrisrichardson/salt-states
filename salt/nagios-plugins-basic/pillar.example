@@ -1,16 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-nagios-plugins-basic:
-  /home/nagios:
-    file:
-      name:       /var/spool/nagios
-  /usr/lib/nagios/plugins:
-    file:
-      name:       /usr/lib64/nagios/plugins
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 nagios-plugins-basic:
   /home/nagios:
@@ -19,5 +9,15 @@ nagios-plugins-basic:
   /usr/lib/nagios/plugins:
     file:
       name:       /usr/lib/nagios/plugins
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+nagios-plugins-basic:
+  /home/nagios:
+    file:
+      name:       /var/spool/nagios
+  /usr/lib/nagios/plugins:
+    file:
+      name:       /usr/lib64/nagios/plugins
 
 {% endif %}

@@ -1,15 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-bash:
-  pkg:
-    name:          setup
-  /etc/bash.bashrc:
-    file:
-      name:       /etc/bashrc
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 bash:
   pkg:
@@ -17,5 +8,14 @@ bash:
   /etc/bash.bashrc:
     file:
       name:       /etc/bash.bashrc
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+bash:
+  pkg:
+    name:          setup
+  /etc/bash.bashrc:
+    file:
+      name:       /etc/bashrc
 
 {% endif %}

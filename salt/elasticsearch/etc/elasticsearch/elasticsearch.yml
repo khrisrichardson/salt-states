@@ -402,9 +402,11 @@ discovery.zen.minimum_master_nodes: {{ (count/2)|round(0, 'ceil')|int }}
 # it unless you need it is recommended (it is disabled by default).
 #
 #http.jsonp.enable: true
-{% if minions['kibana'] -%}
+{% if  map.get('version').split('.')[1] > 3
+   and minions['kibana'] -%}
 http.cors.enabled: true
-http.cors.allow-origin: "/https?:\/\/({{ minions['kibana']|join('|') }})(:[0-9]+)?/"
+#http.cors.allow-origin: "/https?:\/\/({{ minions['kibana']|join('|') }})(:[0-9]+)?/"
+http.cors.allow-origin: "/.*/"
 {% endif -%}
 
 {% if (minions['graphite-carbon']

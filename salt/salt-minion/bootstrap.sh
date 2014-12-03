@@ -17,7 +17,7 @@ export       bootstrap=true
 main() {
     if ! test -f /usr/bin/salt-call
     then
-#       pkg_setup
+        pkg_setup
         salt_bootstrap "${@}"
         pygit2_setup
         salt_minion_setup
@@ -58,10 +58,13 @@ pkg_setup() {
         ip=$(  ip route list                                                   \
             | awk '/^default/ {print $3}'
             )
-        cat > /etc/apt/apt.conf.d/30proxy                               <<-EOF
+        if nc -nz ${ip} 3142
+        then
+            cat > /etc/apt/apt.conf.d/30proxy                           <<-EOF
 	Acquire::http::Proxy "http://${ip}:3142";
 	Acquire::http::Proxy::download.oracle.com "DIRECT";
 	EOF
+        fi
     fi
 }
 

@@ -2,17 +2,7 @@
 
 {% set version = '1.4' %}
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-logstash:
-  pkgrepo:
-    name:          logstash
-    file:         /etc/yum.repos.d/logstash.repo
-  /etc/default/logstash:
-    file:
-      name:       /etc/sysconfig/logstash
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 logstash:
   pkgrepo:
@@ -21,5 +11,15 @@ logstash:
   /etc/default/logstash:
     file:
       name:       /etc/default/logstash
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+logstash:
+  pkgrepo:
+    name:          logstash
+    file:         /etc/yum.repos.d/logstash.repo
+  /etc/default/logstash:
+    file:
+      name:       /etc/sysconfig/logstash
 
 {% endif %}

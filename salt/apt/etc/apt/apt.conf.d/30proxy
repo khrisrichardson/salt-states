@@ -1,0 +1,5 @@
+{% set minions = salt['roles.dict']('apt-cacher-ng') -%}
+{% if  minions['apt-cacher-ng'] -%}
+Acquire::http::Proxy "http://{{ minions['apt-cacher-ng'][0] }}:3142";
+Acquire::http::Proxy::download.oracle.com "DIRECT";
+{% endif -%}

@@ -2,17 +2,7 @@
 
 {% set version = '1.4' %}
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-elasticsearch:
-  pkgrepo:
-    name:          elasticsearch
-    file:         /etc/yum.repos.d/elasticsearch.repo
-  /etc/default/elasticsearch:
-    file:
-      name:       /etc/sysconfig/elasticsearch
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 elasticsearch:
   pkgrepo:
@@ -21,6 +11,16 @@ elasticsearch:
   /etc/default/elasticsearch:
     file:
       name:       /etc/default/elasticsearch
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+elasticsearch:
+  pkgrepo:
+    name:          elasticsearch
+    file:         /etc/yum.repos.d/elasticsearch.repo
+  /etc/default/elasticsearch:
+    file:
+      name:       /etc/sysconfig/elasticsearch
 
 {% endif %}
 

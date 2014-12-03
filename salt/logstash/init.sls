@@ -4,9 +4,10 @@
 
 include:
   -  debianutils
-  -  libzmq3-dev
+  -  libzmq-dev
+# -  libzmq3-dev
   -  python-apt
-  -  ruby-ffi-rzmq
+# -  ruby-ffi-rzmq
   {% if   salt['config.get']('os_family') == 'RedHat' %}
   -  oracle-j2sdk1_7
   {% elif salt['config.get']('os_family') == 'Debian' %}
@@ -40,7 +41,7 @@ logstash:
       - file:     /usr/bin/java
      {% if salt['config.get']('os_family') == 'Debian' %}
 #     - pkg:       ruby-ffi-rzmq
-      - gem:       ruby-ffi-rzmq
+#     - gem:       ruby-ffi-rzmq
      {% endif %}
     - watch:
       - pkg:       logstash
@@ -69,7 +70,8 @@ logstash:
     - group:       logstash
     - mode:       '0644'
     - require:
-      - pkg:       libzmq3-dev
+      - pkg:       libzmq-dev
+#     - pkg:       libzmq3-dev
       - pkg:       logstash
     - watch_in:
       - service:   logstash
@@ -94,7 +96,8 @@ logstash:
     - group:       logstash
     - mode:       '0644'
     - require:
-      - pkg:       libzmq3-dev
+      - pkg:       libzmq-dev
+#     - pkg:       libzmq3-dev
       - pkg:       logstash
     - watch_in:
       - service:   logstash

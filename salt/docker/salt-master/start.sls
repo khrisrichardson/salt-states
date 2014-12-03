@@ -5,6 +5,7 @@
 include:
   -  python-docker
   -  docker.{{ psls }}.run
+  -  docker.apt-cacher-ng.start
 
 docker start {{ psls }}:
   docker.running:

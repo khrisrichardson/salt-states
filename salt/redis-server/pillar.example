@@ -1,17 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-redis-server:
-  pkg:
-    name:          redis
-  service:
-    name:          redis
-  /etc/redis/redis.conf:
-    file:
-      name:       /etc/redis.conf
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 redis-server:
   pkg:
@@ -21,5 +10,16 @@ redis-server:
   /etc/redis/redis.conf:
     file:
       name:       /etc/redis/redis.conf
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+redis-server:
+  pkg:
+    name:          redis
+  service:
+    name:          redis
+  /etc/redis/redis.conf:
+    file:
+      name:       /etc/redis.conf
 
 {% endif %}

@@ -1,29 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-graphite-web:
-  user:
-    name:          nginx
-  group:
-    name:          nginx
-  /etc/graphite:
-    file:
-      name:       /etc/graphite-web
-  /usr/share/graphite-web:
-    file:
-      name:       /usr/share/graphite
-  /usr/share/graphite-web/static:
-    file:
-      name:       /usr/share/graphite/webapp/content
-  /var/lib/graphite:
-    file:
-      name:       /var/lib/graphite-web
-  /var/log/graphite:
-    file:
-      name:       /var/log/graphite-web
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 graphite-web:
   user:
@@ -45,5 +22,28 @@ graphite-web:
   /var/log/graphite:
     file:
       name:       /var/log/graphite
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+graphite-web:
+  user:
+    name:          nginx
+  group:
+    name:          nginx
+  /etc/graphite:
+    file:
+      name:       /etc/graphite-web
+  /usr/share/graphite-web:
+    file:
+      name:       /usr/share/graphite
+  /usr/share/graphite-web/static:
+    file:
+      name:       /usr/share/graphite/webapp/content
+  /var/lib/graphite:
+    file:
+      name:       /var/lib/graphite-web
+  /var/log/graphite:
+    file:
+      name:       /var/log/graphite-web
 
 {% endif %}

@@ -1,15 +1,15 @@
 # vi: set ft=yaml.jinja :
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-openjdk-7-jre-headless:
-  pkg:
-    name:          java-1.7.0-openjdk
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 openjdk-7-jre-headless:
   pkg:
     name:          openjdk-7-jre-headless
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+openjdk-7-jre-headless:
+  pkg:
+    name:          java-1.7.0-openjdk
 
 {% endif %}

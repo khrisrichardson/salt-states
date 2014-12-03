@@ -1,19 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-graphite-carbon:
-  pkg:
-    name:          python-carbon
-  user:
-    name:          carbon
-  group:
-    name:          carbon
-  /var/lib/carbon:
-    file:
-      name:       /var/lib/carbon
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 graphite-carbon:
   pkg:
@@ -25,5 +12,18 @@ graphite-carbon:
   /var/lib/carbon:
     file:
       name:       /var/lib/graphite
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+graphite-carbon:
+  pkg:
+    name:          python-carbon
+  user:
+    name:          carbon
+  group:
+    name:          carbon
+  /var/lib/carbon:
+    file:
+      name:       /var/lib/carbon
 
 {% endif %}

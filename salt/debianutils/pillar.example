@@ -1,15 +1,15 @@
 # vi: set ft=yaml.jinja :
 
-{% if   salt['config.get']('os_family') == 'RedHat' %}
-
-debianutils:
-  pkg:
-    name:          which
-
-{% elif salt['config.get']('os_family') == 'Debian' %}
+{% if   salt['config.get']('os_family') == 'Debian' %}
 
 debianutils:
   pkg:
     name:          debianutils
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+debianutils:
+  pkg:
+    name:          which
 
 {% endif %}
