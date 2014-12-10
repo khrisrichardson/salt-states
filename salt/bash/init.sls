@@ -10,6 +10,6 @@ bash:
 /etc/bash.bashrc:
   file.append:
     - name:     {{ map.get('/etc/bash.bashrc', {}).get('file', {}).get('name') }}
-    - text:       "set -o vi"
+    - text:       "set -o emacs"
     - watch:
       - pkg:       bash

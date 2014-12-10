@@ -15,6 +15,10 @@ docker start {{ psls }}:
     - links:
         salt-master:    salt
     - lxc_conf:    []
+    - port_bindings:
+        '80/tcp':
+            HostIp:    '0.0.0.0'
+            HostPort:  '80'
     - watch:
       - docker:    docker run {{ psls }}
       - docker:    docker start salt-master
