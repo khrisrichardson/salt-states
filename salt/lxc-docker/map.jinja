@@ -11,6 +11,16 @@
       },
     },
   },
+  'MacOS': {
+    'pkg': {
+      'name':          'boot2docker',
+    },
+    '/etc/default/docker': {
+      'file': {
+        'name':       '/var/lib/boot2docker/profile',
+      },
+    },
+  },
   'RedHat': {
     'pkg': {
       'name':          'docker-io',

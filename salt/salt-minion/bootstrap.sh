@@ -15,9 +15,9 @@ export       bootstrap=true
 #   DESCRIPTION:  Core logic.
 #-------------------------------------------------------------------------------
 main() {
+    pkg_setup
     if ! test -f /usr/bin/salt-call
     then
-        pkg_setup
         salt_bootstrap "${@}"
         pygit2_setup
         salt_minion_setup

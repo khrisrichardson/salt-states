@@ -19,12 +19,13 @@ lxc-docker:
 {% endif %}
   pkg.installed:
     - name:     {{ map.get('pkg', {}).get('name') }}
+   {% if   salt['config.get']('os_family') == 'RedHat' %}
     - require:
-     {% if   salt['config.get']('os_family') == 'RedHat' %}
       - pkgrepo:   epel
-     {% elif salt['config.get']('os_family') == 'Debian' %}
+   {% elif salt['config.get']('os_family') == 'Debian' %}
+    - require:
       - pkgrepo:   lxc-docker
-     {% endif %}
+   {% endif %}
   service.running:
     - name:        docker
     - enable:      True

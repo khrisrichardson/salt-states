@@ -4,8 +4,7 @@
 
 include:
   -  python-docker
-  -  docker.ubuntu.pull
-  -  docker.apt-cacher-ng.start
+  -  docker.salt-minion.build
 
 /usr/local/src/{{ psls }}/Dockerfile:
   file.managed:
@@ -15,12 +14,12 @@ include:
     - mode:       '0644'
     - makedirs:    True
 
-/usr/local/src/{{ psls }}/bootstrap.sh:
+/usr/local/src/{{ psls }}/etc/salt/grains:
   file.managed:
-    - source:      salt://{{ psls }}/bootstrap.sh
+    - source:      salt://{{ psls }}/etc/salt/grains
     - user:        root
     - group:       root
-    - mode:       '0755'
+    - mode:       '0644'
     - makedirs:    True
 
 docker build {{ psls }}:
@@ -32,6 +31,6 @@ docker build {{ psls }}:
     - force:       True
    {% endif %}
     - watch:
-      - docker:    docker pull ubuntu
+      - docker:    docker build salt-minion
       - file:     /usr/local/src/{{ psls }}/Dockerfile
-      - file:     /usr/local/src/{{ psls }}/bootstrap.sh
+      - file:     /usr/local/src/{{ psls }}/etc/salt/grains
