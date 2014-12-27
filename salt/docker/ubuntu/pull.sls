@@ -6,3 +6,5 @@ include:
 docker pull ubuntu:
   docker.pulled:
     - name:        ubuntu
+    - require:
+      - pip:       python-docker

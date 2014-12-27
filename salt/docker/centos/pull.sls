@@ -6,3 +6,5 @@ include:
 docker pull centos:
   docker.pulled:
     - name:        centos
+    - require:
+      - pip:       python-docker

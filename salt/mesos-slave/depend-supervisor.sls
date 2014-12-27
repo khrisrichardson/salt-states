@@ -13,6 +13,7 @@ mesos-slave:
     - watch:
       - pkg:       mesos
       - service:   supervisor
+      - file:     /etc/mesos/zk
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

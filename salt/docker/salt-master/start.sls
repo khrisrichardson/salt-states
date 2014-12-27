@@ -10,6 +10,7 @@ include:
 docker start {{ psls }}:
   docker.running:
     - container:     {{ psls }}
+   {% if salt['ps.pgrep']('docker') %}
     - binds:
         /srv/pillar:
           bind:        /srv/pillar
@@ -20,6 +21,7 @@ docker start {{ psls }}:
         /srv/salt:
           bind:        /srv/salt
           ro:           true
+   {% endif %}
     - links:       []
     - lxc_conf:    []
     - watch:

@@ -9,6 +9,7 @@ include:
 docker start {{ psls }}:
   docker.running:
     - container:     {{ psls }}
+   {% if salt['ps.pgrep']('docker') %}
     - binds:
         /sys/fs/cgroup:
           bind:        /cgroup
@@ -19,6 +20,7 @@ docker start {{ psls }}:
         /var/run:
           bind:        /var/run
           ro:           false
+   {% endif %}
     - links:       []
     - lxc_conf:    []
     - port_bindings:

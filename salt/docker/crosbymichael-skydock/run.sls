@@ -12,7 +12,9 @@ docker run crosbymichael/skydock:
     - name:        skydock
     - image:       crosbymichael/skydock
     - command:    -domain 'skydns.local.' -environment {{ environment }} -ttl 30
+   {% if salt['ps.pgrep']('docker') %}
     - volumes:
       - /var/run/docker.sock
+   {% endif %}
     - watch:
       - docker:    docker pull crosbymichael/skydock

@@ -1,4 +1,4 @@
-FROM          salt-minion:latest
+FROM          khrisrichardson/salt-minion:latest
 MAINTAINER    Khris Richardson <khris.richardson@gmail.com>
 
 EXPOSE        8118

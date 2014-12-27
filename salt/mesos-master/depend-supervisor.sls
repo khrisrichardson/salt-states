@@ -13,6 +13,8 @@ mesos-master:
     - watch:
       - pkg:       mesos
       - service:   supervisor
+      - file:     /etc/mesos/zk
+      - file:     /etc/mesos-master/quorum
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

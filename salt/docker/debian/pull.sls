@@ -6,3 +6,5 @@ include:
 docker pull debian:
   docker.pulled:
     - name:        debian
+    - require:
+      - pip:       python-docker

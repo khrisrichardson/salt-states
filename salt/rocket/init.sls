@@ -26,12 +26,6 @@ include:
     - watch:
       - cmd:      /usr/share/rocket-{{ version }}
 
-/usr/bin/actool:
-  file.symlink:
-    - target:    /usr/share/rocket/actool
-    - require:
-      - file:    /usr/share/rocket
-
 /usr/bin/rkt:
   file.symlink:
     - target:    /usr/share/rocket/rkt

@@ -10,7 +10,9 @@ docker run registry:
   docker.installed:
     - name:        registry
     - image:       registry:latest
+   {% if salt['ps.pgrep']('docker') %}
     - volumes:
       - /tmp/registry
+   {% endif %}
     - watch:
       - docker:    docker pull registry

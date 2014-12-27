@@ -1,16 +1,25 @@
-{% set etcds   = [] -%}
-{% set minions = salt['roles.dict']('etcd') -%}
-{% for minion in minions['etcd'] -%}
-{% do  etcds.append('http://' + minion + ':4001') -%}
-{% endfor -%}
+{% set roles   = [] -%}
+{% do  roles.append('etcd') -%}
+{% do  roles.append('kubernetes-apiserver') -%}
+{% set minions = salt['roles.dict'](roles) -%}
 
 ARGS+="-address=0.0.0.0 "
 ARGS+="-config=/etc/kubernetes/manifests "
 ARGS+="-port=10250 "
 ARGS+="-logtostderr=true "
 
-{% if minions['etcd'] -%}
+{% set urls = [] -%}
+{% for minion in minions['kubernetes-apiserver'] -%}
+{% do  urls.append('http://' + minion + ':6443') -%}
+{% endfor -%}
+{% if  urls -%}
+ARGS+="-api_servers={{ urls|join(',') }} "
+{% endif -%}
 
-ARGS+="-etcd_servers={{ etcds|join(',') }} "
-
+{% set urls = [] -%}
+{% for minion in minions['etcd'] -%}
+{% do  urls.append('http://' + minion + ':4001') -%}
+{% endfor -%}
+{% if  urls -%}
+ARGS+="-etcd_servers={{ urls|join(',') }} "
 {% endif -%}

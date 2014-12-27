@@ -8,6 +8,7 @@ include:
   -  docker.salt-master.start
 
 docker start {{ psls }}:
+{% if salt['ps.pgrep']('docker') %}
   docker.running:
     - container:     {{ psls }}
     - binds:
@@ -24,3 +25,6 @@ docker start {{ psls }}:
     - watch:
       - docker:    docker run {{ psls }}
       - docker:    docker start salt-master
+{% else %}
+  docker.absent:   []
+{% endif %}

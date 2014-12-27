@@ -38,3 +38,13 @@ mesos:
     - watch:
       - pkg:       mesos
 {% endif %}
+
+/etc/mesos/zk:
+  file.managed:
+    - template:    jinja
+    - source:      salt://{{ sls }}/etc/mesos/zk
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+    - require:
+      - pkg:       mesos

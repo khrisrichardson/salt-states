@@ -9,10 +9,12 @@ include:
 docker start registry:
   docker.running:
     - container:   registry
+   {% if salt['ps.pgrep']('docker') %}
     - binds:
         /srv/docker/registry:
           bind:    /tmp/registry
           ro:       false
+   {% endif %}
     - lxc_conf:    []
     - port_bindings:
         '5000/tcp':

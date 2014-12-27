@@ -11,10 +11,12 @@ include:
 docker start {{ psls }}:
   docker.running:
     - container:     {{ psls }}
+   {% if salt['ps.pgrep']('docker') %}
     - binds:
         /var/run:
           bind:        /var/run
           ro:           false
+   {% endif %}
     - links:
         salt-master:    salt
     - lxc_conf:    []

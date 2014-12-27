@@ -10,10 +10,12 @@ include:
 docker start skydock:
   docker.running:
     - container:   skydock
+   {% if salt['ps.pgrep']('docker') %}
     - binds:
         /var/run/docker.sock:
           bind:   /var/run/docker.sock
           ro:      false
+   {% endif %}
     - links:
         skydns:    skydns
     - lxc_conf:    []
