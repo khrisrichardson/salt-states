@@ -15,8 +15,7 @@ docker start {{ psls }}:
           bind:        /var/cache/apt-cacher-ng
           ro:           false
    {% endif %}
-    - links:
-        salt-master:    salt
+    - links:       []
     - lxc_conf:    []
     - port_bindings:
         '3142/tcp':

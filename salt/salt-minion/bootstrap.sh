@@ -23,15 +23,15 @@ main() {
         salt_minion_setup
     fi
     salt_call_state_highstate
-    salt_cleanup
-    pkg_cleanup
+    salt_clean
+    pkg_clean
 }
 
 #----  FUNCTION  ---------------------------------------------------------------
-#          NAME:  pkg_cleanup
-#   DESCRIPTION:  Clear apt cache.
+#          NAME:  pkg_clean
+#   DESCRIPTION:  Clear local package repository cache.
 #-------------------------------------------------------------------------------
-pkg_cleanup() {
+pkg_clean() {
     if test -f /usr/bin/apt-get
     then
       (
@@ -125,18 +125,10 @@ salt_call_state_highstate() {
 }
 
 #----  FUNCTION  ---------------------------------------------------------------
-#          NAME:  salt_cleanup
-#   DESCRIPTION:  Remove unneeded salt files.
+#          NAME:  salt_clean
+#   DESCRIPTION:  Remove intermediate salt files.
 #-------------------------------------------------------------------------------
-salt_cleanup() {
-    salt_minion_cleanup
-}
-
-#----  FUNCTION  ---------------------------------------------------------------
-#          NAME:  salt_minion_cleanup
-#   DESCRIPTION:  Remove intermediate files on salt-minion.
-#-------------------------------------------------------------------------------
-salt_minion_cleanup() {
+salt_clean() {
     which supervisorctl                  &>/dev/null                           \
     &&    supervisorctl stop salt-minion &>/dev/null
     pkill                    salt-minion &>/dev/null

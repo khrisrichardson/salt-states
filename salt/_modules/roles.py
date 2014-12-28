@@ -209,12 +209,25 @@ def _grains(minion='',
     '''
     Return a list of roles via alternative sources
     '''
+    client = __salt__['config.get']('file_client')
+
+    if client == 'local':
+	return _grains_via_grains()
     if source == 'mine':
         return _grains_via_mine(minion=minion, saltenv=saltenv)
     elif source == 'peer':
         return _grains_via_peer(minion=minion, saltenv=saltenv)
     else:
         sys.exit(1)
+
+
+def _grains_via_grains():
+    '''
+    Return a dictionary of grains via grains
+    '''
+    ret = {'localhost': __salt__['grains.items']()}
+
+    return ret
 
 
 def _grains_via_mine(minion='', saltenv=''):
