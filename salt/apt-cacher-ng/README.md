@@ -24,10 +24,8 @@ Apt-Cacher NG has been designed from scratch as a replacement for apt-cacher, bu
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-apt-cacher-ng.json
@@ -36,6 +34,4 @@ Apt-Cacher NG has been designed from scratch as a replacement for apt-cacher, bu
 │           └── apt-cacher-ng.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

@@ -1,0 +1,18 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     5000
+      protocol: tcp
+      dst:      anywhere
+      dport:    5000
+storage:
+  mounts:
+    -
+      device: /srv/docker/registry
+      dir:    /tmp/registry

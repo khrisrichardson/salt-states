@@ -35,6 +35,4 @@ This package provides the VPN agent, which also provides L3 agent support.
 │           └── neutron-vpn-agent.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-5 directories, 5 files
 ```

@@ -87,6 +87,4 @@ This package provides the common files.
 ├── relate-qpidd.sls
 ├── relate-rabbitmq-server.sls
 └── relate-redis-server.sls
-
-3 directories, 22 files
 ```

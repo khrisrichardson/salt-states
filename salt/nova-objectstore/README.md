@@ -30,14 +30,12 @@ This is the package contains a very simple S3-like object store. For production 
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-nova-objectstore.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-objectstore.json
@@ -50,6 +48,4 @@ This is the package contains a very simple S3-like object store. For production 
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

@@ -467,6 +467,4 @@ relations to all other roles in the environment.
 │   └── init.sls
 └── zookeeper-server
     └── init.sls
-
-250 directories, 252 files
 ```

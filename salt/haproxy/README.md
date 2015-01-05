@@ -40,6 +40,4 @@ HAProxy is a TCP/HTTP reverse proxy which is particularly suited for high availa
 │           └── checks-haproxy.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-4 directories, 4 files
 ```

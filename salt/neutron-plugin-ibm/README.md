@@ -28,6 +28,4 @@ This package provides the IBM SDN plugin.
 │           └── ibm
 │               └── sdnve_neutron_plugin.ini
 └── init.sls
-
-4 directories, 2 files
 ```

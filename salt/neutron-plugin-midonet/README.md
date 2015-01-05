@@ -28,6 +28,4 @@ This package provides the Midonet plugin.
 │           └── midonet
 │               └── midonet.ini
 └── init.sls
-
-4 directories, 2 files
 ```

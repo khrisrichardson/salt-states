@@ -27,6 +27,4 @@ It is extremely configurable to support a wide variety of use cases. Most common
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

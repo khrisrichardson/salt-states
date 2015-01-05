@@ -46,6 +46,4 @@
 ├── relate-redis-server.sls
 ├── relate-sensu-api.sls
 └── relate-sensu-dashboard.sls
-
-3 directories, 15 files
 ```

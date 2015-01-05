@@ -36,6 +36,4 @@ This package provides the metering agent.
 │           └── neutron-metering-agent.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

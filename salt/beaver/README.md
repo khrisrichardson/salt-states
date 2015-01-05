@@ -26,6 +26,4 @@
 │       └── conf
 ├── init.sls
 └── relate-logstash.sls
-
-2 directories, 3 files
 ```

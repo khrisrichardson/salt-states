@@ -25,6 +25,4 @@ This package contains Python bindings to Redis.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

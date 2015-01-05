@@ -24,14 +24,12 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-nginx.sls
-├── Dockerfile
 ├── etc
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── kibana
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-kibana.json
@@ -48,6 +46,4 @@
             │   └── dashboards
             │       └── default.json
             └── config.js
-
-13 directories, 11 files
 ```

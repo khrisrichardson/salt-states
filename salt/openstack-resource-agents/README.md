@@ -35,6 +35,4 @@ Install this package if you want this computer to act as member of a pacemaker H
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

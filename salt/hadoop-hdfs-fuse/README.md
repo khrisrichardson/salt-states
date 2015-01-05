@@ -24,6 +24,4 @@
 │   └── default
 │       └── hadoop-fuse
 └── init.sls
-
-2 directories, 2 files
 ```

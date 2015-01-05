@@ -23,6 +23,4 @@ The testrepository package contains the CLI front end.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

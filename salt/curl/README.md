@@ -25,6 +25,4 @@ curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form ba
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

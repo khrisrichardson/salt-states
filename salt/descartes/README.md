@@ -29,12 +29,10 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
 ├── depend-git.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-descartes.json
@@ -46,6 +44,4 @@
 │   └── descartes
 ├── relate-postgresql.sls
 └── relate-sensu-api.sls
-
-8 directories, 9 files
 ```

@@ -1,0 +1,44 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     6789
+      protocol: tcp
+    -
+      port:     6800
+      protocol: tcp
+    -
+      port:     6801
+      protocol: tcp
+    -
+      port:     6802
+      protocol: tcp
+    -
+      port:     6803
+      protocol: tcp
+    -
+      port:     6804
+      protocol: tcp
+    -
+      port:     6805
+      protocol: tcp
+    -
+      port:     6806
+      protocol: tcp
+    -
+      port:     6807
+      protocol: tcp
+    -
+      port:     6808
+      protocol: tcp
+    -
+      port:     6809
+      protocol: tcp
+    -
+      port:     6810
+      protocol: tcp

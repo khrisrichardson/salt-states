@@ -61,6 +61,4 @@ HBase includes:
         └── hbase
             └── bin
                 └── snapshot.rb
-
-9 directories, 12 files
 ```

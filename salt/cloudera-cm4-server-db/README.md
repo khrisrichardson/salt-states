@@ -23,12 +23,11 @@ configuration otherwise necessary in /etc/cloudera-scm-server/db.properties.
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d
 │           └── checks-cloudera-cm4-server-db.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

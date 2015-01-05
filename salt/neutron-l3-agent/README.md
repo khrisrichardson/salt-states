@@ -46,6 +46,4 @@ This package provides the layer 3 routing agent.
 └── root
     └── bin
         └── neutron-l3-agent.sh
-
-10 directories, 9 files
 ```

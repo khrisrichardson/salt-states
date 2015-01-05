@@ -28,6 +28,4 @@ Extra documentation can be found in the package isc-dhcp-common.
 │   └── dhcp
 │       └── dhclient.conf
 └── init.sls
-
-2 directories, 2 files
 ```

@@ -28,13 +28,11 @@ For more information about the NTP protocol and NTP server configuration and ope
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── collectd.d
 │   │   └── ntp.conf
 │   ├── ntp.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ntp.json
@@ -46,6 +44,4 @@ For more information about the NTP protocol and NTP server configuration and ope
 ├── relate-influxdb.sls
 ├── relate-nova-scheduler.sls
 └── relate-sensu-api.sls
-
-7 directories, 11 files
 ```

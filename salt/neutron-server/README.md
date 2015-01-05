@@ -28,8 +28,8 @@ This package provides the Neutron server
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── default
 │   │   └── neutron-server
@@ -39,8 +39,6 @@ This package provides the Neutron server
 │   ├── network
 │   │   └── interfaces.d
 │   │       └── eth2.cfg
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-neutron-server.json
@@ -53,6 +51,4 @@ This package provides the Neutron server
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-13 directories, 12 files
 ```

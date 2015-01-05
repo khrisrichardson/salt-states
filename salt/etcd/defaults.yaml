@@ -1,0 +1,18 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     4001
+      protocol: tcp
+      dst:      bridge
+      dport:    4001
+    -
+      port:     7001
+      protocol: tcp
+      dst:      bridge
+      dport:    7001

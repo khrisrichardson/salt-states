@@ -31,6 +31,4 @@ pip is a replacement for easy_install, and is intended to be an improved Python 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

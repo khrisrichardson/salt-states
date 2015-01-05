@@ -1,5 +1,11 @@
 {
   "checks": {
+    "check-glusterfs-server-georepl-status": {
+      "command"     : "/etc/sensu/plugins/gluster/check-gluster-georepl-status.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
     "check-process-glusterfs-server": {
       "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p glusterfs-server -C 1",
       "handlers"    : ["default"],

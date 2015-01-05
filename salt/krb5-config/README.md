@@ -23,6 +23,4 @@ This package provides /etc/krb5.conf and any other files needed to configure Ker
 ├── etc
 │   └── krb5.conf
 └── init.sls
-
-1 directory, 2 files
 ```

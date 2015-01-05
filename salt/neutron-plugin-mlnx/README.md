@@ -28,6 +28,4 @@ This package provides the Mellanox plugin.
 │           └── mlnx
 │               └── mlnx_conf.ini
 └── init.sls
-
-4 directories, 2 files
 ```

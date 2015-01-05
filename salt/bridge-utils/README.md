@@ -26,6 +26,4 @@ This package contains utilities for configuring the Linux Ethernet bridge in Lin
 │   └── default
 │       └── bridge-utils
 └── init.sls
-
-2 directories, 2 files
 ```

@@ -25,13 +25,11 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-btrfs-tools.sls
 ├── depend-mount.sls
 ├── depend-parted.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceph-osd.json
@@ -42,6 +40,4 @@
 ├── relate-ceph-deploy.sls
 ├── relate-ceph-mon.sls
 └── relate-sensu-api.sls
-
-6 directories, 11 files
 ```

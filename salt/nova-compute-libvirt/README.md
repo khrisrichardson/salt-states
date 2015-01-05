@@ -34,6 +34,4 @@ This package provides common dependencies and setup for all libvirt based hyperv
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -35,10 +35,8 @@ MySQL is a fast, stable and true multi-user, multi-threaded SQL database server.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mysql-server.json
@@ -58,6 +56,4 @@ MySQL is a fast, stable and true multi-user, multi-threaded SQL database server.
 ├── relate-nova-baremetal.sls
 ├── relate-salt-minion.sls
 └── relate-sensu-api.sls
-
-6 directories, 17 files
 ```

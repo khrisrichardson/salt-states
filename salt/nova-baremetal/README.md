@@ -33,14 +33,12 @@ This is the baremetal virt component.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-nova-baremetal.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-baremetal.json
@@ -56,6 +54,4 @@ This is the baremetal virt component.
 ├── relate-mysql-server.sls
 ├── relate-postgresql.sls
 └── relate-sensu-api.sls
-
-10 directories, 13 files
 ```

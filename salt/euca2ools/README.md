@@ -21,6 +21,4 @@ Command-line tools for interacting with Amazon Web Services (AWS) and other AWS-
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

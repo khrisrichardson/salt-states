@@ -23,6 +23,4 @@ A foreign function interface is the popular name for the interface that allows c
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

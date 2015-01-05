@@ -21,6 +21,4 @@ pwgen generates random, meaningless but pronounceable passwords. These passwords
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

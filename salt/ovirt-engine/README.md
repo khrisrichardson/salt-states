@@ -26,6 +26,4 @@
 │           └── checks-ovirt-engine.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

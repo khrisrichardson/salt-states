@@ -29,10 +29,8 @@
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-jenkins.json
@@ -42,6 +40,4 @@
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-6 directories, 7 files
 ```

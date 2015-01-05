@@ -30,14 +30,12 @@ This package provides the authentication service for nova-console.  It grants us
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-nova-consoleauth.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-consoleauth.json
@@ -50,6 +48,4 @@ This package provides the authentication service for nova-console.  It grants us
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

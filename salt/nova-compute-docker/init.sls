@@ -1,6 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 include:
+  -  ceilometer-agent-compute
+  -  neutron-plugin-openvswitch-agent
   -  nova-compute-libvirt
 
 /etc/nova/nova-compute.conf:

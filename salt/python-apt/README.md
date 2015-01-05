@@ -46,6 +46,4 @@ The included 'aptsources' Python interface provides an abstraction of the source
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -1,0 +1,13 @@
+# vi: set ft=json.jinja :
+
+{% set map = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'lxc-dev',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'lxc-devel',
+    },
+}, merge=salt['config.get']('lxc-dev')) %}

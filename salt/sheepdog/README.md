@@ -20,10 +20,8 @@ Sheepdog provides highly available block level storage volumes that can be attac
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-sheepdog.json
@@ -32,6 +30,4 @@ Sheepdog provides highly available block level storage volumes that can be attac
 │           └── sheepdog.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

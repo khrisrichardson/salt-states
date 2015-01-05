@@ -21,6 +21,4 @@ GNU Make is an utility which controls the generation of executables and other ta
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -53,6 +53,4 @@
                         └── lib
                             ├── seam-security-3.2.0.Final.jar
                             └── seam-security-api-3.2.0.Final.jar
-
-15 directories, 11 files
 ```

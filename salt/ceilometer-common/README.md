@@ -62,6 +62,4 @@ This package contains files that are needed for all parts of ceilometer
 ├── relate-qpidd.sls
 ├── relate-rabbitmq-server.sls
 └── relate-redis-server.sls
-
-2 directories, 18 files
 ```

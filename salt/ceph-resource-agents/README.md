@@ -23,6 +23,4 @@ This package contains the resource agents (RAs) which integrate Ceph with OCF-co
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

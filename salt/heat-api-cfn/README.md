@@ -26,14 +26,12 @@ This package contains the CloudFormation (CFN) API.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-heat-api-cfn.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-heat-api-cfn.json
@@ -46,6 +44,4 @@ This package contains the CloudFormation (CFN) API.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

@@ -25,6 +25,4 @@ It currently supports Linux, OS X, FreeBSD and Windows.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

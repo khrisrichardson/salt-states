@@ -21,6 +21,4 @@ Bunny is an AMQP (Advanced Message Queuing Protocol) client, written in Ruby, th
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -21,6 +21,4 @@ This package provides the tools ifup and ifdown which may be used to configure (
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

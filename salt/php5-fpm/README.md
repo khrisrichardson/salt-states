@@ -37,6 +37,4 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 ├── init.sls
 ├── relate-rsyslog.sls
 └── relate-sensu-api.sls
-
-4 directories, 5 files
 ```

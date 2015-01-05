@@ -21,6 +21,4 @@ The virtualenv utility creates virtual Python instances, each invokable with its
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

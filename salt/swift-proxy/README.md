@@ -27,14 +27,12 @@ This package provides a proxy server on which clients can connect to store objec
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── haproxy
 │   │   └── haproxy.cfg
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-swift-proxy.json
@@ -46,6 +44,4 @@ This package provides a proxy server on which clients can connect to store objec
 │           └── swift-proxy.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-9 directories, 10 files
 ```

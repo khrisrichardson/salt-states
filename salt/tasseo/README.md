@@ -23,12 +23,10 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
 ├── depend-git.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-tasseo.json
@@ -46,6 +44,4 @@
 │                   └── c
 │                       └── style.css
 └── relate-sensu-api.sls
-
-13 directories, 10 files
 ```

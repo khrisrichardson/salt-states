@@ -23,6 +23,4 @@ XML parser is ripped from Merb and the JSON parser is ripped from Rails. Just pa
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -28,14 +28,12 @@ This package contains the Cinder Scheduler server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-cinder-scheduler.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cinder-scheduler.json
@@ -48,6 +46,4 @@ This package contains the Cinder Scheduler server.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

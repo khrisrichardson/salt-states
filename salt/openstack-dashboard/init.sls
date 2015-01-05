@@ -2,6 +2,7 @@
 
 include:
   - .depend-apache2
+  -  openstack-dashboard-ubuntu-theme
   -  postfix
 
 openstack-dashboard:

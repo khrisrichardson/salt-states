@@ -21,6 +21,4 @@ This module provides a Python interface to the OpenLDAP client library (LDAP is 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

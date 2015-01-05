@@ -8,7 +8,7 @@ OpenStack Compute, codenamed Nova, is a cloud computing fabric controller. In ad
 
 Nova is intended to be modular and easy to extend and adapt. It supports many different hypervisors (KVM and Xen to name a few), different database backends (SQLite, MySQL, and PostgreSQL, for instance), different types of user databases (LDAP or SQL), etc.
 
-This is the package you will install on the network nodes. This service is responsible for managing floating and fixed IPs, DHCP, bridging and VLANs, and in some cases acts as a gateway. Different networking strategies are available to the service by changing the network_manager flag to FlatManager, FlatDHCPManager, or VlanManager (default is VLAN).
+This is the package you will install on the network nodes. This service is responsible for managing floating and fixed IPs, DHCP, bridging and VLANs, and in some cases acts as a gateway. Different networking strategies are available to the service by changing the network\_manager flag to FlatManager, FlatDHCPManager, or VlanManager (default is VLAN).
 
 ## Depends:
 
@@ -31,8 +31,8 @@ This is the package you will install on the network nodes. This service is respo
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
@@ -40,8 +40,6 @@ This is the package you will install on the network nodes. This service is respo
 │   ├── nova
 │   │   └── rootwrap.d
 │   │       └── network.filters
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-network.json
@@ -54,6 +52,4 @@ This is the package you will install on the network nodes. This service is respo
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-12 directories, 11 files
 ```

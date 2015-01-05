@@ -42,6 +42,4 @@ This package provides the OpenStack Compute API frontend.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

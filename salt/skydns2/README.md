@@ -28,14 +28,12 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-golang-go.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── profile.d
 │   │   └── skydns2.sh
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-skydns2.json
@@ -50,6 +48,4 @@
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 13 files
 ```

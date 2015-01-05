@@ -30,14 +30,12 @@ This package provides the console server.  This enables the use of consoles to b
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-nova-console.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-console.json
@@ -50,6 +48,4 @@ This package provides the console server.  This enables the use of consoles to b
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

@@ -27,6 +27,4 @@ This package provides tools for setting up and maintaining a NIS domain. NIS, or
 │   └── yp.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 4 files
 ```

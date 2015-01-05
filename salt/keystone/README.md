@@ -48,9 +48,9 @@ This package contains the daemons.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── haproxy
 │   │   └── haproxy.cfg
@@ -63,8 +63,6 @@ This package contains the daemons.
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-keystone.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-keystone.json
@@ -98,6 +96,4 @@ This package contains the daemons.
 └── root
     └── bin
         └── keystone.sh
-
-14 directories, 36 files
 ```

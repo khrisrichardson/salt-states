@@ -26,11 +26,9 @@ This package provides the swift object server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-swift-object.json
@@ -47,6 +45,4 @@ This package provides the swift object server.
 └── root
     └── bin
         └── swift-object.sh
-
-11 directories, 10 files
 ```

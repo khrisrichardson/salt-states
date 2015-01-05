@@ -23,6 +23,4 @@ It contains development libraries, header files, and manpages for libssl and lib
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -23,6 +23,4 @@ This package includes development files for compiling against libevent.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

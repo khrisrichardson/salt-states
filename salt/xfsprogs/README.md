@@ -28,6 +28,4 @@ Refer to the documentation at http://oss.sgi.com/projects/xfs/ for complete deta
 └── root
     └── bin
         └── xfsprogs.sh
-
-2 directories, 2 files
 ```

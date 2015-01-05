@@ -26,14 +26,12 @@ This package provides the Trove API server. The trove-api service provides a RES
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-trove-api.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-trove-api.json
@@ -46,6 +44,4 @@ This package provides the Trove API server. The trove-api service provides a RES
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

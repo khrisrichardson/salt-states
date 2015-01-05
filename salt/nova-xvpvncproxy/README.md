@@ -30,14 +30,12 @@ This package provides the VNC proxy. It is a publically reachable component whic
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-nova-xvpvncproxy.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-xvpvncproxy.json
@@ -50,6 +48,4 @@ This package provides the VNC proxy. It is a publically reachable component whic
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

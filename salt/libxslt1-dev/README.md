@@ -24,6 +24,4 @@ This package contains the development files for libxslt.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

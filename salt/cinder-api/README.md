@@ -29,17 +29,15 @@ This package contains the Cinder API server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── haproxy
 │   │   └── haproxy.cfg
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-cinder-api.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cinder-api.json
@@ -52,6 +50,4 @@ This package contains the Cinder API server.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-11 directories, 12 files
 ```

@@ -31,6 +31,4 @@ This package is a metapackage which installs all of the separate components of M
 └── root
     └── bin
         └── maas.sh
-
-2 directories, 2 files
 ```

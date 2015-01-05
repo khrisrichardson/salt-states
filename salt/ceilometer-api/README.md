@@ -25,14 +25,12 @@ This package contains the api service
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── haproxy
 │   │   └── haproxy.cfg
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-api.json
@@ -44,6 +42,4 @@ This package contains the api service
 │           └── ceilometer-api.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-9 directories, 10 files
 ```

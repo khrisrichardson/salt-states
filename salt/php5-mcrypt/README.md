@@ -23,6 +23,4 @@ PHP5 is an HTML-embedded scripting language. Much of its syntax is borrowed from
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

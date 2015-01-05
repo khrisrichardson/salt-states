@@ -42,6 +42,4 @@ incron can be used to :
 │           └── checks-incron.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 4 files
 ```

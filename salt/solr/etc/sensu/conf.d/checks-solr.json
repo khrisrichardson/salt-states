@@ -5,6 +5,13 @@
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
+    },
+    "metric-solr": {
+      "command"     : "/etc/sensu/plugins/solr/solr4-graphite.rb",
+      "handlers"    : ["graphite"],
+      "interval"    :   10,
+      "standalone"  :   true,
+      "type"        :  "metric"
     }
   }
 }

@@ -27,6 +27,4 @@
         └── newrelic-php5
             └── scripts
                 └── newrelic.ini
-
-4 directories, 2 files
 ```

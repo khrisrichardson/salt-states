@@ -23,6 +23,4 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

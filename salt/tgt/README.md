@@ -36,6 +36,4 @@ This package includes drivers for:
 │       └── targets.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-4 directories, 4 files
 ```

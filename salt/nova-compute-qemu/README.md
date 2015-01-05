@@ -30,6 +30,4 @@ Install this package on your compute nodes if you're using QEmu.
 │   └── nova
 │       └── nova-compute.conf
 └── init.sls
-
-2 directories, 2 files
 ```

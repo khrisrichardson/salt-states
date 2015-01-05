@@ -21,6 +21,4 @@ This is a transitional dummy package for bundler. It can safely be removed.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

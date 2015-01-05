@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "check-process-trafficserver-cop": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p traffic_cop -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-trafficserver-manager": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p traffic_manager -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-trafficserver-server": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p traffic_server -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "metric-trafficserver": {
+      "command"     : "/etc/sensu/plugins/trafficserver/trafficserver-metrics.rb",
+      "handlers"    : ["graphite"],
+      "interval"    :   10,
+      "standalone"  :   true,
+      "type"        :  "metric"
+    }
+  }
+}

@@ -23,6 +23,4 @@ This package contains utilities (mkfs, fsck) used to work with btrfs and an util
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

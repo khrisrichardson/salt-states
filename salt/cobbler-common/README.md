@@ -39,6 +39,4 @@ This package includes the common files.
                 ├── security_config
                 ├── storage_config
                 └── virtual_detect
-
-9 directories, 8 files
 ```

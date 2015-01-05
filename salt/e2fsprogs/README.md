@@ -24,6 +24,4 @@ This package contains programs for creating, checking, and maintaining ext2/3/4-
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

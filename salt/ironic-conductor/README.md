@@ -24,11 +24,9 @@ This package contains the conductor.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ironic-conductor.json
@@ -40,6 +38,4 @@ This package contains the conductor.
 │           └── ironic-conductor.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-8 directories, 8 files
 ```

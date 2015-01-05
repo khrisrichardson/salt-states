@@ -24,10 +24,8 @@
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-node-giraffe-web.json
@@ -49,6 +47,4 @@
                             └── css
                                 ├── legend.css
                                 └── main.css
-
-15 directories, 10 files
 ```

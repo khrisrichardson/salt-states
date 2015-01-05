@@ -22,10 +22,8 @@ This package installs init scripts and configuration files to turn GlusterFS int
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-glusterfs-server.json
@@ -34,6 +32,4 @@ This package installs init scripts and configuration files to turn GlusterFS int
 │           └── glusterfs-server.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

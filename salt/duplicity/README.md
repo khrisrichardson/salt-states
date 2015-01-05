@@ -21,6 +21,4 @@ Duplicity backs directories by producing encrypted tar-format volumes and upload
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

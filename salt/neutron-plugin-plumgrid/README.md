@@ -28,6 +28,4 @@ This package provides the PLUMgrid plugin.
 │           └── plumgrid
 │               └── plumgrid.ini
 └── init.sls
-
-4 directories, 2 files
 ```

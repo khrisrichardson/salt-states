@@ -24,6 +24,4 @@ Cloudera's Distribution for Hadoop, Version 4
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

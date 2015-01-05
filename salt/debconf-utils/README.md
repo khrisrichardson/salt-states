@@ -23,6 +23,4 @@ This package contains some small utilities for debconf developers.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

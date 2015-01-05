@@ -28,6 +28,4 @@ This package provides the Metaplugin plugin.
 │           └── metaplugin
 │               └── metaplugin.ini
 └── init.sls
-
-4 directories, 2 files
 ```

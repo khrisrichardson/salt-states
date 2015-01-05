@@ -38,6 +38,4 @@ This package must be installed in the system if a Java environment is desired. I
 │           └── checks-java-common.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 4 files
 ```

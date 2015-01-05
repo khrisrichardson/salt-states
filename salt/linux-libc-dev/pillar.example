@@ -1,0 +1,15 @@
+# vi: set ft=yaml.jinja :
+
+{% if   salt['config.get']('os_family') == 'Debian' %}
+
+linux-libc-dev:
+  pkg:
+    name:          linux-libc-dev
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+linux-libc-dev:
+  pkg:
+    name:          kernel-headers
+
+{% endif %}

@@ -23,6 +23,4 @@ These features allows making Tomcat a general purpose webserver, will enable muc
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

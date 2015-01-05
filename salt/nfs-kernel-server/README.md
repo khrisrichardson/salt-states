@@ -22,10 +22,8 @@ This package contains the user-space support needed to use the NFS kernel server
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nfs-kernel-server.json
@@ -34,6 +32,4 @@ This package contains the user-space support needed to use the NFS kernel server
 │           └── nfs-kernel-server.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

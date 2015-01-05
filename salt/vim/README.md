@@ -27,6 +27,4 @@ This package contains a version of vim compiled with a rather standard set of fe
 ├── etc
 │   └── skel
 └── init.sls
-
-2 directories, 1 file
 ```

@@ -211,6 +211,4 @@
 .
 ├── depend-git.sls
 └── init.sls
-
-0 directories, 2 files
 ```

@@ -31,6 +31,4 @@ urllib3 supports features left out of urllib and urllib2 libraries.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

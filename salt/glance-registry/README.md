@@ -31,9 +31,9 @@ This package contains the glance registry server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── glance
 │   │   ├── glance-registry.conf
@@ -43,8 +43,6 @@ This package contains the glance registry server.
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-glance-registry.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-glance-registry.json
@@ -62,6 +60,4 @@ This package contains the glance registry server.
 ├── relate-mysql-server.sls
 ├── relate-postgresql.sls
 └── relate-sensu-api.sls
-
-12 directories, 19 files
 ```

@@ -4,6 +4,7 @@ include:
   - .depend-supervisor
   -  ifupdown
   -  neutron-common
+  -  neutron-plugin-ml2
   -  procps
 
 extend:

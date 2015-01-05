@@ -24,6 +24,4 @@
 │   └── log.io
 │       └── harvester.conf
 └── init.sls
-
-2 directories, 2 files
 ```

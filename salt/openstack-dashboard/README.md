@@ -25,9 +25,9 @@ The OpenStack Dashboard is a reference implementation of a Django site that uses
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
 ├── depend-haproxy.sls
-├── Dockerfile
 ├── etc
 │   ├── apache2
 │   │   └── sites-available
@@ -36,8 +36,6 @@ The OpenStack Dashboard is a reference implementation of a Django site that uses
 │   │   └── haproxy.cfg
 │   ├── openstack-dashboard
 │   │   └── local_settings.py
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-openstack-dashboard.json
@@ -48,6 +46,4 @@ The OpenStack Dashboard is a reference implementation of a Django site that uses
 ├── relate-keystone.sls
 ├── relate-memcached.sls
 └── relate-sensu-api.sls
-
-10 directories, 13 files
 ```

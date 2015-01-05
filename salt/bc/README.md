@@ -21,6 +21,4 @@ GNU bc is an interactive algebraic language with arbitrary precision which follo
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

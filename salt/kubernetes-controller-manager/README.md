@@ -24,13 +24,11 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── default
 │   │   └── kubernetes-controller-manager
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-kubernetes-controller-manager.json
@@ -41,6 +39,4 @@
 ├── relate-etcd.sls
 ├── relate-kubernetes-apiserver.sls
 └── relate-sensu-api.sls
-
-7 directories, 10 files
 ```

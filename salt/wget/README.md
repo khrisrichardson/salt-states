@@ -30,6 +30,4 @@ Wget supports proxy servers; this can lighten the network load, speed up retriev
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

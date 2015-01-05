@@ -69,6 +69,4 @@ This package contains the supporting binaries to use with libvirt
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-11 directories, 32 files
 ```

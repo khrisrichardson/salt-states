@@ -31,10 +31,8 @@ sshd replaces the insecure rshd program, which is obsolete for most purposes.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-openssh-server.json
@@ -46,6 +44,4 @@ sshd replaces the insecure rshd program, which is obsolete for most purposes.
 ├── relate-nagios3.sls
 ├── relate-sensu-api.sls
 └── root
-
-7 directories, 8 files
 ```

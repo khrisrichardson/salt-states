@@ -24,14 +24,12 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
-├── Dockerfile
 ├── etc
 │   ├── apache2
 │   │   └── sites-available
 │   │       └── opsview
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-opsview.json
@@ -46,6 +44,4 @@
         └── nagios
             └── etc
                 └── opsview.conf
-
-12 directories, 10 files
 ```

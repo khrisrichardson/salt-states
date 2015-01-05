@@ -25,10 +25,8 @@ The dataset is stored entirely in memory and periodically flushed to disk.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-redis-server.json
@@ -38,6 +36,4 @@ The dataset is stored entirely in memory and periodically flushed to disk.
 ├── init.sls
 ├── relate-redis-server.sls
 └── relate-sensu-api.sls
-
-6 directories, 7 files
 ```

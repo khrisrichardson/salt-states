@@ -25,6 +25,4 @@ This package provides the Swift3 Middleware plugin for OpenStack Swift, allowing
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

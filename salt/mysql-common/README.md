@@ -27,6 +27,4 @@ This package includes files needed by all versions of the client library, e.g. /
 │   └── mysql
 │       └── my.cnf
 └── init.sls
-
-2 directories, 2 files
 ```

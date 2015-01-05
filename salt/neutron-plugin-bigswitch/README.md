@@ -28,6 +28,4 @@ This package provides the BigSwitch plugin.
 │           └── bigswitch
 │               └── restproxy.ini
 └── init.sls
-
-4 directories, 2 files
 ```

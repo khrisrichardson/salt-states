@@ -23,6 +23,4 @@ In the upstream package 'hostname' and friends are included. Those are not insta
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

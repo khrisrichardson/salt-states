@@ -25,6 +25,4 @@
 │       └── rpm-gpg
 │           └── RPM-GPG-KEY-RDO-Icehouse
 └── init.sls
-
-3 directories, 2 files
 ```

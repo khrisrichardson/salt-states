@@ -22,10 +22,8 @@ Docker complements LXC with a high-level API which operates at the process level
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-lxc-docker.json
@@ -34,6 +32,4 @@ Docker complements LXC with a high-level API which operates at the process level
 │           └── lxc-docker.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

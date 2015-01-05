@@ -1,0 +1,18 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     3142
+      protocol: tcp
+      dst:      anywhere
+      dport:    3142
+storage:
+  mounts:
+    -
+      device: /var/cache/apt-cacher-ng
+      dir:    /var/cache/apt-cacher-ng

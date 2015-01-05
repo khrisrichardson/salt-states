@@ -26,11 +26,9 @@ This package provides the object-expirer service that provides scheduled deletio
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-swift-object-expirer.json
@@ -44,6 +42,4 @@ This package provides the object-expirer service that provides scheduled deletio
 │           └── swift-object-expirer.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-9 directories, 9 files
 ```

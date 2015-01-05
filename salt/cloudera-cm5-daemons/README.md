@@ -22,6 +22,4 @@ This package includes daemons for monitoring and managing Hadoop.
 .
 ├── init.sls
 └── relate-logstash.sls
-
-0 directories, 2 files
 ```

@@ -23,6 +23,4 @@ This package includes the Subversion client (svn), repository administration too
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -26,10 +26,8 @@
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-oozie.json
@@ -38,6 +36,4 @@
 │           └── oozie.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

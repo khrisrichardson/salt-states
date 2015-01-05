@@ -32,10 +32,8 @@ data over the network to Hadoop Distributed Filesystem (HDFS) clients.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-hadoop-hdfs-datanode.json
@@ -53,6 +51,4 @@ data over the network to Hadoop Distributed Filesystem (HDFS) clients.
 ├── relate-hadoop-hdfs-namenode.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 12 files
 ```

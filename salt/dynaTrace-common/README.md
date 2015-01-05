@@ -39,6 +39,4 @@
 │   └── dynatrace
 │       └── duplicity.txt
 └── relate-rsyslog.sls
-
-6 directories, 8 files
 ```

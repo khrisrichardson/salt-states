@@ -30,6 +30,4 @@ A lot of the object methods do nothing more than calling a corresponding functio
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -30,6 +30,4 @@ This cron package does not provide any system maintenance tasks. Basic periodic 
 │           └── checks-cron.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

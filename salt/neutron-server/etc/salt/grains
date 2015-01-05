@@ -1,3 +1,0 @@
-roles:
-- neutron-plugin-ml2
-- neutron-server

@@ -35,6 +35,4 @@ computations.
 │           └── hdfs-site.xml
 ├── init.sls
 └── relate-hadoop-hdfs-namenode.sls
-
-3 directories, 6 files
 ```

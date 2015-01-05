@@ -6,6 +6,12 @@ netcat:
   pkg:
     name:          netcat
 
+{% elif salt['config.get']('os_family') == 'MacOS' %}
+
+netcat:
+  pkg:
+    name:          netcat
+
 {% elif salt['config.get']('os_family') == 'RedHat' %}
 
 netcat:

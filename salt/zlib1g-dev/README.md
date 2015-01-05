@@ -21,6 +21,4 @@ zlib is a library implementing the deflate compression method found in gzip and 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

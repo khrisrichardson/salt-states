@@ -38,6 +38,4 @@ The userspace component consists of a daemon, iscsid and a management utility, i
 │           └── checks-open-iscsi.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-5 directories, 5 files
 ```

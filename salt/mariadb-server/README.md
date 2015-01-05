@@ -35,10 +35,8 @@ MariaDB is a fast, stable and true multi-user, multi-threaded SQL database serve
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mariadb-server.json
@@ -58,6 +56,4 @@ MariaDB is a fast, stable and true multi-user, multi-threaded SQL database serve
 ├── relate-nova-baremetal.sls
 ├── relate-salt-minion.sls
 └── relate-sensu-api.sls
-
-6 directories, 17 files
 ```

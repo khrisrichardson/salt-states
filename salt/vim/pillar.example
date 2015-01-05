@@ -6,6 +6,12 @@ vim:
   pkg:
     name:          vim
 
+{% elif salt['config.get']('os_family') == 'MacOS' %}
+
+vim:
+  pkg:
+    name:          vim
+
 {% elif salt['config.get']('os_family') == 'RedHat' %}
 
 vim:

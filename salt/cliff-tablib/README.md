@@ -21,6 +21,4 @@ Cliff-tablib is a set of formatter extensions for producing JSON, YAML, and HTML
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

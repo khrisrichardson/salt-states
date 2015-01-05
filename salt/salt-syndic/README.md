@@ -31,11 +31,9 @@ This particular package provides the master of masters for salt - it enables the
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-salt-syndic.json
@@ -47,6 +45,4 @@ This particular package provides the master of masters for salt - it enables the
 │           └── salt-syndic.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-8 directories, 8 files
 ```

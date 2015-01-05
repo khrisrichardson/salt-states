@@ -28,6 +28,4 @@ This package provides the Hyper-V plugin.
 │           └── hyperv
 │               └── hyperv_neutron_plugin.ini
 └── init.sls
-
-4 directories, 2 files
 ```

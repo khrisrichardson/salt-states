@@ -34,13 +34,11 @@ RabbitMQ is an implementation of AMQP, the emerging standard for high performanc
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-rabbitmq-server.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-rabbitmq-server.json
@@ -58,6 +56,4 @@ RabbitMQ is an implementation of AMQP, the emerging standard for high performanc
 ├── relate-neutron-server.sls
 ├── relate-sensu-api.sls
 └── relate-sensu-server.sls
-
-8 directories, 16 files
 ```

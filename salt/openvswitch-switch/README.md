@@ -34,6 +34,4 @@ openvswitch-switch provides the userspace components and utilities for the Open 
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-5 directories, 5 files
 ```

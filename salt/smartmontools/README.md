@@ -26,6 +26,4 @@ The smartmontools package contains two utility programs (smartctl and smartd) to
 │           └── checks-smartmontools.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

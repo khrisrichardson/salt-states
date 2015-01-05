@@ -23,6 +23,4 @@ This package is a dependency package, which depends on Debian's default Python v
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

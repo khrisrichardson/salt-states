@@ -34,6 +34,4 @@ The statistics reported by sar deal with I/O transfer rates, paging activity, pr
 │           └── checks-sysstat.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

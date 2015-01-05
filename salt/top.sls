@@ -17,6 +17,7 @@
 
 {{ environment }}:
   '*':
+    - apt
     - salt-minion
    {% if      salt['config.get']('orchestrate')|lower == 'true'
       or     salt['environ.get']('orchestrate')|lower == 'true'

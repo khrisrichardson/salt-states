@@ -27,6 +27,4 @@ This package contains modules for all Python versions supported in Debian.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

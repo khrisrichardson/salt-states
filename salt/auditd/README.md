@@ -28,6 +28,4 @@ Also contains the audit dispatcher "audisp".
 │           └── checks-auditd.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

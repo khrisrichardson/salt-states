@@ -4,6 +4,7 @@
 
 include:
   -  debianutils
+  -  elasticsearch-kopf
   -  python-apt
   {% if   salt['config.get']('os_family') == 'RedHat' %}
   -  oracle-j2sdk1_7

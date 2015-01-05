@@ -37,6 +37,4 @@ Green Unicorn (gunicorn) is an HTTP/WSGI server designed to serve fast clients o
 │           └── checks-gunicorn.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

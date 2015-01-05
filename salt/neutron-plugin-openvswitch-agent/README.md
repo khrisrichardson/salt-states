@@ -45,6 +45,4 @@ This package provides the Open vSwitch plugin agent.
 └── root
     └── bin
         └── neutron-plugin-openvswitch-agent.sh
-
-9 directories, 8 files
 ```

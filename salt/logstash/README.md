@@ -78,7 +78,7 @@ An extensible logging pipeline
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
@@ -92,8 +92,6 @@ An extensible logging pipeline
 │   │       ├── output-file.conf
 │   │       ├── output-redis.conf
 │   │       └── output-zeromq.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-logstash.json
@@ -103,6 +101,4 @@ An extensible logging pipeline
 ├── init.sls
 ├── relate-elasticsearch.sls
 └── relate-sensu-api.sls
-
-8 directories, 17 files
 ```

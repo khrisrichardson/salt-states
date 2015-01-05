@@ -34,10 +34,8 @@ single HBase deployment.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-hbase-master.json
@@ -55,6 +53,4 @@ single HBase deployment.
 ├── relate-hbase-regionserver.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 12 files
 ```

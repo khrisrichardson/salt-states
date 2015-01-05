@@ -29,10 +29,8 @@ This package contains the configuration files, init scripts and support scripts.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-apache2.json
@@ -41,6 +39,4 @@ This package contains the configuration files, init scripts and support scripts.
 │           └── apache2.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

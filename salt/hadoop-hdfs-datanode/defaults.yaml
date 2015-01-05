@@ -1,0 +1,29 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     1004
+      protocol: tcp
+    -
+      port:     1006
+      protocol: tcp
+    -
+      port:     9000
+      protocol: tcp
+    -
+      port:     50010
+      protocol: tcp
+    -
+      port:     50020
+      protocol: tcp
+    -
+      port:     50075
+      protocol: tcp
+    -
+      port:     50475
+      protocol: tcp

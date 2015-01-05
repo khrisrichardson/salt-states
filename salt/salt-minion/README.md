@@ -52,9 +52,9 @@ This particular package provides the worker / agent for salt.
 ```bash
 .
 ├── bootstrap.sh
+├── defaults.yaml
 ├── depend-incron.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── salt
 │   │   └── minion.d
@@ -91,6 +91,4 @@ This particular package provides the worker / agent for salt.
 ├── relate-postgresql.sls
 ├── relate-redis-server.sls
 └── relate-sensu-api.sls
-
-9 directories, 31 files
 ```

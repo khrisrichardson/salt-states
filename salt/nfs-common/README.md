@@ -21,6 +21,4 @@ Use this package on any machine that uses NFS, either as client or server.  Prog
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

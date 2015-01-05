@@ -21,10 +21,8 @@
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   ├── conf.d
 │   │   │   └── checks-uchiwa.json
@@ -34,6 +32,4 @@
 │           └── uchiwa.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 7 files
 ```

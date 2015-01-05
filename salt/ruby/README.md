@@ -37,6 +37,4 @@ This package is a dependency package, which depends on Debian's default Ruby ver
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

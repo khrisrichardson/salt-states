@@ -30,6 +30,4 @@ This package contains the userland part; you require the kernel module for prope
 │           └── checks-iscsitarget.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-4 directories, 4 files
 ```

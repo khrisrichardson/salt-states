@@ -1,4 +1,0 @@
-roles:
-- ceilometer-agent-compute
-- neutron-plugin-openvswitch-agent
-- nova-compute-lxc

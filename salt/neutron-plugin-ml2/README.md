@@ -36,6 +36,4 @@ This package provides the Modular Layer 2 plugin.
 │               ├── ml2_conf_odl.ini
 │               └── ml2_conf_ofa.ini
 └── init.sls
-
-4 directories, 9 files
 ```

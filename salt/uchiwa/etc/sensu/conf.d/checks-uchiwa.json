@@ -11,6 +11,12 @@
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
+    },
+    "check-uchiwa": {
+      "command"     : "/etc/sensu/plugins/uchiwa/uchiwa-health.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
     }
   }
 }

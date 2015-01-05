@@ -25,6 +25,4 @@ The logrotate utility is designed to simplify the administration of log files on
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

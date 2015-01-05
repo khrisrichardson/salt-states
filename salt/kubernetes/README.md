@@ -27,6 +27,4 @@
 ├── depend-git.sls
 ├── depend-golang-go.sls
 └── init.sls
-
-0 directories, 3 files
 ```

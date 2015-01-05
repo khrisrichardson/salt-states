@@ -29,6 +29,4 @@ Ebtables is used to set up, maintain, and inspect the tables of Ethernet frame r
 │           └── checks-ebtables.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-4 directories, 5 files
 ```

@@ -29,6 +29,4 @@ This package provides the VMware NSX plugin
 │               └── nsx.ini
 ├── init.sls
 └── relate-nova-api-metadata.sls
-
-4 directories, 3 files
 ```

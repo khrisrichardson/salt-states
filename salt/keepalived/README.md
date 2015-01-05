@@ -32,6 +32,4 @@ You need a kernel >= 2.4.28 or >= 2.6.11 for keepalived. See README.Debian for m
 │           └── checks-keepalived.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-4 directories, 4 files
 ```

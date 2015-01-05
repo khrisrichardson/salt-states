@@ -24,6 +24,4 @@
 ├── init.sls
 └── newrelic
     └── newrelic.yml
-
-1 directory, 2 files
 ```

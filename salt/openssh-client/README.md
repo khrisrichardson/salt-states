@@ -36,6 +36,4 @@ ssh replaces the insecure rsh, rcp and rlogin programs, which are obsolete for m
 │       └── com
 │           └── init.sls
 └── root
-
-4 directories, 2 files
 ```

@@ -27,6 +27,4 @@ This is LVM2, the rewrite of The Linux Logical Volume Manager.  LVM supports ent
 └── root
     └── bin
         └── lvm2.sh
-
-4 directories, 3 files
 ```

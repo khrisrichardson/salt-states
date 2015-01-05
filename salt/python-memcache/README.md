@@ -21,6 +21,4 @@ This software is a 100% Python interface to the memcached memory cache daemon. I
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

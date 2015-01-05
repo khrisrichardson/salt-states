@@ -22,12 +22,10 @@ The Open vSwitch controller enables OpenFlow switches that connect to it to act 
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── default
 │   │   └── openvswitch-controller
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-openvswitch-controller.json
@@ -36,6 +34,4 @@ The Open vSwitch controller enables OpenFlow switches that connect to it to act 
 │           └── openvswitch-controller.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

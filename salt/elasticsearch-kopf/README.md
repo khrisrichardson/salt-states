@@ -28,6 +28,4 @@ Web admin interface for elasticsearch
 │           └── checks-elasticsearch-kopf.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

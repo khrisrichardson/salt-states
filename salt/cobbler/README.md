@@ -23,10 +23,8 @@ Cobbler is a network install server. Cobbler supports PXE, virtualized installs,
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cobbler.json
@@ -41,6 +39,4 @@ Cobbler is a network install server. Cobbler supports PXE, virtualized installs,
         └── nginx
             └── html
                 └── pxe-cloud-config.yml
-
-10 directories, 8 files
 ```

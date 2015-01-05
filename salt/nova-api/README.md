@@ -31,9 +31,9 @@ This package provides the API frontend.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── haproxy
 │   │   └── haproxy.cfg
@@ -43,8 +43,6 @@ This package provides the API frontend.
 │   ├── nova
 │   │   └── rootwrap.d
 │   │       └── api-metadata.filters
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-api.json
@@ -57,6 +55,4 @@ This package provides the API frontend.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-13 directories, 13 files
 ```

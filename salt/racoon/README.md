@@ -32,6 +32,4 @@ This package is a Linux port of the IKE server from the KAME IPsec implementatio
 │           └── checks-racoon.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-4 directories, 6 files
 ```

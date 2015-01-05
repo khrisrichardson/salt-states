@@ -35,6 +35,4 @@ This package contains the agent for synchronization between geographically separ
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-5 directories, 5 files
 ```

@@ -22,11 +22,9 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mesos-master.json
@@ -37,9 +35,5 @@
 │       └── system
 │           └── mesos-master.service
 ├── init.sls
-├── relate-sensu-api.sls
-└── salt
-    └── grains
-
-9 directories, 9 files
+└── relate-sensu-api.sls
 ```

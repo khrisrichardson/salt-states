@@ -23,6 +23,4 @@ This package contains development headers and static libraries.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -24,6 +24,4 @@ This package provides module for Python 2.X.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

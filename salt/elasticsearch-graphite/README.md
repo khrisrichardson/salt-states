@@ -26,6 +26,4 @@
 ├── depend-git.sls
 ├── depend-maven.sls
 └── init.sls
-
-0 directories, 3 files
 ```

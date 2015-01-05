@@ -1,0 +1,35 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     2181
+      protocol: tcp
+    -
+      port:     2888
+      protocol: tcp
+    -
+      port:     3181
+      protocol: tcp
+    -
+      port:     3888
+      protocol: tcp
+    -
+      port:     4181
+      protocol: tcp
+    -
+      port:     9000
+      protocol: tcp
+    -
+      port:     9010
+      protocol: tcp
+    -
+      port:     60000
+      protocol: tcp
+    -
+      port:     60010
+      protocol: tcp

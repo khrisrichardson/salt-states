@@ -25,6 +25,4 @@ inotifywatch collects filesystem usage statistics and outputs counts of each ino
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

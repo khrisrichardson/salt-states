@@ -21,6 +21,4 @@ ICU is a C++ and C library that provides robust and full-featured Unicode and lo
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

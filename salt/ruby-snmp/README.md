@@ -21,6 +21,4 @@ This library implements SNMP (the Simple Network Management Protocol). It is imp
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -1,0 +1,26 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     4369
+      protocol: tcp
+    -
+      port:     8091
+      protocol: tcp
+    -
+      port:     8092
+      protocol: tcp
+    -
+      port:     11209
+      protocol: tcp
+    -
+      port:     11210
+      protocol: tcp
+    -
+      port:     21100
+      protocol: tcp

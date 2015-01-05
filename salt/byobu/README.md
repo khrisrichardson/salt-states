@@ -22,6 +22,4 @@ Byobu is Ubuntu's text-based window manager based on GNU Screen. Using Byobu, yo
 .
 ├── init.sls
 └── root
-
-1 directory, 1 file
 ```

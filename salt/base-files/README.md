@@ -2,7 +2,7 @@
 
 ## Description:
 
-This package contains the basic filesystem hierarchy of a Debian system, and several important miscellaneous files, such as /etc/debian_version, /etc/host.conf, /etc/issue, /etc/motd, /etc/profile, and others, and the text of several common licenses in use on Debian systems.
+This package contains the basic filesystem hierarchy of a Debian system, and several important miscellaneous files, such as /etc/debian\_version, /etc/host.conf, /etc/issue, /etc/motd, /etc/profile, and others, and the text of several common licenses in use on Debian systems.
 
 ## Depends:
 
@@ -21,6 +21,4 @@ This package contains the basic filesystem hierarchy of a Debian system, and sev
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

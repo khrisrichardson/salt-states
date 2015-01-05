@@ -27,12 +27,12 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
 ├── depend-git.sls
 ├── depend-libapache2-mod-wsgi.sls
 ├── depend-logrotate.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── apache2
 │   │   └── sites-available
@@ -42,8 +42,6 @@
 │   │   └── calamari.conf
 │   ├── logrotate.d
 │   │   └── calamari
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-calamari.json
@@ -57,6 +55,4 @@
 ├── relate-graphite-carbon.sls
 ├── relate-postgresql.sls
 └── relate-sensu-api.sls
-
-12 directories, 18 files
 ```

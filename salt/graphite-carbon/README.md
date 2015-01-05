@@ -22,10 +22,8 @@ The Carbon daemon processes the incoming time-series data and saves it as Whispe
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-graphite-carbon.json
@@ -34,6 +32,4 @@ The Carbon daemon processes the incoming time-series data and saves it as Whispe
 │           └── graphite-carbon.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

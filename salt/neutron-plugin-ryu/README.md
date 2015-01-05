@@ -28,6 +28,4 @@ This package provides the RYU plugin.
 │           └── ryu
 │               └── ryu.ini
 └── init.sls
-
-4 directories, 2 files
 ```

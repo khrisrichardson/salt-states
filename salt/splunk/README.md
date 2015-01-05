@@ -27,6 +27,4 @@
             └── system
                 └── local
                     └── props.conf
-
-5 directories, 2 files
 ```

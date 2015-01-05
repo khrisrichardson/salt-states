@@ -29,12 +29,10 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-golang-go.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cadvisor.json
@@ -47,6 +45,4 @@
 ├── init.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-8 directories, 10 files
 ```

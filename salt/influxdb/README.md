@@ -25,10 +25,8 @@ it on a single box.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-influxdb.json
@@ -41,6 +39,4 @@ it on a single box.
 │       └── shared
 │           └── config.toml
 └── relate-sensu-api.sls
-
-9 directories, 7 files
 ```

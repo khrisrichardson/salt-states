@@ -43,6 +43,4 @@
 │           └── salt-halite.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-7 directories, 9 files
 ```

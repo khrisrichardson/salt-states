@@ -36,12 +36,12 @@ Graphite's design is focused on providing simple interfaces (both to users and a
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
 ├── depend-gunicorn.sls
 ├── depend-libapache2-mod-wsgi.sls
 ├── depend-nginx.sls
 ├── depend-sqlite3.sls
-├── Dockerfile
 ├── etc
 │   ├── graphite
 │   │   └── local_settings.py
@@ -50,8 +50,6 @@ Graphite's design is focused on providing simple interfaces (both to users and a
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── graphite-web
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-graphite-web.json
@@ -75,6 +73,4 @@ Graphite's design is focused on providing simple interfaces (both to users and a
                     └── render
                         ├── functions.py
                         └── views.py
-
-18 directories, 21 files
 ```

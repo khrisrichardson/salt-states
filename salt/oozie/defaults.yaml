@@ -1,0 +1,17 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     11000
+      protocol: tcp
+    -
+      port:     11001
+      protocol: tcp
+    -
+      port:     11443
+      protocol: tcp

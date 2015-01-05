@@ -22,11 +22,9 @@ This package provides the AMQP broker.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── qpidd.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-qpidd.json
@@ -35,6 +33,4 @@ This package provides the AMQP broker.
 │           └── qpidd.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 7 files
 ```

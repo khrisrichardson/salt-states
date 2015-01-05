@@ -41,6 +41,4 @@ This package provides the Openflow agent.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

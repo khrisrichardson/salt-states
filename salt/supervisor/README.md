@@ -118,6 +118,4 @@ It will manage individual processes or groups of processes that need to be start
 │       └── supervisord.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-7 directories, 6 files
 ```

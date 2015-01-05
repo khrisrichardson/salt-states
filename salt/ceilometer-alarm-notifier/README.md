@@ -26,11 +26,9 @@ This package contains the alarm notifier daemon.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-alarm-notifier.json
@@ -42,6 +40,4 @@ This package contains the alarm notifier daemon.
 │           └── ceilometer-alarm-notifier.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-8 directories, 8 files
 ```

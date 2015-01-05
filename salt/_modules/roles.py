@@ -180,9 +180,7 @@ def _cp_list_states(*args):
     '''
     args = list(args)
 
-    if __salt__['config.get']('environment') is None:
-        saltenv = 'base'
-    elif args[0]:
+    if args[0]:
         saltenv = args[0]
     else:
         saltenv = _environment()
@@ -195,12 +193,7 @@ def _environment():
     '''
     Get environment
     '''
-    ret = __salt__['grains.get']('environment')
-
-    if ret:
-        return ret
-    else:
-        return 'base'
+    return __salt__['grains.get']('environment', default='base')
 
 
 def _grains(minion='',
@@ -366,9 +359,7 @@ def _state_show_highstate(*args):
     '''
     args = list(args)
 
-    if __salt__['config.get']('environment') is None:
-        saltenv = 'base'
-    elif args[0]:
+    if args[0]:
         saltenv = args[0]
     else:
         saltenv = _environment()

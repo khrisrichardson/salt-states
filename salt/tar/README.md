@@ -25,6 +25,4 @@ Tar is a program for packaging a set of files as a single archive in tar format.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -30,6 +30,4 @@
 │       └── rpm-gpg
 │           └── RPM-GPG-KEY-EPEL-6
 └── init.sls
-
-3 directories, 2 files
 ```

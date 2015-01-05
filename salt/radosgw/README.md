@@ -29,10 +29,10 @@ This package contains the proxy daemon and related tools only.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
 ├── depend-haproxy.sls
 ├── depend-libapache2-mod-fastcgi.sls
-├── Dockerfile
 ├── etc
 │   ├── apache2
 │   │   └── sites-available
@@ -42,8 +42,6 @@ This package contains the proxy daemon and related tools only.
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-radosgw.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-radosgw.json
@@ -58,6 +56,4 @@ This package contains the proxy daemon and related tools only.
 └── var
     └── www
         └── s3gw.fcgi
-
-13 directories, 16 files
 ```

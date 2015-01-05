@@ -32,6 +32,4 @@ It supports both the Heartbeat and Corosync cluster stacks.
 │           └── checks-pacemaker.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-4 directories, 4 files
 ```

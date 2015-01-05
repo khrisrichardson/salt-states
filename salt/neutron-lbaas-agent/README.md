@@ -45,6 +45,4 @@ This package provides the Load Balancing as-a Service (LBaaS) agent.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-9 directories, 9 files
 ```

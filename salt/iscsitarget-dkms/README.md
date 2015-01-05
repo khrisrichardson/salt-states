@@ -25,6 +25,4 @@ This package contains the source to be built with dkms.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -21,6 +21,4 @@ Java classes for communication with the PostgreSQL 7.2 up to 9.1 database backen
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

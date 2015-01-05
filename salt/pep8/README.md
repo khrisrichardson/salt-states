@@ -21,6 +21,4 @@ Features a plugin architecture allowing for adding new checks is easily. Parseab
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -26,11 +26,9 @@ This package provides the swift container server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-swift-container.json
@@ -47,6 +45,4 @@ This package provides the swift container server.
 └── root
     └── bin
         └── swift-container.sh
-
-11 directories, 10 files
 ```

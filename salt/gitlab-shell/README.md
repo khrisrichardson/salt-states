@@ -26,6 +26,4 @@
 │       └── gitlab-shell
 │           └── config.yml
 └── init.sls
-
-3 directories, 2 files
 ```

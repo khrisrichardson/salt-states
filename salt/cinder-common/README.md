@@ -61,6 +61,4 @@ This package contains commons components for Cinder.
 ├── relate-redis-server.sls
 ├── relate-swift-proxy.sls
 └── relate-tivoli-storage-manager.sls
-
-2 directories, 20 files
 ```

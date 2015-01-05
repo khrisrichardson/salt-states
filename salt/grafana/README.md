@@ -25,14 +25,12 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-nginx.sls
-├── Dockerfile
 ├── etc
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── grafana
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-grafana.json
@@ -52,6 +50,4 @@
             │       ├── default.json
             │       └── template.json
             └── config.js
-
-13 directories, 14 files
 ```

@@ -85,6 +85,4 @@ This package contains things that are needed by all parts of Nova.
 ├── relate-qpidd.sls
 ├── relate-rabbitmq-server.sls
 └── relate-redis-server.sls
-
-5 directories, 23 files
 ```

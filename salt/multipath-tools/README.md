@@ -28,6 +28,4 @@ If you install this package you may have to change the way you address block dev
 │           └── checks-multipath-tools.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

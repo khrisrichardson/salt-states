@@ -23,6 +23,4 @@ Because the FUSE-based client has certain inherent performance limitations, it i
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

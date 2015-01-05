@@ -24,6 +24,4 @@ A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework s
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

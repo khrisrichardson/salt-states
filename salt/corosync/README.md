@@ -45,6 +45,4 @@ This package contains the corosync daemon and modules.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-9 directories, 10 files
 ```

@@ -28,6 +28,4 @@ Please note that old qemu-kvm configuration files (in /etc/kvm/) are no longer u
 │           └── checks-qemu-kvm.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

@@ -30,11 +30,15 @@ logstash:
       - pkg:       python-apt
    {% endif %}
   pkg.installed:
+   {% if not 'logstash' in salt['config.get']('roles') %}
     - order:      -1
+   {% endif %}
     - require:
       - pkgrepo:   logstash
   service.running:
+   {% if not 'logstash' in salt['config.get']('roles') %}
     - order:      -1
+   {% endif %}
     - enable:      True
     - require:
       - pkg:       debianutils

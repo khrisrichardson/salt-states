@@ -1,0 +1,15 @@
+# vi: set ft=yaml.jinja :
+
+{% if   salt['config.get']('os_family') == 'Debian' %}
+
+ivy:
+  pkg:
+    name:          ivy
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+ivy:
+  pkg:
+    name:          apache-ivy
+
+{% endif %}

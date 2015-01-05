@@ -25,11 +25,9 @@ This package includes the programs and libraries to support simple ceph cluster 
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-openssh.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   └── systemd
 │       └── system
 │           └── ceph-deploy.service
@@ -39,6 +37,4 @@ This package includes the programs and libraries to support simple ceph cluster 
 ├── relate-ceph-mds.sls
 ├── relate-ceph-mon.sls
 └── relate-ceph-osd.sls
-
-6 directories, 8 files
 ```

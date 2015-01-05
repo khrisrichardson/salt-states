@@ -42,9 +42,9 @@ This package contains the glance API server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── glance
 │   │   ├── glance-api.conf
@@ -58,8 +58,6 @@ This package contains the glance API server.
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-glance-api.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-glance-api.json
@@ -88,6 +86,4 @@ This package contains the glance API server.
 ├── relate-sheepdog.sls
 ├── relate-swift-object.sls
 └── relate-swift-proxy.sls
-
-12 directories, 34 files
 ```

@@ -25,6 +25,4 @@ The main advantages of psycopg2 are that it supports the full Python DBAPI-2.0 a
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

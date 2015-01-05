@@ -25,11 +25,9 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceph-mon.json
@@ -45,6 +43,4 @@
 ├── relate-etcd.sls
 ├── relate-radosgw.sls
 └── relate-sensu-api.sls
-
-8 directories, 12 files
 ```

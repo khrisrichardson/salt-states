@@ -25,10 +25,8 @@ Puppet's simple declarative specification language provides powerful classing ab
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-puppetmaster.json
@@ -37,6 +35,4 @@ Puppet's simple declarative specification language provides powerful classing ab
 │           └── puppetmaster.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

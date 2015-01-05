@@ -36,14 +36,12 @@ It is the default syslogd on Debian systems.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── rsyslog.d
 │   │   ├── 00-remote.conf
 │   │   ├── 60-imtcp.conf
 │   │   └── 60-imudp.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-rsyslog.json
@@ -54,6 +52,4 @@ It is the default syslogd on Debian systems.
 ├── relate-logstash.sls
 ├── relate-rsyslog.sls
 └── relate-sensu-api.sls
-
-7 directories, 11 files
 ```

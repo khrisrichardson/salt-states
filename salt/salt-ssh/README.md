@@ -32,6 +32,4 @@ This particular package provides the salt ssh controller. It is able to run salt
 │   └── salt
 │       └── roster
 └── init.sls
-
-2 directories, 2 files
 ```

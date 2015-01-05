@@ -30,6 +30,4 @@ If the full NTP daemon from the package "ntp" is installed, then ntpdate is not 
 │           └── checks-ntpdate.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

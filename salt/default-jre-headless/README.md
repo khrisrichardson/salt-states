@@ -23,6 +23,4 @@ The package is used as dependency for packages not needing a graphical display d
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

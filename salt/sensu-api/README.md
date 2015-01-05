@@ -21,10 +21,8 @@
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-sensu-api.json
@@ -33,6 +31,4 @@
 │           └── sensu-api.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

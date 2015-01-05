@@ -58,6 +58,4 @@ This package provides a full installation of the daemon, including the configura
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-6 directories, 23 files
 ```

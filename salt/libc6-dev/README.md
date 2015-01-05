@@ -21,6 +21,4 @@ Contains the symlinks, headers, and object files needed to compile and link prog
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

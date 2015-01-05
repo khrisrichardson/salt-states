@@ -47,6 +47,4 @@ This is the package you will install on the nodes that will run your virtual mac
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-9 directories, 8 files
 ```

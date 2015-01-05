@@ -27,6 +27,4 @@ This package is NOT the definition of what packages are build-essential; the rea
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

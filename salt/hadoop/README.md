@@ -57,6 +57,4 @@ around the cluster. MapReduce can then process the data where it is located.
 ├── relate-hadoop-hdfs-namenode.sls
 ├── relate-hadoop-hdfs-secondarynamenode.sls
 └── relate-logstash.sls
-
-5 directories, 11 files
 ```

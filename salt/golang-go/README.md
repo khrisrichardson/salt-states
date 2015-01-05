@@ -30,6 +30,4 @@ This package provides an assembler, a compiler, and a linker for the Go programm
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

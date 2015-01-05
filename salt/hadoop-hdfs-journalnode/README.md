@@ -32,10 +32,8 @@ machines in the cluster.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-hadoop-hdfs-journalnode.json
@@ -52,6 +50,4 @@ machines in the cluster.
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 11 files
 ```

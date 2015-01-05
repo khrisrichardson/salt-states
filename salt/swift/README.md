@@ -28,6 +28,4 @@ This package provides some core binaries and clients to control swift.
 │   └── swift
 │       └── swift.conf
 └── init.sls
-
-2 directories, 2 files
 ```

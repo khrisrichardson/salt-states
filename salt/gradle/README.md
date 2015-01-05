@@ -21,6 +21,4 @@ Gradle is a build system written in Groovy. It uses Groovy also as the language 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

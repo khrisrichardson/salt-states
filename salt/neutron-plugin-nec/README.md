@@ -28,6 +28,4 @@ This package provides the NEC plugin.
 │           └── nec
 │               └── nec.ini
 └── init.sls
-
-4 directories, 2 files
 ```

@@ -31,10 +31,8 @@ This package starts the zookeeper server on startup
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-zookeeper-server.json
@@ -51,6 +49,4 @@ This package starts the zookeeper server on startup
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 11 files
 ```

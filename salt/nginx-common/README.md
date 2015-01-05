@@ -27,15 +27,13 @@ This package contains base configuration files used by all versions of nginx.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── collectd.d
 │   │   └── nginx-common.conf
 │   ├── nginx
 │   │   ├── fastcgi_params
 │   │   └── nginx.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nginx-common.json
@@ -46,6 +44,4 @@ This package contains base configuration files used by all versions of nginx.
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-8 directories, 11 files
 ```

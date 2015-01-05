@@ -43,6 +43,4 @@ This package contains all server daemons and management tools for creating, runn
 ├── relate-ceph-deploy.sls
 ├── relate-etcd.sls
 └── relate-logstash.sls
-
-5 directories, 9 files
 ```

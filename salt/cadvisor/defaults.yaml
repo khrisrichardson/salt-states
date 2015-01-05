@@ -1,0 +1,24 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     8080
+      protocol: tcp
+      dst:      anywhere
+      dport:    8080
+storage:
+  mounts:
+    -
+      device: /cgroup
+      dir:    /sys/fs/cgroup
+    -
+      device: /var/lib/docker
+      dir:    /var/lib/docker
+    -
+      device: /var/run
+      dir:    /var/run

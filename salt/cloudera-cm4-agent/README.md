@@ -52,6 +52,4 @@ The Agent is deployed to machines running services managed by Cloudera Manager.
     └── bin
         ├── cm_client.ini
         └── cm_client.py
-
-6 directories, 7 files
 ```

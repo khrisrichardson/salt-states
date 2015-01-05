@@ -21,6 +21,4 @@ Extensions to the python-distutils for large or complex distributions.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -35,6 +35,4 @@ This package provides the BigSwitch plugin agent.
 │           └── neutron-plugin-bigswitch-agent.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-5 directories, 5 files
 ```

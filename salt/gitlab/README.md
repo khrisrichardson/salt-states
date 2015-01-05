@@ -44,9 +44,9 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-logrotate.sls
 ├── depend-nginx.sls
-├── Dockerfile
 ├── etc
 │   ├── init.d
 │   │   └── gitlab
@@ -55,8 +55,6 @@
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── gitlab
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-gitlab.json
@@ -75,6 +73,4 @@
 ├── init.sls
 ├── relate-postgresql.sls
 └── relate-sensu-api.sls
-
-15 directories, 16 files
 ```

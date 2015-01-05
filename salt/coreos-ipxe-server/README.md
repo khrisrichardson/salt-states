@@ -24,11 +24,9 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-coreos-ipxe-server.json
@@ -45,6 +43,4 @@
 │           └── base.yml
 ├── relate-coreos.sls
 └── relate-sensu-api.sls
-
-11 directories, 10 files
 ```

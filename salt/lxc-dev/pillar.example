@@ -1,0 +1,15 @@
+# vi: set ft=yaml.jinja :
+
+{% if   salt['config.get']('os_family') == 'Debian' %}
+
+lxc-dev:
+  pkg:
+    name:          lxc-dev
+
+{% elif salt['config.get']('os_family') == 'RedHat' %}
+
+lxc-dev:
+  pkg:
+    name:          lxc-devel
+
+{% endif %}

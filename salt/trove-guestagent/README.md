@@ -40,6 +40,4 @@ This package provides the Trove guest agent. The guestagent is a service that ru
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

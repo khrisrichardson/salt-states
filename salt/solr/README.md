@@ -53,6 +53,4 @@
         └── tomcat7
             └── bin
                 └── setenv.sh
-
-8 directories, 13 files
 ```

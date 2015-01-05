@@ -24,12 +24,10 @@ Postfix is Wietse Venema's mail transport agent that started life as an alternat
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── postfix
 │   │   └── main.cf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-postfix.json
@@ -39,6 +37,4 @@ Postfix is Wietse Venema's mail transport agent that started life as an alternat
 ├── init.sls
 ├── pkg.selections
 └── relate-sensu-api.sls
-
-7 directories, 8 files
 ```

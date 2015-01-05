@@ -44,6 +44,4 @@ This package provides the NEC plugin agent.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-9 directories, 8 files
 ```

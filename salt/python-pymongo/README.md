@@ -21,6 +21,4 @@ MongoDB is a high-performance, open source, schema-free document-oriented data s
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

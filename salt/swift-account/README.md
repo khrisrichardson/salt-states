@@ -26,11 +26,9 @@ This package provides the swift account server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-swift-account.json
@@ -47,6 +45,4 @@ This package provides the swift account server.
 └── root
     └── bin
         └── swift-account.sh
-
-11 directories, 10 files
 ```

@@ -31,17 +31,15 @@ This package provides the spice proxy. It is a publically reachable component wh
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-haproxy.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── haproxy
 │   │   └── haproxy.cfg
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-nova-spiceproxy.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-spiceproxy.json
@@ -54,6 +52,4 @@ This package provides the spice proxy. It is a publically reachable component wh
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-11 directories, 12 files
 ```

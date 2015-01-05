@@ -26,11 +26,9 @@ This package contains the alarm evaluator daemon.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-alarm-evaluator.json
@@ -42,6 +40,4 @@ This package contains the alarm evaluator daemon.
 │           └── ceilometer-alarm-evaluator.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-8 directories, 8 files
 ```

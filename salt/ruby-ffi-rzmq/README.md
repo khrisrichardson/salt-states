@@ -25,6 +25,4 @@ This module wraps ?MQ using Ruby FFI (foreign function interface). It is a pure 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

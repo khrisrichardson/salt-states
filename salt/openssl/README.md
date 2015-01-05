@@ -29,6 +29,4 @@ It contains the general-purpose command line binary /usr/bin/openssl, useful for
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

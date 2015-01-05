@@ -4,7 +4,6 @@ set -x
 
 repository=https://github.com/khrisrichardson/salt-states.git
        ref=master
- minion_id=${HOSTNAME}
 
 export DEBIAN_FRONTEND=noninteractive
 export             PS4='$( date "+%s.%N ($LINENO) + " )'
@@ -19,10 +18,10 @@ main() {
     if ! test -f /usr/bin/salt-call
     then
         salt_bootstrap "${@}"
+        salt_setup
         pygit2_setup
-        salt_minion_setup
     fi
-    salt_call_state_highstate
+    salt_highstate
     salt_clean
     pkg_clean
 }
@@ -73,9 +72,11 @@ pkg_setup() {
 #   DESCRIPTION:  Configure pygit2.
 #-------------------------------------------------------------------------------
 pygit2_setup() {
-    salt-call --local pkg.install software-properties-common
-    add-apt-repository -y ppa:dennis/python
-    salt-call --local pkg.install python-pygit2 refresh=True
+    salt-call pkg.install software-properties-common
+    salt-call pkg.mod_repo ppa:dennis/python                                   \
+	          keyserver=hkp://keyserver.ubuntu.com:80                      \
+			  keyid=F3FA6A64F50B4114
+    salt-call pkg.install python-pygit2 refresh=True
 }
 
 #----  FUNCTION  ---------------------------------------------------------------
@@ -105,10 +106,10 @@ salt_bootstrap() {
 }
 
 #----  FUNCTION  ---------------------------------------------------------------
-#          NAME:  salt_call_state_highstate
+#          NAME:  salt_highstate
 #   DESCRIPTION:  Set environment, referenced by top.sls, and run highstate.
 #-------------------------------------------------------------------------------
-salt_call_state_highstate() {
+salt_highstate() {
     if ! grep -q environment /etc/salt/grains 2>/dev/null
     then
         if [[ "${ref}" =~ "master" ]]
@@ -117,10 +118,10 @@ salt_call_state_highstate() {
         else
             environment=${ref}
         fi
-    salt-call --local grains.setval environment ${environment}
+    salt-call grains.setval environment ${environment}
     fi
-    rm -f                                        /var/log/salt/highstate
-    salt-call --local state.highstate --out-file=/var/log/salt/highstate       \
+    rm -f                                /var/log/salt/highstate
+    salt-call state.highstate --out-file=/var/log/salt/highstate               \
  || exit ${?}
 }
 
@@ -140,10 +141,10 @@ salt_clean() {
 }
 
 #----  FUNCTION  ---------------------------------------------------------------
-#          NAME:  salt_minion_setup
+#          NAME:  salt_setup
 #   DESCRIPTION:  Configure salt-minion.
 #-------------------------------------------------------------------------------
-salt_minion_setup() {
+salt_setup() {
     if [[ "${ref}" =~ "master" ]]
     then
         environment=base

@@ -31,10 +31,10 @@ This package contains the Cinder Volume server.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-iscsitarget.sls
 ├── depend-supervisor.sls
 ├── depend-tgt.sls
-├── Dockerfile
 ├── etc
 │   ├── cinder
 │   │   └── rootwrap.d
@@ -42,8 +42,6 @@ This package contains the Cinder Volume server.
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-cinder-volume.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cinder-volume.json
@@ -59,6 +57,4 @@ This package contains the Cinder Volume server.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-14 directories, 14 files
 ```

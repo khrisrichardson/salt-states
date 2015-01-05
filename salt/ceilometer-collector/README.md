@@ -26,11 +26,9 @@ This package contains the collector service
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-collector.json
@@ -42,6 +40,4 @@ This package contains the collector service
 │           └── ceilometer-collector.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-8 directories, 8 files
 ```

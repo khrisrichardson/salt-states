@@ -1,0 +1,17 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     443
+      protocol: tcp
+    -
+      port:     4505
+      protocol: tcp
+    -
+      port:     4506
+      protocol: tcp

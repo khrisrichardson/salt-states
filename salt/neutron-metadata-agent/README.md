@@ -48,6 +48,4 @@ This package provides the metadata proxy agent.
 ├── relate-logstash.sls
 ├── relate-nova-api-metadata.sls
 └── relate-sensu-api.sls
-
-8 directories, 10 files
 ```

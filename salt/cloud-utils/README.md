@@ -21,6 +21,4 @@ This meta-package will depend on all sub-packages built by the upstream cloud-ut
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -33,6 +33,4 @@ The specific utilities included are: add-shell installkernel ischroot remove-she
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

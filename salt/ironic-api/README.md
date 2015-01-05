@@ -24,11 +24,9 @@ This package contains the API.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ironic-api.json
@@ -40,6 +38,4 @@ This package contains the API.
 │           └── ironic-api.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-8 directories, 8 files
 ```

@@ -29,6 +29,4 @@ This package provides the Cisco plugin.
 │               ├── cisco_plugins.ini
 │               └── cisco_vpn_agent.ini
 └── init.sls
-
-4 directories, 3 files
 ```

@@ -21,6 +21,4 @@ This dependency package points to the Java runtime, or Java compatible runtime r
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -34,10 +34,8 @@ namenode, which manages the block locations of files on the filesystem.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-hadoop-hdfs-namenode.json
@@ -55,6 +53,4 @@ namenode, which manages the block locations of files on the filesystem.
 ├── relate-hadoop-hdfs-secondarynamenode.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 12 files
 ```

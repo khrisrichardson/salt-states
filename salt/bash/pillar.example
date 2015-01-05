@@ -9,6 +9,15 @@ bash:
     file:
       name:       /etc/bash.bashrc
 
+{% elif salt['config.get']('os_family') == 'MacOS' %}
+
+bash:
+  pkg:
+    name:          bash
+  /etc/bash.bashrc:
+    file:
+      name:       /etc/bashrc
+
 {% elif salt['config.get']('os_family') == 'RedHat' %}
 
 bash:

@@ -21,12 +21,10 @@
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── riemann
 │   │   └── riemann.config
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-riemann.json
@@ -35,6 +33,4 @@
 │           └── riemann.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

@@ -25,14 +25,12 @@ PostgreSQL is a fully featured object-relational database management system.  It
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── postgresql
 │   │   └── 9.1
 │   │       └── main
 │   │           └── postgresql.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-postgresql.json
@@ -43,6 +41,4 @@ PostgreSQL is a fully featured object-relational database management system.  It
 ├── relate-calamari.sls
 ├── relate-salt-minion.sls
 └── relate-sensu-api.sls
-
-9 directories, 9 files
 ```

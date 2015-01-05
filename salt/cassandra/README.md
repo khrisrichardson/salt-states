@@ -24,6 +24,4 @@
 .
 ├── init.sls
 └── relate-salt-minion.sls
-
-0 directories, 2 files
 ```

@@ -36,6 +36,4 @@ This package contains the compute agent
 │           └── ceilometer-agent-compute.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-5 directories, 5 files
 ```

@@ -23,6 +23,4 @@ The aim of this project is to provide a convenient and reliable way of calling C
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

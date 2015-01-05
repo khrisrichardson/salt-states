@@ -28,6 +28,4 @@ This package provides the Brocade plugin.
 │           └── brocade
 │               └── brocade.ini
 └── init.sls
-
-4 directories, 2 files
 ```

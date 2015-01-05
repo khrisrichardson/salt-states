@@ -27,6 +27,4 @@ This is a transitional dummy package.  The 'git-core' package has been renamed t
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -22,10 +22,8 @@ This package contains the monitor core program.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ganglia-monitor.json
@@ -34,6 +32,4 @@ This package contains the monitor core program.
 │           └── ganglia-monitor.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-6 directories, 6 files
 ```

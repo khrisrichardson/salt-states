@@ -1,0 +1,20 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     7180
+      protocol: tcp
+    -
+      port:     7182
+      protocol: tcp
+    -
+      port:     7183
+      protocol: tcp
+    -
+      port:     9000
+      protocol: tcp

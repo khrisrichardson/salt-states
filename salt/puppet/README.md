@@ -30,6 +30,4 @@ Puppet's simple declarative specification language provides powerful classing ab
 │           └── checks-puppet.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

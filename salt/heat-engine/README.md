@@ -26,8 +26,8 @@ This package contains the heat engine, which is the core service of heat, and wh
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── heat
 │   │   └── environment.d
@@ -35,8 +35,6 @@ This package contains the heat engine, which is the core service of heat, and wh
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-heat-engine.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-heat-engine.json
@@ -49,6 +47,4 @@ This package contains the heat engine, which is the core service of heat, and wh
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-12 directories, 11 files
 ```

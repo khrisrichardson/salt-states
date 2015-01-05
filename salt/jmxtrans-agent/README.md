@@ -34,6 +34,4 @@
 └── opt
     └── jmxtrans
         └── pom.xml
-
-2 directories, 3 files
 ```

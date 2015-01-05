@@ -5,6 +5,19 @@
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
+    },
+    "check-beanstalkd": {
+      "command"     : "/etc/sensu/plugins/beanstalkd/check-beanstalkd.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "metric-beanstalkd": {
+      "command"     : "/etc/sensu/plugins/beanstalkd/beanstalkd-metrics.rb",
+      "handlers"    : ["graphite"],
+      "interval"    :   10,
+      "standalone"  :   true,
+      "type"        :  "metric"
     }
   }
 }

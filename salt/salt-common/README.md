@@ -39,6 +39,4 @@ This particular package provides shared libraries that salt-master, salt-minion,
 │       └── apt.conf.d
 │           └── 30proxy
 └── init.sls
-
-3 directories, 3 files
 ```

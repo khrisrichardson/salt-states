@@ -22,12 +22,10 @@ Privoxy is based on Internet Junkbuster (tm).
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── privoxy
 │   │   └── config
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-privoxy.json
@@ -36,6 +34,4 @@ Privoxy is based on Internet Junkbuster (tm).
 │           └── privoxy.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

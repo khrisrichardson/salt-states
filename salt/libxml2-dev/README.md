@@ -24,6 +24,4 @@ Install this package if you wish to develop your own programs using the GNOME XM
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

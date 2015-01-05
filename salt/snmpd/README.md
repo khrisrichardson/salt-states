@@ -29,6 +29,4 @@ The Net-SNMP agent is a daemon which listens for incoming SNMP requests from cli
 │           └── checks-snmpd.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

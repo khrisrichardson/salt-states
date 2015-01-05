@@ -25,14 +25,12 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-golang-go.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── fleet
 │   │   └── fleet.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-fleet.json
@@ -44,6 +42,4 @@
 │           └── fleet.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-9 directories, 10 files
 ```

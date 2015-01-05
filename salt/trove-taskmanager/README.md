@@ -26,14 +26,12 @@ This package provides the Trove taskmanager. The trove-taskmanager service does 
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-trove-taskmanager.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-trove-taskmanager.json
@@ -46,6 +44,4 @@ This package provides the Trove taskmanager. The trove-taskmanager service does 
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-10 directories, 10 files
 ```

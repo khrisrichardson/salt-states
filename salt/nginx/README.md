@@ -29,12 +29,9 @@ This is a dependency package to install either nginx-core (by default), nginx-fu
 
 ```bash
 .
-├── Dockerfile
 ├── etc
 │   └── systemd
 │       └── system
 │           └── nginx.service
 └── init.sls
-
-3 directories, 3 files
 ```

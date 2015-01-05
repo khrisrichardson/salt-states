@@ -28,6 +28,4 @@ This package provides the Trove common files.
 │   └── trove
 │       └── trove.conf
 └── init.sls
-
-2 directories, 2 files
 ```

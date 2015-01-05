@@ -27,6 +27,4 @@ It contains free, kill, pkill, pgrep, pmap, ps, pwdx, skill, slabtop, snice, sys
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

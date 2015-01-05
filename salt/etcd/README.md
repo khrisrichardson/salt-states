@@ -15,7 +15,7 @@
 
 ## Reverse Depends:
 
-  -  [coreos-fleet](/salt/coreos-fleet)
+  -  N/A
 
 ## Relates:
 
@@ -25,15 +25,13 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-golang-go.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── etcd
 │   │   ├── etcd.conf
 │   │   └── peer.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-etcd.json
@@ -45,6 +43,4 @@
 │           └── etcd.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-9 directories, 11 files
 ```

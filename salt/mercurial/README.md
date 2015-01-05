@@ -35,6 +35,4 @@ This package contains the architecture dependent files.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -1,0 +1,26 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     24007
+      protocol: tcp
+    -
+      port:     24008
+      protocol: tcp
+    -
+      port:     24009
+      protocol: tcp
+    -
+      port:     34865
+      protocol: tcp
+    -
+      port:     34866
+      protocol: tcp
+    -
+      port:     34867
+      protocol: tcp

@@ -21,6 +21,4 @@ This package provides simple shell command line tools to suspend and hibernate y
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

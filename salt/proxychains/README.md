@@ -35,6 +35,4 @@ http://proxychains.sourceforge.net
 ├── etc
 │   └── proxychains.conf
 └── init.sls
-
-1 directory, 2 files
 ```

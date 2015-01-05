@@ -32,12 +32,10 @@ This package contains the server itself  (mongod) and the sharding server/load-b
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── mongodb.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mongodb-server.json
@@ -50,6 +48,4 @@ This package contains the server itself  (mongod) and the sharding server/load-b
 ├── init.sls
 ├── relate-salt-minion.sls
 └── relate-sensu-api.sls
-
-8 directories, 10 files
 ```

@@ -27,6 +27,4 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 │       └── rpm-gpg
 │           └── IUS-COMMUNITY-GPG-KEY
 └── init.sls
-
-3 directories, 2 files
 ```

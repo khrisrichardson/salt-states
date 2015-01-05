@@ -29,12 +29,10 @@ Open Source, Distributed, RESTful Search Engine
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── elasticsearch
 │   │   └── elasticsearch.yml
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-elasticsearch.json
@@ -50,6 +48,4 @@ Open Source, Distributed, RESTful Search Engine
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-10 directories, 11 files
 ```

@@ -32,6 +32,4 @@ Please note that Debian can neither confirm nor deny whether the certificate aut
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

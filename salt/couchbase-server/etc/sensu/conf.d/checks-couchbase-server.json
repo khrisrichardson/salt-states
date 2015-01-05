@@ -1,0 +1,58 @@
+{
+  "checks": {
+    "check-couchbase-server-bucket-quota": {
+      "command"     : "/etc/sensu/plugins/couchbase/check-couchbase-bucket-quota.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-http-couchbase-server": {
+      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '8091' -p '/'",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-couchbase-server-beam": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'bin/beam' -C 2",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-couchbase-server-cpu_sup": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'bin/cpu_sup' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-couchbase-server-epmd": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'bin/epmd' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-couchbase-server-mem_sup": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'bin/memsup' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-couchbase-server-memcached": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'bin/memcached' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-couchbase-server-moxi": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'bin/moxi' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-couchbase-server-portsigar": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'portsigar' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

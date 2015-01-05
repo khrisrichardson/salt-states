@@ -25,6 +25,4 @@ System, Events, Standard I/O, Modules, Timers, Child Processes, POSIX, HTTP, Mul
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

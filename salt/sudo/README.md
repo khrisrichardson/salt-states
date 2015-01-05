@@ -35,6 +35,4 @@ This version is built with minimal shared library dependencies, use the sudo-lda
 │   └── sudoers
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 4 files
 ```

@@ -22,12 +22,10 @@ This package contains the 'gmetad' daemon, which collects information from gangl
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── ganglia
 │   │   └── gmetad.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-gmetad.json
@@ -36,6 +34,4 @@ This package contains the 'gmetad' daemon, which collects information from gangl
 │           └── gmetad.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

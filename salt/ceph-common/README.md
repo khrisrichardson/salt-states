@@ -23,6 +23,4 @@ Ceph is a distributed storage and file system designed to provide excellent perf
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

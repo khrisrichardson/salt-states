@@ -36,6 +36,4 @@ This package contains the central agent.
 │           └── ceilometer-agent-central.conf
 ├── init.sls
 └── relate-sensu-api.sls
-
-5 directories, 5 files
 ```

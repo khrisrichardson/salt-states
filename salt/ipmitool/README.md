@@ -23,6 +23,4 @@ The ipmitool program provides a simple command-line interface to this BMC.  It f
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

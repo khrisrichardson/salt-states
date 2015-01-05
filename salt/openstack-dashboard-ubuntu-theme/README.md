@@ -24,6 +24,4 @@ A custom Ubuntu theme for Horizon.  This package is optional and overrides the d
 │   └── openstack-dashboard
 │       └── ubuntu_theme.py
 └── init.sls
-
-2 directories, 2 files
 ```

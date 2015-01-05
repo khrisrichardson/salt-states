@@ -26,18 +26,16 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-nginx.sls
 ├── depend-openssl.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── default
 │   │   └── kubernetes-apiserver
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── kubernetes-apiserver
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-kubernetes-apiserver.json
@@ -48,6 +46,4 @@
 ├── relate-etcd.sls
 ├── relate-kubernetes-kubelet.sls
 └── relate-sensu-api.sls
-
-9 directories, 13 files
 ```

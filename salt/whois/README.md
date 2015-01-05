@@ -23,6 +23,4 @@ The package also contains mkpasswd, a features-rich front end to the password en
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -4,6 +4,7 @@ include:
   - .depend-git
   - .depend-supervisor
   -  salt-common
+  -  salt-halite
   {% if salt['config.get']('os_family') == 'RedHat' %}
   -  epel-release
   {% endif %}

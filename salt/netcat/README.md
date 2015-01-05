@@ -21,6 +21,4 @@ This is a "dummy" package that depends on lenny's default version of netcat, to 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

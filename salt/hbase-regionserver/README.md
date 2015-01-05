@@ -31,10 +31,8 @@ the HMaster. There are many HRegionServers in a single HBase deployment.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-hbase-regionserver.json
@@ -51,6 +49,4 @@ the HMaster. There are many HRegionServers in a single HBase deployment.
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 11 files
 ```

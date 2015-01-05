@@ -25,10 +25,8 @@ This package contains the metadata server daemon, which is used to create a dist
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceph-mds.json
@@ -39,6 +37,4 @@ This package contains the metadata server daemon, which is used to create a dist
 ├── relate-ceph-deploy.sls
 ├── relate-ceph-mon.sls
 └── relate-sensu-api.sls
-
-6 directories, 8 files
 ```

@@ -24,6 +24,4 @@ These tools are required to be able to login and use your system. The login prog
 │   └── pam.d
 │       └── login
 └── init.sls
-
-2 directories, 2 files
 ```

@@ -26,10 +26,8 @@ This package contains init.d scripts to start and stop zookeeper and starts zook
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-zookeeperd.json
@@ -44,6 +42,4 @@ This package contains init.d scripts to start and stop zookeeper and starts zook
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls
-
-9 directories, 9 files
 ```

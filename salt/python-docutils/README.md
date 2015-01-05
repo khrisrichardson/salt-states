@@ -25,6 +25,4 @@ This package includes Python 2 modules and command line utilities.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

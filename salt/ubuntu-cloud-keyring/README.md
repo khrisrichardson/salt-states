@@ -21,6 +21,4 @@ The Ubuntu project digitally signs its Release files. This package contains the 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

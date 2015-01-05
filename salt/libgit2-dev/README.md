@@ -23,6 +23,4 @@ This package contains the development files for libgit2.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

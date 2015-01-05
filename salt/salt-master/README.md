@@ -38,12 +38,11 @@ This particular package provides the salt controller.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-git.sls
 ├── depend-supervisor.sls
-├── Dockerfile
 ├── etc
 │   ├── salt
-│   │   ├── grains
 │   │   └── master.d
 │   │       ├── auto_accept.conf
 │   │       ├── cobbler.conf
@@ -76,6 +75,4 @@ This particular package provides the salt controller.
         │   └── ret.sls
         └── minion
             └── start.sls
-
-13 directories, 25 files
 ```

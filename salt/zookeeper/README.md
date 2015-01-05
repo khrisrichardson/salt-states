@@ -28,6 +28,4 @@ This package contains the shell scripts and an example configuration but does no
 │       └── conf.dist
 │           └── log4j.properties
 └── init.sls
-
-3 directories, 2 files
 ```

@@ -24,10 +24,8 @@
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-node-redis-commander.json
@@ -43,6 +41,4 @@
                 └── redis-commander
                     └── bin
                         └── supervisor
-
-12 directories, 7 files
 ```

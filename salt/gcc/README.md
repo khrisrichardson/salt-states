@@ -24,6 +24,4 @@ This is a dependency package providing the default GNU C compiler.
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

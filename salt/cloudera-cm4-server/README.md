@@ -26,10 +26,8 @@ The Cloudera Manager Server manages the services making up a Hadoop cluster.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cloudera-cm4-server.json
@@ -39,6 +37,4 @@ The Cloudera Manager Server manages the services making up a Hadoop cluster.
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
-
-6 directories, 7 files
 ```

@@ -41,6 +41,4 @@ This package provides a basic set of plugins with minimal external dependencies.
         └── nagios
             └── plugins
                 └── check_mem.pl
-
-4 directories, 2 files
 ```

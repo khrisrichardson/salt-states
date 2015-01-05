@@ -6,7 +6,7 @@ Nagios is a host/service/network monitoring and management system.
 
 The purpose of this addon is to allow you to execute Nagios plugins on a remote host in as transparent a manner as possible.
 
-This program runs as a background process on the remote host and processes command execution requests from the check_nrpe plugin on the Nagios host.
+This program runs as a background process on the remote host and processes command execution requests from the check\_nrpe plugin on the Nagios host.
 
 ## Depends:
 
@@ -24,12 +24,10 @@ This program runs as a background process on the remote host and processes comma
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── nagios
 │   │   └── nrpe.cfg
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nagios-nrpe-server.json
@@ -38,6 +36,4 @@ This program runs as a background process on the remote host and processes comma
 │           └── nagios-nrpe-server.service
 ├── init.sls
 └── relate-sensu-api.sls
-
-7 directories, 7 files
 ```

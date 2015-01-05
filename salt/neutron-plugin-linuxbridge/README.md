@@ -28,6 +28,4 @@ This package provides the linuxbridge plugin.
 │           └── linuxbridge
 │               └── linuxbridge_conf.ini
 └── init.sls
-
-4 directories, 2 files
 ```

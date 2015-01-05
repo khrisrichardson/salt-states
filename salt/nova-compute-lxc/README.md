@@ -26,16 +26,12 @@ Install this package on your compute nodes if you're using LXC.
 
 ```bash
 .
-├── Dockerfile
+├── defaults.yaml
 ├── etc
 │   ├── nova
 │   │   └── nova-compute.conf
-│   ├── salt
-│   │   └── grains
 │   └── systemd
 │       └── system
 │           └── nova-compute-lxc.service
 └── init.sls
-
-5 directories, 5 files
 ```

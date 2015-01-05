@@ -21,6 +21,4 @@ This package provides utilities from the OpenLDAP (Lightweight Directory Access 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

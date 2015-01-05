@@ -27,7 +27,6 @@ This package provides the Apache Traffic Server. A fast, scalable reverse proxy 
 
 ```bash
 .
+├── defaults.yaml
 └── init.sls
-
-0 directories, 1 file
 ```

@@ -26,6 +26,4 @@
 │       └── rpm-gpg
 │           └── RPM-GPG-KEY-rpmforge-dag
 └── init.sls
-
-3 directories, 2 files
 ```

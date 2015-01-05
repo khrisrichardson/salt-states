@@ -1,0 +1,16 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     10250
+      protocol: tcp
+storage:
+  mounts:
+    -
+      device: /var/run
+      dir:    /var/run

@@ -29,6 +29,4 @@ The ovs-monitor-ipsec script provides support for encrypting GRE tunnels with IP
 │           └── checks-openvswitch-ipsec.json
 ├── init.sls
 └── relate-sensu-api.sls
-
-3 directories, 3 files
 ```

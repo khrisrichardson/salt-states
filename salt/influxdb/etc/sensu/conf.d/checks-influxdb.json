@@ -6,6 +6,12 @@
       "interval"    :   60,
       "standalone"  :   true
     },
+    "check-influxdb": {
+      "command"     : "/etc/sensu/plugins/influxdb/check-influxdb.rb",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
     "check-process-influxdb": {
       "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p influxdb -C 1",
       "handlers"    : ["default"],

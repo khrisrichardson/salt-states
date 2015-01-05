@@ -28,6 +28,4 @@ This package provides the One Convergence plugin.
 │           └── oneconvergence
 │               └── nvsdplugin.ini
 └── init.sls
-
-4 directories, 2 files
 ```

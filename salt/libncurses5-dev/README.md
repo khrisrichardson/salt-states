@@ -23,6 +23,4 @@ This package contains the header files, static libraries and symbolic links that
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

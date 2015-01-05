@@ -44,10 +44,10 @@ Upstream URL: http://www.nagios.org/
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-apache2.sls
 ├── depend-libapache2-mod-php5.sls
 ├── depend-nginx.sls
-├── Dockerfile
 ├── etc
 │   ├── nagios3
 │   │   └── conf.d
@@ -86,8 +86,6 @@ Upstream URL: http://www.nagios.org/
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── nagios3
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nagios3.json
@@ -145,6 +143,4 @@ Upstream URL: http://www.nagios.org/
                 └── eventhandlers
                     ├── clean_disk
                     └── restart_service
-
-25 directories, 76 files
 ```

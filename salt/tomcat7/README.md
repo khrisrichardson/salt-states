@@ -28,13 +28,11 @@ This package contains only the startup scripts for the system-wide daemon. No do
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-maven.sls
-├── Dockerfile
 ├── etc
 │   ├── rsyslog.d
 │   │   └── 60-tomcat7.conf
-│   ├── salt
-│   │   └── grains
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-tomcat7.json
@@ -51,6 +49,4 @@ This package contains only the startup scripts for the system-wide daemon. No do
         └── tomcat7
             └── conf
                 └── server.xml
-
-12 directories, 11 files
 ```

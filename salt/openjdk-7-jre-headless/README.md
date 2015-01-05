@@ -24,6 +24,4 @@ The packages are built using the IcedTea build support and patches from the Iced
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

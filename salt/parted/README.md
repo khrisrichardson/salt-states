@@ -29,6 +29,4 @@ The nature of this software means that any bugs could cause massive data loss. W
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```

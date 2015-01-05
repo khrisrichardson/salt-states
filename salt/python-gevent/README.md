@@ -21,6 +21,4 @@ gevent uses greenlet to provide a high-level synchronous API on top of libevent 
 ```bash
 .
 └── init.sls
-
-0 directories, 1 file
 ```
