@@ -50,7 +50,7 @@ def _create_docker(base, role, **kwargs):
 
     ret = __salt__['docker.inspect_image'](tag)
     if not ret['status']:
-        publish(base=base, role='salt-minion')
+        publish(base=base, role=role)
 
     ret = __salt__['docker.inspect_container'](tag)
     if not ret['status']:
@@ -207,7 +207,7 @@ def _start_docker(base, role, **kwargs):
 
     ret = __salt__['docker.inspect_container'](tag)
     if not ret['status']:
-        create(base=base, role='salt-minion')
+        create(base=base, role=role)
 
     if not __salt__['docker.is_running'](tag):
         __salt__['docker.start'](
