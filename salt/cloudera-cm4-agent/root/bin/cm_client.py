@@ -10,7 +10,7 @@ import os
 import re
 import sys
 import time
-
+import datetime
 from ConfigParser                        import ConfigParser
 from cm_api.api_client                   import ApiException, ApiResource
 from cm_api.endpoints.clusters           import ApiCluster
@@ -884,6 +884,7 @@ class ClusterHDFS(ClusterService):
         Formats HDFS
         '''
         cluster = self.cluster
+        client  = cluster.client
         #-------------------------------------------------------------------
         # TODO: test whether hdfs is already formatted
         #-------------------------------------------------------------------
@@ -1051,7 +1052,7 @@ class ServiceRole(ApiRole):
         service = self.service
         cluster = service.cluster
         client  = cluster.client
-
+        salt    = client.salt
         if hostname is None:
             hostname = salt.function('config.get', 'nodename')
             hash     = hashlib.md5(hostname).hexdigest()
