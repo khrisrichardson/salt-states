@@ -1052,7 +1052,7 @@ class ServiceRole(ApiRole):
         service = self.service
         cluster = service.cluster
         client  = cluster.client
-
+        salt    = client.salt
         if hostname is None:
             hostname = salt.function('config.get', 'nodename')
             hash     = hashlib.md5(hostname).hexdigest()
