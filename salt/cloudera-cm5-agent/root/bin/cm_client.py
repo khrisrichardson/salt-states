@@ -884,6 +884,7 @@ class ClusterHDFS(ClusterService):
         Formats HDFS
         '''
         cluster = self.cluster
+        client      = cluster.client
         #-------------------------------------------------------------------
         # TODO: test whether hdfs is already formatted
         #-------------------------------------------------------------------
