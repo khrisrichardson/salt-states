@@ -23,6 +23,7 @@ Open Source, Distributed, RESTful Search Engine
 
   -  [graphite-carbon](/salt/graphite-carbon)
   -  [influxdb](/salt/influxdb)
+  -  [kibana](/salt/kibana)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -33,13 +34,11 @@ Open Source, Distributed, RESTful Search Engine
 ├── etc
 │   ├── elasticsearch
 │   │   └── elasticsearch.yml
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-elasticsearch.json
-│   └── systemd
-│       └── system
-│           └── elasticsearch.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-elasticsearch.json
 ├── init.sls
+├── map.jinja
 ├── opt
 │   └── jmxtrans
 │       └── etc
@@ -47,5 +46,6 @@ Open Source, Distributed, RESTful Search Engine
 ├── relate-elasticsearch.sls
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
+├── relate-kibana.sls
 └── relate-sensu-api.sls
 ```

@@ -20,5 +20,6 @@ This package contains the basic filesystem hierarchy of a Debian system, and sev
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

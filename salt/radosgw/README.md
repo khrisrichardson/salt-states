@@ -42,13 +42,11 @@ This package contains the proxy daemon and related tools only.
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-radosgw.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-radosgw.json
-│   └── systemd
-│       └── system
-│           └── radosgw.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-radosgw.json
 ├── init.sls
+├── map.jinja
 ├── relate-ceph-mon.sls
 ├── relate-logstash.sls
 ├── relate-radosgw.sls

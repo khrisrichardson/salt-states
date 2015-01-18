@@ -1,0 +1,17 @@
+# vi: set ft=json.jinja :
+
+{% set codename =  salt['config.get']('lsb_distrib_codename') %}
+{% set map      =  salt['grains.filter_by']({
+  'Debian': {
+    'pkgrepo': {
+      'name':          'deb http://packages.flapjack.io/deb/v1 ' + codename + ' main',
+      'file':         '/etc/apt/sources.list.d/flapjack.list',
+    },
+  },
+  'RedHat': {
+    'pkgrepo': {
+      'name':          'flapjack',
+      'file':         '/etc/yum.repos.d/flapjack.repo',
+    },
+  },
+}, merge=salt['config.get']('flapjack')) %}

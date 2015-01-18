@@ -27,5 +27,6 @@ The Programmable Completion Code, by Ian Macdonald, is now found in the bash-com
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

@@ -21,5 +21,6 @@
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

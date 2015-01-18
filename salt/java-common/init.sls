@@ -4,6 +4,9 @@
 
 {% if salt['config.get']('os_family') == 'Debian' %}
 
+include:
+  -  python-apt
+
 accepted-oracle-license-v1-1-select:
   cmd.run:
     - name:      |-

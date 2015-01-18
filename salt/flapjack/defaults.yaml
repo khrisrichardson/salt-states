@@ -1,0 +1,17 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64
+network:
+  transport:
+    -
+      port:     3080
+      protocol: tcp
+    -
+      port:     3081
+      protocol: tcp
+    -
+      port:     5222
+      protocol: tcp

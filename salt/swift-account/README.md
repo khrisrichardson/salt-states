@@ -35,11 +35,8 @@ This package provides the swift account server.
 │   ├── supervisor
 │   │   └── conf.d
 │   │       └── swift-account.conf
-│   ├── swift
-│   │   └── account-server.conf
-│   └── systemd
-│       └── system
-│           └── swift-account.service
+│   └── swift
+│       └── account-server.conf
 ├── init.sls
 ├── relate-sensu-api.sls
 └── root

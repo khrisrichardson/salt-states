@@ -27,12 +27,9 @@
 ├── depend-apache2.sls
 ├── depend-git.sls
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-tasseo.json
-│   └── systemd
-│       └── system
-│           └── tasseo.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-tasseo.json
 ├── init.sls
 ├── opt
 │   └── tasseo

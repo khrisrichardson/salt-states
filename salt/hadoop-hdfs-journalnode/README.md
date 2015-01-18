@@ -34,12 +34,9 @@ machines in the cluster.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-hadoop-hdfs-journalnode.json
-│   └── systemd
-│       └── system
-│           └── hadoop-hdfs-journalnode.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-hadoop-hdfs-journalnode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

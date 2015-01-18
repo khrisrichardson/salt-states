@@ -117,5 +117,6 @@ It will manage individual processes or groups of processes that need to be start
 │   └── supervisor
 │       └── supervisord.conf
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

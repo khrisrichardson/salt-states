@@ -35,5 +35,8 @@ ssh replaces the insecure rsh, rcp and rlogin programs, which are obsolete for m
 │   └── github
 │       └── com
 │           └── init.sls
+├── map.jinja
 └── root
+    └── .ssh
+        └── id_rsa.pub
 ```

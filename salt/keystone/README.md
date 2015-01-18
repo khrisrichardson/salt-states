@@ -66,12 +66,9 @@ This package contains the daemons.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-keystone.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── keystone.conf
-│   └── systemd
-│       └── system
-│           └── keystone.service
+│   └── supervisor
+│       └── conf.d
+│           └── keystone.conf
 ├── init.sls
 ├── relate-ceilometer-api.sls
 ├── relate-cinder-api.sls
@@ -94,6 +91,7 @@ This package contains the daemons.
 ├── relate-sensu-api.sls
 ├── relate-swift-proxy.sls
 └── root
+    ├── .bash_profile
     └── bin
         └── keystone.sh
 ```

@@ -27,13 +27,11 @@ The dataset is stored entirely in memory and periodically flushed to disk.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-redis-server.json
-│   └── systemd
-│       └── system
-│           └── redis-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-redis-server.json
 ├── init.sls
+├── map.jinja
 ├── relate-redis-server.sls
 └── relate-sensu-api.sls
 ```

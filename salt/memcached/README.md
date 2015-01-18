@@ -27,12 +27,9 @@ memcached optimizes specific high-load serving applications that are designed to
 │   ├── default
 │   │   └── memcached
 │   ├── memcached.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-memcached.json
-│   └── systemd
-│       └── system
-│           └── memcached.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-memcached.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

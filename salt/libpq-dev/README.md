@@ -23,5 +23,6 @@ PostgreSQL is an object-relational SQL database management system.
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

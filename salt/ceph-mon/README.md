@@ -31,12 +31,9 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceph-mon.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── ceph-mon.conf
-│   └── systemd
-│       └── system
-│           └── ceph-mon.service
+│   └── supervisor
+│       └── conf.d
+│           └── ceph-mon.conf
 ├── init.sls
 ├── relate-ceph-deploy.sls
 ├── relate-ceph-mon.sls

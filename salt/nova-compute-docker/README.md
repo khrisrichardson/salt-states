@@ -22,12 +22,9 @@
 .
 ├── defaults.yaml
 ├── etc
-│   ├── nova
-│   │   ├── nova-compute.conf
-│   │   └── rootwrap.d
-│   │       └── docker.filters
-│   └── systemd
-│       └── system
-│           └── nova-compute-docker.service
+│   └── nova
+│       ├── nova-compute.conf
+│       └── rootwrap.d
+│           └── docker.filters
 └── init.sls
 ```

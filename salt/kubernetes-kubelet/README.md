@@ -17,6 +17,7 @@
 ## Relates:
 
   -  [etcd](/salt/etcd)
+  -  [kubernetes-apiserver](/salt/kubernetes-apiserver)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -36,5 +37,6 @@
 │           └── kubernetes-kubelet.conf
 ├── init.sls
 ├── relate-etcd.sls
+├── relate-kubernetes-apiserver.sls
 └── relate-sensu-api.sls
 ```

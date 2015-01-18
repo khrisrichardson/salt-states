@@ -67,6 +67,7 @@ This package contains the supporting binaries to use with libvirt
 │       └── conf.d
 │           └── checks-libvirt-bin.json
 ├── init.sls
+├── map.jinja
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
 ```

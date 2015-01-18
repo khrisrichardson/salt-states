@@ -22,5 +22,6 @@ This package contains the development files for libgit2.
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

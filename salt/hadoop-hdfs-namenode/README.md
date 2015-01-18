@@ -36,12 +36,9 @@ namenode, which manages the block locations of files on the filesystem.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-hadoop-hdfs-namenode.json
-│   └── systemd
-│       └── system
-│           └── hadoop-hdfs-namenode.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-hadoop-hdfs-namenode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

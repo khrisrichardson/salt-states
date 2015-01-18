@@ -30,12 +30,9 @@ This package contains the conductor.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ironic-conductor.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── ironic-conductor.conf
-│   └── systemd
-│       └── system
-│           └── ironic-conductor.service
+│   └── supervisor
+│       └── conf.d
+│           └── ironic-conductor.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

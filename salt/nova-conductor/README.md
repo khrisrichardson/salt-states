@@ -39,12 +39,9 @@ This is the Nova conductor service component
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-conductor.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-conductor.conf
-│   └── systemd
-│       └── system
-│           └── nova-conductor.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-conductor.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

@@ -39,12 +39,9 @@ This is the Nova scheduler.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-scheduler.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-scheduler.conf
-│   └── systemd
-│       └── system
-│           └── nova-scheduler.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-scheduler.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

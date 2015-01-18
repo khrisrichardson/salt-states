@@ -30,17 +30,15 @@ This package contains base configuration files used by all versions of nginx.
 ├── defaults.yaml
 ├── etc
 │   ├── collectd.d
-│   │   └── nginx-common.conf
+│   │   └── input-nginx-common.conf
 │   ├── nginx
 │   │   ├── fastcgi_params
 │   │   └── nginx.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-nginx-common.json
-│   └── systemd
-│       └── system
-│           └── nginx-common.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-nginx-common.json
 ├── init.sls
+├── map.jinja
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls

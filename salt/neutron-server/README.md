@@ -42,12 +42,9 @@ This package provides the Neutron server
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-neutron-server.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── neutron-server.conf
-│   └── systemd
-│       └── system
-│           └── neutron-server.service
+│   └── supervisor
+│       └── conf.d
+│           └── neutron-server.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

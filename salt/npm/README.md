@@ -26,5 +26,6 @@ It is extremely configurable to support a wide variety of use cases. Most common
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

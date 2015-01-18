@@ -15,6 +15,7 @@ This particular package provides the worker / agent for salt.
 ## Depends:
 
   -  [epel-release](/salt/epel-release)
+  -  [git](/salt/git)
   -  [incron](/salt/incron)
   -  [python-elasticsearch](/salt/python-elasticsearch)
   -  [python-etcd](/salt/python-etcd)
@@ -45,6 +46,7 @@ This particular package provides the worker / agent for salt.
   -  [mysql-server](/salt/mysql-server)
   -  [postgresql](/salt/postgresql)
   -  [redis-server](/salt/redis-server)
+  -  [salt-master](/salt/salt-master)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -53,6 +55,7 @@ This particular package provides the worker / agent for salt.
 .
 ├── bootstrap.sh
 ├── defaults.yaml
+├── depend-git.sls
 ├── depend-incron.sls
 ├── depend-supervisor.sls
 ├── etc
@@ -60,10 +63,12 @@ This particular package provides the worker / agent for salt.
 │   │   └── minion.d
 │   │       ├── elasticsearch.conf
 │   │       ├── etcd.conf
+│   │       ├── fileserver_backend.conf
 │   │       ├── graphite-carbon.conf
 │   │       ├── influxdb.conf
 │   │       ├── log.conf
 │   │       ├── master.conf
+│   │       ├── mine.conf
 │   │       ├── memcached.conf
 │   │       ├── mongodb-server.conf
 │   │       ├── mysql-server.conf
@@ -73,13 +78,11 @@ This particular package provides the worker / agent for salt.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-salt-minion.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── salt-minion.conf
-│   └── systemd
-│       └── system
-│           └── salt-minion.service
+│   └── supervisor
+│       └── conf.d
+│           └── salt-minion.conf
 ├── init.sls
+├── relate-apt-cacher-ng.sls
 ├── relate-elasticsearch.sls
 ├── relate-etcd.sls
 ├── relate-graphite-carbon.sls
@@ -90,5 +93,6 @@ This particular package provides the worker / agent for salt.
 ├── relate-mysql-server.sls
 ├── relate-postgresql.sls
 ├── relate-redis-server.sls
+├── relate-salt-master.sls
 └── relate-sensu-api.sls
 ```

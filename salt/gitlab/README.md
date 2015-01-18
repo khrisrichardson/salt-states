@@ -55,12 +55,9 @@
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── gitlab
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-gitlab.json
-│   └── systemd
-│       └── system
-│           └── gitlab.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-gitlab.json
 ├── home
 │   └── git
 │       └── gitlab

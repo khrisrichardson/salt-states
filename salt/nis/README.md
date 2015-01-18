@@ -26,5 +26,6 @@ This package provides tools for setting up and maintaining a NIS domain. NIS, or
 │   │       └── checks-nis.json
 │   └── yp.conf
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

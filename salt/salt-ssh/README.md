@@ -31,5 +31,6 @@ This particular package provides the salt ssh controller. It is able to run salt
 ├── etc
 │   └── salt
 │       └── roster
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

@@ -37,13 +37,11 @@ MySQL is a fast, stable and true multi-user, multi-threaded SQL database server.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-mysql-server.json
-│   └── systemd
-│       └── system
-│           └── mysql-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-mysql-server.json
 ├── init.sls
+├── map.jinja
 ├── relate-ceilometer-api.sls
 ├── relate-cinder-api.sls
 ├── relate-glance-api.sls

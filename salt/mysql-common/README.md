@@ -26,5 +26,6 @@ This package includes files needed by all versions of the client library, e.g. /
 ├── etc
 │   └── mysql
 │       └── my.cnf
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

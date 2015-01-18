@@ -34,12 +34,9 @@ data over the network to Hadoop Distributed Filesystem (HDFS) clients.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-hadoop-hdfs-datanode.json
-│   └── systemd
-│       └── system
-│           └── hadoop-hdfs-datanode.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-hadoop-hdfs-datanode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

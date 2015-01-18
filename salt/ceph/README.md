@@ -22,8 +22,13 @@ This package contains all server daemons and management tools for creating, runn
 
 ## Relates:
 
+  -  [ceph-deploy](/salt/ceph-deploy)
+  -  [ceph-mds](/salt/ceph-mds)
+  -  [ceph-mon](/salt/ceph-mon)
+  -  [ceph-osd](/salt/ceph-osd)
   -  [etcd](/salt/etcd)
   -  [logstash](/salt/logstash)
+  -  [radosgw](/salt/radosgw)
 
 ## Files:
 
@@ -41,6 +46,10 @@ This package contains all server daemons and management tools for creating, runn
 │       └── ceph
 ├── init.sls
 ├── relate-ceph-deploy.sls
+├── relate-ceph-mds.sls
+├── relate-ceph-mon.sls
+├── relate-ceph-osd.sls
 ├── relate-etcd.sls
-└── relate-logstash.sls
+├── relate-logstash.sls
+└── relate-radosgw.sls
 ```

@@ -39,12 +39,9 @@ This package provides the authentication service for nova-console.  It grants us
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-consoleauth.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-consoleauth.conf
-│   └── systemd
-│       └── system
-│           └── nova-consoleauth.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-consoleauth.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

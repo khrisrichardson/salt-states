@@ -29,5 +29,6 @@ This package provides an assembler, a compiler, and a linker for the Go programm
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

@@ -33,12 +33,9 @@ the HMaster. There are many HRegionServers in a single HBase deployment.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-hbase-regionserver.json
-│   └── systemd
-│       └── system
-│           └── hbase-regionserver.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-hbase-regionserver.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

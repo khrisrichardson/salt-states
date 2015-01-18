@@ -29,5 +29,6 @@ A lot of the object methods do nothing more than calling a corresponding functio
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

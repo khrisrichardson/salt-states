@@ -36,12 +36,9 @@ This package provides a proxy server on which clients can connect to store objec
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-swift-proxy.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── swift-proxy.conf
-│   └── systemd
-│       └── system
-│           └── swift-proxy.service
+│   └── supervisor
+│       └── conf.d
+│           └── swift-proxy.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

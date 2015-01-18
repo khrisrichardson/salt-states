@@ -28,12 +28,10 @@ This program runs as a background process on the remote host and processes comma
 ├── etc
 │   ├── nagios
 │   │   └── nrpe.cfg
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-nagios-nrpe-server.json
-│   └── systemd
-│       └── system
-│           └── nagios-nrpe-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-nagios-nrpe-server.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

@@ -26,7 +26,7 @@ http://proxychains.sourceforge.net
 
 ## Relates:
 
-  -  N/A
+  -  [socks5](/salt/socks5)
 
 ## Files:
 
@@ -34,5 +34,6 @@ http://proxychains.sourceforge.net
 .
 ├── etc
 │   └── proxychains.conf
-└── init.sls
+├── init.sls
+└── relate-socks5.sls
 ```

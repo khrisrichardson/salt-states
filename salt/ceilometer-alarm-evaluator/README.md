@@ -32,12 +32,9 @@ This package contains the alarm evaluator daemon.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-alarm-evaluator.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── ceilometer-alarm-evaluator.conf
-│   └── systemd
-│       └── system
-│           └── ceilometer-alarm-evaluator.service
+│   └── supervisor
+│       └── conf.d
+│           └── ceilometer-alarm-evaluator.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

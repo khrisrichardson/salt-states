@@ -30,12 +30,9 @@
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── kibana
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-kibana.json
-│   └── systemd
-│       └── system
-│           └── kibana.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-kibana.json
 ├── init.sls
 ├── relate-elasticsearch.sls
 ├── relate-sensu-api.sls

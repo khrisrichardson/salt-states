@@ -1,5 +1,6 @@
 # vi: set ft=yaml.jinja :
 
+{% set arch    =  salt['config.get']('osarch') -%}
 {% set version = '3.0.1' %}
 
 include:
@@ -9,9 +10,9 @@ couchbase-server:
   pkg.installed:
     - sources:
      {% if   salt['config.get']('os_family') == 'Debian' %}
-      - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community_{{ version }}-ubuntu12.04_amd64.deb
+      - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community_{{ version }}-ubuntu12.04_{{ arch }}.deb
      {% if   salt['config.get']('os_family') == 'RedHat' %}
-      - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community-{{ version }}-centos6.x86_64.rpm
+      - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community-{{ version }}-centos6.{{ arch }}.rpm
      {% endif %}
   service.running:
     - enable:      True

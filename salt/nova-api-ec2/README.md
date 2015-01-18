@@ -43,12 +43,9 @@ This package provides the EC2 API.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-api-ec2.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-api-ec2.conf
-│   └── systemd
-│       └── system
-│           └── nova-api-ec2.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-api-ec2.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

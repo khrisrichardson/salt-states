@@ -46,12 +46,9 @@ This package contains the glance registry server.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-glance-registry.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── glance-registry.conf
-│   └── systemd
-│       └── system
-│           └── glance-registry.service
+│   └── supervisor
+│       └── conf.d
+│           └── glance-registry.conf
 ├── init.sls
 ├── relate-keystone.sls
 ├── relate-logstash.sls

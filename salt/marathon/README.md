@@ -14,12 +14,17 @@
 
 ## Relates:
 
-  -  N/A
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 
 ```bash
 .
 ├── defaults.yaml
-└── init.sls
+├── etc
+│   └── sensu
+│       └── conf.d
+│           └── checks-marathon.json
+├── init.sls
+└── relate-sensu-api.sls
 ```

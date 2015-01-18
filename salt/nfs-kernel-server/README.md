@@ -24,12 +24,10 @@ This package contains the user-space support needed to use the NFS kernel server
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-nfs-kernel-server.json
-│   └── systemd
-│       └── system
-│           └── nfs-kernel-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-nfs-kernel-server.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

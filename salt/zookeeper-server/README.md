@@ -33,12 +33,9 @@ This package starts the zookeeper server on startup
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-zookeeper-server.json
-│   └── systemd
-│       └── system
-│           └── zookeeper-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-zookeeper-server.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

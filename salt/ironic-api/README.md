@@ -30,12 +30,9 @@ This package contains the API.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ironic-api.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── ironic-api.conf
-│   └── systemd
-│       └── system
-│           └── ironic-api.service
+│   └── supervisor
+│       └── conf.d
+│           └── ironic-api.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

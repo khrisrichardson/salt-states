@@ -29,5 +29,6 @@ Cloudera Manager
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

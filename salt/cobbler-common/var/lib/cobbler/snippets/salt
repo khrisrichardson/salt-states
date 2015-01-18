@@ -1,10 +1,11 @@
+{% set arch = salt['config.get']('osarch') -%}
 #if $comment    == 'standalone'
 #set environment = $hostname.split('.')[0]
 #else
 #set environment = $hostname[0:6]
 #end if
 
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/{{ arch }}/epel-release-6-8.noarch.rpm
 yum -y   install salt-minion --enablerepo=epel-testing
 
 cat > /etc/salt/minion <<EOF

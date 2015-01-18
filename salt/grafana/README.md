@@ -18,6 +18,8 @@
 ## Relates:
 
   -  [elasticsearch](/salt/elasticsearch)
+  -  [graphite-carbon](/salt/graphite-carbon)
+  -  [graphite-web](/salt/graphite-web)
   -  [influxdb](/salt/influxdb)
   -  [sensu-api](/salt/sensu-api)
 
@@ -31,14 +33,13 @@
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── grafana
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-grafana.json
-│   └── systemd
-│       └── system
-│           └── grafana.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-grafana.json
 ├── init.sls
 ├── relate-elasticsearch.sls
+├── relate-graphite-carbon.sls
+├── relate-graphite-web.sls
 ├── relate-influxdb.sls
 ├── relate-sensu-api.sls
 └── usr

@@ -2,6 +2,8 @@
 
 {% from 'cloudera-cdh4/map.jinja' import map with context %}
 
+{% set arch = salt['config.get']('osarch') %}
+
 include:
   -  procps
   -  python-apt
@@ -13,7 +15,7 @@ cloudera-cdh4:
     - gpgkey:   {{ map.get('pkgrepo', {}).get('key_url') }}
     - key_url:  {{ map.get('pkgrepo', {}).get('key_url') }}
     - humanname:   Cloudera's Distribution for Hadoop, Version 4
-    - baseurl:     http://archive.cloudera.com/cdh4/redhat/6/x86_64/cdh/4/
+    - baseurl:     http://archive.cloudera.com/cdh4/redhat/6/{{ arch }}/cdh/4/
     - comps:       contrib
     - enabled:     1
     - gpgcheck:    1

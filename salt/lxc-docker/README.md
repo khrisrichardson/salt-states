@@ -24,12 +24,10 @@ Docker complements LXC with a high-level API which operates at the process level
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-lxc-docker.json
-│   └── systemd
-│       └── system
-│           └── lxc-docker.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-lxc-docker.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

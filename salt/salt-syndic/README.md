@@ -37,12 +37,9 @@ This particular package provides the master of masters for salt - it enables the
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-salt-syndic.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── salt-syndic.conf
-│   └── systemd
-│       └── system
-│           └── salt-syndic.service
+│   └── supervisor
+│       └── conf.d
+│           └── salt-syndic.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

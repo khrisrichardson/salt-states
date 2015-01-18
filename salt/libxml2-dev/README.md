@@ -23,5 +23,6 @@ Install this package if you wish to develop your own programs using the GNOME XM
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

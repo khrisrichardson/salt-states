@@ -41,5 +41,6 @@ incron can be used to :
 │       └── conf.d
 │           └── checks-incron.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

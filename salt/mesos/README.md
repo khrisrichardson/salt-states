@@ -8,7 +8,6 @@
 
   -  [openjdk-7-jre-headless](/salt/openjdk-7-jre-headless)
   -  [python-setuptools](/salt/python-setuptools)
-  -  [zookeeper-server](/salt/zookeeper-server)
 
 ## Reverse Depends:
 
@@ -16,11 +15,15 @@
 
 ## Relates:
 
-  -  N/A
+  -  [zookeeper-server](/salt/zookeeper-server)
 
 ## Files:
 
 ```bash
 .
-└── init.sls
+├── etc
+│   └── mesos
+│       └── zk
+├── init.sls
+└── relate-zookeeper-server.sls
 ```

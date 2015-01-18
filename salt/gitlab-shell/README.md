@@ -15,7 +15,7 @@
 
 ## Relates:
 
-  -  N/A
+  -  [redis-server](/salt/redis-server)
 
 ## Files:
 
@@ -25,5 +25,6 @@
 │   └── git
 │       └── gitlab-shell
 │           └── config.yml
-└── init.sls
+├── init.sls
+└── relate-redis-server.sls
 ```

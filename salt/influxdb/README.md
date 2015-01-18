@@ -27,12 +27,9 @@ it on a single box.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-influxdb.json
-│   └── systemd
-│       └── system
-│           └── influxdb.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-influxdb.json
 ├── init.sls
 ├── opt
 │   └── influxdb

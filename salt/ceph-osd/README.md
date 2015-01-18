@@ -30,12 +30,9 @@
 ├── depend-mount.sls
 ├── depend-parted.sls
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-ceph-osd.json
-│   └── systemd
-│       └── system
-│           └── ceph-osd.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-ceph-osd.json
 ├── init.sls
 ├── relate-ceph-deploy.sls
 ├── relate-ceph-mon.sls

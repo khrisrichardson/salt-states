@@ -39,12 +39,9 @@ RabbitMQ is an implementation of AMQP, the emerging standard for high performanc
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-rabbitmq-server.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-rabbitmq-server.json
-│   └── systemd
-│       └── system
-│           └── rabbitmq-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-rabbitmq-server.json
 ├── init.sls
 ├── relate-ceilometer-api.sls
 ├── relate-cinder-api.sls

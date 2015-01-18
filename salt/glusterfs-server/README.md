@@ -24,12 +24,9 @@ This package installs init scripts and configuration files to turn GlusterFS int
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-glusterfs-server.json
-│   └── systemd
-│       └── system
-│           └── glusterfs-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-glusterfs-server.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

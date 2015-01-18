@@ -2,7 +2,7 @@
 
 ## Description:
 
-pip is a replacement for easy_install, and is intended to be an improved Python package installer.  It integrates with virtualenv, doesn't do partial installs, can save package state for replaying, can install from non-egg sources, and can install from version control repositories.
+pip is a replacement for easy\_install, and is intended to be an improved Python package installer.  It integrates with virtualenv, doesn't do partial installs, can save package state for replaying, can install from non-egg sources, and can install from version control repositories.
 
 ## Depends:
 
@@ -30,5 +30,6 @@ pip is a replacement for easy_install, and is intended to be an improved Python 
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

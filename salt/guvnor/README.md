@@ -21,6 +21,8 @@
 ## Relates:
 
   -  [dynaTrace-server](/salt/dynaTrace-server)
+  -  [postgresql](/salt/postgresql)
+  -  [rsyslog](/salt/rsyslog)
   -  [socks5](/salt/socks5)
 
 ## Files:
@@ -32,7 +34,8 @@
 │   └── guvnor
 │       └── repository.xml
 ├── relate-dynaTrace-server.sls
-├── relate-guvnor-postgresql.sls
+├── relate-postgresql.sls
+├── relate-rsyslog.sls
 ├── relate-socks5.sls
 ├── usr
 │   └── share

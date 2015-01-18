@@ -35,12 +35,9 @@ This package contains the ReST API.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-heat-api.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── heat-api.conf
-│   └── systemd
-│       └── system
-│           └── heat-api.service
+│   └── supervisor
+│       └── conf.d
+│           └── heat-api.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

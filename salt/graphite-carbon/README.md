@@ -24,12 +24,10 @@ The Carbon daemon processes the incoming time-series data and saves it as Whispe
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-graphite-carbon.json
-│   └── systemd
-│       └── system
-│           └── graphite-carbon.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-graphite-carbon.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

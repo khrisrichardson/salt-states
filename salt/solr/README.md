@@ -27,6 +27,7 @@
   -  [influxdb](/salt/influxdb)
   -  [sensu-api](/salt/sensu-api)
   -  [socks5](/salt/socks5)
+  -  [zookeeper-server](/salt/zookeeper-server)
 
 ## Files:
 
@@ -45,7 +46,7 @@
 ├── relate-influxdb.sls
 ├── relate-sensu-api.sls
 ├── relate-socks5.sls
-├── relate-solr-zookeeper.sls
+├── relate-zookeeper-server.sls
 ├── root
 │   └── pom.xml
 └── usr

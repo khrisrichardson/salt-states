@@ -27,12 +27,9 @@ Puppet's simple declarative specification language provides powerful classing ab
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-puppetmaster.json
-│   └── systemd
-│       └── system
-│           └── puppetmaster.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-puppetmaster.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

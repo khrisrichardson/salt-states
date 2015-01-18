@@ -35,12 +35,10 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-etcd.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── etcd.conf
-│   └── systemd
-│       └── system
-│           └── etcd.service
+│   └── supervisor
+│       └── conf.d
+│           └── etcd.conf
 ├── init.sls
+├── relate-etcd.sls
 └── relate-sensu-api.sls
 ```

@@ -47,6 +47,7 @@ This particular package provides the salt controller.
 │   │       ├── auto_accept.conf
 │   │       ├── cobbler.conf
 │   │       ├── etcd.conf
+│   │       ├── external_auth.conf
 │   │       ├── file_recv.conf
 │   │       ├── fileserver_backend.conf
 │   │       ├── log.conf
@@ -57,12 +58,9 @@ This particular package provides the salt controller.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-salt-master.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── salt-master.conf
-│   └── systemd
-│       └── system
-│           └── salt-master.service
+│   └── supervisor
+│       └── conf.d
+│           └── salt-master.conf
 ├── init.sls
 ├── relate-cobbler.sls
 ├── relate-etcd.sls

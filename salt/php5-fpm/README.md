@@ -35,6 +35,7 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 │       └── conf.d
 │           └── checks-php5-fpm.json
 ├── init.sls
+├── map.jinja
 ├── relate-rsyslog.sls
 └── relate-sensu-api.sls
 ```

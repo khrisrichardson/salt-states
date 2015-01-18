@@ -29,9 +29,6 @@ This is a dependency package to install either nginx-core (by default), nginx-fu
 
 ```bash
 .
-├── etc
-│   └── systemd
-│       └── system
-│           └── nginx.service
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

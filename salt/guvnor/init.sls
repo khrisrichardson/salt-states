@@ -1,7 +1,6 @@
 # vi: set ft=yaml.jinja :
 
 include:
-  -  libpostgresql-jdbc-java
   -  maven
   -  maven.exec
   -  openssl
@@ -72,7 +71,7 @@ extend:
       - cmd:       mvn
 
 #-------------------------------------------------------------------------------
-# TODO: migrate binaries to ipa2 or repoman
+# TODO: fetch binaries from repository
 #-------------------------------------------------------------------------------
 
 /var/lib/tomcat7/webapps/ROOT/WEB-INF/lib/seam-security-3.1.0.Final.jar:

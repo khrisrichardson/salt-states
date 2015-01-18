@@ -37,12 +37,9 @@ This package contains the Cinder backup service.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cinder-backup.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── cinder-backup.conf
-│   └── systemd
-│       └── system
-│           └── cinder-backup.service
+│   └── supervisor
+│       └── conf.d
+│           └── cinder-backup.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

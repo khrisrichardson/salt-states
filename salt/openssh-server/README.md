@@ -33,15 +33,15 @@ sshd replaces the insecure rshd program, which is obsolete for most purposes.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-openssh-server.json
-│   └── systemd
-│       └── system
-│           └── openssh-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-openssh-server.json
 ├── init.sls
+├── map.jinja
 ├── relate-cacti.sls
 ├── relate-nagios3.sls
 ├── relate-sensu-api.sls
 └── root
+    └── .ssh
+        └── id_rsa.pub.krichardson
 ```

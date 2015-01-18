@@ -27,5 +27,6 @@ If you install this package you may have to change the way you address block dev
 │       └── conf.d
 │           └── checks-multipath-tools.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

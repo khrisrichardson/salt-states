@@ -32,12 +32,9 @@ This package contains the alarm notifier daemon.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-alarm-notifier.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── ceilometer-alarm-notifier.conf
-│   └── systemd
-│       └── system
-│           └── ceilometer-alarm-notifier.service
+│   └── supervisor
+│       └── conf.d
+│           └── ceilometer-alarm-notifier.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

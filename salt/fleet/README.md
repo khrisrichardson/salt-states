@@ -19,6 +19,7 @@
 
 ## Relates:
 
+  -  [etcd](/salt/etcd)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -34,12 +35,10 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-fleet.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── fleet.conf
-│   └── systemd
-│       └── system
-│           └── fleet.service
+│   └── supervisor
+│       └── conf.d
+│           └── fleet.conf
 ├── init.sls
+├── relate-etcd.sls
 └── relate-sensu-api.sls
 ```

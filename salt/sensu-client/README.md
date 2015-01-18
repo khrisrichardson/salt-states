@@ -202,6 +202,7 @@
 
 ## Relates:
 
+  -  [rabbitmq-server](/salt/rabbitmq-server)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -215,5 +216,6 @@
 │           ├── checks-sensu-client.json
 │           └── client.json
 ├── init.sls
+├── relate-rabbitmq-server.sls
 └── relate-sensu-api.sls
 ```

@@ -14,7 +14,7 @@
 
 ## Relates:
 
-  -  N/A
+  -  [logio-server](/salt/logio-server)
 
 ## Files:
 
@@ -23,5 +23,6 @@
 ├── etc
 │   └── log.io
 │       └── harvester.conf
-└── init.sls
+├── init.sls
+└── relate-logio-server.sls
 ```

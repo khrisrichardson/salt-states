@@ -26,12 +26,9 @@ Apt-Cacher NG has been designed from scratch as a replacement for apt-cacher, bu
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-apt-cacher-ng.json
-│   └── systemd
-│       └── system
-│           └── apt-cacher-ng.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-apt-cacher-ng.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

@@ -18,6 +18,7 @@
 
 ## Relates:
 
+  -  [graphite-web](/salt/graphite-web)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -26,13 +27,11 @@
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-node-giraffe-web.json
-│   └── systemd
-│       └── system
-│           └── node-giraffe-web.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-node-giraffe-web.json
 ├── init.sls
+├── relate-graphite-web.sls
 ├── relate-sensu-api.sls
 └── usr
     └── local

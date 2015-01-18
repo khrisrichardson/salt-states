@@ -35,11 +35,8 @@ This package provides the swift container server.
 │   ├── supervisor
 │   │   └── conf.d
 │   │       └── swift-container.conf
-│   ├── swift
-│   │   └── container-server.conf
-│   └── systemd
-│       └── system
-│           └── swift-container.service
+│   └── swift
+│       └── container-server.conf
 ├── init.sls
 ├── relate-sensu-api.sls
 └── root

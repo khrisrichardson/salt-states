@@ -30,12 +30,9 @@
 │   ├── apache2
 │   │   └── sites-available
 │   │       └── opsview
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-opsview.json
-│   └── systemd
-│       └── system
-│           └── opsview.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-opsview.json
 ├── init.sls
 ├── relate-mysql-server.sls
 ├── relate-sensu-api.sls

@@ -55,6 +55,7 @@ This package provides a full installation of the daemon, including the configura
 │       └── conf.d
 │           └── checks-collectd.json
 ├── init.sls
+├── map.jinja
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls

@@ -38,5 +38,6 @@ This particular package provides shared libraries that salt-master, salt-minion,
 │   └── apt
 │       └── apt.conf.d
 │           └── 30proxy
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

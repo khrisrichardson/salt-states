@@ -22,5 +22,6 @@ This package is a dependency package, which depends on Debian's default Python v
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

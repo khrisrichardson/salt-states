@@ -12,6 +12,7 @@ http://salt-api.readthedocs.org/
 
 ## Depends:
 
+  -  [openssl](/salt/openssl)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -26,7 +27,11 @@ http://salt-api.readthedocs.org/
 
 ```bash
 .
+├── depend-openssl.sls
 ├── etc
+│   ├── salt
+│   │   └── master.d
+│   │       └── salt-api.conf
 │   └── sensu
 │       └── conf.d
 │           └── checks-salt-api.json

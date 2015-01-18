@@ -37,13 +37,11 @@ MariaDB is a fast, stable and true multi-user, multi-threaded SQL database serve
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-mariadb-server.json
-│   └── systemd
-│       └── system
-│           └── mariadb-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-mariadb-server.json
 ├── init.sls
+├── map.jinja
 ├── relate-ceilometer-api.sls
 ├── relate-cinder-api.sls
 ├── relate-glance-api.sls

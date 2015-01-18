@@ -25,12 +25,9 @@
 ├── etc
 │   ├── riemann
 │   │   └── riemann.config
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-riemann.json
-│   └── systemd
-│       └── system
-│           └── riemann.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-riemann.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

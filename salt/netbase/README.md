@@ -26,5 +26,6 @@ This package provides the necessary infrastructure for basic TCP/IP based networ
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

@@ -27,12 +27,9 @@ This package contains the metadata server daemon, which is used to create a dist
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-ceph-mds.json
-│   └── systemd
-│       └── system
-│           └── ceph-mds.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-ceph-mds.json
 ├── init.sls
 ├── relate-ceph-deploy.sls
 ├── relate-ceph-mon.sls

@@ -22,12 +22,9 @@ Sheepdog provides highly available block level storage volumes that can be attac
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-sheepdog.json
-│   └── systemd
-│       └── system
-│           └── sheepdog.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-sheepdog.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

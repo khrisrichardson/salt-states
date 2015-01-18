@@ -32,12 +32,9 @@ This package contains the collector service
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-collector.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── ceilometer-collector.conf
-│   └── systemd
-│       └── system
-│           └── ceilometer-collector.service
+│   └── supervisor
+│       └── conf.d
+│           └── ceilometer-collector.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

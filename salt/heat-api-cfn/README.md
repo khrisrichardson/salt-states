@@ -35,12 +35,9 @@ This package contains the CloudFormation (CFN) API.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-heat-api-cfn.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── heat-api-cfn.conf
-│   └── systemd
-│       └── system
-│           └── heat-api-cfn.service
+│   └── supervisor
+│       └── conf.d
+│           └── heat-api-cfn.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

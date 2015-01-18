@@ -23,12 +23,9 @@
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-sensu-dashboard.json
-│   └── systemd
-│       └── system
-│           └── sensu-dashboard.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-sensu-dashboard.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

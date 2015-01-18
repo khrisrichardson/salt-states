@@ -43,12 +43,9 @@ This package provides the spice proxy. It is a publically reachable component wh
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-spiceproxy.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-spiceproxy.conf
-│   └── systemd
-│       └── system
-│           └── nova-spiceproxy.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-spiceproxy.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

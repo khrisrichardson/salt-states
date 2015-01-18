@@ -23,5 +23,6 @@ The packages are built using the IcedTea build support and patches from the Iced
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

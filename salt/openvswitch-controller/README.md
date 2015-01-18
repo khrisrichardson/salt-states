@@ -26,12 +26,9 @@ The Open vSwitch controller enables OpenFlow switches that connect to it to act 
 ├── etc
 │   ├── default
 │   │   └── openvswitch-controller
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-openvswitch-controller.json
-│   └── systemd
-│       └── system
-│           └── openvswitch-controller.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-openvswitch-controller.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

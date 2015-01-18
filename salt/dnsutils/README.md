@@ -27,5 +27,6 @@ This package delivers various client programs related to DNS that are derived fr
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

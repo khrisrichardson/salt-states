@@ -35,12 +35,9 @@ unnecessary downtime.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-hadoop-hdfs-secondarynamenode.json
-│   └── systemd
-│       └── system
-│           └── hadoop-hdfs-secondarynamenode.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-hadoop-hdfs-secondarynamenode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

@@ -17,6 +17,7 @@ Privoxy is based on Internet Junkbuster (tm).
 ## Relates:
 
   -  [sensu-api](/salt/sensu-api)
+  -  [socks5](/salt/socks5)
 
 ## Files:
 
@@ -26,12 +27,10 @@ Privoxy is based on Internet Junkbuster (tm).
 ├── etc
 │   ├── privoxy
 │   │   └── config
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-privoxy.json
-│   └── systemd
-│       └── system
-│           └── privoxy.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-privoxy.json
 ├── init.sls
-└── relate-sensu-api.sls
+├── relate-sensu-api.sls
+└── relate-socks5.sls
 ```

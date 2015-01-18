@@ -35,12 +35,9 @@ This package contains the CloudWatch API.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-heat-api-cloudwatch.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── heat-api-cloudwatch.conf
-│   └── systemd
-│       └── system
-│           └── heat-api-cloudwatch.service
+│   └── supervisor
+│       └── conf.d
+│           └── heat-api-cloudwatch.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

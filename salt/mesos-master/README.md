@@ -25,15 +25,15 @@
 ├── defaults.yaml
 ├── depend-supervisor.sls
 ├── etc
+│   ├── mesos-master
+│   │   └── quorum
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mesos-master.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── mesos-master.conf
-│   └── systemd
-│       └── system
-│           └── mesos-master.service
+│   └── supervisor
+│       └── conf.d
+│           └── mesos-master.conf
 ├── init.sls
+├── relate-mesos-master.sls
 └── relate-sensu-api.sls
 ```

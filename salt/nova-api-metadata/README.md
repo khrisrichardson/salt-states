@@ -44,12 +44,9 @@ This package provides the metadata API backend for guest VMs.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-api-metadata.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-api-metadata.conf
-│   └── systemd
-│       └── system
-│           └── nova-api-metadata.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-api-metadata.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

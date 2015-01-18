@@ -26,6 +26,7 @@ This package includes the common files.
 │   └── cobbler
 │       └── dhcp.template
 ├── init.sls
+├── map.jinja
 └── var
     └── lib
         └── cobbler

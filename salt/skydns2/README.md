@@ -37,12 +37,9 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-skydns2.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── skydns2.conf
-│   └── systemd
-│       └── system
-│           └── skydns2.service
+│   └── supervisor
+│       └── conf.d
+│           └── skydns2.conf
 ├── init.sls
 ├── relate-etcd.sls
 ├── relate-graphite-carbon.sls

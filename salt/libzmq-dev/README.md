@@ -25,5 +25,6 @@ This package contains the ZeroMQ development libraries and header files.
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

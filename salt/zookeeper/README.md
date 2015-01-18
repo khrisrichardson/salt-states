@@ -17,7 +17,7 @@ This package contains the shell scripts and an example configuration but does no
 
 ## Relates:
 
-  -  N/A
+  -  [rsyslog](/salt/rsyslog)
 
 ## Files:
 
@@ -27,5 +27,6 @@ This package contains the shell scripts and an example configuration but does no
 │   └── zookeeper
 │       └── conf.dist
 │           └── log4j.properties
-└── init.sls
+├── init.sls
+└── relate-rsyslog.sls
 ```

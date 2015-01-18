@@ -26,6 +26,7 @@ single HBase deployment.
   -  [cloudera-cm4-server](/salt/cloudera-cm4-server)
   -  [cloudera-cm5-server](/salt/cloudera-cm5-server)
   -  [graphite-carbon](/salt/graphite-carbon)
+  -  [hadoop-hdfs-namenode](/salt/hadoop-hdfs-namenode)
   -  [hbase-regionserver](/salt/hbase-regionserver)
   -  [influxdb](/salt/influxdb)
   -  [sensu-api](/salt/sensu-api)
@@ -36,12 +37,9 @@ single HBase deployment.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-hbase-master.json
-│   └── systemd
-│       └── system
-│           └── hbase-master.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-hbase-master.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans
@@ -50,6 +48,7 @@ single HBase deployment.
 ├── relate-cloudera-cm4-server.sls
 ├── relate-cloudera-cm5-server.sls
 ├── relate-graphite-carbon.sls
+├── relate-hadoop-hdfs-namenode.sls
 ├── relate-hbase-regionserver.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls

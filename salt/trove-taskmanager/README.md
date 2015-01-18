@@ -35,12 +35,9 @@ This package provides the Trove taskmanager. The trove-taskmanager service does 
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-trove-taskmanager.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── trove-taskmanager.conf
-│   └── systemd
-│       └── system
-│           └── trove-taskmanager.service
+│   └── supervisor
+│       └── conf.d
+│           └── trove-taskmanager.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

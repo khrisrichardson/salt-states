@@ -28,13 +28,11 @@ Postfix is Wietse Venema's mail transport agent that started life as an alternat
 ├── etc
 │   ├── postfix
 │   │   └── main.cf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-postfix.json
-│   └── systemd
-│       └── system
-│           └── postfix.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-postfix.json
 ├── init.sls
+├── map.jinja
 ├── pkg.selections
 └── relate-sensu-api.sls
 ```

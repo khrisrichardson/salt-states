@@ -46,12 +46,9 @@ This package provides the API frontend.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-api.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-api.conf
-│   └── systemd
-│       └── system
-│           └── nova-api.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-api.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

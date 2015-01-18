@@ -18,6 +18,7 @@
 
 ## Relates:
 
+  -  [redis-server](/salt/redis-server)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -26,13 +27,11 @@
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-node-redis-commander.json
-│   └── systemd
-│       └── system
-│           └── node-redis-commander.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-node-redis-commander.json
 ├── init.sls
+├── relate-redis-server.sls
 ├── relate-sensu-api.sls
 └── usr
     └── local

@@ -39,12 +39,9 @@ This is the Nova certificate management component.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-cert.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-cert.conf
-│   └── systemd
-│       └── system
-│           └── nova-cert.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-cert.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

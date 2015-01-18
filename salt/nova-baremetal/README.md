@@ -42,12 +42,9 @@ This is the baremetal virt component.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-baremetal.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-baremetal.conf
-│   └── systemd
-│       └── system
-│           └── nova-baremetal.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-baremetal.conf
 ├── init.sls
 ├── relate-logstash.sls
 ├── relate-mariadb-server.sls

@@ -25,12 +25,10 @@ This package provides the AMQP broker.
 ├── defaults.yaml
 ├── etc
 │   ├── qpidd.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-qpidd.json
-│   └── systemd
-│       └── system
-│           └── qpidd.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-qpidd.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

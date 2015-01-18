@@ -20,5 +20,6 @@ This is a "dummy" package that depends on lenny's default version of netcat, to 
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

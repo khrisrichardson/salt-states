@@ -33,10 +33,13 @@ lxc-docker:
       - pkg:       lxc-docker
 
 /etc/default/docker:
-  file.replace:
+  file.managed:
+    - template:    jinja
+    - source:      salt://{{ sls }}/etc/default/docker
     - name:     {{ map.get('/etc/default/docker', {}).get('file', {}).get('name') }}
-    - pattern:  '^#DOCKER_OPTS=".*"$'
-    - repl:       'DOCKER_OPTS="-dns 172.17.42.1 -dns 8.8.8.8"'
+    - user:        root
+    - group:       root
+    - mode:       '0644'
     - watch:
       - pkg:       lxc-docker
     - watch_in:

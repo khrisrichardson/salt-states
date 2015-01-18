@@ -28,12 +28,9 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mesos-slave.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── mesos-slave.conf
-│   └── systemd
-│       └── system
-│           └── mesos-slave.service
+│   └── supervisor
+│       └── conf.d
+│           └── mesos-slave.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

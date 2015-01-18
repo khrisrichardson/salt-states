@@ -61,12 +61,9 @@ This package contains the glance API server.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-glance-api.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── glance-api.conf
-│   └── systemd
-│       └── system
-│           └── glance-api.service
+│   └── supervisor
+│       └── conf.d
+│           └── glance-api.conf
 ├── init.sls
 ├── relate-cinder-volume.sls
 ├── relate-glance-registry.sls

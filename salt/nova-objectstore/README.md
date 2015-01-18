@@ -39,12 +39,9 @@ This is the package contains a very simple S3-like object store. For production 
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-objectstore.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-objectstore.conf
-│   └── systemd
-│       └── system
-│           └── nova-objectstore.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-objectstore.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

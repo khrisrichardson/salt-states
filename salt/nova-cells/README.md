@@ -39,12 +39,9 @@ This is the Nova cells component.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-cells.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-cells.conf
-│   └── systemd
-│       └── system
-│           └── nova-cells.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-cells.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

@@ -1,16 +1,18 @@
 # vi: set ft=yaml.jinja :
 
-{% set nodename = salt['config.get']('nodename') %}
+{% set arch     =  salt['config.get']('osarch') %}
+{% set nodename =  salt['config.get']('nodename') %}
+{% set version  = '6.0-182037' %}
 
 splunk:
   pkg:
     - installed
    {% if   salt['config.get']('os_family') == 'Debian' %}
     - sources:
-      - splunk:    salt://{{ sls }}/splunk-6.0-182037-linux-2.6-amd64.deb
+      - splunk:    salt://{{ sls }}/splunk-{{ version }}-linux-2.6-{{ arch }}.deb
    {% elif salt['config.get']('os_family') == 'RedHat' %}
     - sources:
-      - splunk:    salt://{{ sls }}/splunk-6.0-182037-linux-2.6-x86_64.rpm
+      - splunk:    salt://{{ sls }}/splunk-{{ version }}-linux-2.6-{{ arch }}.rpm
    {% endif %}
 
 /opt/splunk/bin/splunk set servername:

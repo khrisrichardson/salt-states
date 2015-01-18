@@ -210,5 +210,6 @@
 ```bash
 .
 ├── depend-git.sls
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

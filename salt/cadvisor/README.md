@@ -36,12 +36,9 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cadvisor.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── cadvisor.conf
-│   └── systemd
-│       └── system
-│           └── cadvisor.service
+│   └── supervisor
+│       └── conf.d
+│           └── cadvisor.conf
 ├── init.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls

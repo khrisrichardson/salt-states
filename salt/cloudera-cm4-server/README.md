@@ -28,12 +28,9 @@ The Cloudera Manager Server manages the services making up a Hadoop cluster.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-cloudera-cm4-server.json
-│   └── systemd
-│       └── system
-│           └── cloudera-cm4-server.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-cloudera-cm4-server.json
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

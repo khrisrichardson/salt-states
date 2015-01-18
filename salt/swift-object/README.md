@@ -35,11 +35,8 @@ This package provides the swift object server.
 │   ├── supervisor
 │   │   └── conf.d
 │   │       └── swift-object.conf
-│   ├── swift
-│   │   └── object-server.conf
-│   └── systemd
-│       └── system
-│           └── swift-object.service
+│   └── swift
+│       └── object-server.conf
 ├── init.sls
 ├── relate-sensu-api.sls
 └── root

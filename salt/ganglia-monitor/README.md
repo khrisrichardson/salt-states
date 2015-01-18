@@ -24,12 +24,10 @@ This package contains the monitor core program.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-ganglia-monitor.json
-│   └── systemd
-│       └── system
-│           └── ganglia-monitor.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-ganglia-monitor.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

@@ -44,4 +44,6 @@ Maven's primary goal is to allow a developer to comprehend the complete state of
 ├── init.sls
 ├── relate-socks5.sls
 └── root
+    └── .m2
+        └── settings.xml
 ```

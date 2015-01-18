@@ -34,12 +34,9 @@ This package contains the api service
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-ceilometer-api.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── ceilometer-api.conf
-│   └── systemd
-│       └── system
-│           └── ceilometer-api.service
+│   └── supervisor
+│       └── conf.d
+│           └── ceilometer-api.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

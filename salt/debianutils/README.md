@@ -32,5 +32,6 @@ The specific utilities included are: add-shell installkernel ischroot remove-she
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

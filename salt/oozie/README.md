@@ -20,6 +20,8 @@
 
 ## Relates:
 
+  -  [cloudera-cm4-server](/salt/cloudera-cm4-server)
+  -  [cloudera-cm5-server](/salt/cloudera-cm5-server)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -28,12 +30,11 @@
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-oozie.json
-│   └── systemd
-│       └── system
-│           └── oozie.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-oozie.json
 ├── init.sls
+└── relate-cloudera-cm4-server.sls
+└── relate-cloudera-cm5-server.sls
 └── relate-sensu-api.sls
 ```

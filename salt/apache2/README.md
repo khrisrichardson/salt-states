@@ -31,12 +31,10 @@ This package contains the configuration files, init scripts and support scripts.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-apache2.json
-│   └── systemd
-│       └── system
-│           └── apache2.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-apache2.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

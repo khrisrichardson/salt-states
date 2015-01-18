@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-process-opentsdb": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'net.opentsdb.tools.TSDMain' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

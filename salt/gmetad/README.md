@@ -26,12 +26,10 @@ This package contains the 'gmetad' daemon, which collects information from gangl
 ├── etc
 │   ├── ganglia
 │   │   └── gmetad.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-gmetad.json
-│   └── systemd
-│       └── system
-│           └── gmetad.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-gmetad.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

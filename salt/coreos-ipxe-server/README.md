@@ -30,12 +30,9 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-coreos-ipxe-server.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── coreos-ipxe-server.conf
-│   └── systemd
-│       └── system
-│           └── coreos-ipxe-server.service
+│   └── supervisor
+│       └── conf.d
+│           └── coreos-ipxe-server.conf
 ├── init.sls
 ├── opt
 │   └── coreos-ipxe-server

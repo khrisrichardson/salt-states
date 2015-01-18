@@ -41,12 +41,9 @@ This package contains the Cinder API server.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cinder-api.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── cinder-api.conf
-│   └── systemd
-│       └── system
-│           └── cinder-api.service
+│   └── supervisor
+│       └── conf.d
+│           └── cinder-api.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

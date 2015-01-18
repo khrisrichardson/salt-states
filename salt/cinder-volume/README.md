@@ -48,9 +48,6 @@ This package contains the Cinder Volume server.
 │   ├── supervisor
 │   │   └── conf.d
 │   │       └── cinder-volume.conf
-│   ├── systemd
-│   │   └── system
-│   │       └── cinder-volume.service
 │   └── tgt
 │       └── conf.d
 │           └── cinder_tgt.conf

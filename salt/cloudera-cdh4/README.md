@@ -23,5 +23,6 @@ Cloudera's Distribution for Hadoop, Version 4
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

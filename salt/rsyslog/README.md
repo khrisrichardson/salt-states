@@ -42,12 +42,9 @@ It is the default syslogd on Debian systems.
 │   │   ├── 00-remote.conf
 │   │   ├── 60-imtcp.conf
 │   │   └── 60-imudp.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-rsyslog.json
-│   └── systemd
-│       └── system
-│           └── rsyslog.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-rsyslog.json
 ├── init.sls
 ├── relate-logstash.sls
 ├── relate-rsyslog.sls

@@ -35,11 +35,8 @@ This package provides the object-expirer service that provides scheduled deletio
 │   ├── supervisor
 │   │   └── conf.d
 │   │       └── swift-object-expirer.conf
-│   ├── swift
-│   │   └── object-expirer.conf
-│   └── systemd
-│       └── system
-│           └── swift-object-expirer.service
+│   └── swift
+│       └── object-expirer.conf
 ├── init.sls
 └── relate-sensu-api.sls
 ```

@@ -21,12 +21,17 @@ This package provides the Apache Traffic Server. A fast, scalable reverse proxy 
 
 ## Relates:
 
-  -  N/A
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 
 ```bash
 .
 ├── defaults.yaml
-└── init.sls
+├── etc
+│   └── sensu
+│       └── conf.d
+│           └── checks-trafficserver.json
+├── init.sls
+└── relate-sensu-api.sls
 ```

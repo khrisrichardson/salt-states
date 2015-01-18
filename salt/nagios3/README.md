@@ -86,13 +86,11 @@ Upstream URL: http://www.nagios.org/
 │   ├── nginx
 │   │   └── sites-available
 │   │       └── nagios3
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-nagios3.json
-│   └── systemd
-│       └── system
-│           └── nagios3.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-nagios3.json
 ├── init.sls
+├── map.jinja
 ├── relate-sensu-api.sls
 ├── root
 │   └── bin

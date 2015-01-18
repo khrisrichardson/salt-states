@@ -35,12 +35,9 @@ This package provides the Trove API server. The trove-api service provides a RES
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-trove-api.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── trove-api.conf
-│   └── systemd
-│       └── system
-│           └── trove-api.service
+│   └── supervisor
+│       └── conf.d
+│           └── trove-api.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

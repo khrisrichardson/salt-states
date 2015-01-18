@@ -2,6 +2,8 @@
 
 {% from 'cloudera-cm4/map.jinja' import map with context %}
 
+{% set arch = salt['config.get']('osarch') %}
+
 include:
   -  netbase
   -  python-apt
@@ -13,7 +15,7 @@ cloudera-cm4:
     - gpgkey:   {{ map.get('pkgrepo', {}).get('key_url') }}
     - key_url:  {{ map.get('pkgrepo', {}).get('key_url') }}
     - humanname:   Cloudera Manager
-    - baseurl:     http://archive.cloudera.com/cm4/redhat/6/x86_64/cm/4/
+    - baseurl:     http://archive.cloudera.com/cm4/redhat/6/{{ arch }}/cm/4/
     - comps:       contrib
     - enabled:     1
     - gpgcheck:    1

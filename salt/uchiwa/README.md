@@ -23,13 +23,10 @@
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   ├── conf.d
-│   │   │   └── checks-uchiwa.json
-│   │   └── uchiwa.json
-│   └── systemd
-│       └── system
-│           └── uchiwa.service
+│   └── sensu
+│       ├── conf.d
+│       │   └── checks-uchiwa.json
+│       └── uchiwa.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

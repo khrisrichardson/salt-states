@@ -39,12 +39,9 @@ This package provides the VNC proxy. It is a publically reachable component whic
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-xvpvncproxy.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-xvpvncproxy.conf
-│   └── systemd
-│       └── system
-│           └── nova-xvpvncproxy.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-xvpvncproxy.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

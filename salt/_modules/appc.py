@@ -5,6 +5,10 @@ Manage containers
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity: new
 :platform: linux
+
+TODO: perform role and base validation
+TODO: use the memoize decorator
+TODO: add return details
 '''
 
 # import libs: standard
@@ -30,7 +34,6 @@ def create(base='ubuntu:latest:amd64', role=None):
         _create_docker(
             ':'.join(base.split(':')[:2]),
             role,
-            ports=_get_network_transport_ports(role=role),
             volumes=_get_storage_mount_volumes(role=role),
         )
     elif RUNTIME == 'lxc':
@@ -57,7 +60,6 @@ def _create_docker(base, role, **kwargs):
         __salt__['docker.create_container'](
             image=tag,
             name=role,
-            ports=kwargs.get('ports', []),
             volumes=kwargs.get('volumes', [])
         )
 
@@ -282,21 +284,22 @@ def _get_compute_image_commands(base=None, role=None, layer=False):
     ret += [' '.join(cmd.lstrip().replace('\n', ';').split())]
     ret += ['bash bootstrap-salt.sh ${args} || true']
     ret += ['salt-call file.mkdir  /etc/salt/minion.d --local']
-    ret += ['salt-call file.write  /etc/salt/minion.d/master.conf "file_client: local" --local']
-    ret += ['salt-call file.append /etc/salt/minion.d/master.conf "fileserver_backend: [git]"']
-    ret += ['salt-call file.append /etc/salt/minion.d/master.conf "gitfs_provider: pygit2"']
-    ret += ['salt-call file.append /etc/salt/minion.d/master.conf "gitfs_remotes: [\'${repository}\']"']
-    ret += ['salt-call file.append /etc/salt/minion.d/master.conf "gitfs_root: salt"']
-    ret += ['salt-call file.append /etc/salt/minion.d/master.conf "startup_states: highstate"']
+    ret += ['salt-call file.write  /etc/salt/minion.d/salt-master.conf "file_client: local" --local']
+    ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "fileserver_backend: [git]"']
+    ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "gitfs_provider: pygit2"']
+    ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "gitfs_remotes: [\'${repository}\']"']
+    ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "gitfs_root: salt"']
+    ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "startup_states: highstate"']
     ret += ['salt-call pkg.install git']
     ret += ['salt-call pkg.install software-properties-common']
     ret += ['salt-call pkg.mod_repo ppa:dennis/python keyserver=hkp://keyserver.ubuntu.com:80 keyid=F3FA6A64F50B4114']
     ret += ['salt-call pkg.install python-pygit2 refresh=True']
+    ret += ['salt-call grains.setval environment base']
     # Commands to create salt-minion derived images
     if role != 'salt-minion':
-        ret += ['salt-call saltutil.sync_all']
         ret += ['salt-call grains.append roles ' + role]
         if layer:
+            ret += ['salt-call saltutil.sync_all']
             lows = _state_lows(base=base, role=role)
             for low in lows:
                 ret += ['salt-call state.low "' + low + '"']
@@ -436,7 +439,7 @@ def _manifest_docker(**kwargs):
 
     for k, v in instructions:
         if (k in ['CMD', 'ENTRYPOINT'] and v) or isinstance(v, basestring):
-            ret += k + ' ' + str(v) + '\n'
+            ret += k + ' ' + str(v).replace("'", '"') + '\n'
         elif isinstance(v, list):
             for i in v:
                 ret += k + ' ' + i + '\n'

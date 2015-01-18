@@ -38,12 +38,9 @@ This package contains the heat engine, which is the core service of heat, and wh
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-heat-engine.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── heat-engine.conf
-│   └── systemd
-│       └── system
-│           └── heat-engine.service
+│   └── supervisor
+│       └── conf.d
+│           └── heat-engine.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

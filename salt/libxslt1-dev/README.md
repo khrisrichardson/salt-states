@@ -23,5 +23,6 @@ This package contains the development files for libxslt.
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

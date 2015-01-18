@@ -36,6 +36,7 @@ This package provides a basic set of plugins with minimal external dependencies.
 ```bash
 .
 ├── init.sls
+├── map.jinja
 └── usr
     └── lib
         └── nagios

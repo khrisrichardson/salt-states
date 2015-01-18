@@ -31,13 +31,11 @@
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-jenkins.json
-│   └── systemd
-│       └── system
-│           └── jenkins.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-jenkins.json
 ├── init.sls
+├── map.jinja
 ├── relate-logstash.sls
 └── relate-sensu-api.sls
 ```

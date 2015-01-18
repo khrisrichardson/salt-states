@@ -43,12 +43,9 @@ This is the package you will install on the network nodes. This service is respo
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-network.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-network.conf
-│   └── systemd
-│       └── system
-│           └── nova-network.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-network.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

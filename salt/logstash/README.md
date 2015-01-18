@@ -72,6 +72,7 @@ An extensible logging pipeline
 ## Relates:
 
   -  [elasticsearch](/salt/elasticsearch)
+  -  [redis-server](/salt/redis-server)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -92,13 +93,13 @@ An extensible logging pipeline
 │   │       ├── output-file.conf
 │   │       ├── output-redis.conf
 │   │       └── output-zeromq.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-logstash.json
-│   └── systemd
-│       └── system
-│           └── logstash.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-logstash.json
 ├── init.sls
+├── map.jinja
 ├── relate-elasticsearch.sls
+├── relate-logstash.sls
+├── relate-redis-server.sls
 └── relate-sensu-api.sls
 ```

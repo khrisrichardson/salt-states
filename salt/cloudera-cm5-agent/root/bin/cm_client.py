@@ -11,18 +11,19 @@ import re
 import sys
 import time
 
-from ConfigParser                        import ConfigParser
-from cm_api.api_client                   import ApiException, ApiResource
-from cm_api.endpoints.clusters           import ApiCluster
-from cm_api.endpoints.hosts              import ApiHost
-from cm_api.endpoints.parcels            import ApiParcel
+from ConfigParser import ConfigParser
+from cm_api.api_client import ApiException, ApiResource
+from cm_api.endpoints.clusters import ApiCluster
+from cm_api.endpoints.hosts import ApiHost
+from cm_api.endpoints.parcels import ApiParcel
 from cm_api.endpoints.role_config_groups import ApiRoleConfigGroup
-from cm_api.endpoints.roles              import ApiRole
-from cm_api.endpoints.services           import ApiService
-from cm_api.endpoints.types              import *
-from itertools                           import chain
-from salt.client                         import Caller
-from urllib2                             import URLError
+from cm_api.endpoints.roles import ApiRole
+from cm_api.endpoints.services import ApiService
+from cm_api.endpoints.types import *
+from datetime import datetime
+from itertools import chain
+from salt.client import Caller
+from urllib2 import URLError
 
 
 CMD_TIMEOUT = 360
@@ -260,7 +261,7 @@ class ClouderaManagerHost(ApiHost):
       'ipAddress'         : None,
       'rackId'            : None,
       'status'            : ROAttr(),
-      'lastHeartbeat'     : ROAttr(datetime.datetime),
+      'lastHeartbeat'     : ROAttr(datetime),
       'roleRefs'          : ROAttr(ApiRoleRef),
       'healthSummary'     : ROAttr(),
       'healthChecks'      : ROAttr(),
@@ -884,7 +885,7 @@ class ClusterHDFS(ClusterService):
         Formats HDFS
         '''
         cluster = self.cluster
-        client      = cluster.client
+        client  = cluster.client
         #-------------------------------------------------------------------
         # TODO: test whether hdfs is already formatted
         #-------------------------------------------------------------------
@@ -1052,6 +1053,7 @@ class ServiceRole(ApiRole):
         service = self.service
         cluster = service.cluster
         client  = cluster.client
+        salt    = client.salt
 
         if hostname is None:
             hostname = salt.function('config.get', 'nodename')

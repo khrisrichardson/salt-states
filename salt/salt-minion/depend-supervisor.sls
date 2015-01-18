@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set minions = salt['roles.dict']('etcd') %}
+{% set minions = salt['roles.dict']('salt-master') %}
 {% set psls    = sls.split('.')[0] %}
 
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
@@ -19,10 +20,12 @@ extend:
       - watch:
         - pkg:     salt-minion
         - service: supervisor
-        - file:   /etc/salt/minion.d/master.conf
         - file:   /etc/salt/minion.d/schedule.conf
        {% if minions['etcd'] %}
         - file:   /etc/salt/minion.d/etcd.conf
+       {% endif %}
+       {% if minions['salt-master'] %}
+        - file:   /etc/salt/minion.d/salt-master.conf
        {% endif %}
 
 /etc/supervisor/conf.d/{{ psls }}.conf:

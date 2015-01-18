@@ -33,15 +33,13 @@
 ├── depend-apache2.sls
 ├── depend-git.sls
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-descartes.json
-│   └── systemd
-│       └── system
-│           └── descartes.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-descartes.json
 ├── init.sls
 ├── opt
 │   └── descartes
+│       └── .env
 ├── relate-postgresql.sls
 └── relate-sensu-api.sls
 ```

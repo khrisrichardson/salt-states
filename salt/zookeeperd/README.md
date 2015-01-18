@@ -18,6 +18,8 @@ This package contains init.d scripts to start and stop zookeeper and starts zook
 
 ## Relates:
 
+  -  [cloudera-cm4-server](/salt/cloudera-cm4-server)
+  -  [cloudera-cm5-server](/salt/cloudera-cm5-server)
   -  [graphite-carbon](/salt/graphite-carbon)
   -  [influxdb](/salt/influxdb)
   -  [sensu-api](/salt/sensu-api)
@@ -28,17 +30,16 @@ This package contains init.d scripts to start and stop zookeeper and starts zook
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-zookeeperd.json
-│   └── systemd
-│       └── system
-│           └── zookeeperd.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-zookeeperd.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans
 │       └── etc
 │           └── zookeeperd.xml
+├── relate-cloudera-cm4-server.sls
+├── relate-cloudera-cm5-server.sls
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls

@@ -39,12 +39,9 @@ This package provides the console server.  This enables the use of consoles to b
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nova-console.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── nova-console.conf
-│   └── systemd
-│       └── system
-│           └── nova-console.service
+│   └── supervisor
+│       └── conf.d
+│           └── nova-console.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

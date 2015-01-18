@@ -31,13 +31,11 @@ PostgreSQL is a fully featured object-relational database management system.  It
 │   │   └── 9.1
 │   │       └── main
 │   │           └── postgresql.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-postgresql.json
-│   └── systemd
-│       └── system
-│           └── postgresql.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-postgresql.json
 ├── init.sls
+├── map.jinja
 ├── relate-calamari.sls
 ├── relate-salt-minion.sls
 └── relate-sensu-api.sls

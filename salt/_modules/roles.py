@@ -5,6 +5,10 @@ Manage minion roles
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity: new
 :platform: all
+
+# TODO: add support for consul
+# TODO: add support for etcd
+# TODO: add support for skydns
 '''
 
 # import libs: standard

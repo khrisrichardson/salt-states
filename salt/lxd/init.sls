@@ -18,7 +18,7 @@ include:
     - require:
       - cmd:       go build lxd
 
-/usr/bin/lxc:
+/usr/bin/lxd:
   file.symlink:
     - target:     /usr/local/src/github.com/lxc/lxd/lxd/lxd
     - require:

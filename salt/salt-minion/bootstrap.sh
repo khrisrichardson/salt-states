@@ -168,7 +168,7 @@ salt_setup() {
 	  - ${repository}
 	gitfs_root:        salt
 	EOF
-    cat    > /etc/salt/minion.d/master.conf                             <<-EOF
+    cat    > /etc/salt/minion.d/salt-master.conf                        <<-EOF
 	# vi: set ft=yaml.jinja :
 	
 	file_client:       local

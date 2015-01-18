@@ -29,5 +29,6 @@ This cron package does not provide any system maintenance tasks. Basic periodic 
 │       └── conf.d
 │           └── checks-cron.json
 ├── init.sls
+├── map.jinja
 └── relate-sensu-api.sls
 ```

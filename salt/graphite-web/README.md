@@ -53,13 +53,11 @@ Graphite's design is focused on providing simple interfaces (both to users and a
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-graphite-web.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── graphite-web.conf
-│   └── systemd
-│       └── system
-│           └── graphite-web.service
+│   └── supervisor
+│       └── conf.d
+│           └── graphite-web.conf
 ├── init.sls
+├── map.jinja
 ├── relate-graphite-web.sls
 ├── relate-memcached.sls
 ├── relate-mysql-server.sls
@@ -71,6 +69,5 @@ Graphite's design is focused on providing simple interfaces (both to users and a
             └── dist-packages
                 └── graphite
                     └── render
-                        ├── functions.py
                         └── views.py
 ```

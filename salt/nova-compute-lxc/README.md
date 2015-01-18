@@ -28,10 +28,7 @@ Install this package on your compute nodes if you're using LXC.
 .
 ├── defaults.yaml
 ├── etc
-│   ├── nova
-│   │   └── nova-compute.conf
-│   └── systemd
-│       └── system
-│           └── nova-compute-lxc.service
+│   └── nova
+│       └── nova-compute.conf
 └── init.sls
 ```

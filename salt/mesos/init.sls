@@ -1,15 +1,16 @@
 # vi: set ft=yaml.jinja :
 
+{% set arch     =  salt['config.get']('osarch') %}
 {% set codename =  salt['config.get']('oscodename') %}
 {% set major    =  salt['config.get']('osmajorrelease') %}
 {% set os       =  salt['config.get']('os')|lower %}
-{% set version  = '0.20.0' %}
+{% set version  = '0.21.0' %}
 
-{% if salt['config.get']('os_family') == 'RedHat' %}
 include:
+  -  python-apt
+{% if salt['config.get']('os_family') == 'RedHat' %}
   -  openjdk-7-jre-headless
   -  python-setuptools
-  -  zookeeper-server
 {% endif %}
 
 mesos:
@@ -19,6 +20,8 @@ mesos:
     - file:       /etc/apt/sources.list.d/mesosphere.list
     - keyserver:   hkp://keyserver.ubuntu.com:80
     - keyid:       E56151BF
+    - require:
+      - pkg:       python-apt
     - require_in:
       - pkg:       mesos
 {% endif %}
@@ -26,7 +29,7 @@ mesos:
     - installed
 {% if salt['config.get']('os_family') == 'RedHat' %}
     - sources:
-      - mesos:     http://downloads.mesosphere.io/master/{{ os }}/{{ major }}/mesos-{{ version }}-1.0.{{ os }}64.x86_64.rpm
+      - mesos:     http://downloads.mesosphere.io/master/{{ os }}/{{ major }}/mesos-{{ version }}-1.0.{{ os }}64.{{ arch }}.rpm
     - require:
       - pkg:       openjdk-7-jre-headless
       - pkg:       zookeeper-server
@@ -38,13 +41,3 @@ mesos:
     - watch:
       - pkg:       mesos
 {% endif %}
-
-/etc/mesos/zk:
-  file.managed:
-    - template:    jinja
-    - source:      salt://{{ sls }}/etc/mesos/zk
-    - user:        root
-    - group:       root
-    - mode:       '0644'
-    - require:
-      - pkg:       mesos

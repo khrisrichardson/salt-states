@@ -39,13 +39,11 @@ This package contains the server itself  (mongod) and the sharding server/load-b
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mongodb-server.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── mongodb-server.conf
-│   └── systemd
-│       └── system
-│           └── mongodb-server.service
+│   └── supervisor
+│       └── conf.d
+│           └── mongodb-server.conf
 ├── init.sls
+├── map.jinja
 ├── relate-salt-minion.sls
 └── relate-sensu-api.sls
 ```

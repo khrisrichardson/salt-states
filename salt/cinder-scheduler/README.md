@@ -37,12 +37,9 @@ This package contains the Cinder Scheduler server.
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-cinder-scheduler.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── cinder-scheduler.conf
-│   └── systemd
-│       └── system
-│           └── cinder-scheduler.service
+│   └── supervisor
+│       └── conf.d
+│           └── cinder-scheduler.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

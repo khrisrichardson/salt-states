@@ -27,5 +27,6 @@ The uuidd daemon is used to generate UUIDs, especially time-based UUID??s, in a 
 
 ```bash
 .
-└── init.sls
+├── init.sls
+└── map.jinja
 ```

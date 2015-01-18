@@ -33,12 +33,9 @@ This package contains only the startup scripts for the system-wide daemon. No do
 ├── etc
 │   ├── rsyslog.d
 │   │   └── 60-tomcat7.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-tomcat7.json
-│   └── systemd
-│       └── system
-│           └── tomcat7.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-tomcat7.json
 ├── init.sls
 ├── relate-rsyslog.sls
 ├── relate-sensu-api.sls

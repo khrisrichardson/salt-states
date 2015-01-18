@@ -31,15 +31,13 @@ For more information about the NTP protocol and NTP server configuration and ope
 ├── defaults.yaml
 ├── etc
 │   ├── collectd.d
-│   │   └── ntp.conf
+│   │   └── input-ntp.conf
 │   ├── ntp.conf
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-ntp.json
-│   └── systemd
-│       └── system
-│           └── ntp.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-ntp.json
 ├── init.sls
+├── map.jinja
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
 ├── relate-nova-scheduler.sls

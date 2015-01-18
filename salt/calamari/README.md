@@ -45,12 +45,9 @@
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-calamari.json
-│   ├── supervisor
-│   │   └── conf.d
-│   │       └── calamari.conf
-│   └── systemd
-│       └── system
-│           └── calamari.service
+│   └── supervisor
+│       └── conf.d
+│           └── calamari.conf
 ├── init.sls
 ├── relate-graphite-carbon.sls
 ├── relate-postgresql.sls

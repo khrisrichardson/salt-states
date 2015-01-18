@@ -25,13 +25,11 @@ Cobbler is a network install server. Cobbler supports PXE, virtualized installs,
 .
 ├── defaults.yaml
 ├── etc
-│   ├── sensu
-│   │   └── conf.d
-│   │       └── checks-cobbler.json
-│   └── systemd
-│       └── system
-│           └── cobbler.service
+│   └── sensu
+│       └── conf.d
+│           └── checks-cobbler.json
 ├── init.sls
+├── map.jinja
 ├── relate-coreos.sls
 ├── relate-sensu-api.sls
 └── usr

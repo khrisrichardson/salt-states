@@ -20,6 +20,7 @@ This package includes the programs and libraries to support simple ceph cluster 
   -  [ceph-mds](/salt/ceph-mds)
   -  [ceph-mon](/salt/ceph-mon)
   -  [ceph-osd](/salt/ceph-osd)
+  -  [radosgw](/salt/radosgw)
 
 ## Files:
 
@@ -27,14 +28,11 @@ This package includes the programs and libraries to support simple ceph cluster 
 .
 ├── defaults.yaml
 ├── depend-openssh.sls
-├── etc
-│   └── systemd
-│       └── system
-│           └── ceph-deploy.service
 ├── home
 │   └── ceph
 ├── init.sls
 ├── relate-ceph-mds.sls
 ├── relate-ceph-mon.sls
-└── relate-ceph-osd.sls
+├── relate-ceph-osd.sls
+└── relate-radosgw.sls
 ```

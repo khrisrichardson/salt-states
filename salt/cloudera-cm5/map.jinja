@@ -1,20 +1,21 @@
 # vi: set ft=json.jinja :
 
+{% set arch     =  salt['config.get']('osarch') %}
 {% set codename =  salt['config.get']('lsb_distrib_codename') %}
 {% set codename = 'precise' %}
 {% set map      =  salt['grains.filter_by']({
   'Debian': {
     'pkgrepo': {
-      'name':          'deb [arch=amd64] http://archive.cloudera.com/cm5/ubuntu/' + codename + '/amd64/cm ' + codename + '-cm5',
+      'name':          'deb [arch=' + arch + '] http://archive.cloudera.com/cm5/ubuntu/' + codename + '/' + arch + '/cm ' + codename + '-cm5',
       'file':         '/etc/apt/sources.list.d/cloudera-cm5.list',
-      'key_url':       'http://archive.cloudera.com/cdh5/ubuntu/' + codename + '/amd64/cdh/archive.key',
+      'key_url':       'http://archive.cloudera.com/cdh5/ubuntu/' + codename + '/' + arch + '/cdh/archive.key',
     },
   },
   'RedHat': {
     'pkgrepo': {
       'name':          'cloudera-cm5',
       'file':         '/etc/yum.repos.d/cloudera-cm5.repo',
-      'key_url':       'http://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera',
+      'key_url':       'http://archive.cloudera.com/cdh5/redhat/6/' + arch + '/cdh/RPM-GPG-KEY-cloudera',
     },
   },
 }, merge=salt['config.get']('cloudera-cm5')) %}
