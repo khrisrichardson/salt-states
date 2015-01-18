@@ -45,6 +45,8 @@ go build lxd:
   cmd.wait:
     - name:        make
     - cwd:        /usr/local/src/github.com/lxc/lxd
+    - env:
+      - GOPATH:   /usr/local
     - require:
       - pkg:       gcc
       - pkg:       lxc-dev
