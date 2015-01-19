@@ -7,7 +7,7 @@ include:
 
 go get deis:
   cmd.run:
-    - name:        go get -u -v github.com/deis/deis/...
+    - name:        go get -u -v github.com/deis/deis
     - env:
       - GOPATH:   /usr/local
     - require:

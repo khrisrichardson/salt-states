@@ -2,6 +2,9 @@
 
 {% from 'opsview-base/map.jinja' import map with context %}
 
+{% set major = salt['config.get']('osmajorrelease') %}
+{% set os    = salt['config.get']('os')|lower %}
+
 include:
   -  python-apt
   -  rpmforge-release
@@ -10,10 +13,10 @@ opsview-base:
   pkgrepo.managed:
     - name:     {{ map.get('pkgrepo', {}).get('name') }}
     - file:     {{ map.get('pkgrepo', {}).get('file') }}
-    - gpgkey:   {{ map.get('pkgrepo', {}).get('key_url') }}
-    - key_url:  {{ map.get('pkgrepo', {}).get('key_url') }}
+    - keyserver:   hkp://subkeys.pgp.net:80
+    - keyid:       0FC6984B
     - humanname:   Opsview
-    - baseurl:     http://downloads.opsview.com/opsview-core/latest/yum/centos/6/$basearch
+    - baseurl:     http://downloads.opsview.com/opsview-core/latest/yum/{{ os }}/{{ major }}/$basearch
     - enabled:     1
     - gpgcheck:    0
     - consolidate: True
@@ -24,3 +27,6 @@ opsview-base:
   pkg.installed:
     - require:
       - pkgrepo:   opsview-base
+   {% if salt['config.get']('os_family') == 'RedHat' %}
+      - pkgrepo:   rpmforge
+   {% endif %}

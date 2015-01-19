@@ -1,17 +1,11 @@
 # vi: set ft=yaml.jinja :
 
-{% set arch     =  salt['config.get']('osarch') %}
 {% set codename =  salt['config.get']('oscodename') %}
-{% set major    =  salt['config.get']('osmajorrelease') %}
 {% set os       =  salt['config.get']('os')|lower %}
 {% set version  = '0.21.0' %}
 
 include:
   -  python-apt
-{% if salt['config.get']('os_family') == 'RedHat' %}
-  -  openjdk-7-jre-headless
-  -  python-setuptools
-{% endif %}
 
 mesos:
 {% if salt['config.get']('os_family') == 'Debian' %}
@@ -22,22 +16,7 @@ mesos:
     - keyid:       E56151BF
     - require:
       - pkg:       python-apt
-    - require_in:
-      - pkg:       mesos
 {% endif %}
-  pkg:
-    - installed
-{% if salt['config.get']('os_family') == 'RedHat' %}
-    - sources:
-      - mesos:     http://downloads.mesosphere.io/master/{{ os }}/{{ major }}/mesos-{{ version }}-1.0.{{ os }}64.{{ arch }}.rpm
+  pkg.installed:
     - require:
-      - pkg:       openjdk-7-jre-headless
-      - pkg:       zookeeper-server
-  cmd.wait:
-    - name:        easy_install http://downloads.mesosphere.io/master/{{ os }}/{{ major }}/mesos-{{ version }}-py2.6.egg
-    - unless:      python -c 'import mesos'
-    - require:
-      - pkg:       python-setuptools
-    - watch:
-      - pkg:       mesos
-{% endif %}
+      - pkgrepo:   mesos

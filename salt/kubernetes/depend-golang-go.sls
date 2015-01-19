@@ -8,20 +8,9 @@ include:
   -  golang-go
   -  mercurial
 
-#go get kubernetes:
-# cmd.run:
-#   - name:        go get github.com/GoogleCloudPlatform/kubernetes/...
-#   - env:
-#     - GOPATH:   /usr/local
-#   - require:
-#     - pkg:       ca-certificates
-#     - pkg:       git
-#     - pkg:       golang-go
-#     - pkg:       mercurial
-
 go build kubernetes:
   cmd.wait:
-    - name:      ./hack/build-go.sh
+    - name:        make release
     - cwd:        /usr/local/src/github.com/GoogleCloudPlatform/kubernetes
     - env:
       - GOPATH:   /usr/local
@@ -31,4 +20,3 @@ go build kubernetes:
       - pkg:       mercurial
     - watch:
       - git:       https://github.com/GoogleCloudPlatform/kubernetes.git
-#     - cmd:       go get kubernetes

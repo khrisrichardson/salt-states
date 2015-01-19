@@ -3,6 +3,8 @@
 {% set major   =  salt['config.get']('osmajorrelease') %}
 {% set version = 'icehouse' %}
 
+{% if salt['config.get']('os_family') == 'RedHat' %}
+
 /etc/pki/rpm-gpg/RPM-GPG-KEY-RDO-{{ version|capitalize }}:
   file.managed:
     - source:      salt://{{ sls }}/etc/pki/rpm-gpg/RPM-GPG-KEY-RDO-{{ version|capitalize }}
@@ -20,3 +22,5 @@ openstack-{{ version }}:
     - priority:    98
     - require:
       - file:     /etc/pki/rpm-gpg/RPM-GPG-KEY-RDO-{{ version|capitalize }}
+
+{% endif %}

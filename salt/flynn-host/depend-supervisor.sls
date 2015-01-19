@@ -5,14 +5,16 @@
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 
 include:
-  -  kafka
+  -  flynn-host
   -  supervisor
 
-kafka-producer:
-  supervisord.running:
-    - watch:
-      - service:   supervisor
-      - file:     /usr/share/kafka/config/producer.properties
+extend:
+  flynn-host:
+    supervisord.running:
+      - watch:
+        - pkg:     flynn-host
+        - service: libvirt-bin
+        - service: supervisor
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

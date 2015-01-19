@@ -2,13 +2,6 @@
 
 {% set major = salt['config.get']('osmajorrelease') %}
 
-/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ major }}:
-  file.managed:
-    - source:      salt://{{ sls }}/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ major }}
-    - user:        root
-    - group:       root
-    - mode:       '0644'
-
 epel:
   pkgrepo.managed:
 #   - baseurl:     http://download.fedoraproject.org/pub/epel/$releasever/$basearch
@@ -86,3 +79,14 @@ epel-testing-source:
     - consolidate: True
     - require:
       - file:     /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ major }}
+
+{% if salt['config.get']('os_family') == 'RedHat' %}
+
+/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ major }}:
+  file.managed:
+    - source:      salt://{{ sls }}/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ major }}
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+
+{% endif %}

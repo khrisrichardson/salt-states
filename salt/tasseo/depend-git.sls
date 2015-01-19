@@ -5,6 +5,7 @@
 
 include:
   -  git
+  -  tasseo
 
 extend:
 {% for minion in minions %}

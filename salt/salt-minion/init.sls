@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 include:
+  - .depend-git
 # - .depend-incron
   - .depend-supervisor
   -  python-etcd
@@ -41,18 +42,6 @@ salt-minion:
     - mode:       '0755'
     - require:
       - pkg:       salt-minion
-
-/etc/salt/minion.d/fileserver_backend.conf:
-  file.managed:
-    - template:    jinja
-    - source:      salt://{{ sls }}/etc/salt/minion.d/fileserver_backend.conf
-    - user:        root
-    - group:       root
-    - mode:       '0644'
-    - require:
-      - file:     /etc/salt/minion.d
-    - watch_in:
-      - service:   salt-minion
 
 /etc/salt/minion.d/mine.conf:
   file.managed:

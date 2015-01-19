@@ -1,18 +1,20 @@
 # vi: set ft=json.jinja :
 
+{% set family = salt['config.get']('os_family')|lower %}
+
 {% set map = salt['grains.filter_by']({
   'Debian': {
     'pkgrepo': {
-      'name':          'deb http://pkg.jenkins-ci.org/debian binary/',
+      'name':          'deb http://pkg.jenkins-ci.org/' + family + ' binary/',
       'file':         '/etc/apt/sources.list.d/jenkins.list',
-      'key_url':       'http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key',
+      'key_url':       'http://pkg.jenkins-ci.org/' + family + '/jenkins-ci.org.key',
     },
   },
   'RedHat': {
     'pkgrepo': {
       'name':          'jenkins',
       'file':         '/etc/yum.repos.d/jenkins.repo',
-      'key_url':       'http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key',
+      'key_url':       'http://pkg.jenkins-ci.org/' + family + '/jenkins-ci.org.key',
     },
   },
 }, merge=salt['config.get']('jenkins-common')) %}

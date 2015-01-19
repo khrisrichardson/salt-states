@@ -4,12 +4,6 @@ include:
   -  git
   -  kubernetes
 
-extend:
-  ./hack/build-go.sh:
-    cmd:
-      - watch:
-        - git:     https://github.com/GoogleCloudPlatform/kubernetes.git
-
 https://github.com/GoogleCloudPlatform/kubernetes.git:
   git.latest:
     - rev:         master

@@ -7,6 +7,7 @@ include:
   -  libxml2-dev
   -  libxslt1-dev
   -  redis-server
+  -  ruby
   -  ruby-rvm
 
 /opt/descartes/.env:
@@ -23,7 +24,7 @@ include:
       - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.3-p448
     - require:
-      - cmd:      /usr/local/rvm
+      - cmd:       curl https://get.rvm.io
 
 rvm use 1.9.3:
   cmd.run:
@@ -37,7 +38,7 @@ rvm use 1.9.3:
                  |                  egrep -q '^=. ruby-1.9.3-p448'"
                  )
     - require:
-      - cmd:      /usr/local/rvm
+      - cmd:       curl https://get.rvm.io
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman
@@ -50,4 +51,5 @@ bundle install && gem install foreman:
     - cwd:        /opt/descartes
     - unless:      bundle check
     - require:
+      - pkg:       ruby
       - cmd:       rvm use 1.9.3

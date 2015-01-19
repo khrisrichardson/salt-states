@@ -31,7 +31,7 @@ include:
       - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.2-p320
     - require:
-      - cmd:      /usr/local/rvm
+      - cmd:       curl https://get.rvm.io
 
 rvm use 1.9.2:
   cmd.run:
@@ -44,7 +44,7 @@ rvm use 1.9.2:
                  | egrep -q '^=. ruby-1.9.2-p320'
                  )
     - require:
-      - cmd:      /usr/local/rvm
+      - cmd:       curl https://get.rvm.io
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman

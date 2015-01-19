@@ -8,7 +8,7 @@ include:
   -  debianutils
   -  elasticsearch
 
-./plugin -install graphite -url file:///usr/local/src/github.com/spinscale/elasticsearch-plugin-graphite/target/releases/elasticsearch-plugin-graphite-{{ version }}.zip:
+./plugin -install graphite -url file:///usr/local/src/github.com/spinscale/elasticsearch-graphite-plugin/target/releases/elasticsearch-plugin-graphite-{{ version }}.zip:
   cmd.wait:
     - order:      -1
     - cwd:        /usr/share/elasticsearch/bin

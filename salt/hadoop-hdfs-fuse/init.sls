@@ -4,6 +4,9 @@
 {% set codename = 'precise' %}
 {% set version  = 'cdh4' %}
 
+include:
+  -  cloudera-{{ version }}
+
 hadoop-hdfs-fuse:
   pkg.installed:
    {% if salt['config.get']('os') == 'Ubuntu' %}

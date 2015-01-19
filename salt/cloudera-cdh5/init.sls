@@ -2,7 +2,9 @@
 
 {% from 'cloudera-cdh5/map.jinja' import map with context %}
 
-{% set arch = salt['config.get']('osarch') %}
+{% set arch   = salt['config.get']('osarch') %}
+{% set family = salt['config.get']('os_family')|lower %}
+{% set major  = salt['config.get']('osmajorrelease') %}
 
 include:
   -  procps
@@ -15,7 +17,7 @@ cloudera-cdh5:
     - gpgkey:   {{ map.get('pkgrepo', {}).get('key_url') }}
     - key_url:  {{ map.get('pkgrepo', {}).get('key_url') }}
     - humanname:   Cloudera's Distribution for Hadoop, Version 5
-    - baseurl:     http://archive.cloudera.com/cdh5/redhat/6/{{ arch }}/cdh/4/
+    - baseurl:     http://archive.cloudera.com/cdh5/{{ family }}/{{ major }}/{{ arch }}/cdh/4/
     - comps:       contrib
     - enabled:     1
     - gpgcheck:    1

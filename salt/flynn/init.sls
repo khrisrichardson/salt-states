@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 include:
+  -  apt-transport-https
   -  python-apt
 
 flynn:
@@ -12,5 +13,6 @@ flynn:
     - consolidate: True
    {% if salt['config.get']('os_family') == 'Debian' %}
     - require:
+      - pkg:       apt-transport-https
       - pkg:       python-apt
    {% endif %}

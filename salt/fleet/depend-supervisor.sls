@@ -11,7 +11,7 @@ fleet:
     - watch:
       - service:   supervisor
       - file:     /etc/fleet/fleet.conf
-      - file:     /usr/bin/fleet
+      - file:     /usr/bin/fleetd
 #     - cmd:       go get fleet
 
 /etc/supervisor/conf.d/{{ psls }}.conf:

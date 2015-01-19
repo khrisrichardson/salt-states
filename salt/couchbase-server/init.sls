@@ -11,7 +11,7 @@ couchbase-server:
     - sources:
      {% if   salt['config.get']('os_family') == 'Debian' %}
       - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community_{{ version }}-ubuntu12.04_{{ arch }}.deb
-     {% if   salt['config.get']('os_family') == 'RedHat' %}
+     {% elif salt['config.get']('os_family') == 'RedHat' %}
       - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community-{{ version }}-centos6.{{ arch }}.rpm
      {% endif %}
   service.running:

@@ -2,11 +2,7 @@
 
 ## Description:
 
-?MQ is a library which extends the standard socket interfaces with features traditionally provided by specialised messaging middleware products.
-
-?MQ sockets provide an abstraction of asynchronous message queues, multiple messaging patterns, message filtering (subscriptions), seamless access to multiple transport protocols and more.
-
-This package contains the ZeroMQ development libraries and header files.
+lightweight messaging kernel (shared library)
 
 ## Depends:
 

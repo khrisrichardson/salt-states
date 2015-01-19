@@ -1,5 +1,8 @@
 # vi: set ft=yaml.jinja :
 
+include:
+  -  npm
+
 {% if salt['config.get']('os')         == 'Ubuntu'
   and salt['config.get']('oscodename') == 'precise' %}
 

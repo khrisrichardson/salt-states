@@ -1,5 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+include:
+  - .depend-supervisor
+  -  logio
+
 /etc/log.io/harvester.conf:
   file.managed:
     - template:    jinja

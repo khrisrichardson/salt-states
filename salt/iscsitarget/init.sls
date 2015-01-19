@@ -12,6 +12,6 @@ iscsitarget:
     - pattern:     ISCSITARGET_ENABLE=false
     - repl:        ISCSITARGET_ENABLE=true
     - watch:
-      - pkg:       iscistarget
+      - pkg:       iscsitarget
     - watch_in:
-      - service:   iscistarget
+      - service:   iscsitarget

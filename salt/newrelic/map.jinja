@@ -1,10 +1,11 @@
 # vi: set ft=json.jinja :
 
+{% set family      = salt['config.get']('os_family')|lower %}
 {% set license_key = '' %}
 {% set map         = salt['grains.filter_by']({
   'Debian': {
     'pkgrepo': {
-      'name':          'deb http://apt.newrelic.com/debian/ newrelic',
+      'name':          'deb http://apt.newrelic.com/' + family + '/ newrelic',
       'file':         '/etc/apt/sources.list.d/newrelic.list',
     },
   },

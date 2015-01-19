@@ -1,5 +1,7 @@
 # vi: set ft=yaml.jinja :
 
+{% set family = salt['config.get']('os_family')|lower %}
+
 include:
   -  python-apt
 
@@ -7,7 +9,7 @@ rabbitmq-server:
 {% if salt['config.get']('os_family') == 'Debian' %}
   pkgrepo.managed:
     - humanname:   RabbitMQ
-    - name:        deb http://www.rabbitmq.com/debian/ testing main
+    - name:        deb http://www.rabbitmq.com/{{ family }}/ testing main
     - file:       /etc/apt/sources.list.d/rabbitmq.list
     - key_url:     http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
     - require:

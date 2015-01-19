@@ -1,4 +1,4 @@
 # vi: set ft=yaml.jinja :
 
-bastille:
+libguestfs-tools:
   pkg.installed:   []

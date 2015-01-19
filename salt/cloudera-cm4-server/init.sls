@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 include:
+  -  cloudera-cm4
   -  cloudera-cm4-agent
   -  cloudera-cm4-daemons
   -  cloudera-cm4-server-db

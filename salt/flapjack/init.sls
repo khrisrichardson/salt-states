@@ -2,7 +2,9 @@
 
 {% from 'flapjack/map.jinja' import map with context %}
 
-{% set arch = salt['config.get']('osarch') %}
+{% set arch  = salt['config.get']('osarch') %}
+{% set major = salt['config.get']('osmajorrelease') %}
+{% set os    = salt['config.get']('os')|lower %}
 
 include:
   -  python-apt
@@ -12,7 +14,7 @@ flapjack:
     - name:     {{ map.get('pkgrepo', {}).get('name') }}
     - file:     {{ map.get('pkgrepo', {}).get('file') }}
     - humanname:   Flapjack v1
-    - baseurl:     http://packages.flapjack.io/rpm/v1/flapjack/centos/6/{{ arch }}/
+    - baseurl:     http://packages.flapjack.io/rpm/v1/flapjack/{{ os }}/{{ major }}/{{ arch }}/
     - enabled:     1
     - gpgcheck:    0
     - consolidate: True

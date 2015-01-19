@@ -1,5 +1,8 @@
 # vi: set ft=yaml.jinja :
 
+include:
+  -  opsview-base
+
 opsview-agent:
   pkg.installed:
     - require:

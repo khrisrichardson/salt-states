@@ -8,13 +8,14 @@ include:
   -  mesos-master
   -  supervisor
 
-mesos-master:
-  supervisord.running:
-    - watch:
-      - pkg:       mesos
-      - service:   supervisor
-      - file:     /etc/mesos/zk
-      - file:     /etc/mesos-master/quorum
+extend:
+  mesos-master:
+    supervisord.running:
+      - watch:
+        - pkg:     mesos
+        - service: supervisor
+        - file:   /etc/mesos/zk
+        - file:   /etc/mesos-master/quorum
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

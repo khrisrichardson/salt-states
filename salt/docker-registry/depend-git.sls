@@ -8,9 +8,9 @@ extend:
   /opt/docker/registry/config.yml:
     file.managed:
       - require:
-        - git:     git@github.com:docker/docker-registry.git
+        - git:     https://github.com/docker/docker-registry.git
 
-git@github.com:docker/docker-registry.git:
+https://github.com/docker/docker-registry.git:
   git.latest:
     - rev:         master
     - force:       True

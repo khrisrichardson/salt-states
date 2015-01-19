@@ -10,9 +10,7 @@
 
 include:
   - .depend-logrotate
-{% if salt['config.get']('os_family') == 'RedHat' %}
   -  rpmforge-release
-{% endif %}
 
 collectd:
   pkg.installed:

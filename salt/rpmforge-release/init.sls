@@ -1,5 +1,7 @@
 # vi: set ft=yaml.jinja :
 
+{% if salt['config.get']('os_family') == 'RedHat' %}
+
 /etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag:
   file.managed:
     - source:      salt://{{ sls }}/etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
@@ -45,3 +47,5 @@ rpmforge-testing:
     - consolidate: True
     - require:
       - file:     /etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
+
+{% endif %}

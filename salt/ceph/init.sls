@@ -12,15 +12,15 @@ ceph:
     - require:
       - pkgrepo:   ceph-common
   group.present:
-    - gid:         501
+    - gid:         502
   user.present:
     - fullname:    ceph
     - home:       /home/ceph
     - shell:      /bin/bash
     - createhome:  True
     - password:    $1$9bVX1pEh$sp2ceLpbAzBqEknNeu2yv1
-    - gid:         501
-    - uid:         501
+    - gid:         502
+    - uid:         502
     - require:
       - pkg:       bash
       - group:     ceph

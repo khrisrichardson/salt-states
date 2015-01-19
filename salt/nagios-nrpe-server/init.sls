@@ -13,7 +13,6 @@ nagios-nrpe-server:
 
 /etc/nagios/nrpe.cfg:
   file.managed:
-    - name:     {{ map.get('/etc/nagios/nrpe.cfg', {}).get('file', {}).get('name') }}
     - template:    jinja
     - source:      salt://{{ sls }}/etc/nagios/nrpe.cfg
     - user:        root

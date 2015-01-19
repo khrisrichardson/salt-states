@@ -21,8 +21,8 @@ include:
     - require:
       - file:     /etc/fleet
 
-/usr/bin/fleet:
+/usr/bin/fleetd:
   file.symlink:
-    - target:     /usr/share/fleet/fleet
+    - target:     /usr/share/fleet/fleetd
     - watch:
       - file:     /usr/share/fleet

@@ -6,7 +6,6 @@ include:
   -  maven
   -  tomcat7
 
-extend:
-  /root/pom.xml:
-    file:
-      - source:    salt://{{ psls }}/root/pom.xml
+/root/pom.xml:
+  file.managed:
+    - source:      salt://{{ psls }}/root/pom.xml

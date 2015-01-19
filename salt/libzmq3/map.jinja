@@ -1,0 +1,14 @@
+# vi: set ft=json.jinja :
+
+{% set map = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'libzmq3',
+    },
+  },
+  'RedHat': {
+    'pkg': {
+      'name':          'zeromq3',
+    },
+  },
+}, merge=salt['config.get']('libzmq3')) %}

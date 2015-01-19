@@ -1,4 +1,4 @@
 # vi: set ft=yaml.jinja :
 
-guestmount:
+python-cherrypy:
   pkg.installed:   []

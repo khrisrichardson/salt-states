@@ -1,7 +1,9 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.dict']('etcd') %}
-{% set minions = salt['roles.dict']('salt-master') %}
+{% set roles = [] %}
+{% do  roles.append('etcd') %}
+{% do  roles.append('salt-master') %}
+{% set minions = salt['roles.dict'](roles) %}
 {% set psls    = sls.split('.')[0] %}
 
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}

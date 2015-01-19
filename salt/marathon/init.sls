@@ -1,4 +1,9 @@
 # vi: set ft=yaml.jinja :
 
+include:
+  -  mesos
+
 marathon:
-  pkg.installed:   []
+  pkg.installed:
+    - require:
+      - pkgrepo:   mesos
