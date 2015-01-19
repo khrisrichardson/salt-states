@@ -10,8 +10,7 @@ flannel:
   supervisord.running:
     - watch:
       - service:   supervisor
-      - file:     /usr/bin/flannel
-#     - cmd:       go get flannel
+      - file:     /usr/bin/flanneld
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

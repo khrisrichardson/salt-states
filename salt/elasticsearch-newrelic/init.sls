@@ -12,7 +12,7 @@ gradle jar:
   cmd.wait:
     - cwd:        /usr/local/src/github.com/viniciusccarvalho/elasticsearch-newrelic
     - require:
-      - pkg:       gradle
+      - file:     /usr/bin/gradle
 
 ./plugin -install newrelic -url file:///usr/local/src/github.com/viniciusccarvalho/elasticsearch-newrelic/target/elasticsearch-newrelic-{{ version }}.jar:
   cmd.wait:

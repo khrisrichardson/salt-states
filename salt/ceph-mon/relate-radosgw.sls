@@ -1,7 +1,10 @@
 # vi: set ft=yaml.jinja :
 
 {% set cluster = salt['grains.get']('environment', 'ceph') %}
-{% set minions = salt['roles.dict']('ceph-deploy') %}
+${ set roles = [] %}
+{% do  roles.append('ceph-deploy') %}
+{% do  roles.append('salt-master') %}
+{% set minions = salt['roles.dict'](roles) %}
 
 {% if not minions['ceph-deploy'] %}
 
@@ -28,6 +31,8 @@ ceph auth get-or-create client.radosgw.gateway:
       - service:   ceph-mon
       - file:     /var/lib/ceph/bootstrap-radosgw
 
+{% if minions['salt-master'] %}
+
 cp.push /var/lib/ceph/bootstrap-radosgw/{{ cluster }}.keyring:
   module.wait:
     - name:        cp.push
@@ -39,4 +44,5 @@ cp.push /var/lib/ceph/bootstrap-radosgw/{{ cluster }}.keyring:
     - watch:
       - cmd:       ceph auth get-or-create client.radosgw.gateway
 
+{% endif %}
 {% endif %}

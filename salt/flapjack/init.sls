@@ -41,3 +41,5 @@ flapjack:
     - mode:       '0644'
     - watch:
       - pkg:       flapjack
+    - watch_in:
+      - service:   flapjack

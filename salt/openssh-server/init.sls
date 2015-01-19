@@ -27,6 +27,8 @@ openssh-server:
     - pattern:   '^UsePAM yes'
     - repl:       'UsePAM no'
    {% endif %}
+    - require:
+      - pkg:       openssh-server
     - watch_in:
       - service:   openssh-server
 

@@ -1,18 +1,22 @@
 # vi: set ft=yaml.jinja :
 
 include:
-  -  ca-certificates
-  -  git
+  -  flannel.depend-git
   -  golang-go
   -  linux-libc-dev
 
-go get flannel:
-  cmd.run:
-    - name:        go get github.com/coreos/flannel
+extend:
+  /usr/bin/flanneld:
+    file.symlink:
+      - watch:
+        - cmd:     go build flannel
+
+go build flannel:
+  cmd.wait:
+    - name:      ./build
+    - cwd:        /usr/local/src/github.com/coreos/flannel
     - env:
       - GOPATH:   /usr/local
     - require:
-      - pkg:       ca-certificates
-      - pkg:       git
       - pkg:       golang-go
       - pkg:       linux-libc-dev

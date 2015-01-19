@@ -4,8 +4,6 @@ include:
   - .depend-golang-go
   - .depend-supervisor
 
-/usr/bin/flannel:
+/usr/bin/flanneld:
   file.symlink:
-    - target:     /usr/share/flannel/flannel
-    - watch:
-      - file:     /usr/share/flannel
+    - target:     /usr/local/src/github.com/coreos/flannel/bin/flanneld

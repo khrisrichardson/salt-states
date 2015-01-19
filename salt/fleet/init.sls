@@ -1,9 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 include:
-# - .depend-golang-go
+  - .depend-golang-go
   - .depend-supervisor
-  -  fleet-common
 
 /etc/fleet:
   file.directory:
@@ -23,6 +22,4 @@ include:
 
 /usr/bin/fleetd:
   file.symlink:
-    - target:     /usr/share/fleet/fleetd
-    - watch:
-      - file:     /usr/share/fleet
+    - target:     /usr/local/src/github.com/coreos/fleet/bin/fleetd

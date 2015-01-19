@@ -5,8 +5,8 @@
 {% set zip_url = 'http://dl.bintray.com/jfrog/artifactory/artifactory-' + version + '.zip' %}
 
 include:
-  -  openjdk-7-jre-headless
   -  bsdtar
+  -  openjdk-7-jre-headless
   -  wget
 
 artifactory:

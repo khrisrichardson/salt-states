@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
-{% set psls = sls.split('.')[0] %}
+{% set minions = salt['roles.dict']('salt-master') %}
+{% set psls    = sls.split('.')[0] %}
 
 include:
   -  ceph.depend-openssh
@@ -22,6 +23,8 @@ ssh-keygen -q -N '' -t rsa -b 2048 -f /home/ceph/.ssh/id_rsa:
     - require:
       - file:     /home/ceph/.ssh
 
+{% if minions['salt-master'] %}
+
 cp.push /home/ceph/.ssh/id_rsa.pub:
   module.wait:
     - name:        cp.push
@@ -32,3 +35,5 @@ cp.push /home/ceph/.ssh/id_rsa.pub:
                  )
     - watch:
       - cmd:       ssh-keygen -q -N '' -t rsa -b 2048 -f /home/ceph/.ssh/id_rsa
+
+{% endif %}

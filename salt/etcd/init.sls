@@ -1,9 +1,8 @@
 # vi: set ft=yaml.jinja :
 
 include:
-# - .depend-golang-go
+  - .depend-golang-go
   - .depend-supervisor
-  -  etcd-common
 
 /etc/etcd:
   file.directory:
@@ -41,6 +40,4 @@ include:
 
 /usr/bin/etcd:
   file.symlink:
-    - target:     /usr/share/etcd/etcd
-    - watch:
-      - file:     /usr/share/etcd
+    - target:     /usr/local/src/github.com/coreos/etcd/bin/etcd

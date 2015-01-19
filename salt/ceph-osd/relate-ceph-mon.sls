@@ -1,9 +1,13 @@
 # vi: set ft=yaml.jinja :
 
+{% set roles = [] %}
+{% do  roles.append('ceph-mon') %}
+{% do  roles.append('salt-master') %}
+{% set minions = salt['roles.dict'](roles) %}
 {% set cluster = salt['grains.get']('environment', 'ceph') %}
-{% set minions = salt['roles.dict']('ceph-mon') %}
 
-{% if minions['ceph-mon'] %}
+{% if  minions['ceph-mon']
+   and minions['salt-master'] %}
 
 cp.get_file /var/lib/ceph/bootstrap-osd/{{ cluster }}.keyring:
   module.run:

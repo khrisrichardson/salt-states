@@ -12,7 +12,6 @@ fleet:
       - service:   supervisor
       - file:     /etc/fleet/fleet.conf
       - file:     /usr/bin/fleetd
-#     - cmd:       go get fleet
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

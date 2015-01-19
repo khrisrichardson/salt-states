@@ -1,16 +1,19 @@
 # vi: set ft=yaml.jinja :
 
 include:
-  -  ca-certificates
-  -  git
+  -  etcd.depend-git
   -  golang-go
 
-go get etcd:
+extend:
+  /usr/bin/etcd:
+    file.symlink:
+      - watch:
+        - cmd:     go build etcd
+
+go build etcd:
   cmd.run:
-    - name:        go get github.com/coreos/etcd
+    - name:      ./build
     - env:
       - GOPATH:   /usr/local
     - require:
-      - pkg:       ca-certificates
-      - pkg:       git
       - pkg:       golang-go

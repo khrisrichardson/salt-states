@@ -1,8 +1,11 @@
 # vi: set ft=yaml.jinja :
 
+{% set roles   = [] %}
+{% do  roles.append('ceph-deploy') %}
+{% do  roles.append('salt-master') %}
+{% set minions =   salt['roles.dict'](roles) %}
 {% set cluster =   salt['grains.get']('environment', 'ceph') %}
 {% set host    =   salt['config.get']('host') %}
-{% set minions =   salt['roles.dict']('ceph-deploy') %}
 {% set import  = '/etc/ceph/' + cluster + '.client.admin.keyring' %}
 {% set keyring = '/var/lib/ceph/tmp/' + cluster + '.mon.keyring' %}
 
@@ -79,6 +82,8 @@ ceph-authtool {{ keyring }} --import-keyring {{ import }}:
       - cmd:       ceph-authtool --create-keyring {{ keyring }}
       - cmd:       ceph-authtool --create-keyring {{ import }}
 
+{% if minions['salt-master'] %}
+
 cp.push /etc/ceph/{{ cluster }}.client.admin.keyring:
   module.wait:
     - name:        cp.push
@@ -112,4 +117,5 @@ cp.push /var/lib/ceph/bootstrap-osd/{{ cluster }}.keyring:
     - watch:
       - cmd:       ceph-authtool --create-keyring {{ keyring }}
 
+{% endif %}
 {% endif %}

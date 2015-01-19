@@ -2,6 +2,8 @@
 
 {% set major = salt['config.get']('osmajorrelease') %}
 
+{% if salt['config.get']('os_family') == 'RedHat' %}
+
 epel:
   pkgrepo.managed:
 #   - baseurl:     http://download.fedoraproject.org/pub/epel/$releasever/$basearch
@@ -79,8 +81,6 @@ epel-testing-source:
     - consolidate: True
     - require:
       - file:     /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ major }}
-
-{% if salt['config.get']('os_family') == 'RedHat' %}
 
 /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ major }}:
   file.managed:

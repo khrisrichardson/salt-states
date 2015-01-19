@@ -10,9 +10,9 @@ couchbase-server:
   pkg.installed:
     - sources:
      {% if   salt['config.get']('os_family') == 'Debian' %}
-      - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community_{{ version }}-ubuntu12.04_{{ arch }}.deb
+      - couchbase-server:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community_{{ version }}-ubuntu12.04_{{ arch }}.deb
      {% elif salt['config.get']('os_family') == 'RedHat' %}
-      - couchbase-server-community:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community-{{ version }}-centos6.{{ arch }}.rpm
+      - couchbase-server:    http://packages.couchbase.com/releases/{{ version }}/couchbase-server-community-{{ version }}-centos6.{{ arch }}.rpm
      {% endif %}
   service.running:
     - enable:      True
