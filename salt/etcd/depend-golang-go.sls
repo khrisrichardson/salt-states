@@ -13,6 +13,7 @@ extend:
 go build etcd:
   cmd.run:
     - name:      ./build
+    - cwd:        /usr/local/src/github.com/coreos/etcd
     - env:
       - GOPATH:   /usr/local
     - require:
