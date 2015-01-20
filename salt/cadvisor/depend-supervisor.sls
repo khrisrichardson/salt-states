@@ -9,7 +9,7 @@ include:
 cadvisor:
   supervisord.running:
     - watch:
-      - cmd:       go get cadvisor
+      - cmd:       go build cadvisor
       - service:   supervisor
 
 /etc/supervisor/conf.d/{{ psls }}.conf:

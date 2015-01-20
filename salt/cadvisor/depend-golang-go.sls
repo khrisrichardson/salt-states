@@ -10,9 +10,9 @@ include:
   -  libc6-dev
   -  mercurial
 
-go build cadvisor:
+go get cadvisor:
   cmd.run:
-    - name:        go build github.com/google/cadvisor
+    - name:        go get -d github.com/google/cadvisor
     - env:
       - GOPATH:   /usr/local
     - require:
@@ -24,3 +24,9 @@ go build cadvisor:
       - pkg:       mercurial
       - cmd:       go get godep
       - cmd:       go get gomock
+
+go build cadvisor:
+  cmd.wait:
+    - name:        godep go build github.com/google/cadvisor
+    - watch:
+      - cmd:       go get cadvisor

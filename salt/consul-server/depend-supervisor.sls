@@ -9,6 +9,7 @@ include:
 consul-server:
   supervisord.running:
     - require:
+      - file:     /usr/bin/consul
       - file:     /var/lib/consul
     - watch:
       - service:   supervisor
