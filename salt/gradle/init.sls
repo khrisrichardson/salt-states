@@ -4,8 +4,10 @@ gradle:
   pkg.installed:   []
 
 /usr/bin/gradle:
-  file.replace:
-    - pattern:   '^export JAVA_HOME'
-    - repl:      '#export JAVA_HOME'
+  file.managed:
+    - source:      salt://{{ sls }}/usr/bin/gradle
+    - user:        root
+    - group:       root
+    - mode:       '0755'
     - watch:
       - pkg:       gradle

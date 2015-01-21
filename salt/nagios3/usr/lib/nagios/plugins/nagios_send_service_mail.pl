@@ -1,3 +1,4 @@
+{% set fqdn = salt['config.get']('fqdn') -%}
 #!/usr/bin/perl -w
 #
 # First we explicitly switch off the Nagios embbeded Perl Interpreter
@@ -44,9 +45,9 @@ use vars qw( $logo_id $graph_id $tmpfile $land $tbl $var
 # The version of this script
 my $Version            ='1.7.3';
 # the sender e-mail address to be seen by recipients
-my $mail_sender        = "Nagios Monitoring <nagios\@navteq.com>";
+my $mail_sender        = "Nagios Monitoring <nagios\@{{ fqdn }}>";
 # The Nagios CGI URL for integrated service links
-my $nagios_cgiurl      = "http://lchilcmsapp28.hq.navteq.com/nagios3/cgi-bin";
+my $nagios_cgiurl      = "http://{{ fqdn }}/nagios3/cgi-bin";
 # Here we define a simple HTML stylesheet to be used in the HTML header.
 my $html_style         = "body {text-align: center; font-family: Verdana, sans-serif; font-size: 10pt;}\n"
                        . "img.logo {float: left; margin: 10px 10px 10px; vertical-align: middle}\n"
@@ -75,7 +76,7 @@ my $test_service       = "os_cpu_load"; # existing services in Nagios
 # Here we set the information where to pick up the RRD data files for the
 # optional graph image generation, plus the graph size width x height px
 # ########################################################################
-my $ngraph_cgiurl      = "http://lchilcmsapp28.hq.navteq.com/nagios3/cgi-bin/show.cgi";
+my $ngraph_cgiurl      = "http://{{ fqdn }}/nagios3/cgi-bin/show.cgi";
 my $rrd_basedir        = "/srv/app/nagiosgraph/rrd";
 my $graph_img_size     = "521x60";
 my $graph_bgcolor      = "#F2F2F2";
@@ -87,7 +88,7 @@ my $graph_border       = "#999999";
 # If the mailserver requires auth, an example is further down the code.
 # ########################################################################
 my $o_smtphost         = "127.0.0.1";
-my $domain	       = "\@navteq.com"; # this is only for -g groups
+my $domain	       = "\@{{ fqdn }}"; # this is only for -g groups
 my @listaddress        = ();
 
 # ########################################################################

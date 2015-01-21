@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <!-- The Basics -->
-  <groupId>com.navteq.places.deployment</groupId>
+  <groupId>com.apache.tomcat.deployment</groupId>
   <artifactId>war.unpack</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>

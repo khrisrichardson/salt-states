@@ -6,7 +6,7 @@ include:
 oracle-java7-set-default:
   pkg.installed:
    {% if salt['config.get']('os_family') == 'Debian' %}
-      - pkgrepo:   webupd8team-java
+    - pkgrepo:     webupd8team-java
    {% endif %}
     - require_in:
       - file:     /usr/bin/java

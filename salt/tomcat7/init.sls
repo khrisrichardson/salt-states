@@ -9,6 +9,7 @@ tomcat7:
   pkg.installed:   []
   service.running:
     - enable:      True
+    - sig:        'org.apache.catalina.startup.Bootstrap start'
     - watch:
       - pkg:       tomcat7
 

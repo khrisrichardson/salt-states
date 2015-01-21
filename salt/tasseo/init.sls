@@ -25,11 +25,11 @@ include:
     - source:      salt://{{ sls }}/opt/tasseo/lib/tasseo/public/c/style.css
     - mode:       '0644'
 
-. /etc/profile && rvm install ruby-1.9.2-p320:
+. /etc/profile && rvm install ruby-1.9.2-p330:
   cmd.run:
     - env:
       - PATH:     /bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
-    - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.2-p320
+    - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.2-p330
     - require:
       - cmd:       curl https://get.rvm.io
 
@@ -41,10 +41,10 @@ rvm use 1.9.2:
     - cwd:        /opt/tasseo
     - unless:    |-
                  ( rvm list                                                    \
-                 | egrep -q '^=. ruby-1.9.2-p320'
+                 | egrep -q '^=. ruby-1.9.2-p330'
                  )
     - require:
-      - cmd:       . /etc/profile && rvm install ruby-1.9.2-p320
+      - cmd:       . /etc/profile && rvm install ruby-1.9.2-p330
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman

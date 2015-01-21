@@ -21,7 +21,7 @@ include:
 . /etc/profile && rvm install ruby-1.9.3-p448:
   cmd.run:
     - env:
-      - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
+      - PATH:     /bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.3-p448
     - require:
       - cmd:       curl https://get.rvm.io

@@ -28,5 +28,14 @@ go get cadvisor:
 go build cadvisor:
   cmd.wait:
     - name:        godep go build github.com/google/cadvisor
+    - cwd:        /usr/local/src/github.com/google/cadvisor
+    - env:
+      - GOPATH:   /usr/local
     - watch:
       - cmd:       go get cadvisor
+
+/usr/bin/cadvisor:
+  file.symlink:
+    - target:     /usr/local/src/github.com/google/cadvisor/cadvisor
+    - require:
+      - cmd:       go build cadvisor

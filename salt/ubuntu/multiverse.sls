@@ -3,7 +3,7 @@
 {% set codename = salt['config.get']('lsb_distrib_codename') %}
 {% set os       = salt['config.get']('os')|lower %}
 
-{% if os == 'Ubuntu' %}
+{% if os == 'ubuntu' %}
 
 include:
   -  python-apt

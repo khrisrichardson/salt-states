@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <!-- The Basics -->
-  <groupId>com.navteq.places.deployment</groupId>
+  <groupId>org.apache.solr.deployment</groupId>
   <artifactId>war.unpack</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -32,39 +32,13 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>${maven3.groupId}</groupId>
-                  <artifactId>${maven3.artifactId}</artifactId>
-                  <version>${maven3.version}</version>
+                  <groupId>org.apache.solr</groupId>
+                  <artifactId>solr</artifactId>
+                  <version>RELEASE</version>
                   <type>war</type>
                 </artifactItem>
               </artifactItems>
               <outputDirectory>/var/lib/tomcat7/webapps/ROOT</outputDirectory>
-              <stripVersion>true</stripVersion>
-            </configuration>
-          </execution>
-          <!-- TODO: remove hack after upgrading to Solr 4.x -->
-          <execution>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>com.navteq.lcms</groupId>
-                  <artifactId>lcms-business-matchmaker</artifactId>
-                  <version>02.02.03</version>
-                  <type>jar</type>
-                </artifactItem>
-                <artifactItem>
-                  <groupId>com.navteq.lcms</groupId>
-                  <artifactId>lcms-business-matchmaker</artifactId>
-                  <version>02.02.03</version>
-                  <classifier>standalone</classifier>
-                  <type>jar</type>
-                </artifactItem>
-              </artifactItems>
-              <outputDirectory>/var/lib/tomcat7/webapps/ROOT/WEB-INF/lib</outputDirectory>
               <stripVersion>true</stripVersion>
             </configuration>
           </execution>
