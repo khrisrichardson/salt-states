@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
-{% set psls = sls.split('.')[0] %}
+{% set minions = salt['roles.dict']('zookeeper-server') %}
+{% set psls    = sls.split('.')[0] %}
 
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 
@@ -14,7 +15,9 @@ extend:
       - watch:
         - pkg:     mesos
         - service: supervisor
+       {% if minions['zookeeper-server'] %}
         - file:   /etc/mesos/zk
+       {% endif %}
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

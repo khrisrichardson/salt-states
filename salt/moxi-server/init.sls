@@ -8,7 +8,7 @@ moxi-server:
     - sources:
      {% if   salt['config.get']('os_family') == 'Debian' %}
       - moxi-server:    http://packages.couchbase.com/releases/{{ version }}/moxi-server_{{ version }}_{{ arch }}.deb
-     {% if   salt['config.get']('os_family') == 'RedHat' %}
+     {% elif salt['config.get']('os_family') == 'RedHat' %}
       - moxi-server:    http://packages.couchbase.com/releases/{{ version }}/moxi-server_{{ version }}_{{ arch }}.rpm
      {% endif %}
   service.running:

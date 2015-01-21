@@ -8,6 +8,7 @@ include:
 ruby-ffi-rzmq:
   gem.installed:
     - name:        ffi-rzmq
+    - onlyif:      which gem
     - require:
       - pkg:       ruby-dev
 # pkg.installed:   []

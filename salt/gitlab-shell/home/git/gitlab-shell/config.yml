@@ -22,7 +22,7 @@ repos_path:        "/home/{{ user }}/repositories"
 # File used as authorized_keys for gitlab user
 auth_file:         "/home/{{ user }}/.ssh/authorized_keys"
 
-{% if minions['redis-server'] %}
+{% if minions['redis-server'] -%}
 # Redis settings used for pushing commit notices to gitlab
 redis:
   bin:              /usr/bin/redis-cli
@@ -30,7 +30,7 @@ redis:
   port:              6379
 # socket:           /tmp/redis.socket # Only define this if you want to use sockets
   namespace:         resque:gitlab
-{% endif %}
+{% endif -%}
 
 # Log file.
 # Default is gitlab-shell.log in the root directory.

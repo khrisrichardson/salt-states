@@ -18,7 +18,7 @@ JAVA_OPTS="${JAVA_OPTS} -DnumShards=1"
 JAVA_OPTS="${JAVA_OPTS} -DzkHost={{ minions['zookeeper-server']|join(',') }}"
 {% endif -%}
 {% if minions['dynaTrace-server'] -%}
-JAVA_OPTS="${JAVA_OPTS} -agentpath:/opt/dynatrace/agent/lib/libdtagent.so=name={{ sls) }},server={{ minions['dynaTrace-server'][0] }},loglevel=warning"
+JAVA_OPTS="${JAVA_OPTS} -agentpath:/opt/dynatrace/agent/lib/libdtagent.so=name={{ sls }},server={{ minions['dynaTrace-server'][0] }},loglevel=warning"
 {% endif -%}
 {% if minions['socks5'] -%}
 JAVA_OPTS="${JAVA_OPTS} -DsocksProxyHost={{ minions['socks5'][0] }}"

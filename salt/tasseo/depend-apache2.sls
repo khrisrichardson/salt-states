@@ -48,3 +48,4 @@ usermod -G rvm {{ user }}:
                  )
     - require:
       - pkg:       apache2
+      - cmd:       curl https://get.rvm.io

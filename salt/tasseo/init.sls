@@ -28,7 +28,7 @@ include:
 . /etc/profile && rvm install ruby-1.9.2-p320:
   cmd.run:
     - env:
-      - PATH:     /bin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
+      - PATH:     /bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
     - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.2-p320
     - require:
       - cmd:       curl https://get.rvm.io
@@ -44,7 +44,7 @@ rvm use 1.9.2:
                  | egrep -q '^=. ruby-1.9.2-p320'
                  )
     - require:
-      - cmd:       curl https://get.rvm.io
+      - cmd:       . /etc/profile && rvm install ruby-1.9.2-p320
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman

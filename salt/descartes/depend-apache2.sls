@@ -27,3 +27,4 @@ usermod -G rvm {{ map.get('user', {}).get('name') }}:
                  )
     - require:
       - pkg:       apache2
+      - cmd:       curl https://get.rvm.io

@@ -38,7 +38,7 @@ rvm use 1.9.3:
                  |                  egrep -q '^=. ruby-1.9.3-p448'"
                  )
     - require:
-      - cmd:       curl https://get.rvm.io
+      - cmd:       . /etc/profile && rvm install ruby-1.9.3-p448
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman

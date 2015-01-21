@@ -128,7 +128,7 @@ https://github.com/gitlabhq/gitlabhq.git:
 bundle install --deployment --without development test mysql aws:
   cmd.wait:
     - cwd:        /home/git/gitlab
-    - user:        root
+    - user:        git
     - unless:      bundle check
     - require:
       - gem:       bundler

@@ -8,3 +8,6 @@ oracle-java8-set-default:
    {% if salt['config.get']('os_family') == 'Debian' %}
       - pkgrepo:   webupd8team-java
    {% endif %}
+    - require_in:
+      - file:     /usr/bin/java
+      - file:     /usr/bin/javac

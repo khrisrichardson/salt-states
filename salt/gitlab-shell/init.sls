@@ -16,6 +16,7 @@ https://github.com/gitlabhq/gitlab-shell.git:
 
 /home/git/gitlab-shell/config.yml:
   file.managed:
+    - template:    jinja
     - source:      salt://{{ sls }}/home/git/gitlab-shell/config.yml
     - user:        git
     - group:       git

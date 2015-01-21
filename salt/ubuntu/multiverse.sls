@@ -8,7 +8,7 @@
 include:
   -  python-apt
 
-{{ codename }} multiverse::
+{{ codename }} multiverse:
   pkgrepo.managed:
     - name:        deb http://us.archive.ubuntu.com/{{ os }}/ {{ codename }} multiverse
     - file:       /etc/apt/sources.list.d/flynn.list

@@ -7,6 +7,7 @@ include:
 
 redmon:
   gem.installed:
+    - onlyif:      which gem
     - require:
       - pkg:       g++
       - pkg:       make

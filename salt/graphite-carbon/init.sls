@@ -28,6 +28,7 @@ carbon-cache:
     - user:        root
     - group:       root
     - mode:       '0644'
+    - replace:     False
    {% if salt['config.get']('os_family') == 'RedHat' %}
     - watch_in:
       - service:   carbon-aggregator

@@ -1,5 +1,5 @@
 {% from 'graphite-web/map.jinja' import map with context -%}
-{% set roles = [] -%}
+{% set py = salt['config.get']('saltpath').split('/')[:-1]|join('/') -%}
 server {
     listen                    80;
     server_name               _;
@@ -7,7 +7,7 @@ server {
     client_max_body_size      64M;
     keepalive_timeout         5;
 
-    root                      {{ map.get('/usr/share/graphite-web/static', {}).get(file', {}).get(name') }};
+    root                      {{ map.get('/usr/share/graphite-web/static', {}).get('file', {}).get('name') }};
 
     location / {
         add_header            Access-Control-Allow-Origin  "*";
@@ -23,7 +23,7 @@ server {
         proxy_pass            http://unix:/var/run/gunicorn/graphite-web.sock:/;
     }
     location /media/ {
-        root                  {{ salt['config.get']('saltpath') + '/..' }}/django/contrib/admin;
+        root                  {{ py }}/django/contrib/admin;
     }
     location /nginx_status {
         stub_status           on;

@@ -18,7 +18,7 @@ extend:
       - watch_in:
         - service: apache2
 
-  python manage.py syncdb --noinput:
+  python graphite/manage.py syncdb --noinput:
     cmd:
       - watch_in:
         - service: apache2

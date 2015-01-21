@@ -1,24 +1,18 @@
 # vi: set ft=yaml.jinja :
 
-{% set minions = salt['roles.dict']('zookeeper-server') %}
-{% set psls    = sls.split('.')[0] %}
+{% set psls = sls.split('.')[0] %}
 
 {% if salt['config.get']('virtual_subtype') == 'Docker' %}
 
 include:
-  -  mesos-master
+  -  logio-server
   -  supervisor
 
-extend:
-  mesos-master:
-    supervisord.running:
-      - watch:
-        - pkg:     mesos
-        - service: supervisor
-        - file:   /etc/mesos/zk
-       {% if minions['zookeeper-server'] %}
-        - file:   /etc/mesos-master/quorum
-       {% endif %}
+logio-server:
+  supervisord.running:
+    - watch:
+      - npm:       log.io
+      - service:   supervisor
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

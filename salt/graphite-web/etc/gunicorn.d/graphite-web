@@ -2,10 +2,10 @@
 {% set roles = [] -%}
 {% set grp = map.get('group', {}).get('name') -%}
 {% set usr = map.get('user', {}).get('name') -%}
-{% set py  = salt['config.get']('saltpath') + '/../graphite' -%}
+{% set py  = salt['config.get']('saltpath').split('/')[:-1]|join('/') %}
 CONFIG = {
     'mode'        :  'django',
-    'working_dir' :  '{{ py }}',
+    'working_dir' :  '{{ py }}/graphite',
     'user'        :  '{{ usr }}',
     'group'       :  '{{ grp }}',
     'args'        : (

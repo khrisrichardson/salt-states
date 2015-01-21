@@ -20,7 +20,7 @@ extend:
       - watch_in:
         - service: nginx-common
 
-  python manage.py syncdb --noinput:
+  python graphite/manage.py syncdb --noinput:
     cmd:
       - watch_in:
         - service: nginx-common
