@@ -7,7 +7,7 @@ include:
   -  libxml2-dev
   -  libxslt1-dev
   -  redis-server
-  -  ruby
+  -  ruby-bundler
   -  ruby-rvm
 
 /opt/descartes/.env:
@@ -51,5 +51,5 @@ bundle install && gem install foreman:
     - cwd:        /opt/descartes
     - unless:      bundle check
     - require:
-      - pkg:       ruby
+      - pkg:       ruby-bundler
       - cmd:       rvm use 1.9.3

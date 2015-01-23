@@ -6,6 +6,7 @@
 include:
   - .depend-apache2
   - .depend-git
+  -  ruby-bundler
   -  ruby-rvm
 
 {% for minion in minions %}
@@ -57,4 +58,5 @@ bundle install && gem install foreman:
     - cwd:        /opt/tasseo
     - unless:      bundle check
     - require:
+      - pkg:       ruby-bundler
       - cmd:       rvm use 1.9.2

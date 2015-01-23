@@ -5,7 +5,6 @@ include:
 
 log.io:
   npm.installed:
-    - user:        ubuntu
     - require:
       - pkg:       npm
       - cmd:       npm config set ca ""

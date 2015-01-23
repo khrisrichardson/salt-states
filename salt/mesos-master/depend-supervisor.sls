@@ -15,10 +15,10 @@ extend:
       - watch:
         - pkg:     mesos
         - service: supervisor
-        - file:   /etc/mesos/zk
        {% if minions['zookeeper-server'] %}
-        - file:   /etc/mesos-master/quorum
+        - file:   /etc/mesos/zk
        {% endif %}
+        - file:   /etc/mesos-master/quorum
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

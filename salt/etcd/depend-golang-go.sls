@@ -11,7 +11,7 @@ extend:
       - watch:
         - cmd:     go build etcd
 
-etcd:
+lxd:
   pkgrepo.managed:
     - keyserver:   hkp://keyserver.ubuntu.com:80
     - keyid:       D5495F657635B973

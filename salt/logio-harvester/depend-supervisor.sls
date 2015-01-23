@@ -8,12 +8,13 @@ include:
   -  logio-harvester
   -  supervisor
 
-logio-harvester:
-  supervisord.running:
-    - watch:
-      - npm:       log.io
-      - service:   supervisor
-      - file:     /etc/log.io/harvester.conf
+extend:
+  logio-harvester:
+    supervisord.running:
+      - watch:
+        - npm:     log.io
+        - service: supervisor
+        - file:   /etc/log.io/harvester.conf
 
 /etc/supervisor/conf.d/{{ psls }}.conf:
   file.managed:

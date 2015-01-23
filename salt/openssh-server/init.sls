@@ -20,12 +20,12 @@ openssh-server:
 
 /etc/ssh/sshd_config:
   file.replace:
-   {% if   salt['config.get']('os_family') == 'RedHat' %}
-    - pattern:  '^#UsePAM no'
-    - repl:       'UsePAM yes'
-   {% elif salt['config.get']('os_family') == 'Debian' %}
+   {% if   salt['config.get']('os_family') == 'Debian' %}
     - pattern:   '^UsePAM yes'
     - repl:       'UsePAM no'
+   {% elif salt['config.get']('os_family') == 'RedHat' %}
+    - pattern:  '^#UsePAM no'
+    - repl:       'UsePAM yes'
    {% endif %}
     - require:
       - pkg:       openssh-server

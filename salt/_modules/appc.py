@@ -8,7 +8,7 @@ Manage containers
 
 TODO: perform role and base validation
 TODO: use the memoize decorator
-TODO: add return details
+TODO: add validation and return details
 '''
 
 # import libs: standard
@@ -49,16 +49,16 @@ def create(base='ubuntu:latest:amd64', role=None):
 def _create_docker(base, role, **kwargs):
     '''
     '''
-    tag = ':'.join((role, '-'.join(base.split(':'))))
+    image = ':'.join((role, '-'.join(base.split(':'))))
 
-    ret = __salt__['docker.inspect_image'](tag)
+    ret = __salt__['docker.inspect_image'](image)
     if not ret['status']:
         publish(base=base, role=role)
 
-    ret = __salt__['docker.inspect_container'](tag)
+    ret = __salt__['docker.inspect_container'](image)
     if not ret['status']:
         __salt__['docker.create_container'](
-            image=tag,
+            image=image,
             name=role,
             volumes=kwargs.get('volumes', [])
         )
@@ -529,15 +529,15 @@ def _state_show_lowstate_docker(base=None, role=None):
     '''
     Get lowstate data structure via Docker base image
     '''
-    tag = ':'.join(('salt-minion', '-'.join(base.split(':'))))
+    image = ':'.join(('salt-minion', '-'.join(base.split(':'))))
 
-    ret = __salt__['docker.inspect_image'](tag)
+    ret = __salt__['docker.inspect_image'](image)
     if not ret['status']:
         publish(base=base, role='salt-minion')
 
     command = "/bin/bash -c 'salt-call grains.append roles " + role + " &>/dev/null; salt-call --out yaml state.show_lowstate 2>/dev/null'"
     ret = __salt__['docker.create_container'](
-        image='salt-minion',
+        image=image,
         command=command
     )
     cid = ret['id']
@@ -545,4 +545,4 @@ def _state_show_lowstate_docker(base=None, role=None):
     __salt__['docker.wait'](cid)
     ret = __salt__['docker.logs'](cid)
 
-    return load(ret['out'])['local']
+    return load(ret['out']).get('local', ['salt-call state.highstate --out-file=/var/log/salt/highstate'])
