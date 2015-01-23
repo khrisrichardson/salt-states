@@ -14,7 +14,7 @@ gradle jar:
     - require:
       - file:     /usr/bin/gradle
 
-./plugin -install newrelic -url file:///usr/local/src/github.com/viniciusccarvalho/elasticsearch-newrelic/target/elasticsearch-newrelic-{{ version }}.jar:
+./plugin -install newrelic -url file:///usr/local/src/github.com/viniciusccarvalho/elasticsearch-newrelic/build/libs/elasticsearch-newrelic-{{ version }}.jar:
   cmd.wait:
     - order:      -1
     - cwd:        /usr/share/elasticsearch/bin

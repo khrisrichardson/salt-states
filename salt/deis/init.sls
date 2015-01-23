@@ -2,7 +2,6 @@
 
 include:
   - .depend-git
-# - .depend-golang-go
 
 make -C client/ install:
   cmd.wait:

@@ -18,11 +18,11 @@ include:
     - group:       root
     - mode:       '0644'
 
-. /etc/profile && rvm install ruby-1.9.3-p448:
+. /etc/profile && rvm install ruby-1.9.3-p551:
   cmd.run:
     - env:
       - PATH:     /bin:/sbin:/usr/bin:/usr/local/bin:/usr/local/rvm/bin
-    - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.3-p448
+    - unless:      test -d /usr/local/rvm/wrappers/ruby-1.9.3-p551
     - require:
       - cmd:       curl https://get.rvm.io
 
@@ -35,10 +35,10 @@ rvm use 1.9.3:
     - unless:    |-
                  ( bash --login -c "cd /opt/descartes
                                     rvm list                                   \
-                 |                  egrep -q '^=. ruby-1.9.3-p448'"
+                 |                  egrep -q '^=. ruby-1.9.3-p551'"
                  )
     - require:
-      - cmd:       . /etc/profile && rvm install ruby-1.9.3-p448
+      - cmd:       . /etc/profile && rvm install ruby-1.9.3-p551
 
 #-------------------------------------------------------------------------------
 # TODO: don't install foreman

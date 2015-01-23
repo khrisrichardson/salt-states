@@ -5,6 +5,9 @@ include:
   - .depend-git
   - .depend-logrotate
   - .depend-supervisor
+  -  libpq-dev
+  -  python-dev
+  -  python-virtualenv
 
 /etc/calamari:
   file.directory:

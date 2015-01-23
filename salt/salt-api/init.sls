@@ -5,6 +5,12 @@ include:
   -  python-cherrypy
   -  salt-master
 
+salt-api:
+  service.running:
+    - enable:      True
+    - watch:
+      - pkg:       salt-master
+
 /etc/salt/master.d/salt-api.conf:
   file.managed:
     - template:    jinja
@@ -16,3 +22,4 @@ include:
       - file:     /etc/salt/master.d
     - watch_in:
       - service:   salt-master
+      - service:   salt-api

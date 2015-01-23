@@ -8,12 +8,14 @@ production:
   logger:
     level: INFO
     syslog_errors: yes
-{% if minions['redis-server'] -%}
   redis:
+    {% if minions['redis-server'] -%}
     host: {{ minions['redis-server'][0] }}
+    {% else -%}
+    host: 127.0.0.1
+    {% endif -%}
     port: 6380
     db: 0
-{% endif -%}
   # Processes monitoring events off the *events* queue (a redis list) and decides
   # what actions to take (generate notification event, record state changes, etc)
   processor:
@@ -223,12 +225,14 @@ development:
   logger:
     level: DEBUG
     syslog_errors: yes
-{% if minions['redis-server'] -%}
   redis:
+    {% if minions['redis-server'] -%}
     host: {{ minions['redis-server'][0] }}
+    {% else -%}
+    host: 127.0.0.1
+    {% endif -%}
     port: 6379
     db: 13
-{% endif -%}
   # Processes monitoring events off the *events* queue (a redis list) and decides
   # what actions to take (generate notification event, record state changes, etc)
   processor:
