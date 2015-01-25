@@ -1,13 +1,14 @@
 # vi: set ft=yaml.jinja :
 
 {% set minions = salt['roles.dict']('sensu-api') %}
+{% set test    = salt['pillar.get']('test') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:
   -  ruby-snmp
   -  sensu-client
 
-{% if minions['sensu-api'] %}
+{% if minions['sensu-api'] or test %}
 
 extend:
   gem install snmp:

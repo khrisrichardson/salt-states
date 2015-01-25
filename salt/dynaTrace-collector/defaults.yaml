@@ -1,0 +1,6 @@
+compute:
+  image:
+    bases:
+      - centos:latest:amd64
+      - debian:latest:amd64
+      - ubuntu:latest:amd64

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Module to manage Cloudera infrastructure via the Cloudera Manager API.
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity:   new
 :depends:    cm_api Python module
 :platform:   all
-'''
+"""
 
 import hashlib
 import httplib
@@ -37,26 +37,26 @@ log = logging.getLogger(__name__)
 
 
 def __virtual__():
-    '''
+    """
     Only load if Cloudera Manager API is available.
-    '''
+    """
     return 'cloudera' if HAS_CMAPI else False
 
 
 def _connect(**kwargs):
-    '''
+    """
     wrap authentication credentials here
-    '''
+    """
     connargs = dict()
 
     def _connarg(name, key=None):
-        '''
+        """
         Add key to connargs, only if name exists in our kwargs or as
         cloudera:<key> in __opts__ or __pillar__ Evaluate in said order -
         kwargs, opts then pillar. To avoid collision with other functions,
         kwargs-based connection arguments are prefixed with 'cm_' (i.e.
         'cm_host', 'cm_user', etc.).
-        '''
+        """
         if key is None:
             key = name
         if name in kwargs:
@@ -87,7 +87,7 @@ def _connect(**kwargs):
 
 
 def cluster_exists(name, **cm_args):
-    '''
+    """
     Checks if a cluster exists in Cloudera Manager.
 
     name
@@ -98,7 +98,7 @@ def cluster_exists(name, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.cluster_exists 'Cluster 1 - CDH4'
-    '''
+    """
     a = _connect(**cm_args)
     if a is None:
         return False
@@ -112,7 +112,7 @@ def cluster_exists(name, **cm_args):
 
 
 def cluster_create(name, version, **cm_args):
-    '''
+    """
     Creates a cluster in Cloudera Manager.
 
     name
@@ -126,7 +126,7 @@ def cluster_create(name, version, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.cluster_create 'Cluster 1 - CDH4' 'CDH4'
-    '''
+    """
     if cluster_exists(name, **cm_args):
         log.info('{0!r} already exists'.format(name))
         return False
@@ -149,7 +149,7 @@ def cluster_create(name, version, **cm_args):
 
 
 def cluster_remove(name, **cm_args):
-    '''
+    """
     Removes a cluster from Cloudera Manager.
 
     name
@@ -160,7 +160,7 @@ def cluster_remove(name, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.cluster_remove 'Cluster 1 - CDH4'
-    '''
+    """
     if not cluster_exists(name, **cm_args):
         log.error('{0!r} does not exist'.format(name))
         return False
@@ -182,7 +182,7 @@ def cluster_remove(name, **cm_args):
 
 
 def host_exists(name, cluster, **cm_args):
-    '''
+    """
     Checks if a host exists in the named cluster.
 
     name
@@ -196,7 +196,7 @@ def host_exists(name, cluster, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.host_exists 'host.example.com' 'Cluster 1 - CDH4'
-    '''
+    """
     a = _connect(**cm_args)
     if a is None:
         return False
@@ -221,7 +221,7 @@ def host_exists(name, cluster, **cm_args):
 
 
 def host_create(name, address, cluster, **cm_args):
-    '''
+    """
     Adds a host to a cluster
 
     name
@@ -240,7 +240,7 @@ def host_create(name, address, cluster, **cm_args):
         salt '*' cloudera.host_create 'host.example.com'                       \
                                       '192.168.0.1'                            \
                                       'Cluster 1 - CDH4'
-    '''
+    """
     if host_exists(name, cluster, **cm_args):
         log.info('Host {0!r} already exists'.format(name))
         return False
@@ -285,7 +285,7 @@ def host_create(name, address, cluster, **cm_args):
 
 
 def host_remove(name, cluster, **cm_args):
-    '''
+    """
     Removes a host from a cluster.
 
     name
@@ -296,7 +296,7 @@ def host_remove(name, cluster, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.host_remove 'host.example.com' 'Cluster 1 - CDH4'
-    '''
+    """
     if not host_exists(name, cluster, **cm_args):
         log.error('Host {0!r} does not exist'.format(name))
         return False
@@ -341,7 +341,7 @@ def host_remove(name, cluster, **cm_args):
 
 
 def parcel_is_installed(name, version, cluster, **cm_args):
-    '''
+    """
     Checks whether a parcel has been installed on a cluster.
 
     name
@@ -360,7 +360,7 @@ def parcel_is_installed(name, version, cluster, **cm_args):
         salt '*' cloudera.parcel_is_installed 'CDH'                            \
                                               '4.5.0-1.cdh4.5.0.p0.30'         \
                                               'Cluster 1 - CDH4'
-    '''
+    """
     a = _connect(**cm_args)
     if a is None:
         return False
@@ -385,7 +385,7 @@ def parcel_is_installed(name, version, cluster, **cm_args):
 
 
 def parcel_install(name, version, cluster, **cm_args):
-    '''
+    """
     Installs a parcel on a cluster.
 
     name
@@ -404,7 +404,7 @@ def parcel_install(name, version, cluster, **cm_args):
         salt '*' cloudera.parcel_install 'CDH'                                 \
                                          '4.5.0-1.cdh4.5.0.p0.30'              \
                                          'Cluster 1 - CDH4'
-    '''
+    """
     if parcel_is_installed(name, version, cluster, **cm_args):
         log.info('{0}-{1} already installed'.format(name, version))
         return False
@@ -482,7 +482,7 @@ def parcel_install(name, version, cluster, **cm_args):
 
 
 def parcel_remove(name, version, cluster, **cm_args):
-    '''
+    """
     Removes a parcel from a cluster.
 
     name
@@ -501,11 +501,11 @@ def parcel_remove(name, version, cluster, **cm_args):
         salt '*' cloudera.parcel_remove 'CDH'                                  \
                                         '4.5.0-1.cdh4.5.0.p0.30'               \
                                         'Cluster 1 - CDH4'
-    '''
+    """
 
 
 def service_exists(name, cluster, **cm_args):
-    '''
+    """
     Checks if a service exists in the named cluster.
 
     name
@@ -519,7 +519,7 @@ def service_exists(name, cluster, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.service_exists 'hdfs1' 'Cluster 1 - CDH4'
-    '''
+    """
     a = _connect(**cm_args)
     if a is None:
         return False
@@ -544,7 +544,7 @@ def service_exists(name, cluster, **cm_args):
 
 
 def service_create(name, cluster, **cm_args):
-    '''
+    """
     Adds a service to a cluster
 
     name
@@ -558,7 +558,7 @@ def service_create(name, cluster, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.service_create 'hdfs1' 'Cluster 1 - CDH4'
-    '''
+    """
     for m in re.finditer('^(hbase|hdfs|zookeeper)(\d+)$', name):
         service_type = m.group(1).upper()
 
@@ -590,7 +590,7 @@ def service_create(name, cluster, **cm_args):
 
 
 def service_remove(name, **cm_args):
-    '''
+    """
     Removes a service from a cluster.
 
     name
@@ -601,7 +601,7 @@ def service_remove(name, **cm_args):
     .. code-block:: bash
 
         salt '*' cloudera.service_remove 'hdfs1' 'Cluster 1 - CDH4'
-    '''
+    """
     service_types=['HBASE', 'HDFS', 'ZOOKEEPER']
 
     if not service_exists(name, cluster, **cm_args):

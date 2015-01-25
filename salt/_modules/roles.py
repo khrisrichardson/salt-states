@@ -1,15 +1,16 @@
 # -*- coding: UTF-8 -*-
-'''
+"""
 Manage minion roles
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity: new
 :platform: all
+"""
 
 # TODO: add support for consul
 # TODO: add support for etcd
 # TODO: add support for skydns
-'''
+# TODO: add context sensitive set function
 
 # import libs: standard
 import re
@@ -31,9 +32,9 @@ def dict_(roles=None,
           out='ip',
           source='mine',
           saltenv=''):
-    '''
+    """
     Return a dictionary of roles via alternative sources
-    '''
+    """
     if roles is None:
         roles = []
     else:
@@ -70,9 +71,9 @@ def dict_(roles=None,
 def list_(minion='',
           source='mine',
           saltenv=''):
-    '''
+    """
     Return a list of roles via alternative sources
-    '''
+    """
     grains = _grains(minion=minion, source=source, saltenv=saltenv)
 
     ret = set([])
@@ -83,9 +84,9 @@ def list_(minion='',
 
 
 def order(minion='', roles=None, saltenv='', ret=None):
-    '''
+    """
     Return a list of roles in the order in which they should be managed
-    '''
+    """
     if roles is None:
         roles = list_(minion=minion, saltenv=saltenv)
 
@@ -121,9 +122,9 @@ def order(minion='', roles=None, saltenv='', ret=None):
 
 
 def related_states(minion='', roles=None, saltenv=''):
-    '''
+    """
     Return a list of states related to minion X or roles [Y, Z]
-    '''
+    """
     if roles is None:
         roles = list_(minion=minion, saltenv=saltenv)
 
@@ -141,9 +142,9 @@ def related_states(minion='', roles=None, saltenv=''):
 
 
 def requires(role='', minion='', saltenv=''):
-    '''
+    """
     Return a list of roles required by role X
-    '''
+    """
     roles = list_(minion=minion, saltenv=saltenv)
 
     ret = set([])
@@ -155,9 +156,9 @@ def requires(role='', minion='', saltenv=''):
 
 
 def tree(minion='', trunk=None, roles=None, saltenv=''):
-    '''
+    """
     Return a data structure of roles and their dependencies
-    '''
+    """
     ret = {}
 
     if trunk is None:
@@ -179,9 +180,9 @@ def tree(minion='', trunk=None, roles=None, saltenv=''):
 
 @decorators.memoize
 def _cp_list_states(*args):
-    '''
+    """
     Get list of states on salt-master
-    '''
+    """
     args = list(args)
 
     if args[0]:
@@ -194,18 +195,18 @@ def _cp_list_states(*args):
 
 @decorators.memoize
 def _environment():
-    '''
+    """
     Get environment
-    '''
+    """
     return __salt__['grains.get']('environment', default='base')
 
 
 def _grains(minion='',
             source='mine',
             saltenv=''):
-    '''
+    """
     Return a list of roles via alternative sources
-    '''
+    """
     client = __salt__['config.get']('file_client')
 
     if client == 'local':
@@ -219,18 +220,18 @@ def _grains(minion='',
 
 
 def _grains_via_grains():
-    '''
+    """
     Return a dictionary of grains via grains
-    '''
+    """
     ret = {'localhost': __salt__['grains.items']()}
 
     return ret
 
 
 def _grains_via_mine(minion='', saltenv=''):
-    '''
+    """
     Return a dictionary of grains via mine
-    '''
+    """
     if minion:
         ret = _grains_via_mine_on_minion(minion)
     elif saltenv == 'all':
@@ -243,9 +244,9 @@ def _grains_via_mine(minion='', saltenv=''):
 
 @decorators.memoize
 def _grains_via_mine_in_env(*args):
-    '''
+    """
     Return a dictionary of grains via mine in env X
-    '''
+    """
     args = list(args)
     kwargs = {}
 
@@ -265,9 +266,9 @@ def _grains_via_mine_in_env(*args):
 
 @decorators.memoize
 def _grains_via_mine_on_minion(*args):
-    '''
+    """
     Return a dictionary of grains via mine on minion X
-    '''
+    """
     args = list(args)
     ret = {}
 
@@ -280,9 +281,9 @@ def _grains_via_mine_on_minion(*args):
 
 
 def _grains_via_peer(minion='', saltenv=''):
-    '''
+    """
     Return a dictionary of grains via peer communication
-    '''
+    """
     if minion:
         ret = _grains_via_peer_on_minion(minion)
     elif saltenv == 'all':
@@ -295,9 +296,9 @@ def _grains_via_peer(minion='', saltenv=''):
 
 @decorators.memoize
 def _grains_via_peer_in_env(*args):
-    '''
+    """
     Return a dictionary of grains via peer communication in env X
-    '''
+    """
     args = list(args)
     kwargs = {}
 
@@ -318,9 +319,9 @@ def _grains_via_peer_in_env(*args):
 
 @decorators.memoize
 def _grains_via_peer_on_minion(*args):
-    '''
+    """
     Return a dictionary of grains via peer communication on minion X
-    '''
+    """
     args = list(args)
     ret = {}
 
@@ -335,9 +336,9 @@ def _grains_via_peer_on_minion(*args):
 
 @decorators.memoize
 def _related_to_role(*args):
-    '''
+    """
     Return a list of roles related to role X
-    '''
+    """
     args = list(args)
 
     if args[0]:
@@ -358,9 +359,9 @@ def _related_to_role(*args):
 
 @decorators.memoize
 def _state_show_highstate(*args):
-    '''
+    """
     Get data structure of highstate, including subordinate states
-    '''
+    """
     args = list(args)
 
     if args[0]:
@@ -374,9 +375,9 @@ def _state_show_highstate(*args):
 
 @decorators.memoize
 def _states(*args):
-    '''
+    """
     Return a list of states
-    '''
+    """
     args = list(args)
 
     if args[0]:
@@ -400,9 +401,9 @@ def _states(*args):
 
 
 def _states_related_to_role(role='', relation='.*', saltenv=''):
-    '''
+    """
     Return a list of states related to state X
-    '''
+    """
     ret = set([])
     if role:
         pattern = role + '\\.relate-' + relation
@@ -414,7 +415,7 @@ def _states_related_to_role(role='', relation='.*', saltenv=''):
 
 
 def _subtype():
-    '''
+    """
     Get virtual subtype
-    '''
+    """
     return __salt__['grains.get']('virtual_subtype')

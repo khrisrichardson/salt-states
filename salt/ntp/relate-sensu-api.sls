@@ -1,13 +1,13 @@
 # vi: set ft=yaml.jinja :
 
 {% set minions = salt['roles.dict']('sensu-api') %}
+{% set test    = salt['pillar.get']('test') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:
   -  sensu-client
 
-{% if minions['sensu-api']
-   and    (salt['config.get']('virtual') == 'VMware'
+{% if minions['sensu-api']or test %}
    or     (salt['config.get']('virtual') == 'physical'
    and not salt['config.get']('virtual_subtype'))) %}
 

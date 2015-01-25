@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Manage containers
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity: new
 :platform: linux
+"""
 
-TODO: perform role and base validation
-TODO: use the memoize decorator
-TODO: add validation and return details
-'''
+# TODO: perform base and role validation
+# TODO: add option to create all downstream containers
+# TODO: add option to create individual relations for integration testing
+# TODO: add option to test monitoring scripts
 
 # import libs: standard
 from os.path import join
@@ -28,27 +29,28 @@ __func_alias__ = {
 
 
 def create(base='ubuntu:latest:amd64', role=None):
-    '''
-    '''
+    """
+    """
     if RUNTIME == 'docker':
-        _create_docker(
+        ret = _create_docker(
             ':'.join(base.split(':')[:2]),
             role,
             volumes=_get_storage_mount_volumes(role=role),
         )
     elif RUNTIME == 'lxc':
-        _create_lxc()
+        ret = _create_lxc()
     elif RUNTIME == 'lxd':
-        _create_lxd()
+        ret = _create_lxd()
     elif RUNTIME == 'nspawn':
-        _create_nspawn()
+        ret = _create_nspawn()
     elif RUNTIME == 'rocket':
-        _create_rocket()
+        ret = _create_rocket()
+    return ret
 
 
 def _create_docker(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
     image = ':'.join((role, '-'.join(base.split(':'))))
 
     ret = __salt__['docker.inspect_image'](image)
@@ -57,81 +59,83 @@ def _create_docker(base, role, **kwargs):
 
     ret = __salt__['docker.inspect_container'](image)
     if not ret['status']:
-        __salt__['docker.create_container'](
+        ret = __salt__['docker.create_container'](
             image=image,
             name=role,
             volumes=kwargs.get('volumes', [])
         )
+    return ret
 
 
 def _create_lxc(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _create_lxd(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _create_nspawn(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _create_rocket(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def delete():
-    '''
-    '''
+    """
+    """
 
 
 def exec_():
-    '''
-    '''
+    """
+    """
 
 
 def file():
-    '''
-    '''
+    """
+    """
 
 
 def list_():
-    '''
-    '''
+    """
+    """
 
 
 def move():
-    '''
-    '''
+    """
+    """
 
 
 def publish(base='ubuntu:latest:amd64', role='salt-minion'):
-    '''
-    '''
+    """
+    """
     if RUNTIME == 'docker':
-        _publish_docker(
+        ret = _publish_docker(
             ':'.join(base.split(':')[:2]),
             role,
             EXPOSE=_get_network_transport_ports(role=role),
             RUN=_get_compute_image_commands(base=base, role=role),
         )
     elif RUNTIME == 'lxc':
-        _publish_lxc()
+        ret = _publish_lxc()
     elif RUNTIME == 'lxd':
-        _publish_lxd()
+        ret = _publish_lxd()
     elif RUNTIME == 'nspawn':
-        _publish_nspawn()
+        ret = _publish_nspawn()
     elif RUNTIME == 'rocket':
-        _publish_rocket()
+        ret = _publish_rocket()
+    return ret
 
 
 def _publish_docker(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
     kwargs.update(FROM=base)
     contents = _manifest_docker(**kwargs)
     tag = ':'.join((role, '-'.join(base.split(':'))))
@@ -139,122 +143,127 @@ def _publish_docker(base, role, **kwargs):
     f = open(join(dtemp, 'Dockerfile'), 'w')
     f.write(contents)
     f.close()
-    __salt__['docker.build'](dtemp, tag=tag)
+    ret = __salt__['docker.build'](dtemp, tag=tag)
+    return ret
 
 
 def _publish_lxc(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _publish_lxd(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _publish_nspawn(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _publish_rocket(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def remote():
-    '''
-    '''
+    """
+    """
 
 
 def restart():
-    '''
-    '''
+    """
+    """
 
 
 def restore():
-    '''
-    '''
+    """
+    """
 
 
 def snapshot():
-    '''
-    '''
+    """
+    """
 
 
 def start(base='ubuntu:latest:amd64', role=None):
-    '''
-    '''
+    """
+    """
     if RUNTIME == 'docker':
-        _start_docker(
+        ret = _start_docker(
             ':'.join(base.split(':')[:2]),
             role,
             binds=_get_storage_mount_details(role=role),
             port_bindings=_get_network_transport_dnats(role=role),
         )
     elif RUNTIME == 'lxc':
-        _start_lxc()
+        ret = _start_lxc()
     elif RUNTIME == 'lxd':
-        _start_lxd()
+        ret = _start_lxd()
     elif RUNTIME == 'nspawn':
-        _start_nspawn()
+        ret = _start_nspawn()
     elif RUNTIME == 'rocket':
-        _start_rocket()
+        ret = _start_rocket()
+    return ret
 
 
 def _start_docker(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
     tag = ':'.join((role, '-'.join(base.split(':'))))
 
     ret = __salt__['docker.inspect_container'](tag)
     if not ret['status']:
-        create(base=base, role=role)
+        ret = create(base=base, role=role)
+
+    print ret
 
     if not __salt__['docker.is_running'](tag):
-        __salt__['docker.start'](
+        ret = __salt__['docker.start'](
             container=role,
             binds=kwargs.get('binds', []),
             port_bindings=kwargs.get('port_bindings', [])
         )
+    return ret
 
 
 def _start_lxc(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _start_lxd(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _start_nspawn(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _start_rocket(base, role, **kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def status():
-    '''
-    '''
+    """
+    """
 
 
 def stop():
-    '''
-    '''
+    """
+    """
 
 
 def _get_compute_image_bases(role=None):
-    '''
+    """
     List of bases from which to publish image
 
     :param str role: Role the image will provide, corresponding to salt state.
-    '''
+    """
     url = 'salt://' + role + '/defaults.yaml'
     contents = __salt__['cp.get_file_str'](url)
     compute = load(contents).get('compute', {})
@@ -265,21 +274,21 @@ def _get_compute_image_bases(role=None):
 
 
 def _get_compute_image_commands(base=None, role=None, layer=False):
-    '''
+    """
     List of commands to create image
 
     :param str role: Role the image will provide, corresponding to salt state.
     :param bool layer: Use low chunks instead of highstate for more granular
       layering.
-    '''
+    """
     ret = []
     # Command to get salt bootstrap script
-    cmd = '''
+    cmd = """
           if test -f /usr/bin/python3
           then python3 -c "import urllib.request; urllib.request.urlretrieve('${url}', 'bootstrap-salt.sh')"
           else python  -c "import urllib; print urllib.urlopen('${url}').read()"      > bootstrap-salt.sh
           fi
-          '''
+          """
     # Commands to create salt-minion base image
     ret += [' '.join(cmd.lstrip().replace('\n', ';').split())]
     ret += ['bash bootstrap-salt.sh ${args} || true']
@@ -312,11 +321,11 @@ def _get_compute_image_commands(base=None, role=None, layer=False):
 
 
 def _get_network_transport(role=None):
-    '''
+    """
     List network transport data.
 
     :param str role: Role the image will provide, corresponding to salt state.
-    '''
+    """
     url = 'salt://' + role + '/defaults.yaml'
     contents = __salt__['cp.get_file_str'](url)
     network = load(contents).get('network', {})
@@ -326,11 +335,11 @@ def _get_network_transport(role=None):
 
 
 def _get_network_transport_dnats(role=None):
-    '''
+    """
     Dictionary of destination nats to setup in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
-    '''
+    """
     ret = {}
     transport = _get_network_transport(role=role)
 
@@ -359,11 +368,11 @@ def _get_network_transport_dnats(role=None):
 
 
 def _get_network_transport_ports(role=None):
-    '''
+    """
     List of ports to expose in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
-    '''
+    """
     transport = _get_network_transport(role=role)
     ret = [str(i.get('port')) + '/' + i.get('protocol', 'tcp') for i in transport]
 
@@ -371,11 +380,11 @@ def _get_network_transport_ports(role=None):
 
 
 def _get_storage_mounts(role=None):
-    '''
+    """
     Get storage mount data.
 
     :param str role: Role the image will provide, corresponding to salt state.
-    '''
+    """
     url = 'salt://' + role + '/defaults.yaml'
     contents = __salt__['cp.get_file_str'](url)
     storage = load(contents).get('storage', {})
@@ -385,11 +394,11 @@ def _get_storage_mounts(role=None):
 
 
 def _get_storage_mount_details(role=None):
-    '''
+    """
     List of device:dir:option to mount in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
-    '''
+    """
     mounts = _get_storage_mounts(role=role)
     ret = [':'.join((i.get('device'), i.get('dir'), i.get('option', 'rw'))) for i in mounts]
 
@@ -397,11 +406,11 @@ def _get_storage_mount_details(role=None):
 
 
 def _get_storage_mount_volumes(role=None):
-    '''
+    """
     List of volumes to mount in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
-    '''
+    """
     mounts = _get_storage_mounts(role=role)
     ret = [i.get('dir') for i in mounts]
 
@@ -409,8 +418,8 @@ def _get_storage_mount_volumes(role=None):
 
 
 def _manifest_docker(**kwargs):
-    '''
-    '''
+    """
+    """
     ret = ''
 
     # List of tuples with default values for available Docker instructions
@@ -448,29 +457,29 @@ def _manifest_docker(**kwargs):
 
 
 def _manifest_lxc(**kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _manifest_lxd(**kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _manifest_nspawn(**kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _manifest_rocket(**kwargs):
-    '''
-    '''
+    """
+    """
 
 
 def _state_lows(base=None, role=None):
-    '''
+    """
     Generator which parses lowstate data and yields individual low chunks
-    '''
+    """
     keywords = [
         'order',
         'prereq',
@@ -505,9 +514,9 @@ def _state_lows(base=None, role=None):
 
 
 def _state_show_lowstate(base=None, role=None):
-    '''
+    """
     Get lowstate data structure
-    '''
+    """
     if RUNTIME == 'docker':
         ret = _state_show_lowstate_docker(base=base, role=role)
     elif RUNTIME == 'lxc':
@@ -526,9 +535,9 @@ def _state_show_lowstate(base=None, role=None):
 
 
 def _state_show_lowstate_docker(base=None, role=None):
-    '''
+    """
     Get lowstate data structure via Docker base image
-    '''
+    """
     image = ':'.join(('salt-minion', '-'.join(base.split(':'))))
 
     ret = __salt__['docker.inspect_image'](image)
