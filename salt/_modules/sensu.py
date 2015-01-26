@@ -7,8 +7,6 @@ Manage sensu
 :platform: linux
 """
 
-# TODO: install */relate-sensu-api.sls if missing
-
 # import libs: standard
 from collections import defaultdict
 from glob import glob
@@ -36,7 +34,9 @@ def list_checks(role=None):
     if role is None:
         role = '*'
     else:
-        if role in __salt__['config.get']('roles'):
+        path = '/etc/sensu/conf.d/checks-' + role + '.json'
+        if role in __salt__['config.get']('roles') \
+	   and not __salt__['file.file_exists'](path):
             __salt__['state.sls'](role + '.relate-sensu-api',
                                   pillar={'test': True})
     return _list_values(key='checks', pattern='checks-' + role)
