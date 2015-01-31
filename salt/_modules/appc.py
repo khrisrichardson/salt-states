@@ -305,11 +305,11 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
     ret += ['salt-call pkg.mod_repo ppa:dennis/python keyserver=hkp://keyserver.ubuntu.com:80 keyid=F3FA6A64F50B4114']
     ret += ['salt-call pkg.install python-pygit2 refresh=True']
     ret += ['salt-call grains.setval environment base']
+    ret += ['salt-call saltutil.sync_all']
     # Commands to create salt-minion derived images
     if role != 'salt-minion':
         ret += ['salt-call grains.append roles ' + role]
         if layer:
-            ret += ['salt-call saltutil.sync_all']
             ids = _state_ids(base=base, role=role)
             for (id_, sls) in ids:
                 ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
@@ -564,7 +564,6 @@ def _state_show_lowstate_docker(base=None, role=None):
         publish(base=base, role='salt-minion')
 
     command = "/bin/bash -c '"
-    command += "salt-call saltutil.sync_all                &>/dev/null; "
     command += "salt-call grains.append roles " + role + " &>/dev/null; "
     command += "salt-call state.show_lowstate --out yaml   2>/dev/null; "
     command += "'"
