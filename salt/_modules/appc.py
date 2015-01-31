@@ -17,7 +17,6 @@ from collections import OrderedDict
 from os.path import join
 from pprint import pformat
 from tempfile import mkdtemp
-from textwrap import dedent
 from yaml import load
 
 RUNTIME = 'docker'
@@ -25,6 +24,7 @@ RUNTIME = 'docker'
 
 __func_alias__ = {
     'exec_': 'exec',
+    'file_': 'file',
     'list_': 'list'
 }
 
@@ -68,49 +68,58 @@ def _create_docker(base, role, **kwargs):
     return ret
 
 
-def _create_lxc(base, role, **kwargs):
+def _create_lxc():
     """
     """
+    raise NotImplementedError
 
 
-def _create_lxd(base, role, **kwargs):
+def _create_lxd():
     """
     """
+    raise NotImplementedError
 
 
-def _create_nspawn(base, role, **kwargs):
+def _create_nspawn():
     """
     """
+    raise NotImplementedError
 
 
-def _create_rocket(base, role, **kwargs):
+def _create_rocket():
     """
     """
+    raise NotImplementedError
 
 
 def delete():
     """
     """
+    raise NotImplementedError
 
 
 def exec_():
     """
     """
+    raise NotImplementedError
 
 
-def file():
+def file_():
     """
     """
+    raise NotImplementedError
 
 
 def list_():
     """
     """
+    raise NotImplementedError
 
 
 def move():
     """
     """
+    raise NotImplementedError
 
 
 def publish(base='ubuntu:latest:amd64', role='salt-minion'):
@@ -141,51 +150,58 @@ def _publish_docker(base, role, **kwargs):
     contents = _manifest_docker(**kwargs)
     tag = ':'.join((role, '-'.join(base.split(':'))))
     dtemp = mkdtemp()
-    f = open(join(dtemp, 'Dockerfile'), 'w')
-    f.write(contents)
-    f.close()
+    with open(join(dtemp, 'Dockerfile'), 'w') as f:
+        f.write(contents)
     ret = __salt__['docker.build'](dtemp, tag=tag)
     return ret
 
 
-def _publish_lxc(base, role, **kwargs):
+def _publish_lxc():
     """
     """
+    raise NotImplementedError
 
 
-def _publish_lxd(base, role, **kwargs):
+def _publish_lxd():
     """
     """
+    raise NotImplementedError
 
 
-def _publish_nspawn(base, role, **kwargs):
+def _publish_nspawn():
     """
     """
+    raise NotImplementedError
 
 
-def _publish_rocket(base, role, **kwargs):
+def _publish_rocket():
     """
     """
+    raise NotImplementedError
 
 
 def remote():
     """
     """
+    raise NotImplementedError
 
 
 def restart():
     """
     """
+    raise NotImplementedError
 
 
 def restore():
     """
     """
+    raise NotImplementedError
 
 
 def snapshot():
     """
     """
+    raise NotImplementedError
 
 
 def start(base='ubuntu:latest:amd64', role=None):
@@ -218,8 +234,6 @@ def _start_docker(base, role, **kwargs):
     if not ret['status']:
         ret = create(base=base, role=role)
 
-    print ret
-
     if not __salt__['docker.is_running'](tag):
         ret = __salt__['docker.start'](
             container=role,
@@ -229,34 +243,40 @@ def _start_docker(base, role, **kwargs):
     return ret
 
 
-def _start_lxc(base, role, **kwargs):
+def _start_lxc():
     """
     """
+    raise NotImplementedError
 
 
-def _start_lxd(base, role, **kwargs):
+def _start_lxd():
     """
     """
+    raise NotImplementedError
 
 
-def _start_nspawn(base, role, **kwargs):
+def _start_nspawn():
     """
     """
+    raise NotImplementedError
 
 
-def _start_rocket(base, role, **kwargs):
+def _start_rocket():
     """
     """
+    raise NotImplementedError
 
 
 def status():
     """
     """
+    raise NotImplementedError
 
 
 def stop():
     """
     """
+    raise NotImplementedError
 
 
 def _get_compute_image_bases(role=None):
@@ -305,17 +325,17 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
     ret += ['salt-call pkg.mod_repo ppa:dennis/python keyserver=hkp://keyserver.ubuntu.com:80 keyid=F3FA6A64F50B4114']
     ret += ['salt-call pkg.install python-pygit2 refresh=True']
     ret += ['salt-call grains.setval environment base']
-    ret += ['salt-call saltutil.sync_all']
     # Commands to create salt-minion derived images
     if role != 'salt-minion':
         ret += ['salt-call grains.append roles ' + role]
         if layer:
-            ids = _state_ids(base=base, role=role)
-            for (id_, sls) in ids:
-                ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
-#           lows = _state_lows(base=base, role=role)
-#           for low in lows:
-#               ret += ['salt-call state.low "' + low + '"']
+            ret += ['salt-call saltutil.sync_all']
+#           ids = _state_ids(base=base, role=role)
+#           for (id_, sls) in ids:
+#               ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
+            lows = _state_lows(base=base, role=role)
+            for low in lows:
+                ret += ['salt-call state.low "' + low + '"']
         else:
             ret += ['salt-call state.highstate --out-file=/var/log/salt/highstate']
     # Command to remove salt-minion instance specific data
@@ -350,23 +370,23 @@ def _get_network_transport_dnats(role=None):
     for data in transport:
         port = data.get('port')
         protocol = data.get('protocol', 'tcp')
-        k = '/'.join((str(port), protocol))
+        key = '/'.join((str(port), protocol))
         dst = data.get('dst')
         dport = data.get('dport')
         if dport:
             if dst:
                 if dst == 'anywhere':
-                    v = dport
+                    val = dport
                 elif dst == 'bridge':
                     dst = __salt__['network.interface_ip']('docker0')
-                    v = (dst, dport)
+                    val = (dst, dport)
                 else:
-                    v = (dst, dport)
+                    val = (dst, dport)
             else:
-                v = dport
+                val = dport
         else:
             continue
-        ret[k] = v
+        ret[key] = val
 
     return ret
 
@@ -433,7 +453,7 @@ def _manifest_docker(**kwargs):
         ('ADD', []),
         ('COPY', []),
         ('ENV', ['DEBIAN_FRONTEND noninteractive',
-                 'args -X git v2014.7.1',
+                 'args -X git 2014.7',
                  'bootstrap true',
                  'repository https://github.com/khrisrichardson/salt-states.git',
                  'ref master',
@@ -450,34 +470,73 @@ def _manifest_docker(**kwargs):
     # List comprehension of tuples with kwargs values overriding default values
     instructions = [(i[0], kwargs.get(i[0], i[1])) for i in defaults]
 
-    for k, v in instructions:
-        if (k in ['CMD', 'ENTRYPOINT'] and v) or isinstance(v, basestring):
-            ret += k + ' ' + str(v).replace("'", '"') + '\n'
-        elif isinstance(v, list):
-            for i in v:
-                ret += k + ' ' + i + '\n'
+    for key, val in instructions:
+        if (key in ['CMD', 'ENTRYPOINT'] and val) or isinstance(val, basestring):
+            ret += key + ' ' + str(val).replace("'", '"') + '\n'
+        elif isinstance(val, list):
+            for i in val:
+                ret += key + ' ' + i + '\n'
 
     return ret
 
 
-def _manifest_lxc(**kwargs):
+def _manifest_lxc():
     """
     """
+    raise NotImplementedError
 
 
-def _manifest_lxd(**kwargs):
+def _manifest_lxd():
     """
     """
+    raise NotImplementedError
 
 
-def _manifest_nspawn(**kwargs):
+def _manifest_nspawn():
     """
     """
+    raise NotImplementedError
 
 
-def _manifest_rocket(**kwargs):
+def _manifest_rocket():
     """
     """
+    raise NotImplementedError
+
+
+def _state_chunks(**kwargs):
+    """
+    Function which parses low data and accounts for formatting
+    """
+    ret = []
+    tmp = {}
+    text = []
+    contents = []
+    for (key, val) in kwargs.items():
+        if isinstance(val, str) and '\n' in val:
+            if key in ['onlyif', 'unless']:
+                val = val.replace('\\\n', '')
+                val = val.replace('"', ';;;')
+                val = val.replace("'", '\"')
+                val = val.replace(';;;', "'")
+                val = ' '.join(val.split())
+                tmp[key] = val
+            elif key in ['text']:
+                text = val.split('\n')
+            elif key in ['contents']:
+                contents = val.split('\n')
+        else:
+            tmp[key] = val
+    if text:
+        for line in text:
+            ret += [dict(tmp.items() + {'text': line}.items())]
+    if contents:
+        tmp.update({'fun': 'append'})
+        for line in contents:
+            ret += [dict(tmp.items() + {'contents': line}.items())]
+    else:
+        ret += [tmp]
+    return ret
 
 
 def _state_ids(base=None, role=None):
@@ -491,7 +550,7 @@ def _state_ids(base=None, role=None):
         if isinstance(low, dict):
             id_ = low.pop('__id__')
             sls = low.pop('__sls__')
-            ret += (id_, sls)
+            ret += [(id_, sls)]
     return list(OrderedDict.fromkeys(ret))
 
 
@@ -522,14 +581,15 @@ def _state_lows(base=None, role=None):
 
     for low in lowstate:
         if isinstance(low, dict):
-            state = low.pop('state')
-            fun = low.pop('fun')
-            name = low.pop('name')
-            for keyword in keywords:
-                low.pop(keyword, None)
-            low = str(pformat(low)).replace('\n', '')
-            low = "{'state': '" + state + "', 'fun': '" + fun + "', 'name': '" + name + "', " + low[1:]
-            yield low
+            for chunk in _state_chunks(**low):
+                state = chunk.pop('state')
+                fun = chunk.pop('fun')
+                name = chunk.pop('name')
+                for keyword in keywords:
+                    chunk.pop(keyword, None)
+                chunk = str(pformat(chunk)).replace('\n', '')
+                chunk = "{'state': '" + state + "', 'fun': '" + fun + "', 'name': '" + name + "', " + chunk[1:]
+                yield chunk
 
 
 def _state_show_lowstate(base=None, role=None):
@@ -539,13 +599,13 @@ def _state_show_lowstate(base=None, role=None):
     if RUNTIME == 'docker':
         ret = _state_show_lowstate_docker(base=base, role=role)
     elif RUNTIME == 'lxc':
-        ret = _state_show_lowstate_lxc(base=base, role=role)
+        ret = _state_show_lowstate_lxc()
     elif RUNTIME == 'lxd':
-        ret = _state_show_lowstate_lxd(base=base, role=role)
+        ret = _state_show_lowstate_lxd()
     elif RUNTIME == 'nspawn':
-        ret = _state_show_lowstate_nspawn(base=base, role=role)
+        ret = _state_show_lowstate_nspawn()
     elif RUNTIME == 'rocket':
-        ret = _state_show_lowstate_rocket(base=base, role=role)
+        ret = _state_show_lowstate_rocket()
 
     if ret is None:
         return []
@@ -564,6 +624,7 @@ def _state_show_lowstate_docker(base=None, role=None):
         publish(base=base, role='salt-minion')
 
     command = "/bin/bash -c '"
+    command += "salt-call saltutil.sync_all                &>/dev/null; "
     command += "salt-call grains.append roles " + role + " &>/dev/null; "
     command += "salt-call state.show_lowstate --out yaml   2>/dev/null; "
     command += "'"
@@ -575,5 +636,30 @@ def _state_show_lowstate_docker(base=None, role=None):
     __salt__['docker.start'](cid)
     __salt__['docker.wait'](cid)
     ret = __salt__['docker.logs'](cid)
+    __salt__['docker.remove_container'](cid)
 
     return load(ret['out']).get('local', ['salt-call state.highstate --out-file=/var/log/salt/highstate'])
+
+
+def _state_show_lowstate_lxc():
+    """
+    """
+    raise NotImplementedError
+
+
+def _state_show_lowstate_lxd():
+    """
+    """
+    raise NotImplementedError
+
+
+def _state_show_lowstate_nspawn():
+    """
+    """
+    raise NotImplementedError
+
+
+def _state_show_lowstate_rocket():
+    """
+    """
+    raise NotImplementedError
