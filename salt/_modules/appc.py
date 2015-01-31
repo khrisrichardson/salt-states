@@ -13,6 +13,7 @@ Manage containers
 # TODO: add option to test monitoring scripts
 
 # import libs: standard
+from collections import OrderedDict
 from os.path import join
 from pprint import pformat
 from tempfile import mkdtemp
@@ -273,7 +274,7 @@ def _get_compute_image_bases(role=None):
     return ret
 
 
-def _get_compute_image_commands(base=None, role=None, layer=False):
+def _get_compute_image_commands(base=None, role=None, layer=True):
     """
     List of commands to create image
 
@@ -309,9 +310,12 @@ def _get_compute_image_commands(base=None, role=None, layer=False):
         ret += ['salt-call grains.append roles ' + role]
         if layer:
             ret += ['salt-call saltutil.sync_all']
-            lows = _state_lows(base=base, role=role)
-            for low in lows:
-                ret += ['salt-call state.low "' + low + '"']
+            ids = _state_ids(base=base, role=role)
+            for (id_, sls) in ids:
+                ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
+#           lows = _state_lows(base=base, role=role)
+#           for low in lows:
+#               ret += ['salt-call state.low "' + low + '"']
         else:
             ret += ['salt-call state.highstate --out-file=/var/log/salt/highstate']
     # Command to remove salt-minion instance specific data
@@ -474,6 +478,21 @@ def _manifest_nspawn(**kwargs):
 def _manifest_rocket(**kwargs):
     """
     """
+
+
+def _state_ids(base=None, role=None):
+    """
+    Function which parses lowstate data and returns unique list of sls ids
+    """
+    lowstate = _state_show_lowstate(base=base, role=role)
+
+    ret = []
+    for low in lowstate:
+        if isinstance(low, dict):
+            id_ = low.pop('__id__')
+            sls = low.pop('__sls__')
+            ret += (id_, sls)
+    return list(OrderedDict.fromkeys(ret))
 
 
 def _state_lows(base=None, role=None):

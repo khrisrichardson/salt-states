@@ -38,19 +38,20 @@ in the development process.
 * gitfs
 
   As per
-  [fileserver\_backend.conf](/salt/salt-minion/etc/salt/minion.d/fileserver_backend.conf)
+  [/etc/salt/minion.d/fileserver\_backend.conf](/salt/salt-minion/etc/salt/minion.d/fileserver_backend.conf)
   on the minion or
-  [fileserver\_backend.conf](/salt/salt-master/etc/salt/master.d/fileserver_backend.conf)
+  [/etc/salt/master.d/fileserver\_backend.conf](/salt/salt-master/etc/salt/master.d/fileserver_backend.conf)
   on the master, and the very essence of your reading this on github, gitfs is
   the de rigueur salt file server that was chosen to host this state tree.
 
 * roots
 
   You may have noticed that roots takes the highest precedence in the minion
-  and master configurations. This is for the sake of testing changes to states
-  on-the-fly without first requiring a commit to be pushed to git.
+  and master fileserver backend configurations. This is for the sake of testing
+  changes to states on-the-fly without first requiring a commit to be pushed to
+  git.
 
-  I will cover how to take advantage of this in [Testing](#Testing) below.
+  I will cover how to take advantage of this in [Testing](.#Testing) below.
 
 ### Architecture
 
@@ -62,8 +63,8 @@ in the development process.
 * minion/master
 
   To take advantage of remote execution, it is recommended to pair your minion
-  with a master. Also to take advantage of service discovery in its present
-  state, a master is required.
+  with a master. Also to take advantage of service discovery and orchestration
+  in its present state, a master is required.
 
 ### Service Registration and Discovery
 
@@ -72,9 +73,10 @@ in the development process.
   Presently, the salt mine is the only means provided by the
   [roles custom execution module](/salt/_modules/roles.py) for service
   discovery. Since the salt mine is a salt master construct, the minion must be
-  bootstrapped to use the master.
+  bootstrapped to connect with the
+  [master](/salt/salt-minion/etc/salt/minion.d/salt-master.conf).
 
-  When using the salt mine, no service registration other than the salt master
+  When using the salt mine, no service registration other than the master
   accepting the minion's key is required.
 
 * Etcd

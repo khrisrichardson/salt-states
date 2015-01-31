@@ -14,7 +14,6 @@ Manage minion roles
 
 # import libs: standard
 import re
-import sys
 from collections import defaultdict
 
 # import libs: salt
@@ -216,7 +215,7 @@ def _grains(minion='',
     elif source == 'peer':
         return _grains_via_peer(minion=minion, saltenv=saltenv)
     else:
-        sys.exit(1)
+        pass
 
 
 def _grains_via_grains():
