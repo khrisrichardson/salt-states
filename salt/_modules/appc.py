@@ -433,7 +433,7 @@ def _manifest_docker(**kwargs):
         ('ADD', []),
         ('COPY', []),
         ('ENV', ['DEBIAN_FRONTEND noninteractive',
-                 'args -X git 2014.7',
+                 'args -X git v2014.7.1',
                  'bootstrap true',
                  'repository https://github.com/khrisrichardson/salt-states.git',
                  'ref master',
@@ -563,7 +563,11 @@ def _state_show_lowstate_docker(base=None, role=None):
     if not ret['status']:
         publish(base=base, role='salt-minion')
 
-    command = "/bin/bash -c 'salt-call grains.append roles " + role + " &>/dev/null; salt-call --out yaml state.show_lowstate 2>/dev/null'"
+    command = "/bin/bash -c '"
+    command += "salt-call saltutil.sync_all                &>/dev/null; "
+    command += "salt-call grains.append roles " + role + " &>/dev/null; "
+    command += "salt-call state.show_lowstate --out yaml   2>/dev/null; "
+    command += "'"
     ret = __salt__['docker.create_container'](
         image=image,
         command=command
