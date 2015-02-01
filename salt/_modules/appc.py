@@ -33,6 +33,7 @@ def create(base='ubuntu:latest:amd64', role=None):
     """
     """
     if RUNTIME == 'docker':
+        _setup_docker()
         ret = _create_docker(
             ':'.join(base.split(':')[:2]),
             role,
@@ -126,6 +127,7 @@ def publish(base='ubuntu:latest:amd64', role='salt-minion'):
     """
     """
     if RUNTIME == 'docker':
+        _setup_docker()
         ret = _publish_docker(
             ':'.join(base.split(':')[:2]),
             role,
@@ -208,6 +210,7 @@ def start(base='ubuntu:latest:amd64', role=None):
     """
     """
     if RUNTIME == 'docker':
+        _setup_docker()
         ret = _start_docker(
             ':'.join(base.split(':')[:2]),
             role,
@@ -327,7 +330,6 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
     ret += ['salt-call grains.setval environment base']
     # Commands to create salt-minion derived images
     if role != 'salt-minion':
-        ret += ['salt-call grains.append roles ' + role]
         if layer:
             ret += ['salt-call saltutil.sync_all']
 #           ids = _state_ids(base=base, role=role)
@@ -338,6 +340,7 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
                 ret += ['salt-call state.low "' + low + '"']
         else:
             ret += ['salt-call state.highstate --out-file=/var/log/salt/highstate']
+        ret += ['salt-call grains.append roles ' + role]
     # Command to remove salt-minion instance specific data
     ret += ['salt-call cmd.run "rm -rf /etc/salt/minion_id /etc/salt/pki/*/*"']
 
@@ -597,6 +600,7 @@ def _state_show_lowstate(base=None, role=None):
     Get lowstate data structure
     """
     if RUNTIME == 'docker':
+        _setup_docker()
         ret = _state_show_lowstate_docker(base=base, role=role)
     elif RUNTIME == 'lxc':
         ret = _state_show_lowstate_lxc()
@@ -638,7 +642,8 @@ def _state_show_lowstate_docker(base=None, role=None):
     ret = __salt__['docker.logs'](cid)
     __salt__['docker.remove_container'](cid)
 
-    return load(ret['out']).get('local', ['salt-call state.highstate --out-file=/var/log/salt/highstate'])
+    command = 'salt-call state.highstate --out-file=/var/log/salt/highstate'
+    return load(ret['out']).get('local', [command])
 
 
 def _state_show_lowstate_lxc():
@@ -663,3 +668,41 @@ def _state_show_lowstate_rocket():
     """
     """
     raise NotImplementedError
+
+
+def _setup_docker():
+    """
+    """
+    if __salt__['cmd.which']('docker') is None:
+        __salt__['state.sls']('lxc-docker')
+    if not __salt__['pip.list']('docker-py'):
+        __salt__['state.sls']('python-docker')
+
+
+def _setup_lxc():
+    """
+    """
+    if __salt__['cmd.which']('lxc') is None:
+        __salt__['state.sls']('lxc')
+
+
+def _setup_lxd():
+    """
+    """
+    if __salt__['cmd.which']('lxd') is None:
+        __salt__['state.sls']('lxd')
+
+
+def _setup_nspawn():
+    """
+    """
+    raise NotImplementedError
+
+
+def _setup_rocket():
+    """
+    """
+    if __salt__['cmd.which']('actool') is None:
+        __salt__['state.sls']('appc-spec')
+    if __salt__['cmd.which']('rkt') is None:
+        __salt__['state.sls']('rocket')

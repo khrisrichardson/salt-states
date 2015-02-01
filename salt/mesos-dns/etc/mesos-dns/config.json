@@ -1,0 +1,17 @@
+{% set minions = salt['roles.dict']('mesos-master') -%}
+{% if  minions['mesos-master'] -%}
+{% set socks = [] -%}
+{% for minion in minions['mesos-master'] -%}
+{% do  socks.append(minion + ':5050') -%}
+{% endfor -%}
+{
+  "masters": ["{{ socks|join(',') }}"],
+  "refreshSeconds": 60,
+  "ttl": 60,
+  "domain": "mesos",
+  "port": 8053,
+  "resolvers": ["8.8.8.8"],
+  "timeout": 5,
+  "email": "root.mesos-dns.mesos"
+}
+{% endif -%}

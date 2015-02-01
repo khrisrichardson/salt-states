@@ -1,5 +1,8 @@
 # vi: set ft=yaml.jinja :
 
+{% set minions = salt['roles.dict']('salt-master') %}
+{% set roles   = salt['environ.get']('roles').split(',') %}
+
 include:
   - .depend-git
 # - .depend-incron
@@ -10,6 +13,9 @@ include:
   {% if salt['config.get']('os_family') == 'RedHat' %}
   -  epel-release
   {% endif %}
+  {% for role in roles %}
+  -  {{ role }}
+  {% endfor %}
 
 salt-minion:
   pkg.installed:
@@ -67,10 +73,18 @@ salt-minion:
     - watch_in:
       - service:   salt-minion
 
-#-------------------------------------------------------------------------------
-# TODO: consider running mine.update via incron instead of state.highstate
-# TODO: deprecate with https://github.com/saltstack/salt/issues/8619
-#-------------------------------------------------------------------------------
+{% if roles %}
+
+roles:
+  grains.append:
+    - order:       1
+   {% for role in roles %}
+    - value:    {{ role }}
+   {% endfor %}
+
+{% endif %}
+
+{% if minions['salt-master'] %}
 
 mine.update:
   module.run:
@@ -78,3 +92,5 @@ mine.update:
     - name:        mine.update
     - require:
       - pkg:       python-psutil
+
+{% endif %}
