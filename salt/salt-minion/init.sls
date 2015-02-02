@@ -14,7 +14,9 @@ include:
   -  epel-release
   {% endif %}
   {% for role in roles %}
-  -  {{ role }}
+  {% if  role %}
+  -  {{  role }}
+  {% endif %}
   {% endfor %}
 
 salt-minion:

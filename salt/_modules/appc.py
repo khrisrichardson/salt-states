@@ -334,12 +334,12 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
         ret += ['salt-call state.sls salt-minion']
     else:
         if layer:
-#           ids = _state_ids(base=base, role=role)
-#           for (id_, sls) in ids:
-#               ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
             lows = _state_lows(base=base, role=role)
             for low in lows:
                 ret += ['salt-call state.low "' + low + '"']
+#           ids = _state_ids(base=base, role=role)
+#           for (id_, sls) in ids:
+#               ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
         else:
             ret += ['salt-call state.highstate --out-file=/var/log/salt/highstate']
         ret += ['salt-call grains.append roles ' + role]
