@@ -29,14 +29,15 @@ __func_alias__ = {
 }
 
 
-def create(base='ubuntu:latest:amd64', role=None):
+def create(base='ubuntu:latest:amd65', role=None, build=True):
     """
     """
     if RUNTIME == 'docker':
         _setup_docker()
         ret = _create_docker(
-            ':'.join(base.split(':')[:2]),
-            role,
+            base=':'.join(base.split(':')[:2]),
+            role=role,
+            build=True,
             volumes=_get_storage_mount_volumes(role=role),
         )
     elif RUNTIME == 'lxc':
@@ -50,7 +51,7 @@ def create(base='ubuntu:latest:amd64', role=None):
     return ret
 
 
-def _create_docker(base, role, **kwargs):
+def _create_docker(base=None, role=None, build=True, **kwargs):
     """
     """
     image = ':'.join((role, '-'.join(base.split(':'))))
@@ -129,8 +130,8 @@ def publish(base='ubuntu:latest:amd64', role='salt-minion'):
     if RUNTIME == 'docker':
         _setup_docker()
         ret = _publish_docker(
-            ':'.join(base.split(':')[:2]),
-            role,
+            base=':'.join(base.split(':')[:2]),
+            role=role,
             EXPOSE=_get_network_transport_ports(role=role),
             RUN=_get_compute_image_commands(base=base, role=role),
         )
@@ -145,7 +146,7 @@ def publish(base='ubuntu:latest:amd64', role='salt-minion'):
     return ret
 
 
-def _publish_docker(base, role, **kwargs):
+def _publish_docker(base=None, role=None, **kwargs):
     """
     """
     kwargs.update(FROM=base)
@@ -212,8 +213,8 @@ def start(base='ubuntu:latest:amd64', role=None):
     if RUNTIME == 'docker':
         _setup_docker()
         ret = _start_docker(
-            ':'.join(base.split(':')[:2]),
-            role,
+            base=':'.join(base.split(':')[:2]),
+            role=role,
             binds=_get_storage_mount_details(role=role),
             port_bindings=_get_network_transport_dnats(role=role),
         )
@@ -228,7 +229,7 @@ def start(base='ubuntu:latest:amd64', role=None):
     return ret
 
 
-def _start_docker(base, role, **kwargs):
+def _start_docker(base=None, role=None, **kwargs):
     """
     """
     tag = ':'.join((role, '-'.join(base.split(':'))))
@@ -297,7 +298,7 @@ def _get_compute_image_bases(role=None):
     return ret
 
 
-def _get_compute_image_commands(base=None, role=None, layer=True):
+def _get_compute_image_commands(base=None, role=None, layer=True, unit='low'):
     """
     List of commands to create image
 
@@ -334,12 +335,14 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
         ret += ['salt-call state.sls salt-minion']
     else:
         if layer:
-            lows = _state_lows(base=base, role=role)
-            for low in lows:
-                ret += ['salt-call state.low "' + low + '"']
-#           ids = _state_ids(base=base, role=role)
-#           for (id_, sls) in ids:
-#               ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
+            if unit == 'low':
+                lows = _state_lows(base=base, role=role)
+                for low in lows:
+                    ret += ['salt-call state.low "' + low + '"']
+            elif unit == 'id':
+                ids = _state_ids(base=base, role=role)
+                for (id_, sls) in ids:
+                    ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
         else:
             ret += ['salt-call state.highstate --out-file=/var/log/salt/highstate']
         ret += ['salt-call grains.append roles ' + role]

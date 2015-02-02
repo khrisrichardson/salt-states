@@ -31,15 +31,21 @@ def check(role=None, name=None):
 def list_checks(role=None):
     """
     """
+    ret = []
+
     if role is None:
-        role = '*'
+        roles = _list_roles()
     else:
+        roles = [role]
+
+    for role in roles:
         path = '/etc/sensu/conf.d/checks-' + role + '.json'
-        if role in __salt__['config.get']('roles') \
-	   and not __salt__['file.file_exists'](path):
+        if role in _list_roles() \
+        and not __salt__['file.file_exists'](path):
             __salt__['state.sls'](role + '.relate-sensu-api',
                                   pillar={'test': True})
-    return _list_values(key='checks', pattern='checks-' + role)
+        ret += _list_values(key='checks', pattern='checks-' + role)
+    return ret
 
 
 def list_clients():
@@ -87,3 +93,10 @@ def _list_values(key=None, pattern='*'):
             else:
                 ret += [val] if val is not None else []
     return ret
+
+
+def _list_roles():
+    """
+    """
+    return filter(None, set(list(__salt__['config.get']('roles')) + \
+                                 __salt__['environ.get']('roles').split(',')))

@@ -204,7 +204,13 @@ corresponding defaults.yaml file are eligible for building in this manner.
 
 ## Running
 
-To run individual containers:
+To run a salt-master container sans pre-built salt-master image:
+
+  ```bash
+  docker run -d -e roles=salt-master khrisrichardson/salt-minion
+  ```
+
+To run a salt-master container from pre-built salt-master image:
 
   ```bash
   salt-call saltutil.sync_modules
