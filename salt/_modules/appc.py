@@ -283,6 +283,13 @@ def stop():
     raise NotImplementedError
 
 
+def test():
+    """
+    """
+    # TODO: pass 'salt-call sensu.check' command to create function
+    raise NotImplementedError
+
+
 def _get_compute_image_bases(role=None):
     """
     List of bases from which to publish image

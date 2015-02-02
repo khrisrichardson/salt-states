@@ -51,7 +51,7 @@ in the development process.
   changes to states on-the-fly without first requiring a commit to be pushed to
   git.
 
-  I will cover how to take advantage of this in [Testing](.#Testing) below.
+  I will cover how to take advantage of this in [Testing](#Testing) below.
 
 ### Architecture
 
@@ -210,11 +210,24 @@ To run a salt-master container sans pre-built salt-master image:
   docker run -d -e roles=salt-master khrisrichardson/salt-minion
   ```
 
+To test a salt-master container sans pre-built salt-master image:
+
+  ```bash
+  docker run --rm=true -e salt-master khrisrichardson/salt-minion salt-call sensu.check
+  ```
+
 To run a salt-master container from pre-built salt-master image:
 
   ```bash
   salt-call saltutil.sync_modules
   salt-call appc.create ubuntu:latest salt-master
+  ```
+
+To test a salt-master container with pre-built salt-master image:
+
+  ```bash
+  salt-call saltutil.sync_modules
+  salt-call appc.test ubuntu:latest salt-master
   ```
 
 Support for running multiple interrelated containers was available prior to

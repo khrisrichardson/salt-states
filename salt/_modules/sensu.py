@@ -20,7 +20,7 @@ def check(role=None, name=None):
     results = defaultdict(int)
     for (key, args) in list_commands(role=role):
         if name is None or name == key:
-            results[key] = call(args)
+            results[key] = call(' '.join(args), shell=True)
     if results:
         ret = all(v == 0 for v in results.values())
     else:
@@ -42,7 +42,7 @@ def list_checks(role=None):
         path = '/etc/sensu/conf.d/checks-' + role + '.json'
         if role in _list_roles() \
         and not __salt__['file.file_exists'](path):
-            __salt__['state.sls'](role + '.relate-sensu-api',
+            __salt__['state.sls'](','.join((role, role + '.relate-sensu-api')),
                                   pillar={'test': True})
         ret += _list_values(key='checks', pattern='checks-' + role)
     return ret

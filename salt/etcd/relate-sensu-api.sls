@@ -1,13 +1,22 @@
 # vi: set ft=yaml.jinja :
 
 {% set minions = salt['roles.dict']('sensu-api') %}
-{% set test    = salt['pillar.get']('test') %}
+{% set test    = salt['pillar.get']('test') or salt['environ.get']('test') %}
 {% set psls    = sls.split('.')[0] %}
 
 include:
+  -  ruby-rest-client
   -  sensu-client
 
 {% if minions['sensu-api'] or test %}
+
+extend:
+  gem install rest-client:
+    cmd:
+      - env:
+        - PATH:   /opt/sensu/embedded/bin:/bin
+      - require:
+        - pkg:     sensu
 
 /etc/sensu/conf.d/checks-{{ psls }}.json:
   file.managed:
