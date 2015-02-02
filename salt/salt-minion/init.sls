@@ -73,17 +73,6 @@ salt-minion:
     - watch_in:
       - service:   salt-minion
 
-{% if roles %}
-
-roles:
-  grains.append:
-    - order:       1
-   {% for role in roles %}
-    - value:    {{ role }}
-   {% endfor %}
-
-{% endif %}
-
 {% if minions['salt-master'] %}
 
 mine.update:

@@ -318,7 +318,7 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
     ret += ['bash bootstrap-salt.sh ${args} || true']
     ret += ['salt-call file.mkdir  /etc/salt/minion.d --local']
     ret += ['salt-call file.write  /etc/salt/minion.d/salt-master.conf "file_client: local" --local']
-    ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "fileserver_backend: [git]"']
+    ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "fileserver_backend: [roots, git]"']
     ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "gitfs_provider: pygit2"']
     ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "gitfs_remotes: [\'${repository}\']"']
     ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "gitfs_root: salt"']
@@ -328,10 +328,12 @@ def _get_compute_image_commands(base=None, role=None, layer=True):
     ret += ['salt-call pkg.mod_repo ppa:dennis/python keyserver=hkp://keyserver.ubuntu.com:80 keyid=F3FA6A64F50B4114']
     ret += ['salt-call pkg.install python-pygit2 refresh=True']
     ret += ['salt-call grains.setval environment base']
+    ret += ['salt-call saltutil.sync_all']
     # Commands to create salt-minion derived images
-    if role != 'salt-minion':
+    if role == 'salt-minion':
+        ret += ['salt-call state.sls salt-minion']
+    else:
         if layer:
-            ret += ['salt-call saltutil.sync_all']
 #           ids = _state_ids(base=base, role=role)
 #           for (id_, sls) in ids:
 #               ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
