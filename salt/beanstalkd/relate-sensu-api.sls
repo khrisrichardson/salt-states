@@ -5,9 +5,18 @@
 {% set psls    = sls.split('.')[0] %}
 
 include:
+  -  ruby-beaneater
   -  sensu-client
 
 {% if minions['sensu-api'] or test %}
+
+extend:
+  gem install beaneater:
+    cmd:
+      - env:
+        - PATH:   /opt/sensu/embedded/bin:/bin
+      - require:
+        - pkg:     sensu
 
 /etc/sensu/conf.d/checks-{{ psls }}.json:
   file.managed:

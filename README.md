@@ -213,7 +213,7 @@ To run a salt-master container sans pre-built salt-master image:
 To test a salt-master container sans pre-built salt-master image:
 
   ```bash
-  docker run --rm=true -e salt-master khrisrichardson/salt-minion salt-call sensu.check
+  docker run --rm=true -e roles=salt-master khrisrichardson/salt-minion salt-call sensu.check
   ```
 
 To run a salt-master container from pre-built salt-master image:

@@ -7,6 +7,16 @@ compute:
 network:
   transport:
     -
+      port:     2379
+      protocol: tcp
+      dst:      bridge
+      dport:    2379
+    -
+      port:     2380
+      protocol: tcp
+      dst:      bridge
+      dport:    2380
+    -
       port:     4001
       protocol: tcp
       dst:      bridge
