@@ -43,7 +43,7 @@ def list_checks(role=None):
         if role in _list_roles() \
         and not __salt__['file.file_exists'](path):
             __salt__['state.sls'](role)
-            __salt__['state.sls'](role + '.relate-sensu-api'),
+            __salt__['state.sls'](role + '.relate-sensu-api',
                                   pillar={'test': True})
         ret += _list_values(key='checks', pattern='checks-' + role)
     return ret
