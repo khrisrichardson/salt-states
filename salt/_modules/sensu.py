@@ -99,5 +99,5 @@ def _list_values(key=None, pattern='*'):
 def _list_roles():
     """
     """
-    return filter(None, set(list(__salt__['config.get']('roles')) + \
-                                 __salt__['environ.get']('roles').split(',')))
+    return set([r for r in list(__salt__['config.get']('roles')) + \
+                                __salt__['environ.get']('roles').split(',') if r])
