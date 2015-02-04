@@ -1,6 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set minions = salt['roles.dict']('mesos-dns') %}
+{% set psls    = sls.split('.')[0] %}
 
 include:
   -  mesos-dns
@@ -10,7 +11,7 @@ include:
 /etc/mesos-dns/config.json:
   file.managed:
     - template:    jinja
-    - source:      salt://{{ sls }}/etc/mesos-dns/config.json
+    - source:      salt://{{ psls }}/etc/mesos-dns/config.json
     - user:        root
     - group:       root
     - mode:       '0644'

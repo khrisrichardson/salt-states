@@ -7,7 +7,7 @@
       "standalone"  :   true
     },
     "check-http-couchbase-server": {
-      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '8091' -p '/'",
+      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '8091' -p '/index.html'",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true

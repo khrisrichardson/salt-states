@@ -1,5 +1,7 @@
 # vi: set ft=yaml.jinja :
 
+{% set psls = sls.split('.')[0] %}
+
 {% if salt['config.get']('os_family') == 'RedHat' %}
 include:
   -  zookeeper-server
@@ -8,7 +10,7 @@ include:
 /etc/mesos/zk:
   file.managed:
     - template:    jinja
-    - source:      salt://{{ sls }}/etc/mesos/zk
+    - source:      salt://{{ psls }}/etc/mesos/zk
     - user:        root
     - group:       root
     - mode:       '0644'

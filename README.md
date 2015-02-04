@@ -182,13 +182,15 @@ to reinstate that hook, which should enfore the following.
 
   * syntax validation
   * lint
+  * ensure ' -%}' is not present in sls files
+  * ensure '{{ sls }}' is not present in {depend,relate}-*.sls files
   * ensure files mentioned in sls correspond to files on file system
   * ensure files on file system correspond to files mentioned in sls
   * ensure sls files corresponding to services or frontends have sensu tests
   * ensure all invokations of the roles module have corresponding relate states
   * ensure all relate states have corresponding invokations of the roles module
   * docker run --rm=true khrisrichardson/salt-minion salt-call state.sls *
-  * docker run --rm=true khrisrichardson/salt-minion salt-call sensu.check *
+  * docker run --rm=true khrisrichardson/salt-minion salt-call sensu.check
 
 ## Building
 

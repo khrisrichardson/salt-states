@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-http-apt-cacher-ng": {
-      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '3142' -p '/'",
+      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '3142' -p '/acng-report.html'",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
