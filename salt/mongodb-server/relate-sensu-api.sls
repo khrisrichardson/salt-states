@@ -5,6 +5,7 @@
 {% set psls    = sls.split('.')[0] %}
 
 include:
+  -  python-pymongo
   -  sensu-client
 
 {% if minions['sensu-api'] or test %}

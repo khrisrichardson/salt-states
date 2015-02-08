@@ -105,13 +105,12 @@ environments, and these states make no exceptions in addressing that matter.
 Other than syncing with distributed file systems (e.g. - Ceph), I have yet to
 devise a general purpose solution. Any suggestions?
 
-The following container engines are currently supported:
+The following container runtimes are currently supported:
 
   * Docker
 
-Support for the following container engines is planned:
+Support for the following container runtimes is planned:
 
-  * LXC
   * LXD
   * Rocket
   * systemd-nspawn
@@ -120,9 +119,9 @@ There were previously minimal Dockerfiles that inherited from a salt-minion
 image and exposed service specific ports. This imposed a lot of redundancy,
 which has since been relegated to an
 [appc custom execution module](/salt/_modules/appc.py), which will support
-multiple container engines.
+multiple container runtimes.
 
-Data that is common across container engine implementations has been moved from
+Data that is common across container runtime implementations has been moved from
 the Dockerfiles to defaults.yaml files, and the manifests are instead generated
 on the fly.
 
@@ -195,9 +194,10 @@ to reinstate that hook, which should enfore the following.
 ## Building
 
 Supposing that salt is setup to use the khrisrichardson/salt-states gitfs file
-server, and until support is provided for other container engines, the following
-will build a Docker container image for a salt-master. Any of the states with a
-corresponding defaults.yaml file are eligible for building in this manner.
+server, and until support is provided for other container runtimes, the
+following will build a Docker container image for a salt-master. Any of the
+states with a corresponding defaults.yaml file are eligible for building in this
+manner.
 
   ```bash
   salt-call saltutil.sync_modules

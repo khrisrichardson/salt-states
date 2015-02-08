@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-process-consult-server": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'consul agent.*-server' -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

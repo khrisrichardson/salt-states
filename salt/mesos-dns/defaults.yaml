@@ -7,5 +7,8 @@ compute:
 network:
   transport:
     -
-      port:     8053
+      port:     53
       protocol: tcp
+    -
+      port:     53
+      protocol: udp

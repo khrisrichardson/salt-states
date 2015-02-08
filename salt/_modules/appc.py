@@ -323,7 +323,7 @@ def _get_compute_image_commands(base=None, role=None, layer=True, unit='low'):
           """
     # Commands to create salt-minion base image
     ret += [' '.join(cmd.lstrip().replace('\n', ';').split())]
-    ret += ['bash bootstrap-salt.sh ${args} || true']
+    ret += ['bash bootstrap-salt.sh -X git 2014.7 || true']
     ret += ['salt-call file.mkdir  /etc/salt/minion.d --local']
     ret += ['salt-call file.write  /etc/salt/minion.d/salt-master.conf "file_client: local" --local']
     ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "fileserver_backend: [roots, git]"']
@@ -468,7 +468,6 @@ def _manifest_docker(**kwargs):
         ('ADD', []),
         ('COPY', []),
         ('ENV', ['DEBIAN_FRONTEND noninteractive',
-                 'args -X git 2014.7',
                  'bootstrap true',
                  'repository https://github.com/khrisrichardson/salt-states.git',
                  'ref master',

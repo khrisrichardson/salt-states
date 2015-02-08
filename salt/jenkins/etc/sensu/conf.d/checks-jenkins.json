@@ -11,12 +11,14 @@
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
-    },
+    }
+{#
     "check-jenkins-job-status": {
       "command"     : "/etc/sensu/plugins/jenkins/check-jenkins-job-status.rb",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
     }
+-#}
   }
 }

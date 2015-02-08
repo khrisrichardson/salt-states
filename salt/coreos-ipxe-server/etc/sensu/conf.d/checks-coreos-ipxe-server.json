@@ -5,12 +5,6 @@
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
-    },
-    "check-http-coreos-ipxe-server": {
-      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '80' -p '/'",
-      "handlers"    : ["default"],
-      "interval"    :   60,
-      "standalone"  :   true
     }
   }
 }

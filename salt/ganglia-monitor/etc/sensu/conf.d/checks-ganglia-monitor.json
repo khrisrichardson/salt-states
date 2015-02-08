@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-process-ganglia-monitor": {
-      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p ganglia-monitor -C 1",
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p gmond -C 1",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true

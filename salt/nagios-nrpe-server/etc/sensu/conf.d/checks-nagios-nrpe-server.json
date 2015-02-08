@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-process-nagios-nrpe-server": {
-      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p nagios-nrpe-server -C 1",
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p '/usr/sbin/nrpe' -C 1",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true

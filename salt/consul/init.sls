@@ -1,7 +1,7 @@
 # vi: set ft=yaml.jinja :
 
 {% set url     = 'https://api.github.com/repos/hashicorp/consul/tags' %}
-{% set version =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("name").split("v")[1]') %}
+{% set version =  salt['cmd.exec_code']('python', 'import json; import urllib; tags = json.loads(urllib.urlopen("' + url + '").read()); print [tag.get("name") for tag in tags if "rc" not in tag.get("name")][0]').split('v')[1] %}
 {% set zip_url = 'https://dl.bintray.com/mitchellh/consul/' + version + '_linux_amd64.zip' %}
 
 include:
