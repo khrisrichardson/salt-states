@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-process-puppetmaster": {
-      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p puppetmaster -C 1",
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p 'puppet master' -C 1",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true

@@ -1,7 +1,7 @@
 {
   "checks": {
     "check-process-openvswitch-controller": {
-      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p openvswitch-controller -C 1",
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p '/usr/bin/ovs-controller' -C 1",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true

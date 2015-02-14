@@ -37,12 +37,14 @@
       "interval"    :   60,
       "standalone"  :   true
     },
+{#
     "check-rabbitmq-server-queue": {
       "command"     : "/etc/sensu/plugins/rabbitmq/check-rabbitmq-queue.rb",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true
     },
+-#}
     "metric-rabbitmq-server-overview": {
       "command"     : "/etc/sensu/plugins/rabbitmq/rabbitmq-overview-metrics.rb --scheme {{ host }}.rabbitmq-server",
       "handlers"    : ["graphite"],
