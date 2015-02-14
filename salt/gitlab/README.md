@@ -1,16 +1,11 @@
 # gitlab
 
-## Description:
-
-
-
 ## Depends:
 
   -  [build-essential](/salt/build-essential)
   -  [checkinstall](/salt/checkinstall)
   -  [curl](/salt/curl)
   -  [git-core](/salt/git-core)
-  -  [gitlab-shell](/salt/gitlab-shell)
   -  [libcurl4-openssl-dev](/salt/libcurl4-openssl-dev)
   -  [libffi-dev](/salt/libffi-dev)
   -  [libgdbm-dev](/salt/libgdbm-dev)
@@ -26,9 +21,9 @@
   -  [postgresql](/salt/postgresql)
   -  [python-docutils](/salt/python-docutils)
   -  [redis-server](/salt/redis-server)
-  -  [ruby2_0](/salt/ruby2_0)
-  -  [ruby2_0-dev](/salt/ruby2_0-dev)
   -  [ruby-bundler](/salt/ruby-bundler)
+  -  [ruby2\_0](/salt/ruby2_0)
+  -  [ruby2\_0-dev](/salt/ruby2_0-dev)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -56,8 +51,8 @@
 │   │   └── sites-available
 │   │       └── gitlab
 │   └── sensu
-│       └── conf.d
-│           └── checks-gitlab.json
+│       └── conf.d
+│           └── checks-gitlab.json
 ├── home
 │   └── git
 │       └── gitlab

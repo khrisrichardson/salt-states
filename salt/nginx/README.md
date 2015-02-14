@@ -1,14 +1,8 @@
 # nginx
 
-## Description:
-
-Nginx ("engine X") is a high-performance web and reverse proxy server created by Igor Sysoev. It can be used both as a standalone web server and as a proxy to reduce the load on back-end HTTP or mail servers.
-
-This is a dependency package to install either nginx-core (by default), nginx-full, nginx-light, nginx-extras, or nginx-naxsi.
-
 ## Depends:
 
-  -  [nginx-common](/salt/nginx-common)
+  -  N/A
 
 ## Reverse Depends:
 

@@ -1,18 +1,17 @@
 # lxc-docker
 
-## Description:
-
-Docker complements LXC with a high-level API which operates at the process level. It runs unix processes with strong guarantees of isolation and repeatability across servers. Docker is a great building block for automating distributed systems: large-scale web deployments, database clusters, continuous deployment systems, private PaaS, service-oriented architectures, etc.
-
 ## Depends:
 
   -  [epel-release](/salt/epel-release)
   -  [python-apt](/salt/python-apt)
+  -  [ruby-docker](/salt/ruby-docker)
+  -  [ruby-docker-api](/salt/ruby-docker-api)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
-  -  N/A
+  -  [docker-machine](/salt/docker-machine)
+  -  [nsenter](/salt/nsenter)
 
 ## Relates:
 
@@ -24,9 +23,11 @@ Docker complements LXC with a high-level API which operates at the process level
 .
 ├── defaults.yaml
 ├── etc
+│   ├── default
+│   │   └── docker
 │   └── sensu
-│       └── conf.d
-│           └── checks-lxc-docker.json
+│       └── conf.d
+│           └── checks-lxc-docker.json
 ├── init.sls
 ├── map.jinja
 └── relate-sensu-api.sls

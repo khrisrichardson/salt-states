@@ -1,9 +1,5 @@
 # rabbitmq-server
 
-## Description:
-
-RabbitMQ is an implementation of AMQP, the emerging standard for high performance enterprise messaging. The RabbitMQ server is a robust and scalable implementation of an AMQP broker.
-
 ## Depends:
 
   -  [logstash](/salt/logstash)
@@ -40,8 +36,8 @@ RabbitMQ is an implementation of AMQP, the emerging standard for high performanc
 │   │   └── conf.d
 │   │       └── input-file-rabbitmq-server.conf
 │   └── sensu
-│       └── conf.d
-│           └── checks-rabbitmq-server.json
+│       └── conf.d
+│           └── checks-rabbitmq-server.json
 ├── init.sls
 ├── relate-ceilometer-api.sls
 ├── relate-cinder-api.sls

@@ -1,9 +1,5 @@
 # kubernetes-kubelet
 
-## Description:
-
-
-
 ## Depends:
 
   -  [kubernetes](/salt/kubernetes)

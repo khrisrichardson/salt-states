@@ -1,13 +1,5 @@
 # git
 
-## Description:
-
-Git is popular version control system designed to handle very large projects with speed and efficiency; it is used for many high profile open source projects, most notably the Linux kernel.
-
-Git falls in the category of distributed source code management tools. Every Git working directory is a full-fledged repository with full revision tracking capabilities, not dependent on network access or a central server.
-
-This package provides the git main components with minimal dependencies. Additional functionality, e.g. a graphical user interface and revision tree visualizer, tools for interoperating with other VCS's, or a web interface, is provided as separate git\* packages.
-
 ## Depends:
 
   -  N/A
@@ -16,21 +8,33 @@ This package provides the git main components with minimal dependencies. Additio
 
   -  [cadvisor](/salt/cadvisor)
   -  [calamari](/salt/calamari)
+  -  [deis](/salt/deis)
   -  [descartes](/salt/descartes)
+  -  [docker-machine](/salt/docker-machine)
+  -  [docker-registry](/salt/docker-registry)
+  -  [docker-swarm](/salt/docker-swarm)
   -  [dusk](/salt/dusk)
   -  [elasticsearch-graphite](/salt/elasticsearch-graphite)
   -  [elasticsearch-newrelic](/salt/elasticsearch-newrelic)
   -  [etcd](/salt/etcd)
   -  [etcdctl](/salt/etcdctl)
+  -  [flannel](/salt/flannel)
   -  [fleet](/salt/fleet)
   -  [giraffe](/salt/giraffe)
+  -  [gitlab](/salt/gitlab)
+  -  [gitlab-shell](/salt/gitlab-shell)
+  -  [godep](/salt/godep)
   -  [gomock](/salt/gomock)
   -  [graph-explorer](/salt/graph-explorer)
   -  [jenkins](/salt/jenkins)
+  -  [kafka](/salt/kafka)
   -  [kubernetes](/salt/kubernetes)
   -  [libswarm](/salt/libswarm)
+  -  [lxd](/salt/lxd)
+  -  [mesos-dns](/salt/mesos-dns)
   -  [salt-halite](/salt/salt-halite)
   -  [salt-master](/salt/salt-master)
+  -  [salt-minion](/salt/salt-minion)
   -  [sensu](/salt/sensu)
   -  [seyren](/salt/seyren)
   -  [skydns2](/salt/skydns2)

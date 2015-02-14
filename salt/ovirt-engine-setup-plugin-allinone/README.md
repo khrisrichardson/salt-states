@@ -1,9 +1,5 @@
 # ovirt-engine-setup-plugin-allinone
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

@@ -1,13 +1,8 @@
 # postgresql
 
-## Description:
-
-This metapackage always depends on the currently supported PostgreSQL database server version.
-
-PostgreSQL is a fully featured object-relational database management system.  It supports a large part of the SQL standard and is designed to be extensible by users in many aspects.  Some of the features are: ACID transactions, foreign keys, views, sequences, subqueries, triggers, user-defined types and functions, outer joins, multiversion concurrency control.  Graphical user interfaces and bindings for many programming languages are available as well.
-
 ## Depends:
 
+  -  [ruby-pg](/salt/ruby-pg)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -32,8 +27,8 @@ PostgreSQL is a fully featured object-relational database management system.  It
 │   │       └── main
 │   │           └── postgresql.conf
 │   └── sensu
-│       └── conf.d
-│           └── checks-postgresql.json
+│       └── conf.d
+│           └── checks-postgresql.json
 ├── init.sls
 ├── map.jinja
 ├── relate-calamari.sls

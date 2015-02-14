@@ -1,10 +1,5 @@
 # hbase-regionserver
 
-## Description:
-
-HRegionServer makes a set of HRegions available to clients. It checks in with
-the HMaster. There are many HRegionServers in a single HBase deployment.
-
 ## Depends:
 
   -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
@@ -34,8 +29,8 @@ the HMaster. There are many HRegionServers in a single HBase deployment.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-hbase-regionserver.json
+│       └── conf.d
+│           └── checks-hbase-regionserver.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

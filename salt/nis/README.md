@@ -1,9 +1,5 @@
 # nis
 
-## Description:
-
-This package provides tools for setting up and maintaining a NIS domain. NIS, originally known as Yellow Pages (YP), is mostly used to let several machines in a network share the same account information, such as the password file.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -20,10 +16,15 @@ This package provides tools for setting up and maintaining a NIS domain. NIS, or
 
 ```bash
 .
+├── defaults.yaml
+├── depend-supervisor.sls
 ├── etc
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-nis.json
+│   ├── supervisor
+│   │   └── conf.d
+│   │       └── nis.conf
 │   └── yp.conf
 ├── init.sls
 ├── map.jinja

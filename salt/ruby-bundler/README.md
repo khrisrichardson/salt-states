@@ -1,16 +1,14 @@
 # ruby-bundler
 
-## Description:
-
-This is a transitional dummy package for bundler. It can safely be removed.
-
 ## Depends:
 
   -  N/A
 
 ## Reverse Depends:
 
+  -  [descartes](/salt/descartes)
   -  [gitlab](/salt/gitlab)
+  -  [tasseo](/salt/tasseo)
 
 ## Relates:
 

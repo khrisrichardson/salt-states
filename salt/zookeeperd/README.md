@@ -1,11 +1,5 @@
 # zookeeperd
 
-## Description:
-
-ZooKeeper is a centralized, reliable, service for maintaining configuration information, naming, providing distributed synchronization, and group services. All of these kinds of services are used in some form or another by distributed applications.
-
-This package contains init.d scripts to start and stop zookeeper and starts zookeeper on installation.
-
 ## Depends:
 
   -  [jmxtrans-agent](/salt/jmxtrans-agent)
@@ -31,8 +25,8 @@ This package contains init.d scripts to start and stop zookeeper and starts zook
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-zookeeperd.json
+│       └── conf.d
+│           └── checks-zookeeperd.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

@@ -67,7 +67,6 @@ jenkins:
 {% do  plugins.append('analysis-core') %}
 {% do  plugins.append('android-emulator') %}
 {% do  plugins.append('android-lint') %}
-{% do  plugins.append('artifactory') %}
 {% do  plugins.append('config-file-provider') %}
 {% do  plugins.append('dashboard-view') %}
 {% do  plugins.append('email-ext') %}
@@ -79,7 +78,6 @@ jenkins:
 {% do  plugins.append('gitlab-hook') %}
 {% do  plugins.append('gitlab-merge-request-jenkins') %}
 {% do  plugins.append('ldap') %}
-{% do  plugins.append('logstash') %}
 {% do  plugins.append('m2release') %}
 {% do  plugins.append('port-allocator') %}
 {% do  plugins.append('ruby-runtime') %}

@@ -1,17 +1,13 @@
 # mesos
 
-## Description:
-
-
-
 ## Depends:
 
-  -  [openjdk-7-jre-headless](/salt/openjdk-7-jre-headless)
-  -  [python-setuptools](/salt/python-setuptools)
+  -  [python-apt](/salt/python-apt)
+  -  [zookeeper-server](/salt/zookeeper-server)
 
 ## Reverse Depends:
 
-  -  N/A
+  -  [marathon](/salt/marathon)
 
 ## Relates:
 

@@ -1,9 +1,5 @@
 # newrelic-php5
 
-## Description:
-
-
-
 ## Depends:
 
   -  [newrelic](/salt/newrelic)

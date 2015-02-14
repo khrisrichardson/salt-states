@@ -1,9 +1,5 @@
 # kibana
 
-## Description:
-
-
-
 ## Depends:
 
   -  [nginx](/salt/nginx)
@@ -31,8 +27,8 @@
 │   │   └── sites-available
 │   │       └── kibana
 │   └── sensu
-│       └── conf.d
-│           └── checks-kibana.json
+│       └── conf.d
+│           └── checks-kibana.json
 ├── init.sls
 ├── relate-elasticsearch.sls
 ├── relate-sensu-api.sls

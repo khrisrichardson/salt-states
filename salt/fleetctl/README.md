@@ -1,13 +1,9 @@
 # fleetctl
 
-## Description:
-
-
-
 ## Depends:
 
   -  [fleet-common](/salt/fleet-common)
-  -  [fleet.depend-golang-go](/salt/fleet.depend-golang-go)
+  -  [fleet.depend-golang-go](/salt/fleet/depend-golang-go.sls)
 
 ## Reverse Depends:
 

@@ -1,9 +1,5 @@
 # uchiwa
 
-## Description:
-
-
-
 ## Depends:
 
   -  [sensu](/salt/sensu)
@@ -24,9 +20,9 @@
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       ├── conf.d
-│       │   └── checks-uchiwa.json
-│       └── uchiwa.json
+│       ├── conf.d
+│       │   └── checks-uchiwa.json
+│       └── uchiwa.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

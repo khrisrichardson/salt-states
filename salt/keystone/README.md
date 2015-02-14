@@ -1,18 +1,8 @@
 # keystone
 
-## Description:
-
-Keystone is a proposed independent authentication service for OpenStack.
-
-This initial proof of concept aims to address the current use cases in Swift and Nova which are:
-
-* REST-based, token auth for Swift
-* many-to-many relationship between identity and tenant for Nova. Keystone
-  does authentication and stuff
-This package contains the daemons.
-
 ## Depends:
 
+  -  [curl](/salt/curl)
   -  [haproxy](/salt/haproxy)
   -  [logstash](/salt/logstash)
   -  [sensu-client](/salt/sensu-client)
@@ -29,6 +19,7 @@ This package contains the daemons.
   -  [glance-api](/salt/glance-api)
   -  [heat-api](/salt/heat-api)
   -  [ironic-api](/salt/ironic-api)
+  -  [keystone](/salt/keystone)
   -  [logstash](/salt/logstash)
   -  [mariadb-server](/salt/mariadb-server)
   -  [memcached](/salt/memcached)
@@ -56,8 +47,8 @@ This package contains the daemons.
 │   │   └── haproxy.cfg
 │   ├── keystone
 │   │   ├── default_catalog.templates
-│   │   ├── keystone.conf
 │   │   ├── keystone-paste.ini
+│   │   ├── keystone.conf
 │   │   ├── logging.conf
 │   │   └── policy.json
 │   ├── logstash
@@ -67,8 +58,8 @@ This package contains the daemons.
 │   │   └── conf.d
 │   │       └── checks-keystone.json
 │   └── supervisor
-│       └── conf.d
-│           └── keystone.conf
+│       └── conf.d
+│           └── keystone.conf
 ├── init.sls
 ├── relate-ceilometer-api.sls
 ├── relate-cinder-api.sls

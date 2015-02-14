@@ -1,18 +1,10 @@
 # salt-api
 
-## Description:
-
-a modular interface on top of Salt that can provide a variety of entry points into a running Salt system. It can start and manage multiple interfaces allowing a REST API to coexist with XMLRPC or even a Websocket API.
-
-The Salt API system is used to expose the fundamental aspects of Salt control to external sources. salt-api acts as the bridge between Salt itself and REST, Websockets, etc.
-
-Documentation is available on Read the Docs:
-
-http://salt-api.readthedocs.org/
-
 ## Depends:
 
-  -  [openssl](/salt/openssl)
+  -  [python-cherrypy](/salt/python-cherrypy)
+  -  [python-openssl](/salt/python-openssl)
+  -  [salt-master](/salt/salt-master)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -27,6 +19,7 @@ http://salt-api.readthedocs.org/
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-openssl.sls
 ├── etc
 │   ├── salt

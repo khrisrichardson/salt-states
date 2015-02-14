@@ -1,16 +1,12 @@
 # zlib1g-dev
 
-## Description:
-
-zlib is a library implementing the deflate compression method found in gzip and PKZIP.  This package includes the development support files.
-
 ## Depends:
 
   -  N/A
 
 ## Reverse Depends:
 
-  -  N/A
+  -  [ruby-jenkins\_api\_client](/salt/ruby-jenkins_api_client)
 
 ## Relates:
 

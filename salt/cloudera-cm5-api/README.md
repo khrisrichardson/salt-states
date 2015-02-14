@@ -1,12 +1,5 @@
 # cloudera-cm5-api
 
-## Description:
-
-Cloudera Manager's REST API lets you work with existing tools, and
-programmatically manage your Hadoop clusters. The API is available in both
-Cloudera Standard and Cloudera Enterprise, and comes with open-source client
-libraries.
-
 ## Depends:
 
   -  [python-pip](/salt/python-pip)

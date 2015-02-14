@@ -1,9 +1,5 @@
 # hadoop-client
 
-## Description:
-
-
-
 ## Depends:
 
   -  [hadoop](/salt/hadoop)

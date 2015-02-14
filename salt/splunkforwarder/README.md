@@ -1,9 +1,5 @@
 # splunkforwarder
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

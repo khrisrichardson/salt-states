@@ -1,8 +1,5 @@
 # ruby-docker-api
 
-## Description:
-
-
 ## Depends:
 
   -  N/A

@@ -1,11 +1,5 @@
 # neutron-lbaas-agent
 
-## Description:
-
-Neutron is a virtual network service for Openstack, and a part of Netstack. Just like OpenStack Nova provides an API to dynamically request and configure virtual servers, Neutron provides an API to dynamically request and configure virtual networks. These networks connect "interfaces" from other OpenStack services (e.g., virtual NICs from Nova VMs). The Neutron API supports extensions to provide advanced network capabilities (e.g., QoS, ACLs, network monitoring, etc.)
-
-This package provides the Load Balancing as-a Service (LBaaS) agent.
-
 ## Depends:
 
   -  [haproxy](/salt/haproxy)
@@ -27,6 +21,7 @@ This package provides the Load Balancing as-a Service (LBaaS) agent.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
 ├── etc
 │   ├── logstash

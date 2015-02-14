@@ -1,21 +1,8 @@
 # mongodb-server
 
-## Description:
-
-MongoDB is a high-performance, open source, schema-free document-oriented data store that's easy to deploy, manage and use. It's network accessible, written in C++ and offers the following features:
-
-  * Collection oriented storage - easy storage of object-style data
-  * Full index support, including on inner objects
-  * Query profiling
-  * Replication and fail-over support
-  * Efficient storage of binary data including large objects (e.g. videos)
-  * Auto-sharding for cloud-level scalability
-High performance, scalability, and reasonable depth of functionality are the goals for the project.
-
-This package contains the server itself  (mongod) and the sharding server/load-balancer (mongos).
-
 ## Depends:
 
+  -  [python-pymongo](/salt/python-pymongo)
   -  [sensu-client](/salt/sensu-client)
   -  [supervisor](/salt/supervisor)
 
@@ -40,8 +27,8 @@ This package contains the server itself  (mongod) and the sharding server/load-b
 │   │   └── conf.d
 │   │       └── checks-mongodb-server.json
 │   └── supervisor
-│       └── conf.d
-│           └── mongodb-server.conf
+│       └── conf.d
+│           └── mongodb-server.conf
 ├── init.sls
 ├── map.jinja
 ├── relate-salt-minion.sls

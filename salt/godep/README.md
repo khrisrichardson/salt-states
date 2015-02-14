@@ -1,9 +1,5 @@
 # godep
 
-## Description:
-
-
-
 ## Depends:
 
   -  [ca-certificates](/salt/ca-certificates)

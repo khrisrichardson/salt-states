@@ -1,17 +1,12 @@
 # logstash
 
-## Description:
-
-An extensible logging pipeline
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)
-  -  [libzmq3-dev](/salt/libzmq3-dev)
+  -  [libzmq-dev](/salt/libzmq-dev)
   -  [oracle-j2sdk1\_7](/salt/oracle-j2sdk1_7)
   -  [oracle-java7-installer](/salt/oracle-java7-installer)
   -  [python-apt](/salt/python-apt)
-  -  [ruby-ffi-rzmq](/salt/ruby-ffi-rzmq)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -72,6 +67,7 @@ An extensible logging pipeline
 ## Relates:
 
   -  [elasticsearch](/salt/elasticsearch)
+  -  [logstash](/salt/logstash)
   -  [redis-server](/salt/redis-server)
   -  [sensu-api](/salt/sensu-api)
 
@@ -94,8 +90,8 @@ An extensible logging pipeline
 │   │       ├── output-redis.conf
 │   │       └── output-zeromq.conf
 │   └── sensu
-│       └── conf.d
-│           └── checks-logstash.json
+│       └── conf.d
+│           └── checks-logstash.json
 ├── init.sls
 ├── map.jinja
 ├── relate-elasticsearch.sls

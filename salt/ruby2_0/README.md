@@ -1,9 +1,5 @@
 # ruby2_0
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-apt](/salt/python-apt)

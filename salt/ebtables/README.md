@@ -1,9 +1,5 @@
 # ebtables
 
-## Description:
-
-Ebtables is used to set up, maintain, and inspect the tables of Ethernet frame rules in the Linux kernel. It is analogous to iptables, but operates at the MAC layer rather than the IP layer.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -20,6 +16,7 @@ Ebtables is used to set up, maintain, and inspect the tables of Ethernet frame r
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── default
 │   │   └── ebtables

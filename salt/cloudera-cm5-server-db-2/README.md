@@ -1,11 +1,5 @@
 # cloudera-cm5-server-db-2
 
-## Description:
-
-This package configures an "embedded" PostgreSQL server, running as user
-cloudera-scm on port 7432. Installing this package short-circuits the database
-configuration otherwise necessary in /etc/cloudera-scm-server/db.properties.
-
 ## Depends:
 
   -  [cloudera-cm5](/salt/cloudera-cm5)

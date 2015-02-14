@@ -1,9 +1,5 @@
 # ubuntu-cloud-keyring
 
-## Description:
-
-The Ubuntu project digitally signs its Release files. This package contains the archive keys used for the ubuntu-cloud.archive.canonical.com repository.
-
 ## Depends:
 
   -  N/A

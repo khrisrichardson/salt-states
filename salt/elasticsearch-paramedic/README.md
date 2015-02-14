@@ -1,9 +1,5 @@
 # elasticsearch-paramedic
 
-## Description:
-
-
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)

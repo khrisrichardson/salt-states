@@ -1,9 +1,5 @@
 # node-supervisor
 
-## Description:
-
-
-
 ## Depends:
 
   -  [npm](/salt/npm)

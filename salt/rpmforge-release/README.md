@@ -1,9 +1,5 @@
 # rpmforge-release
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

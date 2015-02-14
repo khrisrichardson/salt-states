@@ -1,9 +1,5 @@
 # dynaTrace-common
 
-## Description:
-
-
-
 ## Depends:
 
   -  [duplicity](/salt/duplicity)

@@ -1,9 +1,5 @@
 # opsview-base
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-apt](/salt/python-apt)
@@ -12,6 +8,7 @@
 ## Reverse Depends:
 
   -  [opsview](/salt/opsview)
+  -  [opsview-agent](/salt/opsview-agent)
 
 ## Relates:
 

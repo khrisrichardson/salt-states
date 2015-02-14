@@ -1,15 +1,5 @@
 # python-apt
 
-## Description:
-
-The apt\_pkg Python interface will provide full access to the internal libapt-pkg structures allowing Python programs to easily perform a variety of functions, such as:
-
-- Access to the APT configuration system
-- Access to the APT package information database
-- Parsing of Debian package control files, and other files with a
-  similar structure
-The included 'aptsources' Python interface provides an abstraction of the sources.list configuration on the repository and the distro level.
-
 ## Depends:
 
   -  N/A
@@ -23,19 +13,27 @@ The included 'aptsources' Python interface provides an abstraction of the source
   -  [cloudera-cm5](/salt/cloudera-cm5)
   -  [datastax](/salt/datastax)
   -  [elasticsearch](/salt/elasticsearch)
+  -  [etcd](/salt/etcd)
+  -  [flapjack](/salt/flapjack)
+  -  [flynn](/salt/flynn)
   -  [git-core](/salt/git-core)
+  -  [java-common](/salt/java-common)
   -  [jenkins-common](/salt/jenkins-common)
   -  [logstash](/salt/logstash)
   -  [lxc-docker](/salt/lxc-docker)
+  -  [lxd](/salt/lxd)
+  -  [mesos](/salt/mesos)
   -  [newrelic](/salt/newrelic)
   -  [openstack-common](/salt/openstack-common)
   -  [opsview-base](/salt/opsview-base)
   -  [oracle-java6-installer](/salt/oracle-java6-installer)
   -  [oracle-java7-installer](/salt/oracle-java7-installer)
   -  [oracle-java8-installer](/salt/oracle-java8-installer)
+  -  [python-pygit2](/salt/python-pygit2)
   -  [rabbitmq-server](/salt/rabbitmq-server)
-  -  [ruby2_0](/salt/ruby2_0)
+  -  [ruby2\_0](/salt/ruby2_0)
   -  [sensu](/salt/sensu)
+  -  [ubuntu](/salt/ubuntu)
 
 ## Relates:
 

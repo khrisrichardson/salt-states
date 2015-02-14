@@ -1,11 +1,5 @@
 # racoon
 
-## Description:
-
-IPsec (Internet Protocol security) offers end-to-end security for network traffic at the IP layer.
-
-This package is a Linux port of the IKE server from the KAME IPsec implementation on BSD.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -22,11 +16,12 @@ This package is a Linux port of the IKE server from the KAME IPsec implementatio
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── racoon
 │   │   ├── psk.txt
-│   │   ├── racoon.conf
-│   │   └── racoon-tool.conf
+│   │   ├── racoon-tool.conf
+│   │   └── racoon.conf
 │   └── sensu
 │       └── conf.d
 │           └── checks-racoon.json

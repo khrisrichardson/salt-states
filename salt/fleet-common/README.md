@@ -1,9 +1,5 @@
 # fleet-common
 
-## Description:
-
-
-
 ## Depends:
 
   -  [tar](/salt/tar)
@@ -11,7 +7,6 @@
 
 ## Reverse Depends:
 
-  -  [fleet](/salt/fleet)
   -  [fleetctl](/salt/fleetctl)
 
 ## Relates:

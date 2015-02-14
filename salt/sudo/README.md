@@ -1,11 +1,5 @@
 # sudo
 
-## Description:
-
-Sudo is a program designed to allow a sysadmin to give limited root privileges to users and log root activity.  The basic philosophy is to give as few privileges as possible but still allow people to get their work done.
-
-This version is built with minimal shared library dependencies, use the sudo-ldap package instead if you need LDAP support for sudoers.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -14,11 +8,13 @@ This version is built with minimal shared library dependencies, use the sudo-lda
 
   -  [ceph](/salt/ceph)
   -  [cinder-common](/salt/cinder-common)
+  -  [flynn-host](/salt/flynn-host)
   -  [hadoop-hdfs-namenode](/salt/hadoop-hdfs-namenode)
   -  [influxdb](/salt/influxdb)
   -  [ironic-common](/salt/ironic-common)
   -  [neutron-common](/salt/neutron-common)
   -  [nova-common](/salt/nova-common)
+  -  [nsenter](/salt/nsenter)
 
 ## Relates:
 

@@ -1,9 +1,5 @@
 # kubernetes-controller-manager
 
-## Description:
-
-
-
 ## Depends:
 
   -  [kubernetes](/salt/kubernetes)

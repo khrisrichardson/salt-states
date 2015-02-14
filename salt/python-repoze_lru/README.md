@@ -1,9 +1,5 @@
 # python-repoze_lru
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

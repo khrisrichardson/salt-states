@@ -1,9 +1,5 @@
 # sensu-server
 
-## Description:
-
-
-
 ## Depends:
 
   -  [ruby-rest-client](/salt/ruby-rest-client)
@@ -17,8 +13,11 @@
 
 ## Relates:
 
+  -  [flapjack](/salt/flapjack)
   -  [graphite-carbon](/salt/graphite-carbon)
   -  [influxdb](/salt/influxdb)
+  -  [logstash](/salt/logstash)
+  -  [opentsdb](/salt/opentsdb)
   -  [rabbitmq-server](/salt/rabbitmq-server)
   -  [redis-server](/salt/redis-server)
   -  [sensu-api](/salt/sensu-api)
@@ -28,6 +27,7 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d
@@ -40,8 +40,11 @@
 │           ├── sensu-api.json
 │           └── sensu-dashboard.json
 ├── init.sls
+├── relate-flapjack.sls
 ├── relate-graphite-carbon.sls
 ├── relate-influxdb.sls
+├── relate-logstash.sls
+├── relate-opentsdb.sls
 ├── relate-rabbitmq-server.sls
 ├── relate-redis-server.sls
 ├── relate-sensu-api.sls

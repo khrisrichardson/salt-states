@@ -1,9 +1,5 @@
 # ceph-common
 
-## Description:
-
-Ceph is a distributed storage and file system designed to provide excellent performance, reliability, and scalability.  This is a collection of common tools that allow one to interact with and administer a Ceph cluster.
-
 ## Depends:
 
   -  [python-apt](/salt/python-apt)

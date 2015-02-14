@@ -1,11 +1,5 @@
 # glance-api
 
-## Description:
-
-The Glance project provides an image registration, discovery and delivery service. These services may be used as stand-along services, and they may also be used by Nova to deliver images from object stores, such as OpenStack's Swift service, to Nova's compute nodes.
-
-This package contains the glance API server.
-
 ## Depends:
 
   -  [haproxy](/salt/haproxy)
@@ -47,8 +41,8 @@ This package contains the glance API server.
 ├── depend-supervisor.sls
 ├── etc
 │   ├── glance
-│   │   ├── glance-api.conf
 │   │   ├── glance-api-paste.ini
+│   │   ├── glance-api.conf
 │   │   ├── glance-cache.conf
 │   │   ├── glance-scrubber.conf
 │   │   ├── policy.json
@@ -62,8 +56,8 @@ This package contains the glance API server.
 │   │   └── conf.d
 │   │       └── checks-glance-api.json
 │   └── supervisor
-│       └── conf.d
-│           └── glance-api.conf
+│       └── conf.d
+│           └── glance-api.conf
 ├── init.sls
 ├── relate-cinder-volume.sls
 ├── relate-glance-registry.sls

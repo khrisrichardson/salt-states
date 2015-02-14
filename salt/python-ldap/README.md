@@ -1,9 +1,5 @@
 # python-ldap
 
-## Description:
-
-This module provides a Python interface to the OpenLDAP client library (LDAP is the Lightweight Directory Access Protocol).
-
 ## Depends:
 
   -  N/A

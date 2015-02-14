@@ -1,11 +1,5 @@
 # openvswitch-controller
 
-## Description:
-
-Open vSwitch is a production quality, multilayer, software-based, Ethernet virtual switch. It is designed to enable massive network automation through programmatic extension, while still supporting standard management interfaces and protocols (e.g. NetFlow, IPFIX, sFlow, SPAN, RSPAN, CLI, LACP, 802.1ag). In addition, it is designed to support distribution across multiple physical servers similar to VMware's vNetwork distributed vswitch or Cisco's Nexus 1000V.
-
-The Open vSwitch controller enables OpenFlow switches that connect to it to act as MAC-learning Ethernet switches.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -27,8 +21,8 @@ The Open vSwitch controller enables OpenFlow switches that connect to it to act 
 │   ├── default
 │   │   └── openvswitch-controller
 │   └── sensu
-│       └── conf.d
-│           └── checks-openvswitch-controller.json
+│       └── conf.d
+│           └── checks-openvswitch-controller.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

@@ -1,11 +1,5 @@
 # supervisor
 
-## Description:
-
-Supervisor is a system for controlling and maintaining process state, similar to what init does, but not intended as an init replacement.
-
-It will manage individual processes or groups of processes that need to be started and stopped in order, and it is possible to control individual process state via an rpc mechanism, thus allowing ordinary users to restart processes.
-
 ## Depends:
 
   -  [logrotate](/salt/logrotate)
@@ -29,9 +23,15 @@ It will manage individual processes or groups of processes that need to be start
   -  [cinder-backup](/salt/cinder-backup)
   -  [cinder-scheduler](/salt/cinder-scheduler)
   -  [cinder-volume](/salt/cinder-volume)
+  -  [consul-client](/salt/consul-client)
+  -  [consul-server](/salt/consul-server)
+  -  [consul-web](/salt/consul-web)
   -  [coreos-ipxe-server](/salt/coreos-ipxe-server)
+  -  [cron](/salt/cron)
   -  [etcd](/salt/etcd)
+  -  [flannel](/salt/flannel)
   -  [fleet](/salt/fleet)
+  -  [flynn-host](/salt/flynn-host)
   -  [glance-api](/salt/glance-api)
   -  [glance-registry](/salt/glance-registry)
   -  [graphite-web](/salt/graphite-web)
@@ -41,11 +41,16 @@ It will manage individual processes or groups of processes that need to be start
   -  [heat-engine](/salt/heat-engine)
   -  [ironic-api](/salt/ironic-api)
   -  [ironic-conductor](/salt/ironic-conductor)
+  -  [kafka](/salt/kafka)
   -  [keystone](/salt/keystone)
   -  [kubernetes-apiserver](/salt/kubernetes-apiserver)
   -  [kubernetes-controller-manager](/salt/kubernetes-controller-manager)
   -  [kubernetes-kubelet](/salt/kubernetes-kubelet)
   -  [kubernetes-proxy](/salt/kubernetes-proxy)
+  -  [logio-harvester](/salt/logio-harvester)
+  -  [logio-server](/salt/logio-server)
+  -  [lxd](/salt/lxd)
+  -  [mesos-dns](/salt/mesos-dns)
   -  [mesos-master](/salt/mesos-master)
   -  [mesos-slave](/salt/mesos-slave)
   -  [mongodb-server](/salt/mongodb-server)
@@ -105,6 +110,7 @@ It will manage individual processes or groups of processes that need to be start
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── logrotate.d
 │   │   └── supervisor

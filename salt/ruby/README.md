@@ -1,28 +1,28 @@
 # ruby
 
-## Description:
-
-Ruby is the interpreted scripting language for quick and easy object-oriented programming.  It has many features to process text files and to do system management tasks (as in perl).  It is simple, straight-forward, and extensible.
-
-This package is a dependency package, which depends on Debian's default Ruby version (currently v1.9.3).
-
 ## Depends:
 
   -  N/A
 
 ## Reverse Depends:
 
+  -  [beanstalkd](/salt/beanstalkd)
+  -  [couchbase-server](/salt/couchbase-server)
   -  [descartes](/salt/descartes)
   -  [dusk](/salt/dusk)
   -  [elasticsearch](/salt/elasticsearch)
+  -  [etcd](/salt/etcd)
   -  [gitlab](/salt/gitlab)
   -  [gitlab-shell](/salt/gitlab-shell)
   -  [graphite-web](/salt/graphite-web)
   -  [jenkins](/salt/jenkins)
-  -  [logstash](/salt/logstash)
+  -  [lxc-docker](/salt/lxc-docker)
+  -  [mysql-server](/salt/mysql-server)
   -  [php5-fpm](/salt/php5-fpm)
+  -  [postgresql](/salt/postgresql)
   -  [rabbitmq-server](/salt/rabbitmq-server)
   -  [redis-server](/salt/redis-server)
+  -  [ruby2\_0-dev](/salt/ruby2_0-dev)
   -  [sensu-server](/salt/sensu-server)
   -  [snmpd](/salt/snmpd)
   -  [supervisor](/salt/supervisor)

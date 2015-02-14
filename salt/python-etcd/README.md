@@ -1,9 +1,5 @@
 # python-etcd
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-openssl](/salt/python-openssl)

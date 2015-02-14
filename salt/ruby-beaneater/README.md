@@ -1,8 +1,5 @@
 # ruby-beaneater
 
-## Description:
-
-
 ## Depends:
 
   -  N/A

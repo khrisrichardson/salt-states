@@ -1,14 +1,10 @@
 # cloudera-cm5-server
 
-## Description:
-
-The Cloudera Manager Server manages the services making up a Hadoop cluster.
-
 ## Depends:
 
+  -  [cloudera-cm5](/salt/cloudera-cm5)
   -  [cloudera-cm5-agent](/salt/cloudera-cm5-agent)
   -  [cloudera-cm5-daemons](/salt/cloudera-cm5-daemons)
-  -  [cloudera-cm5-server-db-2](/salt/cloudera-cm5-server-db-2)
   -  [oracle-j2sdk1\_7](/salt/oracle-j2sdk1_7)
   -  [oracle-java7-installer](/salt/oracle-java7-installer)
   -  [sensu-client](/salt/sensu-client)
@@ -29,8 +25,8 @@ The Cloudera Manager Server manages the services making up a Hadoop cluster.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-cloudera-cm5-server.json
+│       └── conf.d
+│           └── checks-cloudera-cm5-server.json
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

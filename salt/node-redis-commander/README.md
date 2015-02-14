@@ -1,9 +1,5 @@
 # node-redis-commander
 
-## Description:
-
-
-
 ## Depends:
 
   -  [dnsutils](/salt/dnsutils)
@@ -28,8 +24,8 @@
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-node-redis-commander.json
+│       └── conf.d
+│           └── checks-node-redis-commander.json
 ├── init.sls
 ├── relate-redis-server.sls
 ├── relate-sensu-api.sls

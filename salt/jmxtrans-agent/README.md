@@ -1,9 +1,5 @@
 # jmxtrans-agent
 
-## Description:
-
-
-
 ## Depends:
 
   -  [maven](/salt/maven)
@@ -18,8 +14,8 @@
   -  [hbase-master](/salt/hbase-master)
   -  [hbase-regionserver](/salt/hbase-regionserver)
   -  [solr](/salt/solr)
-  -  [zookeeperd](/salt/zookeeperd)
   -  [zookeeper-server](/salt/zookeeper-server)
+  -  [zookeeperd](/salt/zookeeperd)
 
 ## Relates:
 

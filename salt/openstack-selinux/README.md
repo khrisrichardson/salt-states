@@ -1,9 +1,5 @@
 # openstack-selinux
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

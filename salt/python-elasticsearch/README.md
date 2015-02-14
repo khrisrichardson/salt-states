@@ -1,9 +1,5 @@
 # python-elasticsearch
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-pip](/salt/python-pip)

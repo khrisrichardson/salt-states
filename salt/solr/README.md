@@ -1,16 +1,12 @@
 # solr
 
-## Description:
-
-
-
 ## Depends:
 
   -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
   -  [cloudera-cm5-agent](/salt/cloudera-cm5-agent)
   -  [jmxtrans-agent](/salt/jmxtrans-agent)
   -  [maven](/salt/maven)
-  -  [maven.exec](/salt/maven.exec)
+  -  [maven.exec](/salt/maven/exec.sls)
   -  [sensu-client](/salt/sensu-client)
   -  [tomcat7](/salt/tomcat7)
 
@@ -33,6 +29,7 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-maven.sls
 ├── etc
 │   └── sensu

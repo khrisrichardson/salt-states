@@ -1,9 +1,5 @@
 # libzmq3-dev
 
-## Description:
-
-lightweight messaging kernel (shared library)
-
 ## Depends:
 
   -  N/A
@@ -11,7 +7,6 @@ lightweight messaging kernel (shared library)
 ## Reverse Depends:
 
   -  [beaver](/salt/beaver)
-  -  [logstash](/salt/logstash)
 
 ## Relates:
 

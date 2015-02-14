@@ -1,15 +1,10 @@
 # mysql-server
 
-## Description:
-
-This is an empty package that depends on the current "best" version of mysql-server (currently mysql-server-5.5), as determined by the MySQL maintainers. Install this package if in doubt about which MySQL version you need. That will install the version recommended by the package maintainers.
-
-MySQL is a fast, stable and true multi-user, multi-threaded SQL database server. SQL (Structured Query Language) is the most popular database query language in the world. The main goals of MySQL are speed, robustness and ease of use.
-
 ## Depends:
 
   -  [debconf-utils](/salt/debconf-utils)
   -  [mysql-common](/salt/mysql-common)
+  -  [ruby-mysql](/salt/ruby-mysql)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -38,8 +33,8 @@ MySQL is a fast, stable and true multi-user, multi-threaded SQL database server.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-mysql-server.json
+│       └── conf.d
+│           └── checks-mysql-server.json
 ├── init.sls
 ├── map.jinja
 ├── relate-ceilometer-api.sls

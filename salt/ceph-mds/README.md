@@ -1,11 +1,5 @@
 # ceph-mds
 
-## Description:
-
-Ceph is a distributed storage and network file system designed to provide excellent performance, reliability, and scalability.
-
-This package contains the metadata server daemon, which is used to create a distributed file system on top of the ceph storage cluster.
-
 ## Depends:
 
   -  [ceph](/salt/ceph)
@@ -19,6 +13,7 @@ This package contains the metadata server daemon, which is used to create a dist
 
   -  [ceph-deploy](/salt/ceph-deploy)
   -  [ceph-mon](/salt/ceph-mon)
+  -  [salt-master](/salt/salt-master)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -28,10 +23,11 @@ This package contains the metadata server daemon, which is used to create a dist
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-ceph-mds.json
+│       └── conf.d
+│           └── checks-ceph-mds.json
 ├── init.sls
 ├── relate-ceph-deploy.sls
 ├── relate-ceph-mon.sls
+├── relate-salt-master.sls
 └── relate-sensu-api.sls
 ```

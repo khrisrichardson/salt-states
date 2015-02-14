@@ -1,11 +1,5 @@
 # qpidd
 
-## Description:
-
-Apache Qpid is a cross-platform enterprise messaging system which implements the Advanced Message Queuing Protocol (AMQP), providing message brokers written in C++ and Java, along with clients for C++, Java JMS, .Net, Python, and Ruby.
-
-This package provides the AMQP broker.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -26,8 +20,8 @@ This package provides the AMQP broker.
 ├── etc
 │   ├── qpidd.conf
 │   └── sensu
-│       └── conf.d
-│           └── checks-qpidd.json
+│       └── conf.d
+│           └── checks-qpidd.json
 ├── init.sls
 ├── map.jinja
 └── relate-sensu-api.sls

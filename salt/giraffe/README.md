@@ -1,9 +1,5 @@
 # giraffe
 
-## Description:
-
-
-
 ## Depends:
 
   -  [git](/salt/git)

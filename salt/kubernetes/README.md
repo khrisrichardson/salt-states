@@ -1,9 +1,5 @@
 # kubernetes
 
-## Description:
-
-
-
 ## Depends:
 
   -  [ca-certificates](/salt/ca-certificates)

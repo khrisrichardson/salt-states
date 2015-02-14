@@ -1,9 +1,5 @@
 # liblog4j1-2-java
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

@@ -1,9 +1,5 @@
 # sensu-api
 
-## Description:
-
-
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -15,7 +11,7 @@
 
 ## Relates:
 
-  -  N/A
+  -  [sensu-api](/salt/sensu-api)
 
 ## Files:
 
@@ -24,8 +20,8 @@
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-sensu-api.json
+│       └── conf.d
+│           └── checks-sensu-api.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

@@ -1,9 +1,5 @@
 # etcdctl
 
-## Description:
-
-
-
 ## Depends:
 
   -  [ca-certificates](/salt/ca-certificates)

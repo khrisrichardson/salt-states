@@ -1,9 +1,5 @@
 # epel-release
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

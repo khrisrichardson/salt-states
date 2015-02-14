@@ -1,9 +1,5 @@
 # coreos-ipxe-server
 
-## Description:
-
-
-
 ## Depends:
 
   -  [curl](/salt/curl)
@@ -31,8 +27,8 @@
 │   │   └── conf.d
 │   │       └── checks-coreos-ipxe-server.json
 │   └── supervisor
-│       └── conf.d
-│           └── coreos-ipxe-server.conf
+│       └── conf.d
+│           └── coreos-ipxe-server.conf
 ├── init.sls
 ├── opt
 │   └── coreos-ipxe-server

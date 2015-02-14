@@ -1,9 +1,5 @@
 # cassandra
 
-## Description:
-
-
-
 ## Depends:
 
   -  [datastax](/salt/datastax)

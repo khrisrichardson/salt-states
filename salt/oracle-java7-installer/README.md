@@ -1,9 +1,5 @@
 # oracle-java7-installer
 
-## Description:
-
-
-
 ## Depends:
 
   -  [java-common](/salt/java-common)

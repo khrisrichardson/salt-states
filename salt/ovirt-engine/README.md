@@ -1,9 +1,5 @@
 # ovirt-engine
 
-## Description:
-
-
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -20,6 +16,7 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d

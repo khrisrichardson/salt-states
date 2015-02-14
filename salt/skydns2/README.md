@@ -1,9 +1,5 @@
 # skydns2
 
-## Description:
-
-
-
 ## Depends:
 
   -  [ca-certificates](/salt/ca-certificates)
@@ -38,8 +34,8 @@
 │   │   └── conf.d
 │   │       └── checks-skydns2.json
 │   └── supervisor
-│       └── conf.d
-│           └── skydns2.conf
+│       └── conf.d
+│           └── skydns2.conf
 ├── init.sls
 ├── relate-etcd.sls
 ├── relate-graphite-carbon.sls

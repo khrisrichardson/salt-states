@@ -1,9 +1,5 @@
 # ruby-snmp
 
-## Description:
-
-This library implements SNMP (the Simple Network Management Protocol). It is implemented in pure Ruby, so there are no dependencies on external libraries like net-snmp.
-
 ## Depends:
 
   -  N/A

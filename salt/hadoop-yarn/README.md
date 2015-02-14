@@ -1,12 +1,9 @@
 # hadoop-yarn
 
-## Description:
-
-
-
 ## Depends:
 
-  -  N/A
+  -  [cloudera-cdh4](/salt/cloudera-cdh4)
+  -  [cloudera-cdh5](/salt/cloudera-cdh5)
 
 ## Reverse Depends:
 

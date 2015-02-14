@@ -1,9 +1,5 @@
 # elasticsearch-newrelic
 
-## Description:
-
-
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)

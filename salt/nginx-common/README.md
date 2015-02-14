@@ -1,11 +1,5 @@
 # nginx-common
 
-## Description:
-
-Nginx ("engine X") is a high-performance web and reverse proxy server created by Igor Sysoev. It can be used both as a standalone web server and as a proxy to reduce the load on back-end HTTP or mail servers.
-
-This package contains base configuration files used by all versions of nginx.
-
 ## Depends:
 
   -  [collectd](/salt/collectd)
@@ -35,8 +29,8 @@ This package contains base configuration files used by all versions of nginx.
 │   │   ├── fastcgi_params
 │   │   └── nginx.conf
 │   └── sensu
-│       └── conf.d
-│           └── checks-nginx-common.json
+│       └── conf.d
+│           └── checks-nginx-common.json
 ├── init.sls
 ├── map.jinja
 ├── relate-graphite-carbon.sls

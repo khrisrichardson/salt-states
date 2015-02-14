@@ -1,11 +1,5 @@
 # qemu-kvm
 
-## Description:
-
-QEMU is a fast processor emulator.  This package provides just a wrapper script /usr/bin/kvm which run qemu-system-x86 in kvm mode.
-
-Please note that old qemu-kvm configuration files (in /etc/kvm/) are no longer used.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -22,6 +16,7 @@ Please note that old qemu-kvm configuration files (in /etc/kvm/) are no longer u
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d

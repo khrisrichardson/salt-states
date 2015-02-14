@@ -1,12 +1,8 @@
 # oracle-java6-set-default
 
-## Description:
-
-
-
 ## Depends:
 
-  -  N/A
+  -  [java-common](/salt/java-common)
 
 ## Reverse Depends:
 

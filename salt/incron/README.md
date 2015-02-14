@@ -1,24 +1,5 @@
 # incron
 
-## Description:
-
-incron is an "inotify cron" system. It works like the regular cron but is driven by filesystem events instead of time events. This package provides two programs, a daemon called "incrond" (analogous to crond) and a table manipulator "incrontab" (like "crontab").
-
-incron uses the Linux Kernel inotify syscalls.
-
-like cron, each user can edit its own incron tables.
-
-incron can be used to :
-- notifying programs (e.g. server daemons) about changes in configuration
-- guarding changes in critical files (with their eventual recovery)
-- file usage monitoring, statistics
-- automatic on-crash cleanup
-- automatic on-change backup or versioning
-- new mail notification (for maildir)
-- server upload notification
-- installation management (outside packaging systems)
-- ... and many others
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -35,6 +16,7 @@ incron can be used to :
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── incron.allow
 │   └── sensu

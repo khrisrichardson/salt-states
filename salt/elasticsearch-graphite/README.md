@@ -1,9 +1,5 @@
 # elasticsearch-graphite
 
-## Description:
-
-
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)

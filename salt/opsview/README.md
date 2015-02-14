@@ -1,14 +1,9 @@
 # opsview
 
-## Description:
-
-
-
 ## Depends:
 
   -  [apache2](/salt/apache2)
   -  [mysql-server](/salt/mysql-server)
-  -  [opsview-base](/salt/opsview-base)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -31,8 +26,8 @@
 │   │   └── sites-available
 │   │       └── opsview
 │   └── sensu
-│       └── conf.d
-│           └── checks-opsview.json
+│       └── conf.d
+│           └── checks-opsview.json
 ├── init.sls
 ├── relate-mysql-server.sls
 ├── relate-sensu-api.sls

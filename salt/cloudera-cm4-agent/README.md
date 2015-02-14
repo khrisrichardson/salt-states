@@ -1,11 +1,5 @@
 # cloudera-cm4-agent
 
-## Description:
-
-The Cloudera Manager Agent.
-
-The Agent is deployed to machines running services managed by Cloudera Manager.
-
 ## Depends:
 
   -  [cloudera-cm4](/salt/cloudera-cm4)
@@ -39,6 +33,7 @@ The Agent is deployed to machines running services managed by Cloudera Manager.
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── cloudera-scm-agent
 │   │   └── config.ini

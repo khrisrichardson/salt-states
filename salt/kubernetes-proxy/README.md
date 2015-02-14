@@ -1,9 +1,5 @@
 # kubernetes-proxy
 
-## Description:
-
-
-
 ## Depends:
 
   -  [kubernetes](/salt/kubernetes)

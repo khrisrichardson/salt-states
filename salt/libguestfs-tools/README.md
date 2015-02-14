@@ -1,9 +1,5 @@
 # libguestfs-tools
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

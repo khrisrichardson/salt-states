@@ -1,23 +1,18 @@
 # salt-halite
 
-## Description:
-
-
-
 ## Depends:
 
   -  [git](/salt/git)
   -  [python-gevent](/salt/python-gevent)
   -  [python-openssl](/salt/python-openssl)
   -  [python-pip](/salt/python-pip)
-  -  [salt-common](/salt/salt-common)
   -  [salt-master](/salt/salt-master)
   -  [sensu-client](/salt/sensu-client)
   -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
-  -  N/A
+  -  [salt-master](/salt/salt-master)
 
 ## Relates:
 
@@ -33,7 +28,6 @@
 ├── etc
 │   ├── salt
 │   │   └── master.d
-│   │       ├── external_auth.conf
 │   │       └── salt-halite.conf
 │   ├── sensu
 │   │   └── conf.d

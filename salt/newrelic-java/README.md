@@ -1,9 +1,5 @@
 # newrelic-java
 
-## Description:
-
-
-
 ## Depends:
 
   -  [newrelic](/salt/newrelic)

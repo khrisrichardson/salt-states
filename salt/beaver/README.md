@@ -1,9 +1,5 @@
 # beaver
 
-## Description:
-
-
-
 ## Depends:
 
   -  [libzmq3-dev](/salt/libzmq3-dev)

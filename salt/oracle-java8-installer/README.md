@@ -1,9 +1,5 @@
 # oracle-java8-installer
 
-## Description:
-
-
-
 ## Depends:
 
   -  [java-common](/salt/java-common)

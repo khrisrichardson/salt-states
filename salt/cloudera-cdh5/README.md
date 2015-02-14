@@ -1,9 +1,5 @@
 # cloudera-cdh5
 
-## Description:
-
-Cloudera's Distribution for Hadoop, Version 5
-
 ## Depends:
 
   -  [procps](/salt/procps)
@@ -12,7 +8,11 @@ Cloudera's Distribution for Hadoop, Version 5
 ## Reverse Depends:
 
   -  [hadoop](/salt/hadoop)
+  -  [hadoop-hdfs-fuse](/salt/hadoop-hdfs-fuse)
+  -  [hadoop-mapreduce](/salt/hadoop-mapreduce)
+  -  [hadoop-yarn](/salt/hadoop-yarn)
   -  [hbase](/salt/hbase)
+  -  [oozie](/salt/oozie)
   -  [zookeeper](/salt/zookeeper)
 
 ## Relates:

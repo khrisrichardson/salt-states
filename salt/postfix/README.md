@@ -1,9 +1,5 @@
 # postfix
 
-## Description:
-
-Postfix is Wietse Venema's mail transport agent that started life as an alternative to the widely-used Sendmail program.  Postfix attempts to be fast, easy to administer, and secure, while at the same time being sendmail compatible enough to not upset existing users. Thus, the outside has a sendmail-ish flavor, but the inside is completely different.
-
 ## Depends:
 
   -  [debconf-utils](/salt/debconf-utils)
@@ -11,6 +7,7 @@ Postfix is Wietse Venema's mail transport agent that started life as an alternat
 
 ## Reverse Depends:
 
+  -  [docker-registry](/salt/docker-registry)
   -  [gitlab](/salt/gitlab)
   -  [graphite-web](/salt/graphite-web)
   -  [nagios3](/salt/nagios3)
@@ -29,8 +26,8 @@ Postfix is Wietse Venema's mail transport agent that started life as an alternat
 │   ├── postfix
 │   │   └── main.cf
 │   └── sensu
-│       └── conf.d
-│           └── checks-postfix.json
+│       └── conf.d
+│           └── checks-postfix.json
 ├── init.sls
 ├── map.jinja
 ├── pkg.selections

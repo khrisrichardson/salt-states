@@ -1,11 +1,5 @@
 # libvirt-bin
 
-## Description:
-
-Libvirt is a C toolkit to interact with the virtualization capabilities of recent versions of Linux (and other OSes). The library aims at providing a long term stable C API for different virtualization mechanisms. It currently supports QEMU, KVM, XEN, OpenVZ, LXC, and VirtualBox.
-
-This package contains the supporting binaries to use with libvirt
-
 ## Depends:
 
   -  [bridge-utils](/salt/bridge-utils)
@@ -15,6 +9,7 @@ This package contains the supporting binaries to use with libvirt
 
 ## Reverse Depends:
 
+  -  [flynn-host](/salt/flynn-host)
   -  [nova-compute-libvirt](/salt/nova-compute-libvirt)
 
 ## Relates:
@@ -26,6 +21,7 @@ This package contains the supporting binaries to use with libvirt
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── default
 │   │   └── libvirt-bin
@@ -54,10 +50,10 @@ This package contains the supporting binaries to use with libvirt
 │   │   ├── qemu
 │   │   │   └── networks
 │   │   │       └── default.xml
-│   │   ├── qemu.conf
 │   │   ├── qemu-lockd.conf
-│   │   ├── virtlockd.conf
-│   │   └── virt-login-shell.conf
+│   │   ├── qemu.conf
+│   │   ├── virt-login-shell.conf
+│   │   └── virtlockd.conf
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-libvirt-bin.conf

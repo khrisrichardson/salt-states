@@ -1,11 +1,5 @@
 # debianutils
 
-## Description:
-
-This package provides a number of small utilities which are used primarily by the installation scripts of Debian packages, although you may use them directly.
-
-The specific utilities included are: add-shell installkernel ischroot remove-shell run-parts savelog tempfile which
-
 ## Depends:
 
   -  N/A
@@ -23,6 +17,7 @@ The specific utilities included are: add-shell installkernel ischroot remove-she
   -  [kubernetes](/salt/kubernetes)
   -  [logstash](/salt/logstash)
   -  [maven](/salt/maven)
+  -  [nsenter](/salt/nsenter)
 
 ## Relates:
 

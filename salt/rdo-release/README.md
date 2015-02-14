@@ -1,9 +1,5 @@
 # rdo-release
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

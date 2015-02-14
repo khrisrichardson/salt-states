@@ -1,9 +1,5 @@
 # mesos-slave
 
-## Description:
-
-
-
 ## Depends:
 
   -  [mesos](/salt/mesos)
@@ -16,6 +12,7 @@
 
 ## Relates:
 
+  -  [mesos-dns](/salt/mesos-dns)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -29,8 +26,9 @@
 │   │   └── conf.d
 │   │       └── checks-mesos-slave.json
 │   └── supervisor
-│       └── conf.d
-│           └── mesos-slave.conf
+│       └── conf.d
+│           └── mesos-slave.conf
 ├── init.sls
+├── relate-mesos-dns.sls
 └── relate-sensu-api.sls
 ```

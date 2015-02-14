@@ -1,9 +1,5 @@
 # ruby-supervisor
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

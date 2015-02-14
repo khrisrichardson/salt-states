@@ -1,13 +1,7 @@
 # fleet
 
-## Description:
-
-
-
 ## Depends:
 
-  -  [ca-certificates](/salt/ca-certificates)
-  -  [fleet-common](/salt/fleet-common)
   -  [git](/salt/git)
   -  [golang-go](/salt/golang-go)
   -  [sensu-client](/salt/sensu-client)
@@ -15,7 +9,7 @@
 
 ## Reverse Depends:
 
-  -  N/A
+  -  [fleetctl](/salt/fleetctl)
 
 ## Relates:
 
@@ -27,6 +21,7 @@
 ```bash
 .
 ├── defaults.yaml
+├── depend-git.sls
 ├── depend-golang-go.sls
 ├── depend-supervisor.sls
 ├── etc
@@ -36,8 +31,8 @@
 │   │   └── conf.d
 │   │       └── checks-fleet.json
 │   └── supervisor
-│       └── conf.d
-│           └── fleet.conf
+│       └── conf.d
+│           └── fleet.conf
 ├── init.sls
 ├── relate-etcd.sls
 └── relate-sensu-api.sls

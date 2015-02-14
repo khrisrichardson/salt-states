@@ -1,9 +1,5 @@
 # etcd-common
 
-## Description:
-
-
-
 ## Depends:
 
   -  [tar](/salt/tar)
@@ -11,7 +7,6 @@
 
 ## Reverse Depends:
 
-  -  [etcd](/salt/etcd)
   -  [etcdctl](/salt/etcdctl)
 
 ## Relates:

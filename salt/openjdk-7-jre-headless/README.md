@@ -1,19 +1,15 @@
 # openjdk-7-jre-headless
 
-## Description:
-
-Minimal Java runtime - needed for executing non GUI Java programs. Using Hotspot JIT.
-
-The packages are built using the IcedTea build support and patches from the IcedTea project.
-
 ## Depends:
 
   -  N/A
 
 ## Reverse Depends:
 
-  -  [mesos](/salt/mesos)
+  -  [artifactory](/salt/artifactory)
+  -  [opentsdb](/salt/opentsdb)
   -  [riemann](/salt/riemann)
+  -  [sbt](/salt/sbt)
 
 ## Relates:
 

@@ -1,15 +1,9 @@
 # ceph-deploy
 
-## Description:
-
-Ceph-deploy is an easy to use deployment and configuration tool for the Ceph distributed storage system.
-
-This package includes the programs and libraries to support simple ceph cluster deployment.
-
 ## Depends:
 
   -  [ceph](/salt/ceph)
-  -  [ceph.depend-openssh](/salt/ceph.depend-openssh)
+  -  [ceph.depend-openssh](/salt/ceph/depend-openssh.sls)
 
 ## Reverse Depends:
 
@@ -21,6 +15,7 @@ This package includes the programs and libraries to support simple ceph cluster 
   -  [ceph-mon](/salt/ceph-mon)
   -  [ceph-osd](/salt/ceph-osd)
   -  [radosgw](/salt/radosgw)
+  -  [salt-master](/salt/salt-master)
 
 ## Files:
 
@@ -30,9 +25,12 @@ This package includes the programs and libraries to support simple ceph cluster 
 ├── depend-openssh.sls
 ├── home
 │   └── ceph
+│       └── .ssh
+│           └── config
 ├── init.sls
 ├── relate-ceph-mds.sls
 ├── relate-ceph-mon.sls
 ├── relate-ceph-osd.sls
-└── relate-radosgw.sls
+├── relate-radosgw.sls
+└── relate-salt-master.sls
 ```

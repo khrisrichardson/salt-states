@@ -1,9 +1,5 @@
 # python-influxdb
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-pip](/salt/python-pip)

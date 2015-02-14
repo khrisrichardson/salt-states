@@ -1,11 +1,5 @@
 # heat-api
 
-## Description:
-
-Heat is a service to orchestrate multiple composite cloud applications using templates, through both an OpenStack-native ReST API and a CloudFormation-compatible Query API.
-
-This package contains the ReST API.
-
 ## Depends:
 
   -  [heat-common](/salt/heat-common)
@@ -36,8 +30,8 @@ This package contains the ReST API.
 │   │   └── conf.d
 │   │       └── checks-heat-api.json
 │   └── supervisor
-│       └── conf.d
-│           └── heat-api.conf
+│       └── conf.d
+│           └── heat-api.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

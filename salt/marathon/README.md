@@ -1,12 +1,9 @@
 # marathon
 
-## Description:
-
-
-
 ## Depends:
 
-  -  N/A
+  -  [mesos](/salt/mesos)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 

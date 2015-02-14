@@ -1,11 +1,5 @@
 # ganglia-monitor
 
-## Description:
-
-Ganglia is a scalable, real-time cluster monitoring environment that collects cluster statistics in an open and well-defined XML format.
-
-This package contains the monitor core program.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -25,8 +19,8 @@ This package contains the monitor core program.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-ganglia-monitor.json
+│       └── conf.d
+│           └── checks-ganglia-monitor.json
 ├── init.sls
 ├── map.jinja
 └── relate-sensu-api.sls

@@ -1,15 +1,14 @@
 # calamari
 
-## Description:
-
-
-
 ## Depends:
 
   -  [apache2](/salt/apache2)
   -  [git](/salt/git)
   -  [libapache2-mod-wsgi](/salt/libapache2-mod-wsgi)
+  -  [libpq-dev](/salt/libpq-dev)
   -  [logrotate](/salt/logrotate)
+  -  [python-dev](/salt/python-dev)
+  -  [python-virtualenv](/salt/python-virtualenv)
   -  [sensu-client](/salt/sensu-client)
   -  [supervisor](/salt/supervisor)
 
@@ -46,8 +45,8 @@
 │   │   └── conf.d
 │   │       └── checks-calamari.json
 │   └── supervisor
-│       └── conf.d
-│           └── calamari.conf
+│       └── conf.d
+│           └── calamari.conf
 ├── init.sls
 ├── relate-graphite-carbon.sls
 ├── relate-postgresql.sls

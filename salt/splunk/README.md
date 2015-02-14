@@ -1,9 +1,5 @@
 # splunk
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

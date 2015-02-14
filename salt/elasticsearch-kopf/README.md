@@ -1,9 +1,5 @@
 # elasticsearch-kopf
 
-## Description:
-
-Web admin interface for elasticsearch
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)
@@ -12,7 +8,7 @@ Web admin interface for elasticsearch
 
 ## Reverse Depends:
 
-  -  N/A
+  -  [elasticsearch](/salt/elasticsearch)
 
 ## Relates:
 

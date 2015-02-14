@@ -1,10 +1,5 @@
 # hadoop-hdfs-namenode
 
-## Description:
-
-The Hadoop Distributed Filesystem (HDFS) requires one unique server, the
-namenode, which manages the block locations of files on the filesystem.
-
 ## Depends:
 
   -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
@@ -37,8 +32,8 @@ namenode, which manages the block locations of files on the filesystem.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-hadoop-hdfs-namenode.json
+│       └── conf.d
+│           └── checks-hadoop-hdfs-namenode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

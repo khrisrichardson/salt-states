@@ -1,13 +1,5 @@
 # corosync
 
-## Description:
-
-The corosync project is a project to implement a production quality "Revised BSD" licensed implementation of all core functionalities required by openais. The project implements cutting edge research on virtual synchrony to provide 100% correct operation in the face of failures or partitionable networks with excellent performance characteristics.
-
-The Application Interface Specification is a software API and policies which are used to develop applications that maintain service during faults.
-
-This package contains the corosync daemon and modules.
-
 ## Depends:
 
   -  [logstash](/salt/logstash)
@@ -26,6 +18,7 @@ This package contains the corosync daemon and modules.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-dbus.sls
 ├── etc
 │   ├── corosync

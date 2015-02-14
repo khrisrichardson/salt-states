@@ -1,9 +1,5 @@
 # cloud-utils
 
-## Description:
-
-This meta-package will depend on all sub-packages built by the upstream cloud-utils source.
-
 ## Depends:
 
   -  N/A

@@ -1,9 +1,5 @@
 # elasticsearch-hq
 
-## Description:
-
-
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)

@@ -1,9 +1,5 @@
 # python-docker
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-pip](/salt/python-pip)

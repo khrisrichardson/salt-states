@@ -1,9 +1,5 @@
 # ruby-redis
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

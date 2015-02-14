@@ -1,9 +1,5 @@
 # sensu-dashboard
 
-## Description:
-
-
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -24,8 +20,8 @@
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-sensu-dashboard.json
+│       └── conf.d
+│           └── checks-sensu-dashboard.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

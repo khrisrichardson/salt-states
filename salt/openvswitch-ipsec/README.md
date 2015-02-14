@@ -1,11 +1,5 @@
 # openvswitch-ipsec
 
-## Description:
-
-Open vSwitch is a production quality, multilayer, software-based, Ethernet virtual switch. It is designed to enable massive network automation through programmatic extension, while still supporting standard management interfaces and protocols (e.g. NetFlow, IPFIX, sFlow, SPAN, RSPAN, CLI, LACP, 802.1ag). In addition, it is designed to support distribution across multiple physical servers similar to VMware's vNetwork distributed vswitch or Cisco's Nexus 1000V.
-
-The ovs-monitor-ipsec script provides support for encrypting GRE tunnels with IPsec.
-
 ## Depends:
 
   -  [racoon](/salt/racoon)
@@ -23,6 +17,7 @@ The ovs-monitor-ipsec script provides support for encrypting GRE tunnels with IP
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d

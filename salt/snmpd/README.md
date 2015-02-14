@@ -1,11 +1,5 @@
 # snmpd
 
-## Description:
-
-The Simple Network Management Protocol (SNMP) provides a framework for the exchange of management information between agents (servers) and clients.
-
-The Net-SNMP agent is a daemon which listens for incoming SNMP requests from clients and provides responses.
-
 ## Depends:
 
   -  [ruby-snmp](/salt/ruby-snmp)
@@ -23,6 +17,7 @@ The Net-SNMP agent is a daemon which listens for incoming SNMP requests from cli
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d

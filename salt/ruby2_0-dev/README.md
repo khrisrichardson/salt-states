@@ -1,12 +1,8 @@
 # ruby2_0-dev
 
-## Description:
-
-
-
 ## Depends:
 
-  -  [ruby2_0](/salt/ruby2_0)
+  -  [ruby2\_0](/salt/ruby2_0)
 
 ## Reverse Depends:
 

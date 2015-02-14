@@ -1,16 +1,12 @@
 # python-virtualenv
 
-## Description:
-
-The virtualenv utility creates virtual Python instances, each invokable with its own Python executable.  Each instance can have different sets of modules, installable via easy\_install.  Virtual Python instances can also be created without root access.
-
 ## Depends:
 
   -  N/A
 
 ## Reverse Depends:
 
-  -  N/A
+  -  [calamari](/salt/calamari)
 
 ## Relates:
 

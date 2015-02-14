@@ -1,9 +1,5 @@
 # pm-utils
 
-## Description:
-
-This package provides simple shell command line tools to suspend and hibernate your computer.
-
 ## Depends:
 
   -  N/A

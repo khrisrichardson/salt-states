@@ -1,12 +1,8 @@
 # cloudera-cm4-daemons
 
-## Description:
-
-This package includes daemons for monitoring and managing Hadoop.
-
 ## Depends:
 
-  -  N/A
+  -  [cloudera-cm4](/salt/cloudera-cm4)
 
 ## Reverse Depends:
 

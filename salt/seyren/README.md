@@ -1,9 +1,5 @@
 # seyren
 
-## Description:
-
-
-
 ## Depends:
 
   -  [git](/salt/git)

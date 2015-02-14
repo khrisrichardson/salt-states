@@ -1,11 +1,8 @@
 # opsview-agent
 
-## Description:
-
-
-
 ## Depends:
 
+  -  [opsview-base](/salt/opsview-base)
   -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
@@ -20,6 +17,7 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d

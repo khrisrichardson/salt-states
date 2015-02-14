@@ -1,10 +1,5 @@
 # hbase-master
 
-## Description:
-
-HMaster is the "master server" for a HBase. There is only one HMaster for a
-single HBase deployment.
-
 ## Depends:
 
   -  [base-files](/salt/base-files)
@@ -38,8 +33,8 @@ single HBase deployment.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-hbase-master.json
+│       └── conf.d
+│           └── checks-hbase-master.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

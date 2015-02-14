@@ -1,9 +1,5 @@
 # newrelic-sysmond
 
-## Description:
-
-
-
 ## Depends:
 
   -  [newrelic](/salt/newrelic)
@@ -21,6 +17,7 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d

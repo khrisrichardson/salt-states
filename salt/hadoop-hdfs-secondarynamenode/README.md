@@ -1,11 +1,5 @@
 # hadoop-hdfs-secondarynamenode
 
-## Description:
-
-The Secondary Name Node periodically compacts the Name Node EditLog into a
-checkpoint. This compaction ensures that Name Node restarts do not incur
-unnecessary downtime.
-
 ## Depends:
 
   -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
@@ -36,8 +30,8 @@ unnecessary downtime.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-hadoop-hdfs-secondarynamenode.json
+│       └── conf.d
+│           └── checks-hadoop-hdfs-secondarynamenode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

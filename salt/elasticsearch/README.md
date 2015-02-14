@@ -1,13 +1,8 @@
 # elasticsearch
 
-## Description:
-
-Open Source, Distributed, RESTful Search Engine
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)
-  -  [elasticsearch-graphite](/salt/elasticsearch-graphite)
   -  [jmxtrans-agent](/salt/jmxtrans-agent)
   -  [oracle-j2sdk1\_7](/salt/oracle-j2sdk1_7)
   -  [oracle-java7-installer](/salt/oracle-java7-installer)
@@ -21,6 +16,7 @@ Open Source, Distributed, RESTful Search Engine
 
 ## Relates:
 
+  -  [elasticsearch](/salt/elasticsearch)
   -  [graphite-carbon](/salt/graphite-carbon)
   -  [influxdb](/salt/influxdb)
   -  [kibana](/salt/kibana)
@@ -35,8 +31,8 @@ Open Source, Distributed, RESTful Search Engine
 │   ├── elasticsearch
 │   │   └── elasticsearch.yml
 │   └── sensu
-│       └── conf.d
-│           └── checks-elasticsearch.json
+│       └── conf.d
+│           └── checks-elasticsearch.json
 ├── init.sls
 ├── map.jinja
 ├── opt

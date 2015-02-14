@@ -1,9 +1,5 @@
 # openstack-utils
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

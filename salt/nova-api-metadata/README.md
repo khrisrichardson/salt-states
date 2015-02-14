@@ -1,13 +1,5 @@
 # nova-api-metadata
 
-## Description:
-
-OpenStack is a reliable cloud infrastructure. Its mission is to produce the ubiquitous cloud computing platform that will meet the needs of public and private cloud providers regardless of size, by being simple to implement and massively scalable.
-
-OpenStack Compute, codenamed Nova, is a cloud computing fabric controller. In addition to its "native" API (the OpenStack API), it also supports the Amazon EC2 API.
-
-This package provides the metadata API backend for guest VMs.
-
 ## Depends:
 
   -  [haproxy](/salt/haproxy)
@@ -45,8 +37,8 @@ This package provides the metadata API backend for guest VMs.
 │   │   └── conf.d
 │   │       └── checks-nova-api-metadata.json
 │   └── supervisor
-│       └── conf.d
-│           └── nova-api-metadata.conf
+│       └── conf.d
+│           └── nova-api-metadata.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

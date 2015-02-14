@@ -1,11 +1,8 @@
 # ruby-pg
 
-## Description:
-
-
 ## Depends:
 
-  -  N/A
+  -  [libpq-dev](/salt/libpq-dev)
 
 ## Reverse Depends:
 

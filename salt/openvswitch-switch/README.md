@@ -1,11 +1,5 @@
 # openvswitch-switch
 
-## Description:
-
-Open vSwitch is a production quality, multilayer, software-based, Ethernet virtual switch. It is designed to enable massive network automation through programmatic extension, while still supporting standard management interfaces and protocols (e.g. NetFlow, IPFIX, sFlow, SPAN, RSPAN, CLI, LACP, 802.1ag). In addition, it is designed to support distribution across multiple physical servers similar to VMware's vNetwork distributed vswitch or Cisco's Nexus 1000V.
-
-openvswitch-switch provides the userspace components and utilities for the Open vSwitch kernel-based switch.
-
 ## Depends:
 
   -  [logstash](/salt/logstash)
@@ -24,6 +18,7 @@ openvswitch-switch provides the userspace components and utilities for the Open 
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── logstash
 │   │   └── conf.d

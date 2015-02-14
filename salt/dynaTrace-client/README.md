@@ -1,9 +1,5 @@
 # dynaTrace-client
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

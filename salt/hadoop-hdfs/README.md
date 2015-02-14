@@ -1,12 +1,5 @@
 # hadoop-hdfs
 
-## Description:
-
-Hadoop Distributed File System (HDFS) is the primary storage system used by
-Hadoop applications. HDFS creates multiple replicas of data blocks and
-distributes them on cluster hosts to enable reliable and extremely rapid
-computations.
-
 ## Depends:
 
   -  [e2fsprogs](/salt/e2fsprogs)

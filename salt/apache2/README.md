@@ -1,11 +1,5 @@
 # apache2
 
-## Description:
-
-The Apache Software Foundation's goal is to build a secure, efficient and extensible HTTP server as standards-compliant open source software. The result has long been the number one web server on the Internet.
-
-This package contains the configuration files, init scripts and support scripts. It does not install the actual apache2 binaries.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -13,7 +7,9 @@ This package contains the configuration files, init scripts and support scripts.
 ## Reverse Depends:
 
   -  [calamari](/salt/calamari)
+  -  [cobbler-web](/salt/cobbler-web)
   -  [descartes](/salt/descartes)
+  -  [dusk](/salt/dusk)
   -  [graphite-web](/salt/graphite-web)
   -  [nagios3](/salt/nagios3)
   -  [openstack-dashboard](/salt/openstack-dashboard)
@@ -32,8 +28,8 @@ This package contains the configuration files, init scripts and support scripts.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-apache2.json
+│       └── conf.d
+│           └── checks-apache2.json
 ├── init.sls
 ├── map.jinja
 └── relate-sensu-api.sls

@@ -1,12 +1,5 @@
 # orchestrate
 
-## Description:
-
-This state instructs the minion to manage other states, which are either
-related to another minion or a list of roles. If no minion or roles are
-declared, then this state instructs the minion to manage all states that have
-relations to all other roles in the environment.
-
 ## Depends:
 
   -  N/A
@@ -238,9 +231,9 @@ relations to all other roles in the environment.
 │   └── init.sls
 ├── mysql-server
 │   └── init.sls
-├── nagios3
-│   └── init.sls
 ├── nagios-nrpe-server
+│   └── init.sls
+├── nagios3
 │   └── init.sls
 ├── neutron-common
 │   └── init.sls
@@ -463,8 +456,8 @@ relations to all other roles in the environment.
 │   └── init.sls
 ├── trove-taskmanager
 │   └── init.sls
-├── zookeeperd
+├── zookeeper-server
 │   └── init.sls
-└── zookeeper-server
+└── zookeeperd
     └── init.sls
 ```

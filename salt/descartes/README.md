@@ -1,9 +1,5 @@
 # descartes
 
-## Description:
-
-
-
 ## Depends:
 
   -  [apache2](/salt/apache2)
@@ -13,6 +9,7 @@
   -  [libxslt1-dev](/salt/libxslt1-dev)
   -  [postgresql](/salt/postgresql)
   -  [redis-server](/salt/redis-server)
+  -  [ruby-bundler](/salt/ruby-bundler)
   -  [ruby-rvm](/salt/ruby-rvm)
   -  [sensu-client](/salt/sensu-client)
 
@@ -34,8 +31,8 @@
 ├── depend-git.sls
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-descartes.json
+│       └── conf.d
+│           └── checks-descartes.json
 ├── init.sls
 ├── opt
 │   └── descartes

@@ -1,9 +1,5 @@
 # newrelic
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-apt](/salt/python-apt)

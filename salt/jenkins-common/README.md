@@ -1,9 +1,5 @@
 # jenkins-common
 
-## Description:
-
-
-
 ## Depends:
 
   -  [python-apt](/salt/python-apt)

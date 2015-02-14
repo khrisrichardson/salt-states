@@ -1,9 +1,5 @@
 # zookeeper-server
 
-## Description:
-
-This package starts the zookeeper server on startup
-
 ## Depends:
 
   -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
@@ -34,8 +30,8 @@ This package starts the zookeeper server on startup
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-zookeeper-server.json
+│       └── conf.d
+│           └── checks-zookeeper-server.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

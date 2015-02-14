@@ -1,22 +1,12 @@
 # salt-minion
 
-## Description:
-
-salt is a powerful remote execution manager that can be used to administer servers in a fast and efficient way.
-
-It allows commands to be executed across large groups of servers. This means systems can be easily managed, but data can also be easily gathered.  Quick introspection into running systems becomes a reality.
-
-Remote execution is usually used to set up a certain state on a remote system. Salt addresses this problem as well, the salt state system uses salt state files to define the state a server needs to be in.
-
-Between the remote execution system, and state management Salt addresses the backbone of cloud and data center management.
-
-This particular package provides the worker / agent for salt.
-
 ## Depends:
 
+  -  [apt](/salt/apt)
   -  [epel-release](/salt/epel-release)
   -  [git](/salt/git)
   -  [incron](/salt/incron)
+  -  [openssh-client.known\_hosts.github.com](/salt/openssh-client/known_hosts/github/com.sls)
   -  [python-elasticsearch](/salt/python-elasticsearch)
   -  [python-etcd](/salt/python-etcd)
   -  [python-influxdb](/salt/python-influxdb)
@@ -24,6 +14,7 @@ This particular package provides the worker / agent for salt.
   -  [python-mysqldb](/salt/python-mysqldb)
   -  [python-psutil](/salt/python-psutil)
   -  [python-psycopg2](/salt/python-psycopg2)
+  -  [python-pygit2](/salt/python-pygit2)
   -  [python-pymongo](/salt/python-pymongo)
   -  [python-redis](/salt/python-redis)
   -  [salt-common](/salt/salt-common)
@@ -36,6 +27,7 @@ This particular package provides the worker / agent for salt.
 
 ## Relates:
 
+  -  [apt-cacher-ng](/salt/apt-cacher-ng)
   -  [elasticsearch](/salt/elasticsearch)
   -  [etcd](/salt/etcd)
   -  [graphite-carbon](/salt/graphite-carbon)
@@ -67,20 +59,20 @@ This particular package provides the worker / agent for salt.
 │   │       ├── graphite-carbon.conf
 │   │       ├── influxdb.conf
 │   │       ├── log.conf
-│   │       ├── master.conf
-│   │       ├── mine.conf
 │   │       ├── memcached.conf
+│   │       ├── mine.conf
 │   │       ├── mongodb-server.conf
 │   │       ├── mysql-server.conf
 │   │       ├── postgresql.conf
 │   │       ├── redis-server.conf
+│   │       ├── salt-master.conf
 │   │       └── schedule.conf
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-salt-minion.json
 │   └── supervisor
-│       └── conf.d
-│           └── salt-minion.conf
+│       └── conf.d
+│           └── salt-minion.conf
 ├── init.sls
 ├── relate-apt-cacher-ng.sls
 ├── relate-elasticsearch.sls

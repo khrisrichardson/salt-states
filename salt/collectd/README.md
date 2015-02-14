@@ -1,13 +1,5 @@
 # collectd
 
-## Description:
-
-collectd is a small daemon which collects system information periodically and provides mechanisms to monitor and store the values in a variety of ways. Since the daemon doesn't need to startup every time it wants to update the values it's very fast and easy on the system. Also, the statistics are very fine grained since the files are updated every 10 seconds by default.
-
-The collected information can be used to find current performance bottlenecks (performance analysis) and predict future system load (capacity planning).
-
-This package provides a full installation of the daemon, including the configuration. For the core system, see the "collectd-core" package, which allows sites to, e.g., provide customizations (like a custom default configuration) on top of it without having to modify the "collectd" package.
-
 ## Depends:
 
   -  [logrotate](/salt/logrotate)
@@ -29,6 +21,7 @@ This package provides a full installation of the daemon, including the configura
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-logrotate.sls
 ├── etc
 │   ├── collectd

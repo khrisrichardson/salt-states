@@ -1,12 +1,8 @@
 # oracle-java7-set-default
 
-## Description:
-
-
-
 ## Depends:
 
-  -  N/A
+  -  [java-common](/salt/java-common)
 
 ## Reverse Depends:
 

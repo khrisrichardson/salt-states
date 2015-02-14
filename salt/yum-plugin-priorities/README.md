@@ -1,9 +1,5 @@
 # yum-plugin-priorities
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

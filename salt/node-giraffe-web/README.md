@@ -1,9 +1,5 @@
 # node-giraffe-web
 
-## Description:
-
-
-
 ## Depends:
 
   -  [dnsutils](/salt/dnsutils)
@@ -28,8 +24,8 @@
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-node-giraffe-web.json
+│       └── conf.d
+│           └── checks-node-giraffe-web.json
 ├── init.sls
 ├── relate-graphite-web.sls
 ├── relate-sensu-api.sls

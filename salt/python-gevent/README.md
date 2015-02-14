@@ -1,9 +1,5 @@
 # python-gevent
 
-## Description:
-
-gevent uses greenlet to provide a high-level synchronous API on top of libevent event loop.
-
 ## Depends:
 
   -  N/A

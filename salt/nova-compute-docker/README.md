@@ -1,11 +1,9 @@
 # nova-compute-docker
 
-## Description:
-
-
-
 ## Depends:
 
+  -  [ceilometer-agent-compute](/salt/ceilometer-agent-compute)
+  -  [neutron-plugin-openvswitch-agent](/salt/neutron-plugin-openvswitch-agent)
   -  [nova-compute-libvirt](/salt/nova-compute-libvirt)
 
 ## Reverse Depends:
@@ -23,8 +21,8 @@
 ├── defaults.yaml
 ├── etc
 │   └── nova
-│       ├── nova-compute.conf
-│       └── rootwrap.d
-│           └── docker.filters
+│       ├── nova-compute.conf
+│       └── rootwrap.d
+│           └── docker.filters
 └── init.sls
 ```

@@ -1,11 +1,5 @@
 # heat-engine
 
-## Description:
-
-Heat is a service to orchestrate multiple composite cloud applications using templates, through both an OpenStack-native ReST API and a CloudFormation-compatible Query API.
-
-This package contains the heat engine, which is the core service of heat, and which the API servers will use.
-
 ## Depends:
 
   -  [heat-common](/salt/heat-common)
@@ -39,8 +33,8 @@ This package contains the heat engine, which is the core service of heat, and wh
 │   │   └── conf.d
 │   │       └── checks-heat-engine.json
 │   └── supervisor
-│       └── conf.d
-│           └── heat-engine.conf
+│       └── conf.d
+│           └── heat-engine.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

@@ -1,9 +1,5 @@
 # netbase
 
-## Description:
-
-This package provides the necessary infrastructure for basic TCP/IP based networking.
-
 ## Depends:
 
   -  N/A

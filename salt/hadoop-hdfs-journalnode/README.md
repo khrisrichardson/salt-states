@@ -1,11 +1,5 @@
 # hadoop-hdfs-journalnode
 
-## Description:
-
-The HDFS JournalNode is responsible for persisting NameNode edit logs. In a
-typical deployment the JournalNode daemon runs on at least three separate
-machines in the cluster.
-
 ## Depends:
 
   -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
@@ -35,8 +29,8 @@ machines in the cluster.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-hadoop-hdfs-journalnode.json
+│       └── conf.d
+│           └── checks-hadoop-hdfs-journalnode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

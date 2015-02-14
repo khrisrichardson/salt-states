@@ -1,11 +1,5 @@
 # mariadb-server
 
-## Description:
-
-This is an empty package that depends on the current "best" version of mariadb-server (currently mariadb-server-5.5), as determined by the MariaDB maintainers. Install this package if in doubt about which MariaDB version you need. That will install the version recommended by the package maintainers.
-
-MariaDB is a fast, stable and true multi-user, multi-threaded SQL database server. SQL (Structured Query Language) is the most popular database query language in the world. The main goals of MariaDB are speed, robustness and ease of use.
-
 ## Depends:
 
   -  [debconf-utils](/salt/debconf-utils)
@@ -38,8 +32,8 @@ MariaDB is a fast, stable and true multi-user, multi-threaded SQL database serve
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-mariadb-server.json
+│       └── conf.d
+│           └── checks-mariadb-server.json
 ├── init.sls
 ├── map.jinja
 ├── relate-ceilometer-api.sls

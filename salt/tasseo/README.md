@@ -1,13 +1,10 @@
 # tasseo
 
-## Description:
-
-
-
 ## Depends:
 
   -  [apache2](/salt/apache2)
   -  [git](/salt/git)
+  -  [ruby-bundler](/salt/ruby-bundler)
   -  [ruby-rvm](/salt/ruby-rvm)
   -  [sensu-client](/salt/sensu-client)
 
@@ -28,8 +25,8 @@
 ├── depend-git.sls
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-tasseo.json
+│       └── conf.d
+│           └── checks-tasseo.json
 ├── init.sls
 ├── opt
 │   └── tasseo

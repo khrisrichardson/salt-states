@@ -1,9 +1,5 @@
 # panamax
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

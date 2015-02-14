@@ -1,13 +1,5 @@
 # cinder-api
 
-## Description:
-
-OpenStack is a reliable cloud infrastructure. Its mission is to produce the ubiquitous cloud computing platform that will meet the needs of public and private cloud providers regardless of size, by being simple to implement and massively scalable.
-
-Cinder is the OpenStack Block storage service.
-
-This package contains the Cinder API server.
-
 ## Depends:
 
   -  [cinder-common](/salt/cinder-common)
@@ -42,8 +34,8 @@ This package contains the Cinder API server.
 │   │   └── conf.d
 │   │       └── checks-cinder-api.json
 │   └── supervisor
-│       └── conf.d
-│           └── cinder-api.conf
+│       └── conf.d
+│           └── cinder-api.conf
 ├── init.sls
 ├── relate-logstash.sls
 └── relate-sensu-api.sls

@@ -1,9 +1,5 @@
 # ceph-osd
 
-## Description:
-
-
-
 ## Depends:
 
   -  [btrfs-tools](/salt/btrfs-tools)
@@ -19,6 +15,7 @@
 
   -  [ceph-deploy](/salt/ceph-deploy)
   -  [ceph-mon](/salt/ceph-mon)
+  -  [salt-master](/salt/salt-master)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -31,10 +28,11 @@
 ├── depend-parted.sls
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-ceph-osd.json
+│       └── conf.d
+│           └── checks-ceph-osd.json
 ├── init.sls
 ├── relate-ceph-deploy.sls
 ├── relate-ceph-mon.sls
+├── relate-salt-master.sls
 └── relate-sensu-api.sls
 ```

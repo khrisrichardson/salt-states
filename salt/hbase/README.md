@@ -1,25 +1,5 @@
 # hbase
 
-## Description:
-
-HBase is an open-source, distributed, column-oriented store modeled after
-Google's Bigtable: A Distributed Storage System for Structured Data by Chang et
-al. Just as Bigtable leverages the distributed data storage provided by the
-Google File System, HBase provides Bigtable-like capabilities on top of Hadoop.
-
-HBase includes:
-
- * Convenient base classes for backing Hadoop MapReduce jobs with HBase tables
- * Query predicate push down via server side scan and get filters
- * Optimizations for real time queries
- * A high performance Thrift gateway
- * A REST-ful Web service gateway that supports XML, Protobuf, and binary data
-   encoding options
- * Cascading source and sink modules
- * Extensible jruby-based (JIRB) shell
- * Support for exporting metrics via the Hadoop metrics subsystem to files or
-   Ganglia; or via JMX
-
 ## Depends:
 
   -  [cloudera-cdh4](/salt/cloudera-cdh4)
@@ -33,6 +13,8 @@ HBase includes:
 ## Relates:
 
   -  [hadoop-hdfs-namenode](/salt/hadoop-hdfs-namenode)
+  -  [hbase-master](/salt/hbase-master)
+  -  [hbase-regionserver](/salt/hbase-regionserver)
   -  [logstash](/salt/logstash)
   -  [zookeeper-server](/salt/zookeeper-server)
 

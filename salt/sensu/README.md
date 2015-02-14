@@ -1,9 +1,5 @@
 # sensu
 
-## Description:
-
-
-
 ## Depends:
 
   -  [bc](/salt/bc)
@@ -17,6 +13,7 @@
   -  [apache2](/salt/apache2)
   -  [apt-cacher-ng](/salt/apt-cacher-ng)
   -  [auditd](/salt/auditd)
+  -  [beanstalkd](/salt/beanstalkd)
   -  [cadvisor](/salt/cadvisor)
   -  [calamari](/salt/calamari)
   -  [ceilometer-agent-central](/salt/ceilometer-agent-central)
@@ -40,9 +37,13 @@
   -  [cloudera-cm5-server](/salt/cloudera-cm5-server)
   -  [cloudera-cm5-server-db-2](/salt/cloudera-cm5-server-db-2)
   -  [cobbler](/salt/cobbler)
+  -  [cobbler-web](/salt/cobbler-web)
   -  [collectd](/salt/collectd)
+  -  [consul-client](/salt/consul-client)
+  -  [consul-server](/salt/consul-server)
   -  [coreos-ipxe-server](/salt/coreos-ipxe-server)
   -  [corosync](/salt/corosync)
+  -  [couchbase-server](/salt/couchbase-server)
   -  [cron](/salt/cron)
   -  [descartes](/salt/descartes)
   -  [dynaTrace-analysis-server](/salt/dynaTrace-analysis-server)
@@ -56,6 +57,8 @@
   -  [elasticsearch-kopf](/salt/elasticsearch-kopf)
   -  [elasticsearch-paramedic](/salt/elasticsearch-paramedic)
   -  [etcd](/salt/etcd)
+  -  [flannel](/salt/flannel)
+  -  [flapjack](/salt/flapjack)
   -  [fleet](/salt/fleet)
   -  [ganglia-monitor](/salt/ganglia-monitor)
   -  [gitlab](/salt/gitlab)
@@ -95,15 +98,18 @@
   -  [libvirt-bin](/salt/libvirt-bin)
   -  [logstash](/salt/logstash)
   -  [lxc-docker](/salt/lxc-docker)
+  -  [marathon](/salt/marathon)
   -  [mariadb-server](/salt/mariadb-server)
   -  [memcached](/salt/memcached)
+  -  [mesos-dns](/salt/mesos-dns)
   -  [mesos-master](/salt/mesos-master)
   -  [mesos-slave](/salt/mesos-slave)
   -  [mongodb-server](/salt/mongodb-server)
+  -  [moxi-server](/salt/moxi-server)
   -  [multipath-tools](/salt/multipath-tools)
   -  [mysql-server](/salt/mysql-server)
-  -  [nagios3](/salt/nagios3)
   -  [nagios-nrpe-server](/salt/nagios-nrpe-server)
+  -  [nagios3](/salt/nagios3)
   -  [neutron-dhcp-agent](/salt/neutron-dhcp-agent)
   -  [neutron-l3-agent](/salt/neutron-l3-agent)
   -  [neutron-lbaas-agent](/salt/neutron-lbaas-agent)
@@ -150,6 +156,7 @@
   -  [open-iscsi](/salt/open-iscsi)
   -  [openssh-server](/salt/openssh-server)
   -  [openstack-dashboard](/salt/openstack-dashboard)
+  -  [opentsdb](/salt/opentsdb)
   -  [openvswitch-controller](/salt/openvswitch-controller)
   -  [openvswitch-ipsec](/salt/openvswitch-ipsec)
   -  [openvswitch-switch](/salt/openvswitch-switch)
@@ -194,12 +201,13 @@
   -  [tasseo](/salt/tasseo)
   -  [tgt](/salt/tgt)
   -  [tomcat7](/salt/tomcat7)
+  -  [trafficserver](/salt/trafficserver)
   -  [trove-api](/salt/trove-api)
   -  [trove-guestagent](/salt/trove-guestagent)
   -  [trove-taskmanager](/salt/trove-taskmanager)
   -  [uchiwa](/salt/uchiwa)
-  -  [zookeeperd](/salt/zookeeperd)
   -  [zookeeper-server](/salt/zookeeper-server)
+  -  [zookeeperd](/salt/zookeeperd)
 
 ## Relates:
 

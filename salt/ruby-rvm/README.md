@@ -1,12 +1,9 @@
 # ruby-rvm
 
-## Description:
-
-
-
 ## Depends:
 
   -  [curl](/salt/curl)
+  -  [gnupg](/salt/gnupg)
 
 ## Reverse Depends:
 

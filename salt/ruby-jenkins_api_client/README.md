@@ -1,12 +1,8 @@
 # ruby-jenkins_api_client
 
-## Description:
-
-
-
 ## Depends:
 
-  -  N/A
+  -  [zlib1g-dev](/salt/zlib1g-dev)
 
 ## Reverse Depends:
 

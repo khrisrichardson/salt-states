@@ -1,13 +1,5 @@
 # influxdb
 
-## Description:
-
-InfluxDB is a time series, events, and metrics database. It’s written in Go and
-has no external dependencies. That means once you install it there’s nothing
-else to manage (like Redis, HBase, or whatever). It’s designed to be
-distributed and scale horizontally, but be useful even if you’re only running
-it on a single box.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -28,8 +20,8 @@ it on a single box.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-influxdb.json
+│       └── conf.d
+│           └── checks-influxdb.json
 ├── init.sls
 ├── opt
 │   └── influxdb

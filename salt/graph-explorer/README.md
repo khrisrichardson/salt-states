@@ -1,9 +1,5 @@
 # graph-explorer
 
-## Description:
-
-
-
 ## Depends:
 
   -  [elasticsearch](/salt/elasticsearch)

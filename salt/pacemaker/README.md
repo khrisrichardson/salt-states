@@ -1,13 +1,5 @@
 # pacemaker
 
-## Description:
-
-High-Availability cluster resource manager for Heartbeat as well as Corosync.
-
-Pacemaker supports a very sophisticated dependency model for n-node clusters and can respond to node and resource-level failures.
-
-It supports both the Heartbeat and Corosync cluster stacks.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -24,6 +16,7 @@ It supports both the Heartbeat and Corosync cluster stacks.
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── default
 │   │   └── pacemaker

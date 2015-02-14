@@ -1,11 +1,5 @@
 # zookeeper
 
-## Description:
-
-ZooKeeper is a centralized, reliable, service for maintaining configuration information, naming, providing distributed synchronization, and group services. All of these kinds of services are used in some form or another by distributed applications.
-
-This package contains the shell scripts and an example configuration but does not automatically start up the service. The example configuration is installed with the update-alternatives mechanism.
-
 ## Depends:
 
   -  [cloudera-cdh4](/salt/cloudera-cdh4)
@@ -14,6 +8,7 @@ This package contains the shell scripts and an example configuration but does no
 ## Reverse Depends:
 
   -  [mesos](/salt/mesos)
+  -  [zookeeperd](/salt/zookeeperd)
 
 ## Relates:
 

@@ -1,9 +1,5 @@
 # elasticsearch-bigdesk
 
-## Description:
-
-
-
 ## Depends:
 
   -  [debianutils](/salt/debianutils)

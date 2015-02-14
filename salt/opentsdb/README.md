@@ -1,12 +1,9 @@
 # opentsdb
 
-## Description:
-
-
-
 ## Depends:
 
-  -  N/A
+  -  [openjdk-7-jre-headless](/salt/openjdk-7-jre-headless)
+  -  [sensu-client](/salt/sensu-client)
 
 ## Reverse Depends:
 
@@ -14,11 +11,21 @@
 
 ## Relates:
 
-  -  N/A
+  -  [sensu-api](/salt/sensu-api)
+  -  [zookeeper-server](/salt/zookeeper-server)
 
 ## Files:
 
 ```bash
 .
-└── init.sls
+├── defaults.yaml
+├── etc
+│   ├── opentsdb
+│   │   └── opentsdb.conf
+│   └── sensu
+│       └── conf.d
+│           └── checks-opentsdb.json
+├── init.sls
+├── relate-sensu-api.sls
+└── relate-zookeeper-server.sls
 ```

@@ -1,9 +1,5 @@
 # grafana
 
-## Description:
-
-
-
 ## Depends:
 
   -  [nginx](/salt/nginx)
@@ -34,8 +30,8 @@
 │   │   └── sites-available
 │   │       └── grafana
 │   └── sensu
-│       └── conf.d
-│           └── checks-grafana.json
+│       └── conf.d
+│           └── checks-grafana.json
 ├── init.sls
 ├── relate-elasticsearch.sls
 ├── relate-graphite-carbon.sls

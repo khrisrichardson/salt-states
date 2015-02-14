@@ -1,11 +1,5 @@
 # radosgw-agent
 
-## Description:
-
-RADOS is a distributed object store used by the Ceph distributed storage system.  This package provides a REST gateway to the object store that aims to implement a superset of Amazon's S3 service.
-
-This package contains the agent for synchronization between geographically separated RADOS deployments.
-
 ## Depends:
 
   -  [ceph](/salt/ceph)
@@ -25,7 +19,11 @@ This package contains the agent for synchronization between geographically separ
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
+│   ├── ceph
+│   │   └── radosgw-agent
+│   │       └── default.conf
 │   ├── logstash
 │   │   └── conf.d
 │   │       └── input-file-radosgw-agent.conf

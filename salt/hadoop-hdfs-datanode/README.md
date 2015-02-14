@@ -1,10 +1,5 @@
 # hadoop-hdfs-datanode
 
-## Description:
-
-The Data Nodes in the Hadoop Cluster are responsible for serving up blocks of
-data over the network to Hadoop Distributed Filesystem (HDFS) clients.
-
 ## Depends:
 
   -  [cloudera-cm4-agent](/salt/cloudera-cm4-agent)
@@ -35,8 +30,8 @@ data over the network to Hadoop Distributed Filesystem (HDFS) clients.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-hadoop-hdfs-datanode.json
+│       └── conf.d
+│           └── checks-hadoop-hdfs-datanode.json
 ├── init.sls
 ├── opt
 │   └── jmxtrans

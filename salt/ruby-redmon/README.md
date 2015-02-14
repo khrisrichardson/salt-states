@@ -1,9 +1,5 @@
 # ruby-redmon
 
-## Description:
-
-
-
 ## Depends:
 
   -  [g++](/salt/g++)

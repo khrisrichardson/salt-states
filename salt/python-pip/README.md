@@ -1,9 +1,5 @@
 # python-pip
 
-## Description:
-
-pip is a replacement for easy\_install, and is intended to be an improved Python package installer.  It integrates with virtualenv, doesn't do partial installs, can save package state for replaying, can install from non-egg sources, and can install from version control repositories.
-
 ## Depends:
 
   -  N/A
@@ -17,8 +13,9 @@ pip is a replacement for easy\_install, and is intended to be an improved Python
   -  [python-docker](/salt/python-docker)
   -  [python-elasticsearch](/salt/python-elasticsearch)
   -  [python-etcd](/salt/python-etcd)
+  -  [python-fig](/salt/python-fig)
   -  [python-influxdb](/salt/python-influxdb)
-  -  [python-pygit2](/salt/python-pygit2)
+  -  [python-mesos\_cli](/salt/python-mesos_cli)
   -  [salt-halite](/salt/salt-halite)
   -  [supervisor](/salt/supervisor)
 

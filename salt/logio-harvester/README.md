@@ -1,12 +1,9 @@
 # logio-harvester
 
-## Description:
-
-
-
 ## Depends:
 
-  -  N/A
+  -  [logio](/salt/logio)
+  -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
@@ -20,9 +17,13 @@
 
 ```bash
 .
+├── depend-supervisor.sls
 ├── etc
-│   └── log.io
-│       └── harvester.conf
+│   ├── log.io
+│   │   └── harvester.conf
+│   └── supervisor
+│       └── conf.d
+│           └── logio-harvester.conf
 ├── init.sls
 └── relate-logio-server.sls
 ```

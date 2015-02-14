@@ -1,9 +1,5 @@
 # sensu-admin
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

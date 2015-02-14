@@ -1,13 +1,5 @@
 # nova-api-os-compute
 
-## Description:
-
-OpenStack is a reliable cloud infrastructure. Its mission is to produce the ubiquitous cloud computing platform that will meet the needs of public and private cloud providers regardless of size, by being simple to implement and massively scalable.
-
-OpenStack Compute, codenamed Nova, is a cloud computing fabric controller. In addition to its "native" API (the OpenStack API), it also supports the Amazon EC2 API.
-
-This package provides the OpenStack Compute API frontend.
-
 ## Depends:
 
   -  [logstash](/salt/logstash)
@@ -28,6 +20,7 @@ This package provides the OpenStack Compute API frontend.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-supervisor.sls
 ├── etc
 │   ├── logstash

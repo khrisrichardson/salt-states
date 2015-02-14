@@ -1,11 +1,5 @@
 # heat-common
 
-## Description:
-
-Heat is a service to orchestrate multiple composite cloud applications using templates, through both an OpenStack-native ReST API and a CloudFormation-compatible Query API.
-
-This package contains the common files.
-
 ## Depends:
 
   -  N/A

@@ -1,14 +1,11 @@
 # cadvisor
 
-## Description:
-
-
-
 ## Depends:
 
   -  [ca-certificates](/salt/ca-certificates)
   -  [gcc](/salt/gcc)
   -  [git](/salt/git)
+  -  [godep](/salt/godep)
   -  [golang-go](/salt/golang-go)
   -  [gomock](/salt/gomock)
   -  [libc6-dev](/salt/libc6-dev)
@@ -37,8 +34,8 @@
 │   │   └── conf.d
 │   │       └── checks-cadvisor.json
 │   └── supervisor
-│       └── conf.d
-│           └── cadvisor.conf
+│       └── conf.d
+│           └── cadvisor.conf
 ├── init.sls
 ├── relate-influxdb.sls
 └── relate-sensu-api.sls

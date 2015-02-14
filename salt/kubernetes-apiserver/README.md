@@ -1,9 +1,5 @@
 # kubernetes-apiserver
 
-## Description:
-
-
-
 ## Depends:
 
   -  [kubernetes](/salt/kubernetes)

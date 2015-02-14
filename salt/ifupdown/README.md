@@ -1,9 +1,5 @@
 # ifupdown
 
-## Description:
-
-This package provides the tools ifup and ifdown which may be used to configure (or, respectively, deconfigure) network interfaces based on interface definitions in the file /etc/network/interfaces.
-
 ## Depends:
 
   -  N/A
@@ -20,5 +16,6 @@ This package provides the tools ifup and ifdown which may be used to configure (
 
 ```bash
 .
+├── defaults.yaml
 └── init.sls
 ```

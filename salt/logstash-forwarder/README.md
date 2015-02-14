@@ -1,9 +1,5 @@
 # logstash-forwarder
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

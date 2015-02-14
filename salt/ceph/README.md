@@ -1,15 +1,8 @@
 # ceph
 
-## Description:
-
-Ceph is a distributed storage system designed to provide excellent performance, reliability, and scalability.
-
-This package contains all server daemons and management tools for creating, running, and administering a Ceph storage cluster, with the exception of the metadata server, which is necessary for using the distributed file system and is provided by the ceph-mds package.
-
 ## Depends:
 
   -  [bash](/salt/bash)
-  -  [ceph-common](/salt/ceph-common)
   -  [logstash](/salt/logstash)
   -  [openssh-server](/salt/openssh-server)
   -  [sudo](/salt/sudo)

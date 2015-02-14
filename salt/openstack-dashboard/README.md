@@ -1,9 +1,5 @@
 # openstack-dashboard
 
-## Description:
-
-The OpenStack Dashboard is a reference implementation of a Django site that uses the Django-Nova project to provide web based interactions with the OpenStack Nova cloud controller.
-
 ## Depends:
 
   -  [apache2](/salt/apache2)
@@ -37,8 +33,8 @@ The OpenStack Dashboard is a reference implementation of a Django site that uses
 │   ├── openstack-dashboard
 │   │   └── local_settings.py
 │   └── sensu
-│       └── conf.d
-│           └── checks-openstack-dashboard.json
+│       └── conf.d
+│           └── checks-openstack-dashboard.json
 ├── init.sls
 ├── relate-keystone.sls
 ├── relate-memcached.sls

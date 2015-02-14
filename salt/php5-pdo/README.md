@@ -1,9 +1,5 @@
 # php5-pdo
 
-## Description:
-
-
-
 ## Depends:
 
   -  [php5](/salt/php5)

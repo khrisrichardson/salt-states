@@ -1,9 +1,5 @@
 # dynaTrace-analysis-server
 
-## Description:
-
-
-
 ## Depends:
 
   -  [dynaTrace-common](/salt/dynaTrace-common)
@@ -21,6 +17,7 @@
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   └── sensu
 │       └── conf.d

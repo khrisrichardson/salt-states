@@ -1,9 +1,5 @@
 # mesos-master
 
-## Description:
-
-
-
 ## Depends:
 
   -  [mesos](/salt/mesos)
@@ -16,6 +12,7 @@
 
 ## Relates:
 
+  -  [mesos-master](/salt/mesos-master)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -31,8 +28,8 @@
 │   │   └── conf.d
 │   │       └── checks-mesos-master.json
 │   └── supervisor
-│       └── conf.d
-│           └── mesos-master.conf
+│       └── conf.d
+│           └── mesos-master.conf
 ├── init.sls
 ├── relate-mesos-master.sls
 └── relate-sensu-api.sls

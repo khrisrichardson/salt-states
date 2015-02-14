@@ -1,9 +1,5 @@
 # haproxy
 
-## Description:
-
-HAProxy is a TCP/HTTP reverse proxy which is particularly suited for high availability environments. It features connection persistence through HTTP cookies, load balancing, header addition, modification, deletion both ways. It has request blocking capabilities and provides interface to display server status.
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)
@@ -32,6 +28,7 @@ HAProxy is a TCP/HTTP reverse proxy which is particularly suited for high availa
 
 ```bash
 .
+├── defaults.yaml
 ├── etc
 │   ├── default
 │   │   └── haproxy

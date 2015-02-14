@@ -1,14 +1,10 @@
 # guvnor
 
-## Description:
-
-
-
 ## Depends:
 
   -  [libpostgresql-jdbc-java](/salt/libpostgresql-jdbc-java)
   -  [maven](/salt/maven)
-  -  [maven.exec](/salt/maven.exec)
+  -  [maven.exec](/salt/maven/exec.sls)
   -  [openssl](/salt/openssl)
   -  [pwgen](/salt/pwgen)
   -  [tomcat7](/salt/tomcat7)
@@ -51,9 +47,6 @@
                 └── ROOT
                     └── WEB-INF
                         ├── beans.xml
-                        ├── classes
-                        │   └── log4j.xml
-                        └── lib
-                            ├── seam-security-3.2.0.Final.jar
-                            └── seam-security-api-3.2.0.Final.jar
+                        └── classes
+                            └── log4j.xml
 ```

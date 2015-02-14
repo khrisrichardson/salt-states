@@ -1,9 +1,5 @@
 # ruby-carrot-top
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

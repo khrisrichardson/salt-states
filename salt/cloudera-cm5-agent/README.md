@@ -1,11 +1,5 @@
 # cloudera-cm5-agent
 
-## Description:
-
-The Cloudera Manager Agent.
-
-The Agent is deployed to machines running services managed by Cloudera Manager.
-
 ## Depends:
 
   -  [cloudera-cm5](/salt/cloudera-cm5)
@@ -41,6 +35,7 @@ The Agent is deployed to machines running services managed by Cloudera Manager.
 
 ```bash
 .
+├── defaults.yaml
 ├── depend-e2fsprogs.sls
 ├── depend-mount.sls
 ├── depend-parted.sls

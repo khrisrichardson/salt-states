@@ -1,8 +1,4 @@
-# oracle-j2sdk1\_6
-
-## Description:
-
-
+# oracle-j2sdk1_6
 
 ## Depends:
 

@@ -1,9 +1,5 @@
 # cloudera-cm4
 
-## Description:
-
-Cloudera Manager
-
 ## Depends:
 
   -  [netbase](/salt/netbase)
@@ -18,6 +14,7 @@ Cloudera Manager
   -  [hbase-master](/salt/hbase-master)
   -  [hbase-regionserver](/salt/hbase-regionserver)
   -  [oozie](/salt/oozie)
+  -  [oracle-j2sdk1\_6](/salt/oracle-j2sdk1_6)
   -  [solr](/salt/solr)
   -  [zookeeper-server](/salt/zookeeper-server)
 

@@ -1,9 +1,5 @@
 # cliff-tablib
 
-## Description:
-
-Cliff-tablib is a set of formatter extensions for producing JSON, YAML, and HTML output. Installing cliff-tablib activates these formatters for any cliff-based programs automatically.
-
 ## Depends:
 
   -  N/A

@@ -1,9 +1,5 @@
 # ruby-bluepill
 
-## Description:
-
-
-
 ## Depends:
 
   -  [sensu-client](/salt/sensu-client)

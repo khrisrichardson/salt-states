@@ -1,9 +1,5 @@
 # debconf-utils
 
-## Description:
-
-This package contains some small utilities for debconf developers.
-
 ## Depends:
 
   -  N/A

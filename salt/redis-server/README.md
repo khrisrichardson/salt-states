@@ -1,11 +1,5 @@
 # redis-server
 
-## Description:
-
-Redis is a key-value database in a similar vein to memcache but the dataset is non-volatile. Redis additionally provides native support for atomically manipulating and querying data structures such as lists and sets.
-
-The dataset is stored entirely in memory and periodically flushed to disk.
-
 ## Depends:
 
   -  [procps](/salt/procps)
@@ -19,6 +13,7 @@ The dataset is stored entirely in memory and periodically flushed to disk.
 
 ## Relates:
 
+  -  [redis-server](/salt/redis-server)
   -  [sensu-api](/salt/sensu-api)
 
 ## Files:
@@ -28,8 +23,8 @@ The dataset is stored entirely in memory and periodically flushed to disk.
 ├── defaults.yaml
 ├── etc
 │   └── sensu
-│       └── conf.d
-│           └── checks-redis-server.json
+│       └── conf.d
+│           └── checks-redis-server.json
 ├── init.sls
 ├── map.jinja
 ├── relate-redis-server.sls

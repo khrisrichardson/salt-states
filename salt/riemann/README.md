@@ -1,9 +1,5 @@
 # riemann
 
-## Description:
-
-
-
 ## Depends:
 
   -  [openjdk-7-jre-headless](/salt/openjdk-7-jre-headless)
@@ -26,8 +22,8 @@
 │   ├── riemann
 │   │   └── riemann.config
 │   └── sensu
-│       └── conf.d
-│           └── checks-riemann.json
+│       └── conf.d
+│           └── checks-riemann.json
 ├── init.sls
 └── relate-sensu-api.sls
 ```

@@ -1,8 +1,5 @@
 # ruby-mysql
 
-## Description:
-
-
 ## Depends:
 
   -  N/A

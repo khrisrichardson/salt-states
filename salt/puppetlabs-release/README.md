@@ -1,9 +1,5 @@
 # puppetlabs-release
 
-## Description:
-
-
-
 ## Depends:
 
   -  N/A

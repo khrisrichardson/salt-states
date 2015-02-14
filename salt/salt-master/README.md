@@ -1,29 +1,19 @@
 # salt-master
 
-## Description:
-
-salt is a powerful remote execution manager that can be used to administer servers in a fast and efficient way.
-
-It allows commands to be executed across large groups of servers. This means systems can be easily managed, but data can also be easily gathered.  Quick introspection into running systems becomes a reality.
-
-Remote execution is usually used to set up a certain state on a remote system. Salt addresses this problem as well, the salt state system uses salt state files to define the state a server needs to be in.
-
-Between the remote execution system, and state management Salt addresses the backbone of cloud and data center management.
-
-This particular package provides the salt controller.
-
 ## Depends:
 
   -  [epel-release](/salt/epel-release)
   -  [git](/salt/git)
-  -  [openssh-client.known\_hosts.github.com](/salt/openssh-client/known_hosts/github/com)
+  -  [openssh-client.known\_hosts.github.com](/salt/openssh-client/known_hosts/github/com.sls)
   -  [python-pygit2](/salt/python-pygit2)
   -  [salt-common](/salt/salt-common)
+  -  [salt-halite](/salt/salt-halite)
   -  [sensu-client](/salt/sensu-client)
   -  [supervisor](/salt/supervisor)
 
 ## Reverse Depends:
 
+  -  [salt-api](/salt/salt-api)
   -  [salt-halite](/salt/salt-halite)
 
 ## Relates:
@@ -59,8 +49,8 @@ This particular package provides the salt controller.
 │   │   └── conf.d
 │   │       └── checks-salt-master.json
 │   └── supervisor
-│       └── conf.d
-│           └── salt-master.conf
+│       └── conf.d
+│           └── salt-master.conf
 ├── init.sls
 ├── relate-cobbler.sls
 ├── relate-etcd.sls
