@@ -1,5 +1,5 @@
 # vi: set ft=yaml.jinja :
 
-bundler:
+ruby-bundler:
   gem.installed:
-    - onlyif:      which gem
+    - name:        bundler

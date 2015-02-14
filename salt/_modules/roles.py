@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 """
-Manage minion roles
+Manage Salt Minion roles and relationships
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity: new
@@ -9,10 +9,19 @@ Manage minion roles
 
 # TODO: add support for consul
 # TODO: add support for etcd
+# TODO: add support for mesos-dns
 # TODO: add support for skydns
+# TODO: add support for zookeeper
 # TODO: add context sensitive set function
 
 # import libs: standard
+from __future__ import absolute_import
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from builtins import dict
+from future import standard_library
+standard_library.install_aliases()
 import re
 from collections import defaultdict
 
@@ -57,12 +66,12 @@ def dict_(roles=None,
                 ret[role] += [minion]
 
     if _subtype() == 'Docker' and out == 'ip':
-#       ret = {role: [grains[minion].get('fqdn_ip4')[0]
+#       ret = {role: [grains[minion].get('fqdn_ip4')[0] \
 #              for minion in minions]
-#              for role, minions in ret.iteritems()}
+#              for role, minions in list(ret.items())}
         ret = dict((role, [grains[minion].get('fqdn_ip4')[0]
                            for minion in minions])
-                   for (role, minions) in ret.iteritems())
+                  for (role, minions) in ret.items())
 
     return ret
 
@@ -130,7 +139,7 @@ def related_states(minion='', roles=None, saltenv=''):
     ret = set([])
     highstate = _state_show_highstate(saltenv)
     if isinstance(highstate, dict):
-        for data in highstate.values():
+        for data in list(highstate.values()):
             if isinstance(data, dict):
                 relation = data.get('__sls__')
                 for role in roles:
@@ -171,8 +180,8 @@ def tree(minion='', trunk=None, roles=None, saltenv=''):
     for role in roles:
         relations = _related_to_role(role, saltenv)
         _tree = tree(trunk=ret, roles=[r for r in relations if r != role])
-#       ret[role] = {k: v for (k, v) in _tree.iteritems() if k not in ret}
-        ret[role] = dict((k, v) for (k, v) in _tree.iteritems() if k not in ret)
+#       ret[role] = {k: v for (k, v) in list(_tree.items()) if k not in ret}
+        ret[role] = dict((k, v) for (k, v) in _tree.items() if k not in ret)
 
     return ret
 
@@ -263,7 +272,7 @@ def _grains_via_mine_in_env(*args):
 
     kwargs['expr_form'] = 'grain'
 
-    ret = __salt__['mine.get'](*args, **kwargs)
+    ret = __salt__['mine.get'](*args, **kwargs)  # pylint: disable=W0142
 
     return ret
 
@@ -316,7 +325,7 @@ def _grains_via_peer_in_env(*args):
 
     kwargs['expr_form'] = 'grain'
 
-    ret = __salt__['publish.publish'](*args, **kwargs)
+    ret = __salt__['publish.publish'](*args, **kwargs)  # pylint: disable=W0142
 
     return ret
 

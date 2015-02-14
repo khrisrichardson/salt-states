@@ -1,20 +1,22 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:precise:amd64
-network:
-  transport:
-    -
-      port:     8020
-      protocol: tcp
-    -
-      port:     9000
-      protocol: tcp
-    -
-      port:     50470
-      protocol: tcp
-    -
-      port:     50070
-      protocol: tcp
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:precise
+  ns:
+    net:
+      -
+        port:     8020
+        protocol: tcp
+      -
+        port:     9000
+        protocol: tcp
+      -
+        port:     50470
+        protocol: tcp
+      -
+        port:     50070
+        protocol: tcp

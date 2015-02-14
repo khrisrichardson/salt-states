@@ -1,13 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Manage sensu
+Manage Sensu
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity: new
 :platform: linux
+
+:depends: - sensu-client
 """
 
 # import libs: standard
+from __future__ import absolute_import
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from builtins import open
+from future import standard_library
+standard_library.install_aliases()
 from collections import defaultdict
 from glob import glob
 from json import load
@@ -22,7 +31,7 @@ def check(role=None, name=None):
         if name is None or name == key:
             results[key] = call(' '.join(args), shell=True)
     if results:
-        ret = all(v == 0 for v in results.values())
+        ret = all(v == 0 for v in list(results.values()))
     else:
         ret = False
     return ret
@@ -41,7 +50,7 @@ def list_checks(role=None):
     for role in roles:
         path = '/etc/sensu/conf.d/checks-' + role + '.json'
         if role in _list_roles() \
-        and not __salt__['file.file_exists'](path):
+           and not __salt__['file.file_exists'](path):
             __salt__['state.sls'](role)
             __salt__['state.sls'](role + '.relate-sensu-api',
                                   pillar={'test': True})
@@ -87,10 +96,10 @@ def _list_values(key=None, pattern='*'):
     ret = []
     paths = glob('/etc/sensu/conf.d/' + pattern + '.json')
     for path in paths:
-        with open(path) as path:
-            val = load(path).get(key)
+        with open(path) as json:
+            val = load(json).get(key)
             if isinstance(val, dict):
-                ret += val.items()
+                ret += list(val.items())
             else:
                 ret += [val] if val is not None else []
     return ret
@@ -99,5 +108,5 @@ def _list_values(key=None, pattern='*'):
 def _list_roles():
     """
     """
-    return set([r for r in list(__salt__['config.get']('roles')) + \
+    return set([r for r in list(__salt__['config.get']('roles')) +
                                 __salt__['environ.get']('roles').split(',') if r])

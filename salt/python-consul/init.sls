@@ -3,8 +3,7 @@
 include:
   -  python-pip
 
-python-fig:
+python-consul:
   pip.installed:
-    - name:        fig
     - require:
       - pkg:       python-pip

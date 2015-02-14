@@ -15,6 +15,8 @@ extend:
       - watch:
         - pkg:     mesos
         - service: supervisor
+        - file:   /etc/mesos-slave/containerizers
+        - file:   /etc/mesos-slave/executor_registration_timeout
        {% if minions['zookeeper-server'] %}
         - file:   /etc/mesos/zk
        {% endif %}

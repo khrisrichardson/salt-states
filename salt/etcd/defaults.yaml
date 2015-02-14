@@ -1,28 +1,30 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:latest:amd64
-network:
-  transport:
-    -
-      port:     2379
-      protocol: tcp
-      dst:      bridge
-      dport:    2379
-    -
-      port:     2380
-      protocol: tcp
-      dst:      bridge
-      dport:    2380
-    -
-      port:     4001
-      protocol: tcp
-      dst:      bridge
-      dport:    4001
-    -
-      port:     7001
-      protocol: tcp
-      dst:      bridge
-      dport:    7001
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     2379
+        protocol: tcp
+        dst:      bridge
+        dport:    2379
+      -
+        port:     2380
+        protocol: tcp
+        dst:      bridge
+        dport:    2380
+      -
+        port:     4001
+        protocol: tcp
+        dst:      bridge
+        dport:    4001
+      -
+        port:     7001
+        protocol: tcp
+        dst:      bridge
+        dport:    7001

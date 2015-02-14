@@ -1,0 +1,19 @@
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     8081
+        protocol: tcp
+      -
+        port:     8082
+        protocol: tcp
+      -
+        port:     8083
+        protocol: tcp

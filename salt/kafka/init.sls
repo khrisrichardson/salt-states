@@ -1,6 +1,6 @@
 # vi: set ft=yaml.jinja :
 
-{% set version     = '0.8.1.1' %}
+{% set version     = '0.8.2.0' %}
 {% set tarball_url = 'http://www.us.apache.org/dist/kafka/' + version + '/kafka_2.10-' + version + '.tgz' %}
 
 include:

@@ -12,17 +12,15 @@ include:
 {% if minions['sensu-api'] or test %}
 
 extend:
-  gem install docker:
-    cmd:
-      - env:
-        - PATH:   /opt/sensu/embedded/bin:/bin
+  ruby-docker:
+    gem.installed:
+      - gem_bin:  /opt/sensu/embedded/bin/gem
       - require:
         - pkg:     sensu
 
-  gem install docker-api:
-    cmd:
-      - env:
-        - PATH:   /opt/sensu/embedded/bin:/bin
+  ruby-docker-api:
+    gem.installed:
+      - gem_bin:  /opt/sensu/embedded/bin/gem
       - require:
         - pkg:     sensu
 

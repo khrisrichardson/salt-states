@@ -1,31 +1,17 @@
 # vi: set ft=yaml.jinja :
 
 include:
-  - .depend-golang-go
-  - .depend-supervisor
+  -  python-apt
 
-/etc/subgid:
-  file.append:
-    - text:        root:1000000:65536
-
-/etc/subuid:
-  file.append:
-    - text:        root:1000000:65536
-
-/usr/bin/lxc:
-  file.symlink:
-    - target:     /usr/local/src/github.com/lxc/lxd/lxc/lxc
+lxd:
+  pkgrepo.managed:
+    - keyserver:   hkp://keyserver.ubuntu.com:80
+    - keyid:       D5495F657635B973
+    - ppa:         ubuntu-lxc/lxd-daily
+   {% if salt['config.get']('os_family') == 'Debian' %}
     - require:
-      - cmd:       go build lxd
-
-/usr/bin/lxd:
-  file.symlink:
-    - target:     /usr/local/src/github.com/lxc/lxd/lxd/lxd
+      - pkg:       python-apt
+   {% endif %}
+  pkg.installed:
     - require:
-      - cmd:       go build lxd
-
-/var/lib/lxd:
-  file.directory:
-    - user:        root
-    - group:       root
-    - mode:       '0755'
+      - pkgrepo:   lxd

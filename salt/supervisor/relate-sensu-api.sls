@@ -11,10 +11,9 @@ include:
 {% if minions['sensu-api'] or test %}
 
 extend:
-  gem install supervisor:
-    cmd:
-      - env:
-        - PATH:   /opt/sensu/embedded/bin:/bin
+  ruby-supervisor:
+    gem.installed:
+      - gem_bin:  /opt/sensu/embedded/bin/gem
       - require:
         - pkg:     sensu
 

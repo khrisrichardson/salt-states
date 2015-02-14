@@ -5,9 +5,9 @@ include:
   -  make
   -  ruby-dev
 
-redmon:
+ruby-redmon:
   gem.installed:
-    - onlyif:      which gem
+    - name:        redmon
     - require:
       - pkg:       g++
       - pkg:       make

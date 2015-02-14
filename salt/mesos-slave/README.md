@@ -22,6 +22,9 @@
 ├── defaults.yaml
 ├── depend-supervisor.sls
 ├── etc
+│   ├── mesos-slave
+│   │   ├── containerizers
+│   │   └── executor_registration_timeout
 │   ├── sensu
 │   │   └── conf.d
 │   │       └── checks-mesos-slave.json

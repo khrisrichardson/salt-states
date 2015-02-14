@@ -1,20 +1,22 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:precise:amd64
-network:
-  transport:
-    -
-      port:     7180
-      protocol: tcp
-    -
-      port:     7182
-      protocol: tcp
-    -
-      port:     7183
-      protocol: tcp
-    -
-      port:     9000
-      protocol: tcp
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:precise
+  ns:
+    net:
+      -
+        port:     7180
+        protocol: tcp
+      -
+        port:     7182
+        protocol: tcp
+      -
+        port:     7183
+        protocol: tcp
+      -
+        port:     9000
+        protocol: tcp

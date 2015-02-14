@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Manage containers
+Manage Linux Containers via assorted runtimes
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
 :maturity: new
@@ -8,11 +8,20 @@ Manage containers
 """
 
 # TODO: perform base and role validation
-# TODO: add option to create all downstream containers
+# TODO: add option to create all downstream containers for local testing
 # TODO: add option to create individual relations for integration testing
-# TODO: add option to test monitoring scripts
+# TODO: add option to execute sensu checks
 
 # import libs: standard
+from __future__ import absolute_import
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from builtins import open
+from builtins import dict
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
 from collections import OrderedDict
 from os.path import join
 from pprint import pformat
@@ -32,13 +41,14 @@ __func_alias__ = {
 def create(base='ubuntu:latest:amd65', role=None, build=True):
     """
     """
+    ret = None
     if RUNTIME == 'docker':
         _setup_docker()
         ret = _create_docker(
             base=':'.join(base.split(':')[:2]),
             role=role,
             build=True,
-            volumes=_get_storage_mount_volumes(role=role),
+            volumes=lxc_config_mount_entry_dir(role=role),
         )
     elif RUNTIME == 'lxc':
         ret = _create_lxc()
@@ -127,13 +137,16 @@ def move():
 def publish(base='ubuntu:latest:amd64', role='salt-minion'):
     """
     """
+    ret = None
     if RUNTIME == 'docker':
         _setup_docker()
         ret = _publish_docker(
             base=':'.join(base.split(':')[:2]),
             role=role,
-            EXPOSE=_get_network_transport_ports(role=role),
-            RUN=_get_compute_image_commands(base=base, role=role),
+            CMD=lxc_start_command(role=role),
+            ENV=lxc_config_environment(role=role),
+            EXPOSE=_get_lxc_ns_net_ports(role=role),
+            RUN=_get_lxc_create_commands(base=base, role=role),
         )
     elif RUNTIME == 'lxc':
         ret = _publish_lxc()
@@ -210,13 +223,14 @@ def snapshot():
 def start(base='ubuntu:latest:amd64', role=None):
     """
     """
+    ret = None
     if RUNTIME == 'docker':
         _setup_docker()
         ret = _start_docker(
             base=':'.join(base.split(':')[:2]),
             role=role,
-            binds=_get_storage_mount_details(role=role),
-            port_bindings=_get_network_transport_dnats(role=role),
+            binds=lxc_config_mount_entry(role=role),
+            port_bindings=_get_lxc_ns_net_dnats(role=role),
         )
     elif RUNTIME == 'lxc':
         ret = _start_lxc()
@@ -290,22 +304,344 @@ def test():
     raise NotImplementedError
 
 
-def _get_compute_image_bases(role=None):
+def _get_defaults(role=None):
+    """
+    Get default data
+
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    url = 'salt://' + role + '/defaults.yaml'
+    defaults = __salt__['cp.get_file_str'](url)
+    ret = load(defaults)
+
+    return ret
+
+
+def _get_lxc(role=None):
+    """
+    List compute data
+
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    defaults = _get_defaults(role=role)
+    ret = defaults.get('lxc', {})
+
+    return ret
+
+
+def _get_lxc_cgroup(role=None):
+    """
+    """
+    lxc = _get_lxc(role=role)
+    ret = lxc.get('cgroup')
+
+    return ret
+
+
+def _get_lxc_cgroup_blkio(role=None):
+    """
+    """
+    cgroup = _get_lxc_cgroup(role=role)
+    ret = cgroup.get('blkio')
+
+    return ret
+
+
+def _get_lxc_cgroup_cpu(role=None):
+    """
+    """
+    cgroup = _get_lxc_cgroup(role=role)
+    ret = cgroup.get('cpu')
+
+    return ret
+
+
+def _get_lxc_cgroup_cpuacct(role=None):
+    """
+    """
+    cgroup = _get_lxc_cgroup(role=role)
+    ret = cgroup.get('cpuacct')
+
+    return ret
+
+
+def _get_lxc_cgroup_cpuset(role=None):
+    """
+    """
+    cgroup = _get_lxc_cgroup(role=role)
+    ret = cgroup.get('cpuset')
+
+    return ret
+
+
+def _get_lxc_cgroup_devices(role=None):
+    """
+    """
+    cgroup = _get_lxc_cgroup(role=role)
+    ret = cgroup.get('devices')
+
+    return ret
+
+
+def _get_lxc_cgroup_hugetlb(role=None):
+    """
+    """
+    cgroup = _get_lxc_cgroup(role=role)
+    ret = cgroup.get('hugetlb')
+
+    return ret
+
+
+def _get_lxc_cgroup_memory(role=None):
+    """
+    """
+    cgroup = _get_lxc_cgroup(role=role)
+    ret = cgroup.get('memory')
+
+    return ret
+
+
+def _get_lxc_config(role=None):
+    """
+    lxc.aa_allow_incomplete
+    lxc.aa_profile
+    lxc.arch
+    lxc.autodev
+    lxc.cap.drop
+    lxc.cap.keep
+    lxc.cgroup.blkio.io_merged
+    lxc.cgroup.blkio.io_merged_recursive
+    lxc.cgroup.blkio.io_queued
+    lxc.cgroup.blkio.io_queued_recursive
+    lxc.cgroup.blkio.io_service_bytes
+    lxc.cgroup.blkio.io_service_bytes_recursive
+    lxc.cgroup.blkio.io_serviced
+    lxc.cgroup.blkio.io_serviced_recursive
+    lxc.cgroup.blkio.io_service_time
+    lxc.cgroup.blkio.io_service_time_recursive
+    lxc.cgroup.blkio.io_wait_time
+    lxc.cgroup.blkio.io_wait_time_recursive
+    lxc.cgroup.blkio.leaf_weight
+    lxc.cgroup.blkio.leaf_weight_device
+    lxc.cgroup.blkio.reset_stats
+    lxc.cgroup.blkio.sectors
+    lxc.cgroup.blkio.sectors_recursive
+    lxc.cgroup.blkio.throttle.io_service_bytes
+    lxc.cgroup.blkio.throttle.io_serviced
+    lxc.cgroup.blkio.throttle.read_bps_device
+    lxc.cgroup.blkio.throttle.read_iops_device
+    lxc.cgroup.blkio.throttle.write_bps_device
+    lxc.cgroup.blkio.throttle.write_iops_device
+    lxc.cgroup.blkio.time
+    lxc.cgroup.blkio.time_recursive
+    lxc.cgroup.blkio.weight
+    lxc.cgroup.blkio.weight_device
+    lxc.cgroup.cpuacct.stat
+    lxc.cgroup.cpuacct.usage
+    lxc.cgroup.cpuacct.usage_percpu
+    lxc.cgroup.cpu.cfs_period_us
+    lxc.cgroup.cpu.cfs_quota_us
+    lxc.cgroup.cpuset.cpu_exclusive
+    lxc.cgroup.cpuset.cpus
+    lxc.cgroup.cpuset.mem_exclusive
+    lxc.cgroup.cpuset.mem_hardwall
+    lxc.cgroup.cpuset.memory_migrate
+    lxc.cgroup.cpuset.memory_pressure
+    lxc.cgroup.cpuset.memory_pressure_enabled
+    lxc.cgroup.cpuset.memory_spread_page
+    lxc.cgroup.cpuset.memory_spread_slab
+    lxc.cgroup.cpuset.mems
+    lxc.cgroup.cpuset.sched_load_balance
+    lxc.cgroup.cpuset.sched_relax_domain_level
+    lxc.cgroup.cpu.shares
+    lxc.cgroup.cpu.stat
+    lxc.cgroup.devices.allow
+    lxc.cgroup.devices.deny
+    lxc.cgroup.devices.list
+    lxc.cgroup.hugetlb.2MB.failcnt
+    lxc.cgroup.hugetlb.2MB.limit_in_bytes
+    lxc.cgroup.hugetlb.2MB.max_usage_in_bytes
+    lxc.cgroup.hugetlb.2MB.usage_in_bytes
+    lxc.cgroup.memory.failcnt
+    lxc.cgroup.memory.force_empty
+    lxc.cgroup.memory.kmem.failcnt
+    lxc.cgroup.memory.kmem.limit_in_bytes
+    lxc.cgroup.memory.kmem.max_usage_in_bytes
+    lxc.cgroup.memory.kmem.slabinfo
+    lxc.cgroup.memory.kmem.tcp.failcnt
+    lxc.cgroup.memory.kmem.tcp.limit_in_bytes
+    lxc.cgroup.memory.kmem.tcp.max_usage_in_bytes
+    lxc.cgroup.memory.kmem.tcp.usage_in_bytes
+    lxc.cgroup.memory.kmem.usage_in_bytes
+    lxc.cgroup.memory.limit_in_bytes
+    lxc.cgroup.memory.max_usage_in_bytes
+    lxc.cgroup.memory.move_charge_at_immigrate
+    lxc.cgroup.memory.numa_stat
+    lxc.cgroup.memory.oom_control
+    lxc.cgroup.memory.pressure_level
+    lxc.cgroup.memory.soft_limit_in_bytes
+    lxc.cgroup.memory.stat
+    lxc.cgroup.memory.swappiness
+    lxc.cgroup.memory.usage_in_bytes
+    lxc.cgroup.memory.use_hierarchy
+    lxc.console
+    lxc.console.logfile
+    lxc.devttydir
+    lxc.environment
+    lxc.group
+    lxc.haltsignal
+    lxc.hook.autodev
+    lxc.hook.clone
+    lxc.hook.mount
+    lxc.hook.post-stop
+    lxc.hook.pre-mount
+    lxc.hook.pre-start
+    lxc.hook.start
+    lxc.id_map
+    lxc.include
+    lxc.kmsg
+    lxc.logfile
+    lxc.loglevel
+    lxc.mount
+    lxc.mount.auto
+    lxc.mount.entry
+    lxc.network.flags
+    lxc.network.hwaddr
+    lxc.network.ipv4
+    lxc.network.ipv4.gateway
+    lxc.network.ipv6
+    lxc.network.ipv6.gateway
+    lxc.network.link
+    lxc.network.macvlan.mode
+    lxc.network.mtu
+    lxc.network.name
+    lxc.network.script.down
+    lxc.network.script.up
+    lxc.network.type
+    lxc.network.veth.pair
+    lxc.network.vlan.id
+    lxc.pts
+    lxc.rootfs
+    lxc.rootfs.mount
+    lxc.rootfs.options
+    lxc.seccomp
+    lxc.se_context
+    lxc.start.auto
+    lxc.start.delay
+    lxc.start.order
+    lxc.stopsignal
+    lxc.tty
+    lxc.utsname
+    """
+    lxc = _get_lxc(role=role)
+    ret = lxc.get('config')
+
+    return ret
+
+
+def _get_lxc_config_cap(role=None):
+    """
+    """
+    config = _get_lxc_config(role=role)
+    ret = config.get('cap')
+
+    return ret
+
+
+def lxc_config_environment(role=None):
+    """
+    """
+    ret = ['DEBIAN_FRONTEND noninteractive',
+           'bootstrap true',
+           'repository https://github.com/khrisrichardson/salt-states.git',
+           'ref master',
+           'url https://bootstrap.saltstack.com']
+    config = _get_lxc_config(role=role)
+    ret += config.get('environment')
+
+    return ret
+
+
+def _get_lxc_config_hook(role=None):
+    """
+    """
+    config = _get_lxc_config(role=role)
+    ret = config.get('hook')
+
+    return ret
+
+
+def _get_lxc_config_mount(role=None):
+    """
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    config = _get_lxc_config(role=role)
+    ret = config.get('mount', {})
+
+    return ret
+
+
+def _get_lxc_config_mount_entry(role=None):
+    """
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    mount = _get_lxc_config_mount(role=role)
+    ret = mount.get('entry', [])
+
+    return ret
+
+
+def lxc_config_mount_entry(role=None):
+    """
+    List of device:dir:option to mount in container.
+
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    entry = _get_lxc_config_mount_entry(role=role)
+    ret = [':'.join((e.get('device'),
+                     e.get('dir'),
+                     e.get('option', 'rw'))) for e in entry]
+
+    return ret
+
+
+def lxc_config_mount_entry_dir(role=None):
+    """
+    List of volumes to mount in container.
+
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    mount = _get_lxc_config_mount(role=role)
+    ret = [e.get('dir') for e in mount]
+
+    return ret
+
+
+def _get_lxc_create(role=None):
+    """
+    List network transport data.
+
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    compute = _get_lxc(role=role)
+    ret = compute.get('image', {})
+
+    return ret
+
+
+def lxc_create_template(role=None):
     """
     List of bases from which to publish image
 
     :param str role: Role the image will provide, corresponding to salt state.
     """
-    url = 'salt://' + role + '/defaults.yaml'
-    contents = __salt__['cp.get_file_str'](url)
-    compute = load(contents).get('compute', {})
-    image = compute.get('image', {})
-    ret = image.get('bases', [])
+    create_ = _get_lxc_create(role=role)
+    ret = create_.get('template', [])
 
     return ret
 
 
-def _get_compute_image_commands(base=None, role=None, layer=True, unit='low'):
+def _get_lxc_create_commands(base=None, role=None, layer=True, unit='low'):
     """
     List of commands to create image
 
@@ -323,7 +659,7 @@ def _get_compute_image_commands(base=None, role=None, layer=True, unit='low'):
           """
     # Commands to create salt-minion base image
     ret += [' '.join(cmd.lstrip().replace('\n', ';').split())]
-    ret += ['bash bootstrap-salt.sh -X git 2014.7 || true']
+    ret += ['bash bootstrap-salt.sh -X git 2015.2 || true']
     ret += ['salt-call file.mkdir  /etc/salt/minion.d --local']
     ret += ['salt-call file.write  /etc/salt/minion.d/salt-master.conf "file_client: local" --local']
     ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "fileserver_backend: [roots, git]"']
@@ -359,30 +695,36 @@ def _get_compute_image_commands(base=None, role=None, layer=True, unit='low'):
     return ret
 
 
-def _get_network_transport(role=None):
+def _get_lxc_ns(role=None):
     """
-    List network transport data.
-
     :param str role: Role the image will provide, corresponding to salt state.
     """
-    url = 'salt://' + role + '/defaults.yaml'
-    contents = __salt__['cp.get_file_str'](url)
-    network = load(contents).get('network', {})
-    ret = network.get('transport', {})
+    lxc = _get_lxc(role=role)
+    ret = lxc.get('ns', {})
 
     return ret
 
 
-def _get_network_transport_dnats(role=None):
+def _get_lxc_ns_net(role=None):
+    """
+    :param str role: Role the image will provide, corresponding to salt state.
+    """
+    ns = _get_lxc_ns(role=role)
+    ret = ns.get('net', {})
+
+    return ret
+
+
+def _get_lxc_ns_net_dnats(role=None):
     """
     Dictionary of destination nats to setup in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
     """
     ret = {}
-    transport = _get_network_transport(role=role)
+    net = _get_lxc_ns_net(role=role)
 
-    for data in transport:
+    for data in net:
         port = data.get('port')
         protocol = data.get('protocol', 'tcp')
         key = '/'.join((str(port), protocol))
@@ -406,52 +748,36 @@ def _get_network_transport_dnats(role=None):
     return ret
 
 
-def _get_network_transport_ports(role=None):
+def _get_lxc_ns_net_ports(role=None):
     """
     List of ports to expose in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
     """
-    transport = _get_network_transport(role=role)
-    ret = [str(i.get('port')) + '/' + i.get('protocol', 'tcp') for i in transport]
+    net = _get_lxc_ns_net(role=role)
+    ret = [str(i.get('port')) + '/' + i.get('protocol', 'tcp') for i in net]
 
     return ret
 
 
-def _get_storage_mounts(role=None):
+def _get_lxc_start(role=None):
     """
-    Get storage mount data.
-
-    :param str role: Role the image will provide, corresponding to salt state.
     """
-    url = 'salt://' + role + '/defaults.yaml'
-    contents = __salt__['cp.get_file_str'](url)
-    storage = load(contents).get('storage', {})
-    ret = storage.get('mounts', [])
+    lxc = _get_lxc(role=role)
+    ret = lxc.get('start')
 
     return ret
 
 
-def _get_storage_mount_details(role=None):
+def lxc_start_command(role=None):
     """
-    List of device:dir:option to mount in container.
-
-    :param str role: Role the image will provide, corresponding to salt state.
     """
-    mounts = _get_storage_mounts(role=role)
-    ret = [':'.join((i.get('device'), i.get('dir'), i.get('option', 'rw'))) for i in mounts]
-
-    return ret
-
-
-def _get_storage_mount_volumes(role=None):
-    """
-    List of volumes to mount in container.
-
-    :param str role: Role the image will provide, corresponding to salt state.
-    """
-    mounts = _get_storage_mounts(role=role)
-    ret = [i.get('dir') for i in mounts]
+    ret = ['/usr/bin/supervisord',
+           '-c',
+           '/etc/supervisor/supervisord.conf',
+           '-n']
+    start_ = _get_lxc_start(role=role)
+    ret = start_.get('command') or ret
 
     return ret
 
@@ -467,17 +793,13 @@ def _manifest_docker(**kwargs):
         ('MAINTAINER', 'Khris Richardson <khris.richardson@gmail.com>'),
         ('ADD', []),
         ('COPY', []),
-        ('ENV', ['DEBIAN_FRONTEND noninteractive',
-                 'bootstrap true',
-                 'repository https://github.com/khrisrichardson/salt-states.git',
-                 'ref master',
-                 'url https://bootstrap.saltstack.com']),
+        ('ENV', []),
         ('ONBUILD', []),
         ('RUN', []),
         ('USER', None),
         ('VOLUME', []),
         ('WORKDIR', None),
-        ('CMD', ['/usr/bin/supervisord', '-c', '/etc/supervisor/supervisord.conf', '-n']),
+        ('CMD', []),
         ('ENTRYPOINT', []),
         ('EXPOSE', []),
     ]
@@ -485,7 +807,7 @@ def _manifest_docker(**kwargs):
     instructions = [(i[0], kwargs.get(i[0], i[1])) for i in defaults]
 
     for key, val in instructions:
-        if (key in ['CMD', 'ENTRYPOINT'] and val) or isinstance(val, basestring):
+        if (key in ['CMD', 'ENTRYPOINT'] and val) or isinstance(val, str):
             ret += key + ' ' + str(val).replace("'", '"') + '\n'
         elif isinstance(val, list):
             for i in val:
@@ -526,7 +848,7 @@ def _state_chunks(**kwargs):
     tmp = {}
     text = []
     contents = []
-    for (key, val) in kwargs.items():
+    for (key, val) in list(kwargs.items()):
         if isinstance(val, str) and '\n' in val:
             if key in ['onlyif', 'unless']:
                 val = val.replace('\\\n', '')
@@ -543,11 +865,11 @@ def _state_chunks(**kwargs):
             tmp[key] = val
     if text:
         for line in text:
-            ret += [dict(tmp.items() + {'text': line}.items())]
+            ret += [dict(list(tmp.items()) + list({'text': line}.items()))]
     if contents:
         tmp.update({'fun': 'append'})
         for line in contents:
-            ret += [dict(tmp.items() + {'contents': line}.items())]
+            ret += [dict(list(tmp.items()) + list({'contents': line}.items()))]
     else:
         ret += [tmp]
     return ret
@@ -610,6 +932,7 @@ def _state_show_lowstate(base=None, role=None):
     """
     Get lowstate data structure
     """
+    ret = None
     if RUNTIME == 'docker':
         _setup_docker()
         ret = _state_show_lowstate_docker(base=base, role=role)

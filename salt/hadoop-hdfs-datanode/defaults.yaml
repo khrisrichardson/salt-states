@@ -1,29 +1,31 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:precise:amd64
-network:
-  transport:
-    -
-      port:     1004
-      protocol: tcp
-    -
-      port:     1006
-      protocol: tcp
-    -
-      port:     9000
-      protocol: tcp
-    -
-      port:     50010
-      protocol: tcp
-    -
-      port:     50020
-      protocol: tcp
-    -
-      port:     50075
-      protocol: tcp
-    -
-      port:     50475
-      protocol: tcp
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:precise
+  ns:
+    net:
+      -
+        port:     1004
+        protocol: tcp
+      -
+        port:     1006
+        protocol: tcp
+      -
+        port:     9000
+        protocol: tcp
+      -
+        port:     50010
+        protocol: tcp
+      -
+        port:     50020
+        protocol: tcp
+      -
+        port:     50075
+        protocol: tcp
+      -
+        port:     50475
+        protocol: tcp

@@ -1,29 +1,31 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:precise:amd64
-network:
-  transport:
-    -
-      port:     2181
-      protocol: tcp
-    -
-      port:     2888
-      protocol: tcp
-    -
-      port:     3181
-      protocol: tcp
-    -
-      port:     3888
-      protocol: tcp
-    -
-      port:     4181
-      protocol: tcp
-    -
-      port:     9000
-      protocol: tcp
-    -
-      port:     9010
-      protocol: tcp
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:precise
+  ns:
+    net:
+      -
+        port:     2181
+        protocol: tcp
+      -
+        port:     2888
+        protocol: tcp
+      -
+        port:     3181
+        protocol: tcp
+      -
+        port:     3888
+        protocol: tcp
+      -
+        port:     4181
+        protocol: tcp
+      -
+        port:     9000
+        protocol: tcp
+      -
+        port:     9010
+        protocol: tcp

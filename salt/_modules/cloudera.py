@@ -1,46 +1,49 @@
 # -*- coding: utf-8 -*-
 """
-Module to manage Cloudera infrastructure via the Cloudera Manager API.
+Manage Cloudera
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
-:maturity:   new
-:depends:    cm_api Python module
-:platform:   all
+:maturity: new
+:platform: all
+
+:depends: - cloudera-cm4-api
+          - cloudera-cm5-api
 """
 
-import hashlib
-import httplib
-import logging
-import os
-import sys
-import time
-
-from itertools import chain
-from urllib2   import URLError
+# import libs: standard
+from __future__ import absolute_import
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from builtins import dict
+from future import standard_library
+standard_library.install_aliases()
+from logging import getLogger
+from time import sleep
 
 try:
-    from cm_api.api_client                   import ApiException, ApiResource
-    from cm_api.endpoints.clusters           import ApiCluster
-    from cm_api.endpoints.hosts              import ApiHost
-    from cm_api.endpoints.parcels            import ApiParcel
+    from cm_api.api_client import ApiException, ApiResource
+    from cm_api.endpoints.clusters import ApiCluster
+    from cm_api.endpoints.hosts import ApiHost
+    from cm_api.endpoints.parcels import ApiParcel
     from cm_api.endpoints.role_config_groups import ApiRoleConfigGroup
-    from cm_api.endpoints.roles              import ApiRole
-    from cm_api.endpoints.services           import ApiService
-    from cm_api.endpoints.types              import *
-    HAS_CMAPI = True
+    from cm_api.endpoints.roles import ApiRole
+    from cm_api.endpoints.services import ApiService
+    from cm_api.endpoints.types import *
+    HAS_LIBS = True
 except ImportError:
-    HAS_CMAPI = False
+    HAS_LIBS = False
 
 CMD_TIMEOUT = 360
 
-log = logging.getLogger(__name__)
+log = getLogger(__name__)
 
 
 def __virtual__():
     """
     Only load if Cloudera Manager API is available.
     """
-    return 'cloudera' if HAS_CMAPI else False
+    return 'cloudera' if HAS_LIBS else False
 
 
 def _connect(**kwargs):
@@ -428,7 +431,7 @@ def parcel_install(name, version, cluster, **cm_args):
 
     while (p.stage == 'UNAVAILABLE'):
         p = c.get_parcel(name, version)
-        time.sleep(1)
+        sleep(1)
 
     if p.stage == 'AVAILABLE_REMOTELY':
 
@@ -442,7 +445,7 @@ def parcel_install(name, version, cluster, **cm_args):
             while (p.stage == 'AVAILABLE_REMOTELY' or
                    p.stage == 'DOWNLOADING'):
                 p = c.get_parcel(name, version)
-                time.sleep(1)
+                sleep(1)
 
             log.info('Downloaded parcel {0}-{1}'.format(name, version))
 
@@ -458,7 +461,7 @@ def parcel_install(name, version, cluster, **cm_args):
             while (p.stage == 'DOWNLOADED' or
                    p.stage == 'DISTRIBUTING'):
                 p = c.get_parcel(name, version)
-                time.sleep(1)
+                sleep(1)
 
             log.info('Distributed parcel {0}-{1}'.format(name, version))
 

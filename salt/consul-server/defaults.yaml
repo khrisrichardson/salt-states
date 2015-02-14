@@ -1,32 +1,34 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:latest:amd64
-network:
-  transport:
-    -
-      port:     8300
-      protocol: tcp
-    -
-      port:     8301
-      protocol: tcp
-    -
-      port:     8301
-      protocol: udp
-    -
-      port:     8302
-      protocol: tcp
-    -
-      port:     8302
-      protocol: udp
-    -
-      port:     8400
-      protocol: tcp
-    -
-      port:     8600
-      protocol: tcp
-    -
-      port:     8600
-      protocol: udp
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     8300
+        protocol: tcp
+      -
+        port:     8301
+        protocol: tcp
+      -
+        port:     8301
+        protocol: udp
+      -
+        port:     8302
+        protocol: tcp
+      -
+        port:     8302
+        protocol: udp
+      -
+        port:     8400
+        protocol: tcp
+      -
+        port:     8600
+        protocol: tcp
+      -
+        port:     8600
+        protocol: udp

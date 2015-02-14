@@ -1,24 +1,26 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:latest:amd64
-network:
-  transport:
-    -
-      port:     8080
-      protocol: tcp
-      dst:      anywhere
-      dport:    8080
-storage:
-  mounts:
-    -
-      device: /cgroup
-      dir:    /sys/fs/cgroup
-    -
-      device: /var/lib/docker
-      dir:    /var/lib/docker
-    -
-      device: /var/run
-      dir:    /var/run
+lxc:
+  config:
+    arch: amd64
+    mount:
+      entry:
+        -
+          device: /cgroup
+          dir:    /sys/fs/cgroup
+        -
+          device: /var/lib/docker
+          dir:    /var/lib/docker
+        -
+          device: /var/run
+          dir:    /var/run
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     8080
+        protocol: tcp
+        dst:      anywhere
+        dport:    8080

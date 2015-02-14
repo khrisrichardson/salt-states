@@ -1,0 +1,13 @@
+{% set roles = [] -%}
+{% do  roles.append('aurora-scheduler') -%}
+{% do  roles.append('zookeeper-server') -%}
+{% set minions = salt['roles.dict'](roles) -%}
+[{
+  "name": "example",
+{% if   minions['zookeeper-server'] -%}
+  "scheduler_zk_path": "/aurora/scheduler"
+  "zk":                "{{ minions['zookeeper-server']|join(',') }}",
+{% elif minions['aurora-scheduler'] -%}
+  "scheduler_uri":     "{{ minions['aurora-scheduler'][0] }}:8081",
+{% endif -%}
+}]

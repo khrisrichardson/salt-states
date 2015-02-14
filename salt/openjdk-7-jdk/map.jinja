@@ -1,0 +1,9 @@
+# vi: set ft=json.jinja :
+
+{% set map = salt['grains.filter_by']({
+  'Debian': {
+    'pkg': {
+      'name':          'openjdk-7-jdk',
+    },
+  },
+}, merge=salt['config.get']('openjdk-7-jdk')) %}

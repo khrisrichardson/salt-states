@@ -1,35 +1,37 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:latest:amd64
-network:
-  transport:
-    -
-      port:     2003
-      protocol: tcp
-    -
-      port:     2003
-      protocol: udp
-    -
-      port:     4444
-      protocol: tcp
-    -
-      port:     5551
-      protocol: tcp
-    -
-      port:     8083
-      protocol: tcp
-    -
-      port:     8084
-      protocol: tcp
-    -
-      port:     8086
-      protocol: tcp
-    -
-      port:     8090
-      protocol: tcp
-    -
-      port:     8099
-      protocol: tcp
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     2003
+        protocol: tcp
+      -
+        port:     2003
+        protocol: udp
+      -
+        port:     4444
+        protocol: tcp
+      -
+        port:     5551
+        protocol: tcp
+      -
+        port:     8083
+        protocol: tcp
+      -
+        port:     8084
+        protocol: tcp
+      -
+        port:     8086
+        protocol: tcp
+      -
+        port:     8090
+        protocol: tcp
+      -
+        port:     8099
+        protocol: tcp

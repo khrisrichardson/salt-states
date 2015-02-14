@@ -13,24 +13,21 @@ include:
 {% if minions['sensu-api'] or test %}
 
 extend:
-  gem install bunny:
-    cmd:
-      - env:
-        - PATH:   /opt/sensu/embedded/bin:/bin
+  ruby-bunny:
+    gem.installed:
+      - gem_bin:  /opt/sensu/embedded/bin/gem
       - require:
         - pkg:     sensu
 
-  gem install carrot-top:
-    cmd:
-      - env:
-        - PATH:   /opt/sensu/embedded/bin:/bin
+  ruby-carrot-top:
+    gem.installed:
+      - gem_bin:  /opt/sensu/embedded/bin/gem
       - require:
         - pkg:     sensu
 
-  gem install rest-client:
-    cmd:
-      - env:
-        - PATH:   /opt/sensu/embedded/bin:/bin
+  ruby-rest-client:
+    gem.installed:
+      - gem_bin:  /opt/sensu/embedded/bin/gem
       - require:
         - pkg:     sensu
 

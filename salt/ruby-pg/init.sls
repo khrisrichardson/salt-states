@@ -3,10 +3,8 @@
 include:
   -  libpq-dev
 
-gem install pg:
-  cmd.run:
-    - onlyif:      which gem
-    - unless:    |-
-                 ( gem list pg                                                 \
-                 | egrep -q pg
-                 )
+ruby-pg:
+  gem.installed:
+    - name:        pg
+    - require:
+      - pkg:       libpq-dev

@@ -1,5 +1,6 @@
 .bzr/
 .cache/
+.idea/
 .metadata/
 .settings/
 .project

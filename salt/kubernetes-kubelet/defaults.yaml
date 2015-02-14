@@ -1,16 +1,18 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:latest:amd64
-network:
-  transport:
-    -
-      port:     10250
-      protocol: tcp
-storage:
-  mounts:
-    -
-      device: /var/run
-      dir:    /var/run
+lxc:
+  config:
+    arch: amd64
+    mount:
+      entry:
+        -
+          device: /var/run
+          dir:    /var/run
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     10250
+        protocol: tcp

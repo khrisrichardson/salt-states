@@ -1,28 +1,30 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:latest:amd64
-network:
-  transport:
-    -
-      port:     443
-      protocol: tcp
-    -
-      port:     4505
-      protocol: tcp
-    -
-      port:     4506
-      protocol: tcp
-storage:
-  mounts:
-    -
-      device: /srv/pillar
-      dir:    /srv/pillar
-    -
-      device: /srv/reactor
-      dir:    /srv/salt/salt-master/srv/reactor
-    -
-      device: /srv/salt
-      dir:    /srv/salt
+lxc:
+  config:
+    arch: amd64
+    mount:
+      entry:
+      -
+        device: /srv/pillar
+        dir:    /srv/pillar
+      -
+        device: /srv/reactor
+        dir:    /srv/salt/salt-master/srv/reactor
+      -
+        device: /srv/salt
+        dir:    /srv/salt
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     443
+        protocol: tcp
+      -
+        port:     4505
+        protocol: tcp
+      -
+        port:     4506
+        protocol: tcp

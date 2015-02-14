@@ -20,3 +20,25 @@ mesos-slave:
 {% endif %}
     - watch:
       - pkg:       mesos
+
+/etc/mesos-slave/containerizers:
+  file.managed:
+    - source:      salt://{{ sls }}/etc/mesos-slave/containerizers
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+    - require:
+      - file:     /etc/mesos-slave
+    - watch_in:
+      - service:   mesos-slave
+
+/etc/mesos-slave/executor_registration_timeout:
+  file.managed:
+    - source:      salt://{{ sls }}/etc/mesos-slave/executor_registration_timeout
+    - user:        root
+    - group:       root
+    - mode:       '0644'
+    - require:
+      - file:     /etc/mesos-slave
+    - watch_in:
+      - service:   mesos-slave

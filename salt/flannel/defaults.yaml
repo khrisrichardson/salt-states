@@ -1,14 +1,16 @@
-compute:
-  image:
-    bases:
-      - centos:latest:amd64
-      - debian:latest:amd64
-      - ubuntu:latest:amd64
-network:
-  transport:
-    -
-      port:     8285
-      protocol: udp
-    -
-      port:     8472
-      protocol: udp
+lxc:
+  config:
+    arch: amd64
+  create:
+    template:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     8285
+        protocol: udp
+      -
+        port:     8472
+        protocol: udp

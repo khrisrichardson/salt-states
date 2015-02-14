@@ -11,10 +11,9 @@ include:
 {% if minions['sensu-api'] or test %}
 
 extend:
-  gem install jenkins_api_client:
-    cmd:
-      - env:
-        - PATH:   /opt/sensu/embedded/bin:/bin
+  ruby-jenkins_api_client:
+    gem.installed:
+      - gem_bin:  /opt/sensu/embedded/bin/gem
       - require:
         - pkg:     sensu
 
