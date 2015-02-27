@@ -30,7 +30,7 @@ lesser extent, by way of
 
 The lookup tables are more favorable to Debian's more consistent conventions.
 
-Pending git pre-commit hooks should catch discrepancies in OS support eariler
+Pending git pre-commit hooks should catch discrepancies in OS support earlier
 in the development process.
 
 ### Salt File Server
@@ -177,7 +177,7 @@ To test ideas before pushing commits to git:
 
 Once upon a time, there was a git pre-commit hook that did syntax validation,
 linting, sls to file system integrity checks, and vice versa. There is a need
-to reinstate that hook, which should enfore the following.
+to reinstate that hook, which should enforce the following:
 
   * syntax validation
   * lint
@@ -256,4 +256,4 @@ setting, you are also likely to encounter some works in progress. I can make no
 guarantees regarding the viability of this content in your specific environment.
 
 Please review the material carefully before applying it as some of it may be
-destructive and irreverisble. Use at your own discretion.
+destructive and irreversible. Use at your own discretion.
