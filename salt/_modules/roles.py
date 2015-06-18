@@ -77,8 +77,15 @@ def dict_(
                    for (role, minions) in ret.items())
 
     # Allow explicitly setting roles of other minions on the command line
-    kwargs = dict([i.split('=', 1)[:2] for i in __opts__['arg'] if '=' in i])
-    if kwargs:
+    #
+    # Example:
+    #
+    # ..code-block:: bash
+    #
+    #   salt-call state.highstate minions="{'kube-apiserver': '127.0.0.1'}"
+    #
+    kwargs = dict([i.split('=', 1)[:2] for i in __opts__.get('arg', []) if '=' in i])
+    if 'minions' in kwargs:
         minions = literal_eval(kwargs.get('minions'))
         if minions is not None:
             if isinstance(minions, dict):
