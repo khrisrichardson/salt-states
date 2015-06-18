@@ -68,6 +68,21 @@ in the development process.
 
 ### Service Registration and Discovery
 
+Presently, roles are partitioned into namespaces by way of an environment
+grain. The reason for using an environment grain as opposed to recycling
+saltenv escapes me at the moment, but there was a shortcoming for which a
+suitable workaround was elusive at the time, and is probably worth revisiting.
+
+The inflexibility of this design is that one is limited to running a single set
+of instances for a particular role/service, whereas one may opt to create
+multiple of the same service within an environment. Kubernetes solves that
+problem handily with labels. Adding support for labels would be desirable for
+more flexible discovery.
+
+  ```bash
+  salt-call grains.setval environment base
+  ```
+
 * Salt mine
 
   Presently, the salt mine is the only means provided by the
@@ -112,7 +127,7 @@ The following container runtimes are currently supported:
 Support for the following container runtimes is planned:
 
   * LXD
-  * Rocket
+  * rkt
   * systemd-nspawn
 
 There were previously minimal Dockerfiles that inherited from a salt-minion
@@ -165,8 +180,18 @@ To test ideas before pushing commits to git:
 
 ### Docker
 
+  If you have your own state tree at /srv/salt:
+
   ```bash
-  docker run --rm=true khrisrichardson/salt-minion /bin/bash
+  docker run -it --rm=true --volume=/srv/salt:/srv/salt khrisrichardson/salt-minion /bin/bash
+  vi /srv/salt/foo/bar/baz
+  salt-call state.sls foo
+  ```
+
+  otherwise:
+
+  ```bash
+  docker run -it --rm=true khrisrichardson/salt-minion /bin/bash
   cd /srv
   ln -s /var/cache/salt/minion/files/base salt
   vi /srv/salt/foo/bar/baz
@@ -182,9 +207,10 @@ to reinstate that hook, which should enforce the following:
   * syntax validation
   * lint
   * ensure ' -%}' is not present in sls files
-  * ensure '{{ sls }}' is not present in {depend,relate}-*.sls files
+  * ensure '{{ sls }}' is replaced with '{{ psls }}' in {depend,relate}-*.sls files
   * ensure files mentioned in sls correspond to files on file system
   * ensure files on file system correspond to files mentioned in sls
+  * ensure sls files corresponding to services or frontends have defaults.yaml files
   * ensure sls files corresponding to services or frontends have sensu tests
   * ensure all invokations of the roles module have corresponding relate states
   * ensure all relate states have corresponding invokations of the roles module
@@ -192,6 +218,14 @@ to reinstate that hook, which should enforce the following:
   * docker run --rm=true khrisrichardson/salt-minion salt-call sensu.check
 
 ## Building
+
+To build your own salt-minion Docker container image to use in place of
+khrisrichardson/salt-minion:
+
+  ```bash
+  salt-call saltutil.sync_modules
+  salt-call appc.publish ubuntu:latest salt-minion
+  ```
 
 Supposing that salt is setup to use the khrisrichardson/salt-states gitfs file
 server, and until support is provided for other container runtimes, the
