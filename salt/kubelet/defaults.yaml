@@ -1,0 +1,18 @@
+lxc:
+  conf:
+    arch: amd64
+    mount:
+      entry:
+        -
+          device: /var/run
+          dir:    /var/run
+  create:
+    source:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     10250
+        protocol: tcp

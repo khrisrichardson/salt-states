@@ -1,0 +1,14 @@
+[Unit]
+Description=%p
+
+[Service]
+Environment=ETCD_RELEASE=v2.0.10
+ExecStartPre=/bin/bash -c "/usr/bin/echo yes \
+                         | /usr/bin/rkt trust --prefix coreos.com/etcd"
+ExecStart=/usr/bin/rkt run \
+  -inherit-env \
+   coreos.com/etcd:${ETCD_RELEASE}
+
+[X-Fleet]
+Conflicts=%p*
+Global=true

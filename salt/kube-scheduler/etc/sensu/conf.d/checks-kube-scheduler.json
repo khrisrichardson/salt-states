@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-process-kube-scheduler": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p kube-scheduler -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Manage Cloudera Roles
 =====================
 
@@ -15,7 +15,7 @@ Example:
     zookeeper1-SERVER-421aa90e079fa326b6494f812ad13e79:
         cloudera_role.present:
           - cluster: Cluster 1 - CDH4
-'''
+"""
 
 # Import python libs
 import logging
@@ -30,9 +30,9 @@ except ImportError:
 
 
 def __virtual__():
-    '''
+    """
     Only load if Cloudera Manager API is available.
-    '''
+    """
     return 'cloudera_role' if HAS_CMAPI else False
 
 
@@ -42,13 +42,13 @@ def present(role_name, role_type, hostname, service_name,  cluster, **cm_args):
 
     role_name
         The name of the role to add
-        
+
     role_type
         The type of the role to add
-    
+
     service_name
         The name of the service to which the role belongs
-        
+
     hostname
         the name of the host to which the role is going to be assigned
 

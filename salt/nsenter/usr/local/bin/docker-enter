@@ -25,7 +25,7 @@ else
           echo "Warning: Cannot find sudo; Invoking nsenter as the user $USER." >&2
         fi
     fi
-    
+
     # Get environment variables from the container's root process
 
     ENV=$($LAZY_SUDO cat /proc/$PID/environ | xargs -0 | grep =)

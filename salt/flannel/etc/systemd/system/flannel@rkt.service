@@ -1,0 +1,17 @@
+[Unit]
+Description=%p
+
+[Service]
+Environment=FLANNEL_RELEASE=0.4.0
+ExecStartPre=/bin/bash -c "/usr/bin/echo yes \
+                         | /usr/bin/rkt trust --prefix coreos.com/flannel"
+ExecStart=/usr/bin/rkt run \
+  -inherit-env \
+  -volume dev-net,kind=host,source=/dev/net \
+  -volume etc-ssl-etcd,kind=host,source=/etc/ssl/etcd \
+  -volume run-flannel,kind=host,source=/run/flannel \
+   coreos.com/flannel:${FLANNEL_RELEASE}
+
+[X-Fleet]
+Conflicts=%p*
+Global=true

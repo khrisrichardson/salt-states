@@ -1,0 +1,44 @@
+{% from 'kubernetes/map.jinja' import map with context -%}
+[Unit]
+Description=Kubernetes Master
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Requires=etcd2.service
+After=etcd2.service
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStartPre=-/usr/bin/mkdir -p /opt/bin
+ExecStartPre=/usr/bin/curl -L \
+   -o /opt/bin/kube-apiserver \
+   -z /opt/bin/kube-apiserver \
+       https://storage.googleapis.com/kubernetes-release/release/{{ map.get('version') }}/bin/linux/amd64/kube-apiserver
+ExecStart=/opt/bin/systemd-docker run \
+  --net=host \
+   -d \
+   -v /var/run/docker.sock:/var/run/docker.sock \
+    gcr.io/google_containers/hyperkube:{{ map.get('version') }} \
+   /hyperkube \
+    kubelet \
+  --address=0.0.0.0 \
+  --api_servers=http://localhost:8080 \
+  --config=/etc/kubernetes/manifests-multi \
+  --enable_server \
+  --hostname_override=127.0.0.1 \
+  --v=2
+ExecStartPre=/usr/bin/chmod +x /opt/bin/kube-apiserver
+ExecStart=/opt/bin/kube-apiserver \
+  --allow_privileged=true \
+  --etcd_servers=http://127.0.0.1:2379 \
+  --insecure_bind_address=0.0.0.0 \
+  --insecure_port=8080 \
+  --kubelet_https=true \
+  --logtostderr=true \
+  --secure_port=6443 \
+  --portal_net=10.100.0.0/16 \
+  --public_address_override=${COREOS_PUBLIC_IPV4}
+Restart=always
+RestartSec=10
+
+[X-Fleet]
+Global=true
+MachineMetadata=role=master

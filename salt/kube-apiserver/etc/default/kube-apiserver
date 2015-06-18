@@ -1,0 +1,23 @@
+{% set etcds = [] -%}
+{% set roles = [] -%}
+{% do  roles.append('etcd') -%}
+{% do  roles.append('kubelet') -%}
+{% set minions = salt['roles.dict'](roles) -%}
+{% for minion in minions['etcd'] -%}
+{% do  etcds.append('http://' + minion + ':2379') -%}
+{% endfor -%}
+
+ARGS+="-address=0.0.0.0 "
+ARGS+="-port=8080 "
+ARGS+="-logtostderr=true "
+
+{% if minions['etcd'] -%}
+
+ARGS+="-etcd_servers={{ etcds|join(',') }} "
+
+{% endif -%}
+{% if minions['kubelet'] -%}
+
+ARGS+="-machines={{ minions['kubelet']|join(',') }} "
+
+{% endif -%}

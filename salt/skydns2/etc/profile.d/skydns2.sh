@@ -11,7 +11,7 @@ export ETCD_MACHINES="{{ salt['cmd.run']('echo $ETCD_MACHINES') }}"
 {% if  minions['etcd'] -%}
 {% set machines = [] -%}
 {% for minion in minions['etcd'] -%}
-{% do  machines.append('http://' + minion + ':4001') -%}
+{% do  machines.append('http://' + minion + ':2379') -%}
 {% endfor -%}
 export ETCD_MACHINES="{{ machines|join(',') }}"
 {% endif -%}

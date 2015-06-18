@@ -2,32 +2,32 @@
 
 {% set url     = 'https://api.github.com/repos/appc/spec/tags' %}
 {% set version =  salt['cmd.exec_code']('python', 'import json; import urllib; print json.loads(urllib.urlopen("' + url + '").read())[0].get("name")') %}
-{% set tar_url = 'https://github.com/appc/spec/releases/download/' + version + '/appc-spec-' + version + '.tar.gz' %}
+{% set tar_url = 'https://github.com/appc/spec/releases/download/' + version + '/appc-' + version + '.tar.gz' %}
 
 include:
   -  tar
   -  wget
 
-/usr/share/appc-spec-{{ version }}:
+/usr/share/appc-{{ version }}:
   cmd.run:
     - cwd:        /usr/share
     - name:      |-
                  ( wget -O - {{ tar_url }}                                     \
                  | tar  -zxf -
                  )
-    - unless:      test -d /usr/share/appc-spec-{{ version }}
+    - unless:      test -d /usr/share/appc-{{ version }}
     - require:
       - pkg:       tar
       - pkg:       wget
 
-/usr/share/appc-spec:
+/usr/share/appc:
   file.symlink:
-    - target:     /usr/share/appc-spec-{{ version }}
+    - target:     /usr/share/appc-{{ version }}
     - watch:
-      - cmd:      /usr/share/appc-spec-{{ version }}
+      - cmd:      /usr/share/appc-{{ version }}
 
 /usr/bin/actool:
   file.symlink:
-    - target:    /usr/share/appc-spec/actool
+    - target:    /usr/share/appc/actool
     - require:
-      - file:    /usr/share/appc-spec
+      - file:    /usr/share/appc

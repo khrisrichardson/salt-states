@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Manage Cloudera Clusters
 ========================
 
@@ -14,7 +14,7 @@ Example:
 
     Cluster 1 - CDH4:
         cloudera_cluster.present: []
-'''
+"""
 
 # Import python libs
 import logging
@@ -29,14 +29,17 @@ except ImportError:
 
 
 def __virtual__():
-    '''
+    """
     Only load if Cloudera Manager API is available.
-    '''
+    """
     return 'cloudera_cluster' if HAS_CMAPI else False
 
 
-def present(name, version, **cm_args):
-    '''
+def present(
+        name,
+        version,
+        **kwargs):
+    """
     Ensures that the named Cloudera cluster is present.
 
     name
@@ -44,12 +47,12 @@ def present(name, version, **cm_args):
 
     version
         The version of the cluster to create (recommended: CDH4)
-    '''
+    """
     ret = {'changes' : {},
            'comment' : '',
            'name'    : name,
            'result'  : False}
-    if __salt__['cloudera.cluster_exists'](name, **cm_args):
+    if __salt__['cloudera.cluster_exists'](name, **kwargs):
         ret['result'] = True
         ret['comment'] = '{0} already present'.format(name)
         return ret
@@ -57,7 +60,7 @@ def present(name, version, **cm_args):
         ret['result'] = None
         ret['comment'] = '{0} is set to be created'.format(name)
         return ret
-    if __salt__['cloudera.cluster_create'](name, version, **cm_args):
+    if __salt__['cloudera.cluster_create'](name, version, **kwargs):
         ret['changes'] = {'old': '', 'new': '{0}'.format(name)}
         ret['comment'] = 'Created {0}'.format(name)
         ret['result'] = True
@@ -68,18 +71,20 @@ def present(name, version, **cm_args):
         return ret
 
 
-def absent(name, **cm_args):
-    '''
+def absent(
+        name,
+        **kwargs):
+    """
     Ensures that the named Cloudera cluster is absent.
 
     name
         The name of the cluster to remove
-    '''
+    """
     ret = {'changes' : {},
            'comment' : '',
            'name'    : name,
            'result'  : False}
-    if not __salt__['cloudera.cluster_exists'](name, **cm_args):
+    if not __salt__['cloudera.cluster_exists'](name, **kwargs):
         ret['result'] = True
         ret['comment'] = '{0} already absent'.format(name)
         return ret
@@ -87,7 +92,7 @@ def absent(name, **cm_args):
         ret['result'] = None
         ret['comment'] = '{0} is set to be removed'.format(name)
         return ret
-    if __salt__['cloudera.cluster_remove'](name, **cm_args):
+    if __salt__['cloudera.cluster_remove'](name, **kwargs):
         ret['changes'] = {'old': '{0}'.format(name), 'new': ''}
         ret['comment'] = 'Removed {0}'.format(name)
         ret['result'] = True

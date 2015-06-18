@@ -1,5 +1,5 @@
 lxc:
-  config:
+  conf:
     arch: amd64
     mount:
       entry:
@@ -7,7 +7,7 @@ lxc:
           device: /srv/docker/registry
           dir:    /tmp/registry
   create:
-    template:
+    source:
       - centos:latest
       - debian:latest
       - ubuntu:latest

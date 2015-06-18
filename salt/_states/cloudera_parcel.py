@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Manage Cloudera Parcels
 =======================
 
@@ -16,7 +16,7 @@ Example:
         cloudera_parcel.installed:
           - cluster: Cluster 1 - CDH4
           - version: 4.5.0-1.cdh4.5.0.p0.30
-'''
+"""
 
 # Import python libs
 import logging
@@ -31,14 +31,18 @@ except ImportError:
 
 
 def __virtual__():
-    '''
+    """
     Only load if Cloudera Manager API is available.
-    '''
+    """
     return 'cloudera_parcel' if HAS_CMAPI else False
 
 
-def installed(name, version, cluster, **cm_args):
-    '''
+def installed(
+        name,
+        version,
+        cluster,
+        **kwargs):
+    """
     Verify that the parcel is installed, and that it is the correct version
     (if specified).
 
@@ -50,13 +54,13 @@ def installed(name, version, cluster, **cm_args):
 
     cluster
         The cluster on which to install the product.
-    '''
+    """
     ret = {'changes' : {},
            'comment' : '',
            'name'    : name,
            'result'  : False}
     if __salt__['cloudera.parcel_is_installed'](name, version,
-                                                cluster, **cm_args):
+                                                cluster, **kwargs):
         ret['result'] = True
         ret['comment'] = '{0}-{1} already installed'.format(name, version)
         return ret
@@ -74,8 +78,11 @@ def installed(name, version, cluster, **cm_args):
         ret['result'] = False
         return ret
 
-def removed(name, cluster, **cm_args):
-    '''
+def removed(
+        name,
+        cluster,
+        **kwargs):
+    """
     Verify that the parcel is removed.
 
     name
@@ -86,13 +93,13 @@ def removed(name, cluster, **cm_args):
 
     cluster
         The cluster from which to remove the product.
-    '''
+    """
     ret = {'changes' : {},
            'comment' : '',
            'name'    : name,
            'result'  : False}
     if not __salt__['cloudera.parcel_is_installed'](name, version,
-                                                    cluster, **cm_args):
+                                                    cluster, **kwargs):
         ret['result'] = True
         ret['comment'] = '{0}-{1} already removed'.format(name, version)
         return ret

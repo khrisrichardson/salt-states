@@ -1,0 +1,26 @@
+[Unit]
+Description=Docker Registry
+Requires=early-docker.service
+After=early-docker.service
+Before=early-docker.target
+
+[Service]
+Environment=TMPDIR=/var/tmp/
+Environment=DOCKER_HOST=unix:///var/run/early-docker.sock
+ExecStartPre=-/usr/bin/docker kill docker-registry
+ExecStartPre=-/usr/bin/docker rm docker-registry
+ExecStartPre=/usr/bin/docker pull quay.io/devops/docker-registry:latest
+ExecStart=/usr/bin/docker run --rm --net host --name docker-registry \
+  -e GUNICORN_OPTS=[--preload] \
+  -e MIRROR_SOURCE=https://registry-1.docker.io \
+  -e MIRROR_SOURCE_INDEX=https://index.docker.io \
+  -e MIRROR_TAGS_CACHE_TTL=1800 \
+  -e STANDALONE=false \
+     quay.io/devops/docker-registry:latest
+Restart=always
+RestartSec=5
+TimeoutStartSec=0
+
+[X-Fleet]
+Global=true
+MachineMetadata=role=master

@@ -1,8 +1,8 @@
 lxc:
-  config:
+  conf:
     arch: amd64
   create:
-    template:
+    source:
       - centos:latest
       - debian:latest
       - ubuntu:precise

@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "check-process-kube-controller-manager": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p kube-controller-manager -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

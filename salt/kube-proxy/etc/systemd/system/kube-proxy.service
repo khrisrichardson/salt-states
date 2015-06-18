@@ -1,0 +1,24 @@
+{% from 'kubernetes/map.jinja' import map with context -%}
+{% set minions = salt['roles.dict']('kube-apiserver') -%}
+{% if  minions['kube-apiserver'] -%}
+[Unit]
+Description=Kubernetes Proxy
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+ExecStartPre=/usr/bin/curl -L \
+   -o /opt/bin/kube-proxy \
+   -z /opt/bin/kube-proxy \
+       https://storage.googleapis.com/kubernetes-release/release/{{ map.get('version') }}/bin/linux/amd64/kube-proxy
+ExecStartPre=/usr/bin/chmod +x /opt/bin/kube-proxy
+ExecStartPre=/opt/bin/wupiao {{ minions['kube-apiserver'][0] }} 8080
+ExecStart=/opt/bin/kube-proxy \
+  --logtostderr=true \
+  --master={{ minions['kube-apiserver'][0] }}:8080
+Restart=always
+RestartSec=10
+
+[X-Fleet]
+Global=true
+MachineMetadata=role=node
+{% endif -%}

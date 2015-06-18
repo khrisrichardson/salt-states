@@ -1,8 +1,8 @@
 lxc:
-  config:
+  conf:
     arch: amd64
   create:
-    template:
+    source:
       - centos:latest
       - debian:latest
       - ubuntu:latest
@@ -18,10 +18,28 @@ lxc:
         port:     8092
         protocol: tcp
       -
+        port:     11207
+        protocol: tcp
+      -
         port:     11209
         protocol: tcp
       -
         port:     11210
+        protocol: tcp
+      -
+        port:     11211
+        protocol: tcp
+      -
+        port:     11214
+        protocol: tcp
+      -
+        port:     11215
+        protocol: tcp
+      -
+        port:     18091
+        protocol: tcp
+      -
+        port:     18092
         protocol: tcp
       -
         port:     21100

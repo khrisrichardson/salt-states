@@ -1,5 +1,5 @@
 lxc:
-  config:
+  conf:
     arch: amd64
     mount:
       entry:
@@ -7,7 +7,7 @@ lxc:
           device: /var/cache/apt-cacher-ng
           dir:    /var/cache/apt-cacher-ng
   create:
-    template:
+    source:
       - centos:latest
       - debian:latest
       - ubuntu:latest

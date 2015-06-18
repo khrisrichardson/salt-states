@@ -11,7 +11,8 @@ curl coreos-ipxe-server:
   cmd.run:
     - name:      |-
                  ( curl -L  https://github.com/kelseyhightower/coreos-ipxe-server/releases/download/{{ version }}/coreos-ipxe-server-{{ version.split('v')[1] }}-linux-amd64 \
-                        -o /opt/coreos-ipxe-server/bin/coreos-ipxe-server
+                        -o /opt/coreos-ipxe-server/bin/coreos-ipxe-server \
+                        -z /opt/coreos-ipxe-server/bin/coreos-ipxe-server
                  )
     - require:
       - pkg:       curl

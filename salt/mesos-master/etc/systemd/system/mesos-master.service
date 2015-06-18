@@ -1,0 +1,36 @@
+{% set minions = salt['roles.dict']('zookeeper-server') -%}
+{% if  minions['zookeeper-server'] -%}
+{% set socks = [] -%}
+{% for minion in minions['zookeeper-server'] -%}
+{% do  socks.append(minion + ':2181') -%}
+{% endfor -%}
+[Unit]
+Description=Mesos Master
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStartPre=/usr/bin/docker run --rm -v /opt/bin:/opt/bin ibuildthecloud/systemd-docker
+ExecStart=/opt/bin/systemd-docker run \
+  --name %n \
+  --net=host \
+  --privileged \
+    mesosphere/mesos-master:latest \
+  --ip=${COREOS_PRIVATE_IPV4} \
+  --quorum=1 \
+  --work_dir=/var/lib/mesos/master \
+  --zk=zk://{{ socks|join(',') }}/mesos
+Type=notify
+NotifyAccess=all
+Restart=on-failure
+RestartSec=20
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
+
+[X-Fleet]
+Global=true
+MachineMetadata=role=master
+{% endif -%}

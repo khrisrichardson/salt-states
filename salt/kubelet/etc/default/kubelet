@@ -1,0 +1,25 @@
+{% set roles   = [] -%}
+{% do  roles.append('etcd') -%}
+{% do  roles.append('kube-apiserver') -%}
+{% set minions = salt['roles.dict'](roles) -%}
+
+ARGS+="-address=0.0.0.0 "
+ARGS+="-config=/etc/kubernetes/manifests "
+ARGS+="-port=10250 "
+ARGS+="-logtostderr=true "
+
+{% set urls = [] -%}
+{% for minion in minions['kube-apiserver'] -%}
+{% do  urls.append('http://' + minion + ':6443') -%}
+{% endfor -%}
+{% if  urls -%}
+ARGS+="-api_servers={{ urls|join(',') }} "
+{% endif -%}
+
+{% set urls = [] -%}
+{% for minion in minions['etcd'] -%}
+{% do  urls.append('http://' + minion + ':2379') -%}
+{% endfor -%}
+{% if  urls -%}
+ARGS+="-etcd_servers={{ urls|join(',') }} "
+{% endif -%}

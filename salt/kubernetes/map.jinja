@@ -1,0 +1,5 @@
+# vi: set ft=json.jinja :
+
+{% set url     =  'https://github.com/GoogleCloudPlatform/kubernetes/releases/latest' %}
+{% set version =   salt['cmd.exec_code']('python', 'import urllib; print urllib.urlopen("' + url + '").geturl().split("/")[-1]') %}
+{% set map     = {'version': version} %}

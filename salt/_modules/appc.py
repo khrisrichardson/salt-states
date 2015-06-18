@@ -7,7 +7,7 @@ Manage Linux Containers via assorted runtimes
 :platform: linux
 """
 
-# TODO: perform base and role validation
+# TODO: perform source and role validation
 # TODO: add option to create all downstream containers for local testing
 # TODO: add option to create individual relations for integration testing
 # TODO: add option to execute sensu checks
@@ -17,60 +17,103 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
-from builtins import open
-from builtins import dict
-from future import standard_library
-standard_library.install_aliases()
-from builtins import str
 from collections import OrderedDict
 from os.path import join
 from pprint import pformat
 from tempfile import mkdtemp
-from yaml import load
 
-RUNTIME = 'docker'
+from yaml import load
 
 
 __func_alias__ = {
     'exec_': 'exec',
     'file_': 'file',
-    'list_': 'list'
 }
 
 
-def create(base='ubuntu:latest:amd65', role=None, build=True):
+def containers_create(
+        role=None,
+        runtime='docker',
+        source_os='ubuntu',
+        source_release='14.04',
+        source_architecture='x86_64',
+        source_alias=None,
+        source_fingerprint=None,
+):
     """
+    Create container
+
+    :param str role:
+    :param str runtime:
+    :param str source_os:
+    :param str source_release:
+    :param str source_architecture:
+    :param str source_alias:
+    :param str source_fingerprint:
     """
-    ret = None
-    if RUNTIME == 'docker':
-        _setup_docker()
-        ret = _create_docker(
-            base=':'.join(base.split(':')[:2]),
+    volumes = lxc_conf_mount_entry_dir(role=role)
+    if runtime == 'docker':
+        if not source_alias:
+            source_alias = ':'.join((source_os, source_release))
+        ret = _containers_create_docker(
             role=role,
-            build=True,
-            volumes=lxc_config_mount_entry_dir(role=role),
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+            volumes=volumes,
         )
-    elif RUNTIME == 'lxc':
-        ret = _create_lxc()
-    elif RUNTIME == 'lxd':
-        ret = _create_lxd()
-    elif RUNTIME == 'nspawn':
-        ret = _create_nspawn()
-    elif RUNTIME == 'rocket':
-        ret = _create_rocket()
+    elif runtime == 'lxc':
+        ret = _containers_create_lxc()
+    elif runtime == 'lxd':
+        ret = _containers_create_lxd()
+    elif runtime == 'rkt':
+        if not source_alias:
+            source_alias = ':'.join((source_os, source_release))
+        ret = _containers_create_rkt(
+            role=role,
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+            volumes=volumes,
+        )
+    elif runtime == 'systemd-nspawn':
+        ret = _containers_create_systemd_nspawn()
+    else:
+        ret = None
     return ret
 
 
-def _create_docker(base=None, role=None, build=True, **kwargs):
+def _containers_create_docker(
+        role=None,
+        source_alias=None,
+        source_fingerprint=None,
+        **kwargs
+):
     """
-    """
-    image = ':'.join((role, '-'.join(base.split(':'))))
+    Create container with docker
 
+    :param str role:
+    :param str source_alias:
+    :param str source_fingerprint:
+    """
+    _setup_docker()
+    split = source_alias.split(':')
+    if source_fingerprint:
+        tag = '-'.join(split[:1] + [source_fingerprint])
+    else:
+        tag = split
+    image = ':'.join((role, tag))
     ret = __salt__['docker.inspect_image'](image)
     if not ret['status']:
-        publish(base=base, role=role)
-
-    ret = __salt__['docker.inspect_container'](image)
+        images_create(
+            role=role,
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+        )
+    ret = containers_state_list(
+        role=role,
+        runtime='docker',
+        source_alias=source_alias,
+        source_fingerprint=source_fingerprint,
+    )
     if not ret['status']:
         ret = __salt__['docker.create_container'](
             image=image,
@@ -80,33 +123,313 @@ def _create_docker(base=None, role=None, build=True, **kwargs):
     return ret
 
 
-def _create_lxc():
+def _containers_create_lxc():
+    """
+    """
+    _setup_lxc()
+    raise NotImplementedError
+
+
+def _containers_create_lxd():
+    """
+    """
+    _setup_lxd()
+    raise NotImplementedError
+
+
+def _containers_create_rkt(
+        role=None,
+        source_alias=None,
+        source_fingerprint=None,
+        **kwargs
+):
+    """
+    """
+    _setup_rkt()
+    ret = _containers_create_docker(
+        role=role,
+        source_alias=source_alias,
+        source_fingerprint=source_fingerprint,
+        volumes=kwargs.get('volumes', []),
+    )
+    raise NotImplementedError
+
+
+def _containers_create_systemd_nspawn():
+    """
+    """
+    _setup_systemd_nspawn()
+    raise NotImplementedError
+
+
+def containers_delete(
+        role=None,
+        runtime='docker',
+        source_os='ubuntu',
+        source_release='14.04',
+        source_architecture='x86_64',
+        source_alias=None,
+        source_fingerprint=None,
+):
+    """
+    """
+    if runtime == 'docker':
+        if not source_alias:
+            source_alias = ':'.join((source_os, source_release))
+        ret = _containers_delete_docker(
+            role=role,
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+        )
+    elif runtime == 'lxc':
+        ret = _containers_delete_lxc()
+    elif runtime == 'lxd':
+        ret = _containers_delete_lxd()
+    elif runtime == 'rkt':
+        ret = _containers_delete_rkt()
+    elif runtime == 'systemd-nspawn':
+        ret = _containers_delete_systemd_nspawn()
+    else:
+        ret = None
+    return ret
+
+
+def _containers_delete_docker(
+        role=None,
+        source_alias=None,
+        source_fingerprint=None,
+):
+    """
+    """
+    _setup_docker()
+    raise NotImplementedError
+
+
+def _containers_delete_lxc():
+    """
+    """
+    _setup_lxc()
+    raise NotImplementedError
+
+
+def _containers_delete_lxd():
+    """
+    """
+    _setup_lxd()
+    raise NotImplementedError
+
+
+def _containers_delete_rkt():
+    """
+    """
+    _setup_rkt()
+    raise NotImplementedError
+
+
+def _containers_delete_systemd_nspawn():
+    """
+    """
+    _setup_systemd_nspawn()
+    raise NotImplementedError
+
+
+def containers_list():
     """
     """
     raise NotImplementedError
 
 
-def _create_lxd():
+def containers_state_list(
+        role=None,
+        runtime='docker',
+        source_os='ubuntu',
+        source_release='14.04',
+        source_architecture='x86_64',
+        source_alias=None,
+        source_fingerprint=None,
+):
     """
     """
+    if runtime == 'docker':
+        if not source_alias:
+            source_alias = ':'.join((source_os, source_release))
+        ret = _containers_state_list_docker(
+            role=role,
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+        )
+    elif runtime == 'lxc':
+        ret = _containers_state_list_lxc()
+    elif runtime == 'lxd':
+        ret = _containers_state_list_lxd()
+    elif runtime == 'rkt':
+        ret = _containers_state_list_rkt()
+    elif runtime == 'systemd-nspawn':
+        ret = _containers_state_list_systemd_nspawn()
+    else:
+        ret = None
+    return ret
+
+
+def _containers_state_list_docker(
+        role=None,
+        source_alias=None,
+        source_fingerprint=None,
+):
+    """
+    """
+    _setup_docker()
+    split = source_alias.split(':')
+    if source_fingerprint:
+        tag = '-'.join(split[:1] + [source_fingerprint])
+    else:
+        tag = split
+    container = ':'.join((role, tag))
+    ret = __salt__['docker.inspect_container'](container)
+    return ret
+
+
+def _containers_state_list_lxc():
+    """
+    """
+    _setup_lxc()
     raise NotImplementedError
 
 
-def _create_nspawn():
+def _containers_state_list_lxd():
     """
     """
+    _setup_lxd()
     raise NotImplementedError
 
 
-def _create_rocket():
+def _containers_state_list_rkt():
     """
     """
+    _setup_rkt()
     raise NotImplementedError
 
 
-def delete():
+def _containers_state_list_systemd_nspawn():
     """
     """
+    _setup_systemd_nspawn()
+    raise NotImplementedError
+
+
+def containers_state_update(
+        action=None,
+        role=None,
+        runtime='docker',
+        source_os='ubuntu',
+        source_release='14.04',
+        source_architecture='x86_64',
+        source_alias=None,
+        source_fingerprint=None,
+):
+    """
+    """
+    # TODO: check return type consistency
+    if runtime == 'docker':
+        if not source_alias:
+            source_alias = ':'.join((source_os, source_release))
+        ret = _containers_state_update_docker(
+            action=action,
+            role=role,
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+        )
+    elif runtime == 'lxc':
+        ret = _containers_state_update_lxc()
+    elif runtime == 'lxd':
+        ret = _containers_state_update_lxd()
+    elif runtime == 'rkt':
+        ret = _containers_state_update_rkt()
+    elif runtime == 'systemd-nspawn':
+        ret = _containers_state_update_systemd_nspawn()
+    else:
+        ret = None
+    return ret
+
+
+def _containers_state_update_docker(
+        action=None,
+        role=None,
+        source_alias=None,
+        source_fingerprint=None,
+        **kwargs
+):
+    """
+    """
+    # TODO: ensure return type consistency
+    _setup_docker()
+    split = source_alias.split(':')
+    if source_fingerprint:
+        tag = '-'.join(split[:1] + [source_fingerprint])
+    else:
+        tag = split
+    container = ':'.join((role, tag))
+    ret = containers_state_list(
+        role=role,
+        runtime='docker',
+        source_alias=source_alias,
+        source_fingerprint=source_fingerprint,
+    )
+    if not ret['status']:
+        ret = containers_create(
+            role=role,
+            runtime='docker',
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+        )
+    if 'action' == 'restart':
+        ret = __salt__['docker.restart'](
+            container=container,
+        )
+    elif 'action' == 'start':
+        if __salt__['docker.is_running'](container):
+            ret = True
+        else:
+            ret = __salt__['docker.start'](
+                container=container,
+                binds=lxc_conf_mount_entry(role=role),
+                port_bindings=_get_lxc_ns_net_dnats(role=role),
+            )
+    elif 'action' == 'stop':
+        if __salt__['docker.is_running'](container):
+            ret = __salt__['docker.stop'](
+                container=container,
+            )
+        else:
+            ret = True
+    return ret
+
+
+def _containers_state_update_lxc():
+    """
+    """
+    _setup_lxc()
+    raise NotImplementedError
+
+
+def _containers_state_update_lxd():
+    """
+    """
+    _setup_lxd()
+    raise NotImplementedError
+
+
+def _containers_state_update_rkt():
+    """
+    """
+    _setup_rkt()
+    raise NotImplementedError
+
+
+def _containers_state_update_systemd_nspawn():
+    """
+    """
+    _setup_systemd_nspawn()
     raise NotImplementedError
 
 
@@ -122,87 +445,181 @@ def file_():
     raise NotImplementedError
 
 
-def list_():
-    """
-    """
-    raise NotImplementedError
-
-
 def move():
     """
     """
     raise NotImplementedError
 
 
-def publish(base='ubuntu:latest:amd64', role='salt-minion'):
+def images_aliases_list(
+        name=None,
+        runtime='docker',
+):
     """
     """
-    ret = None
-    if RUNTIME == 'docker':
-        _setup_docker()
-        ret = _publish_docker(
-            base=':'.join(base.split(':')[:2]),
+    if runtime == 'docker':
+        ret = _images_aliases_list_docker(
+            name=name,
+        )
+    elif runtime == 'lxc':
+        ret = _images_create_lxc()
+    elif runtime == 'lxd':
+        ret = _images_create_lxd()
+    elif runtime == 'rkt':
+        ret = _images_create_rkt()
+    elif runtime == 'systemd-nspawn':
+        ret = _images_create_systemd_nspawn()
+    else:
+        ret = None
+    return ret
+
+
+def _images_aliases_list_docker(
+        name=None,
+):
+    """
+    """
+    _setup_docker()
+    ret = __salt__['docker.search'](term=name)
+    return ret
+
+
+def _images_aliases_list_lxc():
+    """
+    """
+    _setup_lxc()
+    raise NotImplementedError
+
+
+def _images_aliases_list_lxd():
+    """
+    """
+    _setup_lxd()
+    raise NotImplementedError
+
+
+def _images_aliases_list_rkt():
+    """
+    """
+    _setup_rkt()
+    raise NotImplementedError
+
+
+def _images_aliases_list_systemd_nspawn():
+    """
+    """
+    _setup_systemd_nspawn()
+    raise NotImplementedError
+
+
+def images_create(
+        role='salt-minion',
+        runtime='docker',
+        source_os='ubuntu',
+        source_release='14.04',
+        source_architecture='x86_64',
+        source_alias=None,
+        source_fingerprint=None,
+):
+    """
+    """
+    if runtime == 'docker':
+        if not source_alias:
+            source_alias = ':'.join((source_os, source_release))
+        ret = _images_create_docker(
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
             role=role,
             CMD=lxc_start_command(role=role),
-            ENV=lxc_config_environment(role=role),
+            ENV=lxc_conf_environment(role=role),
             EXPOSE=_get_lxc_ns_net_ports(role=role),
-            RUN=_get_lxc_create_commands(base=base, role=role),
+            RUN=_get_lxc_create_commands(
+                source_alias=source_alias,
+                source_fingerprint=source_fingerprint,
+                role=role),
         )
-    elif RUNTIME == 'lxc':
-        ret = _publish_lxc()
-    elif RUNTIME == 'lxd':
-        ret = _publish_lxd()
-    elif RUNTIME == 'nspawn':
-        ret = _publish_nspawn()
-    elif RUNTIME == 'rocket':
-        ret = _publish_rocket()
+    elif runtime == 'lxc':
+        ret = _images_create_lxc()
+    elif runtime == 'lxd':
+        ret = _images_create_lxd()
+    elif runtime == 'rkt':
+        ret = _images_create_rkt()
+    elif runtime == 'systemd-nspawn':
+        ret = _images_create_systemd_nspawn()
+    else:
+        ret = None
     return ret
 
 
-def _publish_docker(base=None, role=None, **kwargs):
+def _images_create_docker(
+        role=None,
+        source_alias=None,
+        source_fingerprint=None,
+        **kwargs
+):
     """
     """
-    kwargs.update(FROM=base)
-    contents = _manifest_docker(**kwargs)
-    tag = ':'.join((role, '-'.join(base.split(':'))))
-    dtemp = mkdtemp()
-    with open(join(dtemp, 'Dockerfile'), 'w') as f:
-        f.write(contents)
-    ret = __salt__['docker.build'](dtemp, tag=tag)
+    # TODO: check return type consistency
+    _setup_docker()
+    split = source_alias.split(':')
+    if source_fingerprint:
+        tag = '-'.join(split[:1] + [source_fingerprint])
+    else:
+        tag = split
+    image = ':'.join((role, tag))
+    if source_fingerprint:
+        from_ = '@'.join((source_alias, source_fingerprint))
+    else:
+        from_ = source_alias
+    name = source_alias.split(':')[0]
+    ret = images_aliases_list(name=name, runtime='docker')
+    if any(i.name == name for i in ret.get('out', [])):
+        kwargs.update(FROM=from_)
+        contents = _manifest_docker(**kwargs)
+        dtemp = mkdtemp()
+        with open(join(dtemp, 'Dockerfile'), 'w') as f:
+            f.write(contents)
+        ret = __salt__['docker.build'](dtemp, tag=image)
+    else:
+        ret = False
     return ret
 
 
-def _publish_lxc():
+def _images_create_lxc():
     """
     """
+    _setup_lxc()
     raise NotImplementedError
 
 
-def _publish_lxd():
+def _images_create_lxd():
     """
     """
+    _setup_lxd()
     raise NotImplementedError
 
 
-def _publish_nspawn():
+def _images_create_rkt():
     """
     """
+    _setup_rkt()
     raise NotImplementedError
 
 
-def _publish_rocket():
+def _images_create_systemd_nspawn():
+    """
+    """
+    _setup_systemd_nspawn()
+    raise NotImplementedError
+
+
+def images_delete():
     """
     """
     raise NotImplementedError
 
 
 def remote():
-    """
-    """
-    raise NotImplementedError
-
-
-def restart():
     """
     """
     raise NotImplementedError
@@ -220,83 +637,6 @@ def snapshot():
     raise NotImplementedError
 
 
-def start(base='ubuntu:latest:amd64', role=None):
-    """
-    """
-    ret = None
-    if RUNTIME == 'docker':
-        _setup_docker()
-        ret = _start_docker(
-            base=':'.join(base.split(':')[:2]),
-            role=role,
-            binds=lxc_config_mount_entry(role=role),
-            port_bindings=_get_lxc_ns_net_dnats(role=role),
-        )
-    elif RUNTIME == 'lxc':
-        ret = _start_lxc()
-    elif RUNTIME == 'lxd':
-        ret = _start_lxd()
-    elif RUNTIME == 'nspawn':
-        ret = _start_nspawn()
-    elif RUNTIME == 'rocket':
-        ret = _start_rocket()
-    return ret
-
-
-def _start_docker(base=None, role=None, **kwargs):
-    """
-    """
-    tag = ':'.join((role, '-'.join(base.split(':'))))
-
-    ret = __salt__['docker.inspect_container'](tag)
-    if not ret['status']:
-        ret = create(base=base, role=role)
-
-    if not __salt__['docker.is_running'](tag):
-        ret = __salt__['docker.start'](
-            container=role,
-            binds=kwargs.get('binds', []),
-            port_bindings=kwargs.get('port_bindings', [])
-        )
-    return ret
-
-
-def _start_lxc():
-    """
-    """
-    raise NotImplementedError
-
-
-def _start_lxd():
-    """
-    """
-    raise NotImplementedError
-
-
-def _start_nspawn():
-    """
-    """
-    raise NotImplementedError
-
-
-def _start_rocket():
-    """
-    """
-    raise NotImplementedError
-
-
-def status():
-    """
-    """
-    raise NotImplementedError
-
-
-def stop():
-    """
-    """
-    raise NotImplementedError
-
-
 def test():
     """
     """
@@ -304,7 +644,9 @@ def test():
     raise NotImplementedError
 
 
-def _get_defaults(role=None):
+def _get_defaults(
+        role=None
+):
     """
     Get default data
 
@@ -313,11 +655,12 @@ def _get_defaults(role=None):
     url = 'salt://' + role + '/defaults.yaml'
     defaults = __salt__['cp.get_file_str'](url)
     ret = load(defaults)
-
     return ret
 
 
-def _get_lxc(role=None):
+def _get_lxc(
+        role=None
+):
     """
     List compute data
 
@@ -325,83 +668,92 @@ def _get_lxc(role=None):
     """
     defaults = _get_defaults(role=role)
     ret = defaults.get('lxc', {})
-
     return ret
 
 
-def _get_lxc_cgroup(role=None):
+def _get_lxc_cgroup(
+        role=None
+):
     """
     """
     lxc = _get_lxc(role=role)
     ret = lxc.get('cgroup')
-
     return ret
 
 
-def _get_lxc_cgroup_blkio(role=None):
+def _get_lxc_cgroup_blkio(
+        role=None
+):
     """
     """
     cgroup = _get_lxc_cgroup(role=role)
     ret = cgroup.get('blkio')
-
     return ret
 
 
-def _get_lxc_cgroup_cpu(role=None):
+def _get_lxc_cgroup_cpu(
+        role=None
+):
     """
     """
     cgroup = _get_lxc_cgroup(role=role)
     ret = cgroup.get('cpu')
-
     return ret
 
 
-def _get_lxc_cgroup_cpuacct(role=None):
+def _get_lxc_cgroup_cpuacct(
+        role=None
+):
     """
     """
     cgroup = _get_lxc_cgroup(role=role)
     ret = cgroup.get('cpuacct')
-
     return ret
 
 
-def _get_lxc_cgroup_cpuset(role=None):
+def _get_lxc_cgroup_cpuset(
+        role=None
+):
     """
     """
     cgroup = _get_lxc_cgroup(role=role)
     ret = cgroup.get('cpuset')
-
     return ret
 
 
-def _get_lxc_cgroup_devices(role=None):
+def _get_lxc_cgroup_devices(
+        role=None
+):
     """
     """
     cgroup = _get_lxc_cgroup(role=role)
     ret = cgroup.get('devices')
-
     return ret
 
 
-def _get_lxc_cgroup_hugetlb(role=None):
+def _get_lxc_cgroup_hugetlb(
+        role=None
+):
     """
     """
     cgroup = _get_lxc_cgroup(role=role)
     ret = cgroup.get('hugetlb')
-
     return ret
 
 
-def _get_lxc_cgroup_memory(role=None):
+def _get_lxc_cgroup_memory(
+        role=None
+):
     """
     """
     cgroup = _get_lxc_cgroup(role=role)
     ret = cgroup.get('memory')
-
     return ret
 
 
-def _get_lxc_config(role=None):
+def _get_lxc_conf(
+        role=None
+):
     """
     lxc.aa_allow_incomplete
     lxc.aa_profile
@@ -534,21 +886,23 @@ def _get_lxc_config(role=None):
     lxc.utsname
     """
     lxc = _get_lxc(role=role)
-    ret = lxc.get('config')
-
+    ret = lxc.get('conf')
     return ret
 
 
-def _get_lxc_config_cap(role=None):
+def _get_lxc_conf_cap(
+        role=None
+):
     """
     """
-    config = _get_lxc_config(role=role)
-    ret = config.get('cap')
-
+    conf = _get_lxc_conf(role=role)
+    ret = conf.get('cap')
     return ret
 
 
-def lxc_config_environment(role=None):
+def lxc_conf_environment(
+        role=None
+):
     """
     """
     ret = ['DEBIAN_FRONTEND noninteractive',
@@ -556,68 +910,74 @@ def lxc_config_environment(role=None):
            'repository https://github.com/khrisrichardson/salt-states.git',
            'ref master',
            'url https://bootstrap.saltstack.com']
-    config = _get_lxc_config(role=role)
-    ret += config.get('environment')
-
+    conf = _get_lxc_conf(role=role)
+    ret += conf.get('environment')
     return ret
 
 
-def _get_lxc_config_hook(role=None):
+def _get_lxc_conf_hook(
+        role=None
+):
     """
     """
-    config = _get_lxc_config(role=role)
-    ret = config.get('hook')
-
+    conf = _get_lxc_conf(role=role)
+    ret = conf.get('hook')
     return ret
 
 
-def _get_lxc_config_mount(role=None):
+def _get_lxc_conf_mount(
+        role=None
+):
     """
     :param str role: Role the image will provide, corresponding to salt state.
     """
-    config = _get_lxc_config(role=role)
-    ret = config.get('mount', {})
-
+    conf = _get_lxc_conf(role=role)
+    ret = conf.get('mount', {})
     return ret
 
 
-def _get_lxc_config_mount_entry(role=None):
+def _get_lxc_conf_mount_entry(
+        role=None
+):
     """
     :param str role: Role the image will provide, corresponding to salt state.
     """
-    mount = _get_lxc_config_mount(role=role)
+    mount = _get_lxc_conf_mount(role=role)
     ret = mount.get('entry', [])
-
     return ret
 
 
-def lxc_config_mount_entry(role=None):
+def lxc_conf_mount_entry(
+        role=None
+):
     """
     List of device:dir:option to mount in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
     """
-    entry = _get_lxc_config_mount_entry(role=role)
+    entry = _get_lxc_conf_mount_entry(role=role)
     ret = [':'.join((e.get('device'),
                      e.get('dir'),
                      e.get('option', 'rw'))) for e in entry]
-
     return ret
 
 
-def lxc_config_mount_entry_dir(role=None):
+def lxc_conf_mount_entry_dir(
+        role=None
+):
     """
     List of volumes to mount in container.
 
     :param str role: Role the image will provide, corresponding to salt state.
     """
-    mount = _get_lxc_config_mount(role=role)
+    mount = _get_lxc_conf_mount(role=role)
     ret = [e.get('dir') for e in mount]
-
     return ret
 
 
-def _get_lxc_create(role=None):
+def _get_lxc_create(
+        role=None
+):
     """
     List network transport data.
 
@@ -625,23 +985,29 @@ def _get_lxc_create(role=None):
     """
     compute = _get_lxc(role=role)
     ret = compute.get('image', {})
-
     return ret
 
 
-def lxc_create_template(role=None):
+def lxc_create_source(
+        role=None
+):
     """
-    List of bases from which to publish image
+    List of sources from which to create image
 
     :param str role: Role the image will provide, corresponding to salt state.
     """
     create_ = _get_lxc_create(role=role)
-    ret = create_.get('template', [])
-
+    ret = create_.get('source', [])
     return ret
 
 
-def _get_lxc_create_commands(base=None, role=None, layer=True, unit='low'):
+def _get_lxc_create_commands(
+        source_alias=None,
+        source_fingerprint=None,
+        role=None,
+        layer=True,
+        unit='low'
+):
     """
     List of commands to create image
 
@@ -657,9 +1023,10 @@ def _get_lxc_create_commands(base=None, role=None, layer=True, unit='low'):
           else python  -c "import urllib; print urllib.urlopen('${url}').read()"      > bootstrap-salt.sh
           fi
           """
-    # Commands to create salt-minion base image
+    # Commands to create salt-minion source image
     ret += [' '.join(cmd.lstrip().replace('\n', ';').split())]
-    ret += ['bash bootstrap-salt.sh -X git 2015.2 || true']
+    # ret += ['bash bootstrap-salt.sh -X git 2015.2 || true']
+    ret += ['bash bootstrap-salt.sh -X || true']
     ret += ['salt-call file.mkdir  /etc/salt/minion.d --local']
     ret += ['salt-call file.write  /etc/salt/minion.d/salt-master.conf "file_client: local" --local']
     ret += ['salt-call file.append /etc/salt/minion.d/salt-master.conf "fileserver_backend: [roots, git]"']
@@ -679,11 +1046,17 @@ def _get_lxc_create_commands(base=None, role=None, layer=True, unit='low'):
     else:
         if layer:
             if unit == 'low':
-                lows = _state_lows(base=base, role=role)
+                lows = _state_lows(
+                    source_alias=source_alias,
+                    source_fingerprint=source_fingerprint,
+                    role=role)
                 for low in lows:
                     ret += ['salt-call state.low "' + low + '"']
             elif unit == 'id':
-                ids = _state_ids(base=base, role=role)
+                ids = _state_ids(
+                    source_alias=source_alias,
+                    source_fingerprint=source_fingerprint,
+                    role=role)
                 for (id_, sls) in ids:
                     ret += ['salt-call state.sls_id ' + id_ + ' ' + sls]
         else:
@@ -691,31 +1064,34 @@ def _get_lxc_create_commands(base=None, role=None, layer=True, unit='low'):
         ret += ['salt-call grains.append roles ' + role]
     # Command to remove salt-minion instance specific data
     ret += ['salt-call cmd.run "rm -rf /etc/salt/minion_id /etc/salt/pki/*/*"']
-
     return ret
 
 
-def _get_lxc_ns(role=None):
+def _get_lxc_ns(
+        role=None
+):
     """
     :param str role: Role the image will provide, corresponding to salt state.
     """
     lxc = _get_lxc(role=role)
     ret = lxc.get('ns', {})
-
     return ret
 
 
-def _get_lxc_ns_net(role=None):
+def _get_lxc_ns_net(
+        role=None
+):
     """
     :param str role: Role the image will provide, corresponding to salt state.
     """
     ns = _get_lxc_ns(role=role)
     ret = ns.get('net', {})
-
     return ret
 
 
-def _get_lxc_ns_net_dnats(role=None):
+def _get_lxc_ns_net_dnats(
+        role=None
+):
     """
     Dictionary of destination nats to setup in container.
 
@@ -723,7 +1099,6 @@ def _get_lxc_ns_net_dnats(role=None):
     """
     ret = {}
     net = _get_lxc_ns_net(role=role)
-
     for data in net:
         port = data.get('port')
         protocol = data.get('protocol', 'tcp')
@@ -744,11 +1119,12 @@ def _get_lxc_ns_net_dnats(role=None):
         else:
             continue
         ret[key] = val
-
     return ret
 
 
-def _get_lxc_ns_net_ports(role=None):
+def _get_lxc_ns_net_ports(
+        role=None
+):
     """
     List of ports to expose in container.
 
@@ -756,20 +1132,22 @@ def _get_lxc_ns_net_ports(role=None):
     """
     net = _get_lxc_ns_net(role=role)
     ret = [str(i.get('port')) + '/' + i.get('protocol', 'tcp') for i in net]
-
     return ret
 
 
-def _get_lxc_start(role=None):
+def _get_lxc_start(
+        role=None
+):
     """
     """
     lxc = _get_lxc(role=role)
     ret = lxc.get('start')
-
     return ret
 
 
-def lxc_start_command(role=None):
+def lxc_start_command(
+        role=None
+):
     """
     """
     ret = ['/usr/bin/supervisord',
@@ -778,15 +1156,15 @@ def lxc_start_command(role=None):
            '-n']
     start_ = _get_lxc_start(role=role)
     ret = start_.get('command') or ret
-
     return ret
 
 
-def _manifest_docker(**kwargs):
+def _manifest_docker(
+        **kwargs
+):
     """
     """
     ret = ''
-
     # List of tuples with default values for available Docker instructions
     defaults = [
         ('FROM', 'ubuntu:latest'),
@@ -794,6 +1172,7 @@ def _manifest_docker(**kwargs):
         ('ADD', []),
         ('COPY', []),
         ('ENV', []),
+        ('LABEL', []),
         ('ONBUILD', []),
         ('RUN', []),
         ('USER', None),
@@ -805,14 +1184,12 @@ def _manifest_docker(**kwargs):
     ]
     # List comprehension of tuples with kwargs values overriding default values
     instructions = [(i[0], kwargs.get(i[0], i[1])) for i in defaults]
-
     for key, val in instructions:
         if (key in ['CMD', 'ENTRYPOINT'] and val) or isinstance(val, str):
             ret += key + ' ' + str(val).replace("'", '"') + '\n'
         elif isinstance(val, list):
             for i in val:
                 ret += key + ' ' + i + '\n'
-
     return ret
 
 
@@ -828,19 +1205,21 @@ def _manifest_lxd():
     raise NotImplementedError
 
 
-def _manifest_nspawn():
+def _manifest_rkt():
     """
     """
     raise NotImplementedError
 
 
-def _manifest_rocket():
+def _manifest_systemd_nspawn():
     """
     """
     raise NotImplementedError
 
 
-def _state_chunks(**kwargs):
+def _state_chunks(
+        **kwargs
+):
     """
     Function which parses low data and accounts for formatting
     """
@@ -875,12 +1254,18 @@ def _state_chunks(**kwargs):
     return ret
 
 
-def _state_ids(base=None, role=None):
+def _state_ids(
+        source_alias=None,
+        source_fingerprint=None,
+        role=None
+):
     """
     Function which parses lowstate data and returns unique list of sls ids
     """
-    lowstate = _state_show_lowstate(base=base, role=role)
-
+    lowstate = _state_show_lowstate(
+        source_alias=source_alias,
+        source_fingerprint=source_fingerprint,
+        role=role)
     ret = []
     for low in lowstate:
         if isinstance(low, dict):
@@ -890,7 +1275,11 @@ def _state_ids(base=None, role=None):
     return list(OrderedDict.fromkeys(ret))
 
 
-def _state_lows(base=None, role=None):
+def _state_lows(
+        source_alias=None,
+        source_fingerprint=None,
+        role=None
+):
     """
     Generator which parses lowstate data and yields individual low chunks
     """
@@ -913,8 +1302,10 @@ def _state_lows(base=None, role=None):
         '__pub_ret',
         '__pub_tgt_type',
     ]
-    lowstate = _state_show_lowstate(base=base, role=role)
-
+    lowstate = _state_show_lowstate(
+        source_alias=source_alias,
+        source_fingerprint=source_fingerprint,
+        role=role)
     for low in lowstate:
         if isinstance(low, dict):
             for chunk in _state_chunks(**low):
@@ -928,39 +1319,56 @@ def _state_lows(base=None, role=None):
                 yield chunk
 
 
-def _state_show_lowstate(base=None, role=None):
+def _state_show_lowstate(
+        role=None,
+        runtime='docker',
+        source_alias=None,
+        source_fingerprint=None,
+):
     """
     Get lowstate data structure
     """
-    ret = None
-    if RUNTIME == 'docker':
-        _setup_docker()
-        ret = _state_show_lowstate_docker(base=base, role=role)
-    elif RUNTIME == 'lxc':
+    if runtime == 'docker':
+        ret = _state_show_lowstate_docker(
+            role=role,
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+        )
+    elif runtime == 'lxc':
         ret = _state_show_lowstate_lxc()
-    elif RUNTIME == 'lxd':
+    elif runtime == 'lxd':
         ret = _state_show_lowstate_lxd()
-    elif RUNTIME == 'nspawn':
-        ret = _state_show_lowstate_nspawn()
-    elif RUNTIME == 'rocket':
-        ret = _state_show_lowstate_rocket()
-
-    if ret is None:
-        return []
+    elif runtime == 'rkt':
+        ret = _state_show_lowstate_rkt()
+    elif runtime == 'systemd-nspawn':
+        ret = _state_show_lowstate_systemd_nspawn()
     else:
-        return ret
+        ret = []
+    return ret
 
 
-def _state_show_lowstate_docker(base=None, role=None):
+def _state_show_lowstate_docker(
+        role=None,
+        source_alias=None,
+        source_fingerprint=None,
+):
     """
-    Get lowstate data structure via Docker base image
+    Get lowstate data structure via Docker source image
     """
-    image = ':'.join(('salt-minion', '-'.join(base.split(':'))))
-
+    _setup_docker()
+    split = source_alias.split(':')
+    if source_fingerprint:
+        tag = '-'.join(split[:1] + [source_fingerprint])
+    else:
+        tag = split
+    image = ':'.join(('salt-minion', tag))
     ret = __salt__['docker.inspect_image'](image)
     if not ret['status']:
-        publish(base=base, role='salt-minion')
-
+        images_create(
+            role='salt-minion',
+            source_alias=source_alias,
+            source_fingerprint=source_fingerprint,
+        )
     command = "/bin/bash -c '"
     command += "salt-call saltutil.sync_all                &>/dev/null; "
     command += "salt-call grains.append roles " + role + " &>/dev/null; "
@@ -975,7 +1383,6 @@ def _state_show_lowstate_docker(base=None, role=None):
     __salt__['docker.wait'](cid)
     ret = __salt__['docker.logs'](cid)
     __salt__['docker.remove_container'](cid)
-
     command = 'salt-call state.highstate --out-file=/var/log/salt/highstate'
     return load(ret['out']).get('local', [command])
 
@@ -983,60 +1390,101 @@ def _state_show_lowstate_docker(base=None, role=None):
 def _state_show_lowstate_lxc():
     """
     """
+    _setup_lxc()
     raise NotImplementedError
 
 
 def _state_show_lowstate_lxd():
     """
     """
+    _setup_lxd()
     raise NotImplementedError
 
 
-def _state_show_lowstate_nspawn():
+def _state_show_lowstate_rkt():
     """
     """
+    _setup_rkt()
     raise NotImplementedError
 
 
-def _state_show_lowstate_rocket():
+def _state_show_lowstate_systemd_nspawn():
     """
     """
+    _setup_systemd_nspawn()
     raise NotImplementedError
 
 
 def _setup_docker():
     """
+    Ensure node is equipped to manage docker
+
+    :rtype: bool
     """
     if __salt__['cmd.which']('docker') is None:
-        __salt__['state.sls']('lxc-docker')
+        ret = __salt__['state.sls']('lxc-docker')
+        if not all([i.get('result') is True for i in ret.itervalues()]):
+            return False
     if not __salt__['pip.list']('docker-py'):
-        __salt__['state.sls']('python-docker')
+        ret = __salt__['state.sls']('python-docker')
+        if not all([i.get('result') is True for i in ret.itervalues()]):
+            return False
+    return True
 
 
 def _setup_lxc():
     """
+    Ensure node is equipped to manage lxc
+
+    :rtype: bool
     """
     if __salt__['cmd.which']('lxc') is None:
-        __salt__['state.sls']('lxc')
+        ret = __salt__['state.sls']('lxc')
+        if not all([i.get('result') is True for i in ret.itervalues()]):
+            return False
+    return True
 
 
 def _setup_lxd():
     """
+    Ensure node is equipped to manage lxd
+
+    :rtype: bool
     """
     if __salt__['cmd.which']('lxd') is None:
-        __salt__['state.sls']('lxd')
+        ret = __salt__['state.sls']('lxd')
+        if not all([i.get('result') is True for i in ret.itervalues()]):
+            return False
+    return True
 
 
-def _setup_nspawn():
+def _setup_rkt():
     """
-    """
-    raise NotImplementedError
+    Ensure node is equipped to manage rkt
 
-
-def _setup_rocket():
-    """
+    :rtype: bool
     """
     if __salt__['cmd.which']('actool') is None:
-        __salt__['state.sls']('appc-spec')
+        ret = __salt__['state.sls']('appc-spec')
+        if not all([i.get('result') is True for i in ret.itervalues()]):
+            return False
+    if __salt__['cmd.which']('docker2aci') is None:
+        ret = __salt__['state.sls']('appc-docker2aci')
+        if not all([i.get('result') is True for i in ret.itervalues()]):
+            return False
     if __salt__['cmd.which']('rkt') is None:
-        __salt__['state.sls']('rocket')
+        ret = __salt__['state.sls']('rkt')
+        if not all([i.get('result') is True for i in ret.itervalues()]):
+            return False
+    return True
+
+
+def _setup_systemd_nspawn():
+    """
+    Ensure node is equipped to manage systemd-nspawn
+
+    :rtype: bool
+    """
+    if __salt__['cmd.which']('systemd-nspawn') is None:
+        return False
+    return True

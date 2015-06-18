@@ -16,7 +16,7 @@
   -  [kafka](/salt/kafka)
   -  [kibana](/salt/kibana)
   -  [maven](/salt/maven)
-  -  [rocket](/salt/rocket)
+  -  [rkt](/salt/rkt)
 
 ## Relates:
 

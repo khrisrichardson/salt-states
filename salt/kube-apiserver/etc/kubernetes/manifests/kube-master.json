@@ -1,0 +1,49 @@
+{% from 'kubernetes/map.jinja' import map with context -%}
+{
+  "apiVersion": "v1beta3",
+  "kind": "Pod",
+  "metadata": {
+    "name": "kube-master"
+  },
+  "spec": {
+    "hostNetwork": true,
+    "containers": [
+      {
+        "name": "apiserver",
+        "image": "gcr.io/google_containers/hyperkube:{{ map.get('version') }}",
+        "command": [
+          "/hyperkube",
+          "apiserver",
+          "--allow_privileged=true",
+          "--etcd_servers=http://127.0.0.1:2379",
+          "--insecure_bind_address=0.0.0.0",
+          "--insecure_port=8080",
+          "--kubelet_https=true",
+          "--logtostderr=true",
+          "--portal_net=10.100.0.1/16",
+          "--secure_port=6443",
+        ]
+      },
+      {
+        "name": "controller-manager",
+        "image": "gcr.io/google_containers/hyperkube:{{ map.get('version') }}",
+        "command": [
+          "/hyperkube",
+          "controller-manager",
+          "--logtostderr=true",
+          "--master=127.0.0.1:8080",
+          "--sync_nodes=true",
+        ]
+      },
+      {
+        "name": "scheduler",
+        "image": "gcr.io/google_containers/hyperkube:{{ map.get('version') }}",
+        "command": [
+          "/hyperkube",
+          "scheduler",
+          "--master=127.0.0.1:8080",
+        ]
+      }
+    ]
+  }
+}

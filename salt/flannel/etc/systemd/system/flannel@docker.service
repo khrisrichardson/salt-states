@@ -1,0 +1,31 @@
+[Unit]
+Description=%p
+After=docker.service
+Requires=docker.service
+After=etcd.service
+Requires=etcd.service
+
+[Service]
+Environment=FLANNEL_RELEASE=0.4.0
+ExecStartPre=/usr/bin/docker run \
+  --rm \
+   -v    /opt/bin:/opt/bin \
+         ibuildthecloud/systemd-docker
+ExecStart=/opt/bin/systemd-docker run \
+  --cap-add net_admin \
+  --name %n \
+  --net  host \
+   -v    /dev/net:/dev/net \
+   -v    /etc/ssl/etcd:/etc/ssl/etcd \
+   -v    /run/flannel:/run/flannel \
+         quay.io/coreos/flannel:${FLANNEL_RELEASE}
+Restart=always
+RestartSec=10s
+Type=notify
+NotifyAccess=all
+TimeoutStartSec=120
+TimeoutStopSec=15
+
+[X-Fleet]
+Conflicts=%p*
+Global=true

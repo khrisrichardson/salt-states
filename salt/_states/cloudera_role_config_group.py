@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Manage Cloudera Role Config Groups
 ==================================
 
@@ -15,7 +15,7 @@ Example:
     zookeeper1-SERVER-BASE:
         cloudera_role_config_group.present:
           - cluster: Cluster 1 - CDH4
-'''
+"""
 
 # Import python libs
 import logging
@@ -30,9 +30,9 @@ except ImportError:
 
 
 def __virtual__():
-    '''
+    """
     Only load if Cloudera Manager API is available.
-    '''
+    """
     return 'cloudera_role_config_group' if HAS_CMAPI else False
 
 

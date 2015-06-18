@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "check-http-kube-apiserver": {
+      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '8080' -p '/'",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    },
+    "check-process-kube-apiserver": {
+      "command"     : "/etc/sensu/plugins/processes/check-procs.rb -p kube-apiserver -C 1",
+      "handlers"    : ["default"],
+      "interval"    :   60,
+      "standalone"  :   true
+    }
+  }
+}

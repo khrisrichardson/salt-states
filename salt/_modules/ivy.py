@@ -14,12 +14,13 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
-from future import standard_library
-standard_library.install_aliases()
+
+# import libs: salt
+from salt.utils import which
 
 
 def __virtual__():
     """
     Only return if ivy is installed
     """
-    return 'ivy' if salt.utils.which('ivy') else False
+    return 'ivy' if which('ivy') else False

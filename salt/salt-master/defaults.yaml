@@ -1,5 +1,5 @@
 lxc:
-  config:
+  conf:
     arch: amd64
     mount:
       entry:
@@ -13,7 +13,7 @@ lxc:
         device: /srv/salt
         dir:    /srv/salt
   create:
-    template:
+    source:
       - centos:latest
       - debian:latest
       - ubuntu:latest

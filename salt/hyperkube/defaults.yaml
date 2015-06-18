@@ -1,0 +1,26 @@
+lxc:
+  conf:
+    arch: amd64
+  create:
+    source:
+      - google/debian:wheezy
+  ns:
+    net:
+      -
+        port:     6443
+        protocol: tcp
+      -
+        port:     7080
+        protocol: tcp
+      -
+        port:     8080
+        protocol: tcp
+      -
+        port:     10250
+        protocol: tcp
+      -
+        port:     10251
+        protocol: tcp
+      -
+        port:     10252
+        protocol: tcp

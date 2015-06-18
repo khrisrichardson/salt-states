@@ -7,7 +7,7 @@
       "standalone"  :   true
     },
     "check-http-etcd": {
-      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '4001' -p '/version'",
+      "command"     : "/etc/sensu/plugins/http/check-http.rb -h 'localhost' -P '2379' -p '/version'",
       "handlers"    : ["default"],
       "interval"    :   60,
       "standalone"  :   true

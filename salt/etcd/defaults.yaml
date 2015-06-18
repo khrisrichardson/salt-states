@@ -1,8 +1,8 @@
 lxc:
-  config:
+  conf:
     arch: amd64
   create:
-    template:
+    source:
       - centos:latest
       - debian:latest
       - ubuntu:latest
@@ -18,13 +18,3 @@ lxc:
         protocol: tcp
         dst:      bridge
         dport:    2380
-      -
-        port:     4001
-        protocol: tcp
-        dst:      bridge
-        dport:    4001
-      -
-        port:     7001
-        protocol: tcp
-        dst:      bridge
-        dport:    7001

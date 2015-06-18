@@ -1,0 +1,30 @@
+[Unit]
+Description=%p
+After=docker.service
+Requires=docker.service
+
+[Service]
+Environment=ETCD_RELEASE=v2.0.10
+ExecStartPre=/usr/bin/docker run \
+  --rm \
+   -v    /opt/bin:/opt/bin \
+         ibuildthecloud/systemd-docker
+ExecStart=/opt/bin/systemd-docker run \
+  --name %n \
+  --net  host \
+  --rm \
+   -p    2379:2379 \
+   -p    2380:2380 \
+   -v    /usr/share/ca-certificates/:/etc/ssl/certs \
+   -v    /var/lib/etcd:/var/lib/etcd \
+         quay.io/coreos/etcd:${ETCD_RELEASE}
+Restart=always
+RestartSec=10s
+Type=notify
+NotifyAccess=all
+TimeoutStartSec=120
+TimeoutStopSec=15
+
+[X-Fleet]
+Conflicts=%p
+Global=true

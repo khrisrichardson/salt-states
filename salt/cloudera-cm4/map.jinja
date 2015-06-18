@@ -11,14 +11,14 @@
     'pkgrepo': {
       'name':          'deb [arch=' + arch + '] http://archive.cloudera.com/cm4/' + os + '/' + codename + '/' + arch + '/cm ' + codename + '-cm4',
       'file':         '/etc/apt/sources.list.d/cloudera-cm4.list',
-      'key_url':       'http://archive.cloudera.com/cdh4/' + os + '/' + codename + '/' + arch + '/cdh/archive.key',
+      'key_url':       'http://archive.cloudera.com/cm4/' + os + '/' + codename + '/' + arch + '/cm/archive.key',
     },
   },
   'RedHat': {
     'pkgrepo': {
       'name':          'cloudera-cm4',
       'file':         '/etc/yum.repos.d/cloudera-cm4.repo',
-      'key_url':       'http://archive.cloudera.com/cdh4/' + family + '/' + major + '/' + arch + '/cdh/RPM-GPG-KEY-cloudera',
+      'key_url':       'http://archive.cloudera.com/cm4/' + family + '/' + major + '/' + arch + '/cm/RPM-GPG-KEY-cloudera',
     },
   },
 }, merge=salt['config.get']('cloudera-cm4')) %}

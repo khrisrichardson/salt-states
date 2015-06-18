@@ -1,0 +1,31 @@
+{% from 'kubernetes/map.jinja' import map with context -%}
+{% set minions = salt['roles.dict']('kube-apiserver') -%}
+{% if  minions['kube-apiserver'] -%}
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStartPre=/usr/bin/curl -L \
+   -o /opt/bin/kubelet \
+   -z /opt/bin/kubelet \
+       https://storage.googleapis.com/kubernetes-release/release/{{ map.get('version') }}/bin/linux/amd64/kubelet
+ExecStartPre=/usr/bin/chmod +x /opt/bin/kubelet
+ExecStartPre=/opt/bin/wupiao {{ minions['kube-apiserver'][0] }} 8080
+ExecStart=/opt/bin/kubelet \
+  --address=0.0.0.0 \
+  --allow_privileged=true \
+  --api_servers={{ minions['kube-apiserver'][0] }}:8080 \
+  --healthz_bind_address=0.0.0.0 \
+  --healthz_port=10248 \
+  --hostname_override=${COREOS_PRIVATE_IPV4} \
+  --logtostderr=true \
+  --port=10250
+Restart=always
+RestartSec=10
+
+[X-Fleet]
+Global=true
+MachineMetadata=role=node
+{% endif -%}

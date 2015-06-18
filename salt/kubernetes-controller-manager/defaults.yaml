@@ -1,8 +1,0 @@
-lxc:
-  config:
-    arch: amd64
-  create:
-    template:
-      - centos:latest
-      - debian:latest
-      - ubuntu:latest

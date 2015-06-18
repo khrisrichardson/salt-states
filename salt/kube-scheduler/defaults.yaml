@@ -1,0 +1,13 @@
+lxc:
+  conf:
+    arch: amd64
+  create:
+    source:
+      - centos:latest
+      - debian:latest
+      - ubuntu:latest
+  ns:
+    net:
+      -
+        port:     10251
+        protocol: tcp
