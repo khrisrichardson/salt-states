@@ -60,7 +60,19 @@ def installed(name, version, cluster, **cm_args):
         ret['result'] = True
         ret['comment'] = '{0}-{1} already installed'.format(name, version)
         return ret
-
+    if __opts__['test']:
+        ret['result'] = None
+        ret['comment'] = 'Parcel {0} is set to be added'.format(name)
+        return ret
+    if __salt__['cloudera.parcel_install'](name, version, cluster, **cm_args):
+        ret['changes'] = {'old': '', 'new': '{0}'.format(name)}
+        ret['comment'] = 'Installed parcel {0}'.format(name)
+        ret['result'] = True
+        return ret
+    else:
+        ret['comment'] = 'Failed to install parcel {0}'.format(name)
+        ret['result'] = False
+        return ret
 
 def removed(name, cluster, **cm_args):
     '''
@@ -83,4 +95,17 @@ def removed(name, cluster, **cm_args):
                                                     cluster, **cm_args):
         ret['result'] = True
         ret['comment'] = '{0}-{1} already removed'.format(name, version)
+        return ret
+    if __opts__['test']:
+        ret['result'] = None
+        ret['comment'] = 'Parcel {0} is set to be removed'.format(name)
+        return ret
+    if __salt__['cloudera.parcel_remove'](name, version, cluster, **cm_args):
+        ret['changes'] = {'old': '{0}'.format(name), 'new': ''}
+        ret['comment'] = 'Removed parcel {0}'.format(name)
+        ret['result'] = True
+        return ret
+    else:
+        ret['comment'] = 'Failed to remove parcel {0}'.format(name)
+        ret['result'] = False
         return ret
