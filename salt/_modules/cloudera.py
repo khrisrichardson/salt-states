@@ -632,3 +632,55 @@ def service_remove(name, **cm_args):
         return True
     else:
         return False
+
+def role_exists(role_name,  hostname, service_name, cluster, **cm_args):
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+        s = c.get_service(service_name)
+        roles = s.get_all_roles()
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    
+    if any(r.name == role_name for r in roles):
+        return True
+    else:
+        return False
+
+def role_create(role_name, role_type, hostname, service_name, cluster, **cm_args):
+    
+    if role_exists(role_name, hostname, service_name, cluster, **cm_args):
+        log.info('Role {0!r} already exists'.format(role_name))
+        return False
+
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+        s = c.get_service(service_name)
+        
+        hosts = [a.get_host(host.hostId) for host in c.list_hosts()]
+        host = [host for host in hosts if host.hostname == hostname][0]
+        
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    
+    try:
+        s.create_role(role_name,role_type,host.hostId)
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    
+    if role_exists(role_name, hostname, service_name, cluster, **cm_args):
+        log.info('Role {0!r} added'.format(role_name))
+        return True
+    else:
+        return False
