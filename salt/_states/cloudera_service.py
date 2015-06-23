@@ -14,6 +14,7 @@ Example:
 
     zookeeper1:
         cloudera_service.present:
+          - service_type: ZOOKEEPER
           - cluster: Cluster 1 - CDH4
 '''
 
@@ -36,7 +37,7 @@ def __virtual__():
     return 'cloudera_service' if HAS_CMAPI else False
 
 
-def present(name, cluster, **cm_args):
+def present(name, service_type, cluster, config=None, **cm_args):
     '''
     Ensures that the named service has been added to the cluster.
 
@@ -50,15 +51,15 @@ def present(name, cluster, **cm_args):
            'comment' : '',
            'name'    : name,
            'result'  : False}
-    if __salt__['cloudera.service_exists'](name, cluster, **cm_args):
+    if __salt__['cloudera.service_exists'](name, service_type, cluster, **cm_args):
         ret['result'] = True
-        ret['comment'] = 'Host {0} already present'.format(name)
+        ret['comment'] = 'Service {0} already present'.format(name)
         return ret
     if __opts__['test']:
         ret['result'] = None
-        ret['comment'] = 'Host {0} is set to be added'.format(name)
+        ret['comment'] = 'Service {0} is set to be added'.format(name)
         return ret
-    if __salt__['cloudera.service_create'](name, cluster, **cm_args):
+    if __salt__['cloudera.service_create'](name, service_type, cluster, config, **cm_args):
         ret['changes'] = {'old': '', 'new': '{0}'.format(name)}
         ret['comment'] = 'Added service {0}'.format(name)
         ret['result'] = True
@@ -85,11 +86,11 @@ def absent(name, cluster, **cm_args):
            'result'  : False}
     if not __salt__['cloudera.service_exists'](name, cluster, **cm_args):
         ret['result'] = True
-        ret['comment'] = 'Host {0} already absent'.format(name)
+        ret['comment'] = 'Service {0} already absent'.format(name)
         return ret
     if __opts__['test']:
         ret['result'] = None
-        ret['comment'] = 'Host {0} is set to be removed'.format(name)
+        ret['comment'] = 'Service {0} is set to be removed'.format(name)
         return ret
     if __salt__['cloudera.service_remove'](name, cluster, **cm_args):
         ret['changes'] = {'old': '{0}'.format(name), 'new': ''}

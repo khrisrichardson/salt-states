@@ -1,49 +1,48 @@
 # -*- coding: utf-8 -*-
 """
-Manage Cloudera
+Module to manage Cloudera infrastructure via the Cloudera Manager API.
 
 :maintainer: Khris Richardson <khris.richardson@gmail.com>
-:maturity: new
-:platform: all
-
-:depends: - cloudera-cm4-api
-          - cloudera-cm5-api
+:maturity:   new
+:depends:    cm_api Python module
+:platform:   all
 """
 
-# import libs: standard
-from __future__ import absolute_import
-from __future__ import unicode_literals
-from __future__ import print_function
-from __future__ import division
-from builtins import dict
-from future import standard_library
-standard_library.install_aliases()
-from logging import getLogger
-from time import sleep
+import hashlib
+import httplib
+import logging
+import os
+import sys
+import time
+import re
+import json
+
+from itertools import chain
+from urllib2   import URLError
 
 try:
-    from cm_api.api_client import ApiException, ApiResource
-    from cm_api.endpoints.clusters import ApiCluster
-    from cm_api.endpoints.hosts import ApiHost
-    from cm_api.endpoints.parcels import ApiParcel
+    from cm_api.api_client                   import ApiException, ApiResource
+    from cm_api.endpoints.clusters           import ApiCluster
+    from cm_api.endpoints.hosts              import ApiHost
+    from cm_api.endpoints.parcels            import ApiParcel
     from cm_api.endpoints.role_config_groups import ApiRoleConfigGroup
-    from cm_api.endpoints.roles import ApiRole
-    from cm_api.endpoints.services import ApiService
-    from cm_api.endpoints.types import *
-    HAS_LIBS = True
+    from cm_api.endpoints.roles              import ApiRole
+    from cm_api.endpoints.services           import ApiService
+    from cm_api.endpoints.types              import *
+    HAS_CMAPI = True
 except ImportError:
-    HAS_LIBS = False
+    HAS_CMAPI = False
 
 CMD_TIMEOUT = 360
 
-log = getLogger(__name__)
+log = logging.getLogger(__name__)
 
 
 def __virtual__():
     """
     Only load if Cloudera Manager API is available.
     """
-    return 'cloudera' if HAS_LIBS else False
+    return 'cloudera' if HAS_CMAPI else False
 
 
 def _connect(**kwargs):
@@ -79,7 +78,7 @@ def _connect(**kwargs):
     _connarg('cm_pass', 'password')
 
     try:
-        a = ApiResource(__salt__['roles.dict']('cloudera-cm4-server')['cloudera-cm4-server'][0],
+        a = ApiResource(__salt__['roles.dict']('cloudera-cm5-server')['cloudera-cm5-server'][0],
                           **connargs)
     except ApiException as e:
         err = '{0}'.format(*e)
@@ -183,6 +182,30 @@ def cluster_remove(name, **cm_args):
     else:
         return False
 
+def hosts_list(cluster, **cm_args):
+    """
+    List hosts in the names cluster
+    
+    cluster
+        The name of the cluster for which to list the hosts
+    """
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+
+    try:
+        hosts = c.list_hosts()
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    return str( hosts)
 
 def host_exists(name, cluster, **cm_args):
     """
@@ -326,7 +349,7 @@ def host_remove(name, cluster, **cm_args):
         err = '{0}'.format(e._message)
         log.error(err)
 
-    if any(h.hostId == name for h in hosts):
+    if any(h.hostname == name for h in hosts):
         try:
             log.info('Removing host {0}'.format(name))
             a.delete_host(name, name, address)
@@ -414,6 +437,7 @@ def parcel_install(name, version, cluster, **cm_args):
 
     a = _connect(**cm_args)
     if a is None:
+        log.info('Connection to cluster failed')
         return False
     try:
         c = a.get_cluster(cluster)
@@ -431,7 +455,7 @@ def parcel_install(name, version, cluster, **cm_args):
 
     while (p.stage == 'UNAVAILABLE'):
         p = c.get_parcel(name, version)
-        sleep(1)
+        time.sleep(1)
 
     if p.stage == 'AVAILABLE_REMOTELY':
 
@@ -445,7 +469,7 @@ def parcel_install(name, version, cluster, **cm_args):
             while (p.stage == 'AVAILABLE_REMOTELY' or
                    p.stage == 'DOWNLOADING'):
                 p = c.get_parcel(name, version)
-                sleep(1)
+                time.sleep(1)
 
             log.info('Downloaded parcel {0}-{1}'.format(name, version))
 
@@ -461,7 +485,7 @@ def parcel_install(name, version, cluster, **cm_args):
             while (p.stage == 'DOWNLOADED' or
                    p.stage == 'DISTRIBUTING'):
                 p = c.get_parcel(name, version)
-                sleep(1)
+                time.sleep(1)
 
             log.info('Distributed parcel {0}-{1}'.format(name, version))
 
@@ -507,7 +531,7 @@ def parcel_remove(name, version, cluster, **cm_args):
     """
 
 
-def service_exists(name, cluster, **cm_args):
+def service_exists(name, service_type, cluster, **cm_args):
     """
     Checks if a service exists in the named cluster.
 
@@ -521,7 +545,7 @@ def service_exists(name, cluster, **cm_args):
 
     .. code-block:: bash
 
-        salt '*' cloudera.service_exists 'hdfs1' 'Cluster 1 - CDH4'
+        salt '*' cloudera.service_exists 'hdfs1' 'HDFS' 'Cluster 1 - CDH4'
     """
     a = _connect(**cm_args)
     if a is None:
@@ -540,13 +564,13 @@ def service_exists(name, cluster, **cm_args):
         log.error(err)
         return False
 
-    if any(s.name == name for s in services):
+    if any(s.name == name and s.type == service_type for s in services):
         return True
     else:
         return False
 
 
-def service_create(name, cluster, **cm_args):
+def service_create(name, service_type, cluster, config=None, **cm_args):
     """
     Adds a service to a cluster
 
@@ -560,14 +584,9 @@ def service_create(name, cluster, **cm_args):
 
     .. code-block:: bash
 
-        salt '*' cloudera.service_create 'hdfs1' 'Cluster 1 - CDH4'
+        salt '*' cloudera.service_create 'hdfs1' 'HDFS' 'Cluster 1 - CDH4'
     """
-    for m in re.finditer('^(hbase|hdfs|zookeeper)(\d+)$', name):
-        service_type = m.group(1).upper()
 
-    if service_exists(name, cluster, **cm_args):
-        log.info('service {0!r} already exists'.format(name))
-        return False
 
     a = _connect(**cm_args)
     if a is None:
@@ -579,20 +598,32 @@ def service_create(name, cluster, **cm_args):
         err = '{0}'.format(e._message)
         log.error(err)
 
+    if service_exists(name, service_type, cluster, **cm_args):
+        log.info('service {0!r} already exists'.format(name))
+        s = c.get_service(name)
+        old_conf = s.get_config(view='summary')[0]
+        if config is not None and not all(item in old_conf.items() for item in config.items()):
+            s.update_config(config)
+            log.info('Configuration of service {0} updated'.format(name))
+            return True
+        return False
+    
     try:
-        c.create_service(name, service_type)
+        s = c.create_service(name, service_type)
+        if config is not None:
+            s.update_config(config)
     except ApiException as e:
         err = '{0}'.format(e._message)
         log.error(err)
 
-    if service_exists(name, cluster, **cm_args):
+    if service_exists(name, service_type, cluster, **cm_args):
         log.info('service {0!r} added'.format(name))
         return True
     else:
         return False
 
 
-def service_remove(name, **cm_args):
+def service_remove(name, service_type, cluster, **cm_args):
     """
     Removes a service from a cluster.
 
@@ -603,11 +634,10 @@ def service_remove(name, **cm_args):
 
     .. code-block:: bash
 
-        salt '*' cloudera.service_remove 'hdfs1' 'Cluster 1 - CDH4'
+        salt '*' cloudera.service_remove 'hdfs1' 'HDFS' 'Cluster 1 - CDH4'
     """
-    service_types=['HBASE', 'HDFS', 'ZOOKEEPER']
 
-    if not service_exists(name, cluster, **cm_args):
+    if not service_exists(name, service_type, cluster, **cm_args):
         log.error('Service {0!r} does not exist'.format(name))
         return False
 
@@ -627,8 +657,172 @@ def service_remove(name, **cm_args):
         err = '{0}'.format(e._message)
         log.error(err)
 
-    if not service_exists(name, cluster, **cm_args):
+    if not service_exists(name, service_type, cluster, **cm_args):
         log.info('Service {0!r} removed'.format(name))
         return True
     else:
         return False
+    
+def service_initialize(service_name, cluster, **cm_args):
+    
+    init_functions = { 'HDFS' : _init_hdfs }
+    
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+        s = c.get_service(service_name)
+        
+        init_functions[s.type](s)
+        
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    return True
+
+def _init_hdfs(service):
+    namenodes = [r.name for r in service.get_roles_by_type('NAMENODE')]
+    cmd_bulk = service.format_hdfs(*namenodes)
+    return all(cmd.wait().success for cmd in cmd_bulk)
+    
+    
+def role_exists(role_name,  hostname, service_name, cluster, **cm_args):
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+        s = c.get_service(service_name)
+        roles = s.get_all_roles()
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    
+    if any(r.name == role_name for r in roles):
+        return True
+    else:
+        return False
+
+def role_create(role_name, role_type, hostname, service_name, cluster, **cm_args):
+    
+    if role_exists(role_name, hostname, service_name, cluster, **cm_args):
+        log.info('Role {0!r} already exists'.format(role_name))
+        return False
+    
+    if not host_exists(hostname, cluster):
+        log.info('Host {0} is not a member of cluster {1}'.format(hostname, cluster))
+        return False
+
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+        s = c.get_service(service_name)
+        
+        hosts = [a.get_host(host.hostId) for host in c.list_hosts()]
+        host = [host for host in hosts if host.hostname == hostname][0]
+        
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    
+    try:
+        s.create_role(role_name,role_type,host.hostId)
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    
+    if role_exists(role_name, hostname, service_name, cluster, **cm_args):
+        log.info('Role {0!r} added'.format(role_name))
+        return True
+    else:
+        return False
+    
+def role_config_group_get_configuration(name, cluster, **cm_args):
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+        s = c.get_service(name.split('-')[0])
+        role_group = s.get_role_config_group(name)
+        return role_group.get_config(view='summary')
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+
+def role_config_group_configure(name, config, cluster, **cm_args):
+    '''
+    This code assumes that role config groups are prepended by the service name.
+    This is the default for auto-generated role groups.
+    '''
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        c = a.get_cluster(cluster)
+        s = c.get_service(name.split('-')[0])
+        role_group = s.get_role_config_group(name)
+        role_group.update_config(config)
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    else:
+        return True
+
+# WIP below here
+
+def management_service_delete(**cm_args):
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    try:
+        a.delete('cm/service')
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    return True
+    
+def management_service_autoconfig(**cm_args):
+    a = _connect(**cm_args)
+    if a is None:
+        return False
+    
+    server = __salt__['roles.dict']('cloudera-cm5-server')['cloudera-cm5-server'][0]
+    config = {
+              'roles': [
+                        {'type': 'HOSTMONITOR', 
+                         'hostRef': {'hostId' : server} 
+                         },
+                        {'type': 'SERVICEMONITOR', 
+                         'hostRef': {'hostId' : server} 
+                         },
+                        {'type': 'EVENTSERVER', 
+                         'hostRef': {'hostId' : server} 
+                         },
+                        {'type': 'ALERTPUBLISHER', 
+                         'hostRef': {'hostId' : server} 
+                         },
+                        ]
+              }
+    
+    try:
+        try:
+            service = a.get('/cm/service')
+        except ApiException:
+            a.put('cm/service', data=json.dumps(config))
+        a.put('cm/service/autoConfigure')
+    except ApiException as e:
+        err = '{0}'.format(e._message)
+        log.error(err)
+        return False
+    return True
