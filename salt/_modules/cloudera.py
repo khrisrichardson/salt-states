@@ -211,13 +211,13 @@ def host_exists(name, cluster, **cm_args):
         return False
 
     try:
-        hosts = c.list_hosts()
+        hosts = [a.get_host(host.hostId) for host in c.list_hosts()]
     except ApiException as e:
         err = '{0}'.format(e._message)
         log.error(err)
         return False
 
-    if any(h.hostId == name for h in hosts):
+    if any(h.hostname == name for h in hosts):
         return True
     else:
         return False
@@ -257,8 +257,9 @@ def host_create(name, address, cluster, **cm_args):
     except ApiException as e:
         err = '{0}'.format(e._message)
         log.error(err)
+        return False
 
-    if not any(h.hostId == name for h in hosts):
+    if not any(h.hostname == name for h in hosts):
         try:
             log.info('Creating host {0}'.format(name))
             a.create_host(name, name, address)
